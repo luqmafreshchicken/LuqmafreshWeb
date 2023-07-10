@@ -1,0 +1,16 @@
+export default {
+    white: '#FFFFFF',
+    black: '#000000',
+    red: '#FF3B30',
+    prime: '#C42118',
+    // prime:"#ee1d23",
+    greytxt: '#757575',
+    pergtxt: '#40a271',
+    bordercolor: '#989898',
+    lightgrey: '#F2F2F2',
+    lightprime: '#fcf0f0',
+    bottom: '#d7d7d7',
+    grey: '#9E9E9E',
+    whiteOpacity: 'rgba(255,255,255,0.75)',
+    blackOpacity: 'rgba(0,0,0,0.5)',
+  };

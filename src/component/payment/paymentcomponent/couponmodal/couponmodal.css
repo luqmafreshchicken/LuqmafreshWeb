@@ -1,0 +1,269 @@
+.coupon_modal {
+  position: absolute;
+  top: 50%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+  width: 26%;
+  height: 100%;
+  box-shadow: 24;
+  background-color: white;
+}
+/*  apply coupon heading */
+.apply_coupon {
+  height: 8vh;
+  display: flex;
+  gap: 50px;
+}
+.apply_coupon img{
+    margin-top: 25px;
+    margin-left: 20px;
+    height: 20px;
+    width: 20px;
+}
+.apply_coupon h5 {
+  font-family: semibold;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 50px;
+}
+/* end apply coupon heading */
+
+/* coupon_apply_here */
+.coupon_box {
+  height: 10vh;
+  display: grid;
+  place-items: center;
+}
+.coupon_apply_here {
+  background-color: #f8f8f8;
+  height: 7vh;
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+}
+.coupon_apply_here input {
+  height: 5vh;
+  width: 80%;
+  margin-left: 15px;
+  margin-top: 7px;
+  border: none;
+  outline: none;
+  background-color: #f8f8f8;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
+.coupon_apply_here p {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #c42118;
+  font-weight: 600;
+  padding-right: 20px;
+  padding-top: 15px;
+  opacity: 0.4;
+}
+/* end coupon_apply_here */
+
+/* avialable_coupon */
+.avialable_coupon {
+  padding-left: 20px;
+  padding-top: 25px;
+}
+.avialable_coupon h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+/* end avialable_coupon */
+
+/* coupon_container_box */
+.coupon_container_box {
+  /* background-color: #C42118; */
+  height: auto;
+  display: grid;
+  place-items: center;
+  margin-top: 20px;
+}
+.coupon_content_box {
+  /* background-color: aqua; */
+  height: auto;
+  width: 90%;
+  border-radius: 20px;
+  border: 1px solid #e7e7e7;
+}
+.coupon_offer_name {
+  /* background-color: red; */
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coupon_name {
+  background-color: #edf3ea;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 25%;
+  height: 5vh;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: 1px dashed #7da768;
+}
+.coupon_name p {
+  font-family: medium;
+  font-weight: 600;
+  padding-top: 15px;
+}
+.coupon_apply_text p {
+  font-family: regular;
+  font-size: 13px;
+  color: #c42118;
+  font-weight: 600;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+.coupon_cashback {
+  /* background-color: aquamarine; */
+  padding-left: 20px;
+  height: 7vh;
+}
+.coupon_cashback p {
+  font-family: regular;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.coupon_orders_text {
+  /* background-color: bisque; */
+  padding-left: 20px;
+  padding-top: 3px;
+  height: 7vh;
+}
+.coupon_orders_text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+.view_details_button {
+  padding-left: 20px;
+  padding-top: 5px;
+  height: 6vh;
+}
+.view_details_button p {
+  font-family: regular;
+  font-size: 15px;
+  font-weight: 600;
+}
+.term_condition_heading {
+  height: 5vh;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.term_condition_heading h6 {
+  font-family: regular;
+  font-weight: 600;
+}
+.term_condition_text {
+  padding-top: 10px;
+  padding-left: 20px;
+  width: 95%;
+}
+.term_condition_text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+/* end coupon_container_box */
+.coupon_scrollbar ::-webkit-scrollbar {
+  overflow: hidden;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .coupon_modal {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+  }
+  .apply_coupon{
+    height: 10vh;
+  }
+  .apply_coupon h5 {
+    padding-left: 20px;
+    font-size: 16px;
+    padding-top: 40px;
+  }
+  .apply_coupon img{
+    margin-top: 42px;
+    margin-left: 20px;
+    height: 18px;
+    width: 18px;
+}
+.avialable_coupon {
+    padding-top: 10px;
+  }
+.avialable_coupon h6{
+   font-family: semibold;
+   font-size: 16px;
+}
+
+  .coupon_name p {
+    font-size: 12px;
+    padding-top: 16px;
+  }
+  .coupon_apply_text p {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+  .coupon_cashback {
+    height: 6vh;
+  }
+  .coupon_cashback p {
+    font-size: 12px;
+  }
+  .coupon_orders_text {
+    padding-left: 20px;
+    width: 95%;
+  }
+  .coupon_orders_text p {
+    font-family: light;
+    font-size: 12px;
+  }
+ 
+  .view_details_button p {
+    font-size: 13px;
+  }
+  .term_condition_heading h6 {
+    font-size: 13px;
+  }
+  .term_condition_text {
+    padding-top: 0px;
+    padding-left: 20px;
+    width: 95%;
+  }
+  .term_condition_text p {
+    font-family: light;
+    font-size: 12px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

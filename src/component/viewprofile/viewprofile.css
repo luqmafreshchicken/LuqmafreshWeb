@@ -1,0 +1,106 @@
+.viewprofile_style {
+  position: absolute;
+  top: 50%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 24;
+}
+.my_profile {
+  width: 100%;
+  height: 10vh;
+  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 19px 0 rgba(0, 0, 0, 0.3);
+}
+.my_profile h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  padding-top: 10px;
+}
+.my_profile span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  color: #d2525b;
+}
+.information_container {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.profile_picture {
+  height: 25vh;
+  display: grid;
+  place-items: center;
+}
+.basic_information {
+  height: 6vh;
+  width: 90.5%;
+  margin-left: 3%;
+  border-bottom: 1px solid lightgrey;
+}
+.basic_information p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+}
+.first_name {
+  width: 90.5%;
+  margin-left: 3%;
+  margin-top: 5%;
+}
+.first_name span {
+  color: gray;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+.first_name span p {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .viewprofile_style {
+    top: 50%;
+    left: 60%;
+    width: 85%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .viewprofile_style {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 100vh;
+    box-shadow: 24;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .viewprofile_style {
+    top: 50%;
+    left: 80%;
+    width: 45%;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

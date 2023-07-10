@@ -1,0 +1,192 @@
+
+.navbar{
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    /* background-color: yellow; */
+}
+.desktop_herder_content{
+    width: 90%;
+    background-color: white;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.luqma_location{
+    height: 5vh;
+    width: 20%;
+    /* background-color: pink; */
+}
+.luqma_location_top{
+    width: 100%;
+    height: 2.5vh;
+    /* background-color: orange; */
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+.luqma_location_top img{
+    width: 17px;
+    height: 17px;
+}
+.luqma_location_top p{
+    font-size: 0.8rem;
+    font-family: semibold;
+    padding-top: 1rem;
+}
+.luqma_location_bottom{
+    width: 90%;
+    height: 2.5vh;
+}
+.luqma_location_bottom p{
+    font-size: 0.9rem;
+    font-family: regular;
+    text-align: center;
+    line-height: 1.1;
+}
+.luqma_input{
+    height: 5vh;
+    width: 25%;
+    /* background-color: ; */
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.luqma_input input{
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: regular;
+}
+.luqma_option{
+    width: 30%;
+    /* background-color: pink; */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 5vh;
+}
+.luqma_option ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: olivedrab; */
+    height: 5vh;
+}
+ul li{
+    list-style: none;
+    text-decoration: none;
+    font-family: regular;
+
+}
+.currency_container{
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.currency_container img{
+    height: 18px;
+    width: 18px;
+}
+.currency_container p{
+    font-size: 0.8rem;
+    padding-top: 1.1rem;
+}
+.cart_border_container{
+    border: 1px solid #C42118;
+    width: 115px;
+    height: 7vh;
+    border-radius: 10px;
+    display: flex;
+}
+.cart_border_content1{
+    width: 35%;
+    /* background-color: aqua; */
+    height: 7vh;
+    display: grid;
+    place-items: center;
+}
+.cart_border_content1 img{
+    height: 18px;
+    width: 18px;
+}
+.cart_border_content2{
+    width: 65%;
+    height: 7vh;
+}
+.cart_border_content2 p{
+    font-size: 0.8rem;
+    font-family: regular;
+    padding-top: 0.5rem;
+    color: black;
+}
+.cart_border_content2 p span{
+    font-size: 0.9rem;
+    font-family: regular;
+    font-weight: 600;
+    color: #C42118;
+    line-height: 1;
+
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+    .search_input{
+        display: block;
+        width: 100%;
+        background-color: aqua;
+        display: grid;
+        place-items: center;
+        display: flex;
+        border: 2px solid gray;
+        justify-content: space-around;
+        border-radius: 5px;
+    }
+    .search_input input{
+        height: 5vh;
+        width: 300px;
+        padding-left: 13px;
+        border: none;
+        outline: none;
+        font-size: 12px;
+    }
+    .main_nav{
+        display: none;
+    }
+  }
+  
+  /* iPads, Tablets (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+  }
+  
+  /* Small screens, laptops (769px - 1024px) */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* CSS rules for small screens and laptops */
+  }
+  
+  /* Desktops, large screens (1025px - 1200px) */
+  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    /* CSS rules for desktops and large screens */
+  }
+  
+  /* Extra large screens, TV (1201px and above) */
+  @media only screen and (min-width: 1201px) {
+    /* CSS rules for extra large screens and TV */
+  }

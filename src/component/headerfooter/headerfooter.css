@@ -1,0 +1,66 @@
+.HeaderFooter {
+  width: 91%;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+  height: 1px;
+  background-color: lightgray;
+
+}
+
+.MainHeaderFooter {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .HeaderFooter {
+    width: 97%;
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .MainHeaderFooter {
+    height: auto;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .HeaderFooter {
+    width: 93%;
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .MainHeaderFooter {
+    height: auto;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}
+@media screen and (max-width: 768px) {
+}

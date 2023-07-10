@@ -1,0 +1,50 @@
+.main_sopportsection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submain_sopportsection{
+    width: 90%;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+    .submain_sopportsection{
+        width: 93%;
+        display: grid;
+        grid-template-columns: 47% 47%;
+        height: auto;
+        padding: 10px 0px;
+    }
+  }
+  
+  /* iPads, Tablets (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+    .submain_sopportsection{
+        width: 93%;
+        display: grid;
+        grid-template-columns: 47% 47%;
+        height: auto;
+        padding: 10px 0px;
+    }
+  }
+  
+  /* Small screens, laptops (769px - 1024px) */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* CSS rules for small screens and laptops */
+  }
+  
+  /* Desktops, large screens (1025px - 1200px) */
+  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    /* CSS rules for desktops and large screens */
+  }
+  
+  /* Extra large screens, TV (1201px and above) */
+  @media only screen and (min-width: 1201px) {
+    /* CSS rules for extra large screens and TV */
+  }

@@ -1,0 +1,136 @@
+.search_container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+}
+.search_categoriecard {
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.search_content {
+  width: 92%;
+  height: auto;
+}
+.search_text {
+  margin-top: 40px;
+}
+.search_text h5 {
+  font-weight: 800;
+  font-family: regular;
+}
+.search_text p {
+  line-height: 1;
+  font-family: light;
+}
+
+.searchsroductlist_container {
+  display: flex;
+  gap: 40px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.search_result_heading {
+  margin-top: 3%;
+}
+.search_result_heading h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.search_result_heading p {
+  font-family: "Poppins", sans-serif;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .search_text {
+    margin-top: 10px;
+  }
+  .search_text h5 {
+    font-size: 15px;
+    padding-left: 15px;
+    font-family: semibold;
+  }
+  .search_text p {
+    font-size: 12px;
+    padding-left: 15px;
+    font-family: light;
+  }
+  .search_content {
+    width: 100%;
+  }
+  .search_categoriecard {
+    width: 98%;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+  }
+  .searchsroductlist_container {
+    display: grid;
+    margin-bottom: 20px;
+    grid-template-columns: 100%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .search_text {
+    margin-top: 10px;
+  }
+  .search_text h5 {
+    font-size: 18px;
+    padding-left: 8px;
+  }
+  .search_text p {
+    font-size: 14px;
+    padding-left: 8px;
+  }
+  .search_categoriecard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+  .searchsroductlist_container {
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 45% 45%;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .search_text h5 {
+    font-size: 1.2rem;
+    padding-left: 0.8rem;
+  }
+  .search_text p {
+    font-size: 14px;
+    padding-left: 0.8rem;
+  }
+  .search_categoriecard {
+    grid-template-columns: auto auto auto auto auto auto auto;
+  }
+  .search_content{
+    width: 90%;
+  }
+
+}

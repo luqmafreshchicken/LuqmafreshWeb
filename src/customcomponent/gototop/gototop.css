@@ -1,0 +1,48 @@
+.top-btn {
+  font-size: 1.4rem;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background-color: #c42118;
+  box-shadow: 24;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .top-btn {
+    display: none;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .top-btn {
+    display: none;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

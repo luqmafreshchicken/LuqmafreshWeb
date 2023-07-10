@@ -1,0 +1,682 @@
+.selectdeliveryslot_container {
+  width: 100%;
+  height: 60vh;
+  display: grid;
+  place-items: center;
+}
+.selectdeliveryslot_content {
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  padding-left: 2.2rem;
+  padding: 3rem 0rem;
+  justify-content: space-around;
+  /* gap: 30px; */
+}
+.selectime_container {
+  height: 50vh;
+  width: 20%;
+  border-radius: 3px;
+}
+.selectime_steps {
+  /* height: 50vh; */
+  width: 20%;
+  padding-top: 2rem;
+}
+.select_text_container {
+  /* background-color: pink; */
+}
+.select_text_container h5 {
+  padding: 30px 30px;
+  color: #c42118;
+  font-family: semibold;
+  font-weight: 600;
+}
+.select_delivery_time {
+  /* background-color: aqua; */
+  height: 7vh;
+  width: 60%;
+  margin-left: 3.6%;
+  border: 1px solid #c42118;
+  border-radius: 5px;
+  padding-top: 0.2rem;
+
+}
+.select_delivery_time p {
+  text-align: center;
+  color: #c42118;
+  font-family: regular;
+  font-weight: 600;
+}
+.select_product_detail {
+  /* background-color: goldenrod; */
+  height: 18vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.product_detail_01 {
+  width: 45%;
+  height: 10vh;
+  display: flex;
+  gap: 15px;
+}
+.product_detail_01 img {
+  border-radius: 5px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.product_selectdeliveryslot_text p {
+  color: #c42118;
+  font-family: regular;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.product_selectdeliveryslot_text span {
+  font-family: light;
+  font-weight: 600;
+  line-height: 4;
+  font-size: 12px;
+}
+
+.product_detail_02 {
+  /* background-color: orangered; */
+  width: 43%;
+  height: 10vh;
+  display: flex;
+  gap: 15px;
+}
+.product_detail_02 img {
+  border-radius: 5px;
+}
+.selectdeliveryslot_btn {
+  height: 10vh;
+  padding-left: 30px;
+  width: 100%;
+  padding-top: 25px;
+}
+.selectdeliveryslot_btn_proceed {
+   width: 30%;
+   background-color: #c42118;
+   height: 7vh;
+   text-align: center;
+   padding-top: 0.9rem;
+   border-radius: 10px;
+   font-family: semibold;
+   color: white;
+   font-size: 1rem;
+
+
+}
+.selectdeliveryslot_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 37vh;
+  background-color: white;
+  box-shadow: 24;
+}
+
+.select_slot_shipment h5 {
+  font-family: semibold;
+  font-weight: 600;
+  padding: 22px 30px;
+}
+.selectdeliveryslot_day {
+  height: 6vh;
+}
+.selectdeliveryslot_day p {
+  font-family: regular;
+  font-weight: 600;
+  padding: 0px 30px;
+}
+.selectdeliveryslot_timer {
+  /* background-color: goldenrod; */
+  height: 10vh;
+  width: 95%;
+  margin-left: 4%;
+  display: flex;
+  gap: 20px;
+}
+.selectdeliveryslot_time_slot {
+  height: 6vh;
+  width: 22%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #c42118;
+}
+.selectdeliveryslot_time_slot p {
+  font-family: light;
+  font-weight: 600;
+  font-size: 14px;
+  color: #c42118;
+  padding-top: 18px;
+}
+.select_proceed {
+  height: 9vh;
+  display: flex;
+  gap: 30px;
+  width: 95%;
+  margin-left: 4%;
+}
+.selectdeliveryslot_btn1 {
+  height: 6vh;
+  width: 40%;
+  background-color: #c42118;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectdeliveryslot_btn1 p {
+  font-family: regular;
+  font-size: 18px;
+  color: white;
+  padding-top: 15px;
+}
+
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .mobile_selectdeliveryslot_container {
+    display: none;
+  }
+  .selectime_steps {
+    display: none;
+  }
+  .selectdeliveryslot_container {
+    height: auto;
+  }
+  .selectdeliveryslot_content {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .selectime_container {
+    height: auto;
+    width: 100%;
+    padding-bottom: 35px;
+  }
+  .select_product_detail {
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .select_text_container {
+    width: 100%;
+  }
+  .select_text_container h5 {
+    padding: 0px 13px;
+    padding-top: 30px;
+    font-size: 14px;
+  }
+  .select_delivery_time {
+    height: 6vh;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
+  .select_delivery_time p {
+    padding-top: 12px;
+    font-size: 12px;
+  }
+  .product_detail_01 {
+    width: 93%;
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .product_detail_text p {
+    font-size: 12px;
+  }
+  .select_delivery_price span {
+    font-size: 12px;
+  }
+  .selectdeliveryslot_btn {
+    height: 10vh;
+    padding-left: 10px;
+    /* padding-top: 10px; */
+  }
+  .selectdeliveryslot_btn button {
+    width: 40%;
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .selectdeliveryslot_modal {
+    width: 93%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .select_slot_shipment {
+    background-color: #dbd6d6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .select_slot_shipment h5 {
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+
+  .selectdeliveryslot_day p {
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+  .selectdeliveryslot_timer {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_time_slot {
+    width: 40%;
+    display: flex;
+    /* background-color: #c42118; */
+  }
+  .selectdeliveryslot_time_slot p {
+    font-size: 10px;
+    align-items: center;
+  }
+  .select_proceed {
+    width: 93%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_btn1 {
+    height: 6vh;
+    width: 50%;
+  }
+  .selectdeliveryslot_btn2 {
+    height: 6vh;
+    width: 35%;
+    border-radius: 5px;
+    border: 1px solid #c42118;
+  }
+  .selectdeliveryslot_btn1 p {
+    font-size: 11px;
+    padding-top: 15px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_selectdeliveryslot_container {
+    display: none;
+  }
+  .selectime_steps {
+    display: none;
+  }
+  .selectdeliveryslot_container {
+    height: auto;
+  }
+  .selectdeliveryslot_content {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .selectime_container {
+    height: auto;
+    width: 100%;
+    padding-bottom: 35px;
+  }
+  .select_product_detail {
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 95%;
+  }
+  .select_text_container {
+    width: 100%;
+  }
+  .select_text_container h5 {
+    padding: 0px 40px;
+    padding-top: 30px;
+    font-size: 14px;
+  }
+  .select_delivery_time {
+    height: 6vh;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 3px;
+    margin-left: 5%;
+  }
+  .select_delivery_time p {
+    padding-top: 8px;
+    font-size: 15px;
+  }
+
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_text {
+    width: 73%;
+  }
+  .product_detail_text p {
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide the overflowing text */
+    text-overflow: ellipsis;
+  }
+  .select_delivery_price span {
+    font-size: 12px;
+  }
+  .selectdeliveryslot_btn {
+    height: 10vh;
+    padding-left: 40px;
+    /* padding-top: 10px; */
+  }
+  .selectdeliveryslot_btn button {
+    width: 20%;
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .selectdeliveryslot_modal {
+    width: 93%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .select_slot_shipment {
+    background-color: #dbd6d6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .select_slot_shipment h5 {
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+
+  .selectdeliveryslot_day p {
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+  .selectdeliveryslot_timer {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_time_slot {
+    width: 40%;
+    display: flex;
+    /* background-color: #c42118; */
+  }
+  .selectdeliveryslot_time_slot p {
+    font-size: 10px;
+    align-items: center;
+  }
+  .select_proceed {
+    width: 93%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_btn1 {
+    height: 6vh;
+    width: 50%;
+  }
+
+  .selectdeliveryslot_btn1 p {
+    font-size: 11px;
+    padding-top: 15px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .selectdeliveryslot_container {
+    height: auto;
+  }
+  .selectdeliveryslot_content {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .selectime_container {
+    height: auto;
+    width: 50%;
+    padding-bottom: 35px;
+  }
+  .select_product_detail {
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 95%;
+  }
+  .select_text_container {
+    width: 100%;
+  }
+  .select_text_container h5 {
+    padding: 0px 40px;
+    padding-top: 30px;
+    font-size: 14px;
+  }
+  .select_delivery_time {
+    height: 6vh;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 3px;
+    margin-left: 5%;
+  }
+  .select_delivery_time p {
+    padding-top: 8px;
+    font-size: 15px;
+  }
+
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_text {
+    width: 73%;
+  }
+  .product_detail_text p {
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide the overflowing text */
+    text-overflow: ellipsis;
+  }
+  .select_delivery_price span {
+    font-size: 12px;
+  }
+  .selectdeliveryslot_btn {
+    height: 10vh;
+    padding-left: 40px;
+    /* padding-top: 10px; */
+  }
+  .selectdeliveryslot_btn button {
+    width: 20%;
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .selectdeliveryslot_modal {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .select_slot_shipment {
+    background-color: #dbd6d6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .select_slot_shipment h5 {
+    font-size: 1rem;
+    padding: 16px 2rem;
+  }
+
+  .selectdeliveryslot_day p {
+    padding: 5px 2rem;
+    font-size: 0.8rem;
+  }
+  .selectdeliveryslot_timer {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_time_slot {
+    width: 31%;
+    display: flex;
+    /* background-color: #c42118; */
+  }
+  .selectdeliveryslot_time_slot p {
+    font-size: 0.8rem;
+    align-items: center;
+  }
+  .select_proceed {
+    width: 93%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_btn1 {
+    height: 6vh;
+    width: 30%;
+  }
+
+  .selectdeliveryslot_btn1 p {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1280px) {
+  /* CSS rules for extra large screens and TV */
+  .selectdeliveryslot_container {
+    height: auto;
+  }
+  .selectdeliveryslot_content {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .selectime_container {
+    height: auto;
+    width: 50%;
+    padding-bottom: 35px;
+  }
+  .select_product_detail {
+    height: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 95%;
+  }
+  .select_text_container {
+    width: 100%;
+  }
+  .select_text_container h5 {
+    padding: 0px 40px;
+    padding-top: 30px;
+    font-size: 14px;
+  }
+  .select_delivery_time {
+    height: 6vh;
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 3px;
+    margin-left: 5%;
+  }
+  .select_delivery_time p {
+    padding-top: 8px;
+    font-size: 15px;
+  }
+
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_01 {
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .product_detail_text {
+    width: 73%;
+  }
+  .product_detail_text p {
+    font-size: 12px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide the overflowing text */
+    text-overflow: ellipsis;
+  }
+  .select_delivery_price span {
+    font-size: 12px;
+  }
+  .selectdeliveryslot_btn {
+    height: 10vh;
+    padding-left: 40px;
+    /* padding-top: 10px; */
+  }
+  .selectdeliveryslot_btn button {
+    width: 20%;
+    font-size: 11px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .selectdeliveryslot_modal {
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .select_slot_shipment {
+    background-color: #dbd6d6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .select_slot_shipment h5 {
+    font-size: 1rem;
+    padding: 16px 2rem;
+  }
+
+  .selectdeliveryslot_day p {
+    padding: 5px 2rem;
+    font-size: 0.8rem;
+  }
+  .selectdeliveryslot_timer {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_time_slot {
+    width: 31%;
+    display: flex;
+    /* background-color: #c42118; */
+  }
+  .selectdeliveryslot_time_slot p {
+    font-size: 0.8rem;
+    align-items: center;
+  }
+  .select_proceed {
+    width: 93%;
+    margin-left: 6%;
+  }
+  .selectdeliveryslot_btn1 {
+    height: 6vh;
+    width: 30%;
+  }
+
+  .selectdeliveryslot_btn1 p {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+}

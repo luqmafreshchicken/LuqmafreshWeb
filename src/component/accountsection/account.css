@@ -1,0 +1,417 @@
+.account_section {
+  width: 100%;
+  height: 150vh;
+  display: grid;
+  place-items: center;
+}
+.account_content {
+  width: 90%;
+  height: 160vh;
+}
+.account_profile {
+  display: flex;
+  gap: 20px;
+  line-height: 1;
+}
+
+.hover_bottom{
+  height: 6vh;
+  width: 100%;
+  padding: 10px 0px;
+  border-bottom: 1px solid lightgray;
+}
+.hover_bottom:hover{
+  border-bottom: 3px solid #c42118;
+  color: #c42118;
+}
+
+.account_text{
+  padding-top: 3rem;
+}
+.account_profile p {
+  font-family: "Poppins", sans-serif;
+}
+.account_profile span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #c42118;
+}
+.account_banner {
+  height: 40vh;
+  width: 100%;
+  margin-top: 30px;
+}
+.account_banner img {
+  height: 40vh;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.account_list_section {
+  width: 100%;
+  height: 80vh;
+  margin-top: 4%;
+  border-radius: 5px;
+  display: flex;
+  gap: 5rem;
+
+}
+.account_list_show {
+  width: 15%;
+  height: 80vh;
+  cursor: pointer;
+}
+.show_data {
+  width: 77%;
+  height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.show_data::-webkit-scrollbar{
+  overflow: hidden;
+}
+
+li {
+  font-family: "Poppins", sans-serif;
+}
+
+.account_order_section {
+  height: 20vh;
+  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 19px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-around;
+}
+.account_order_address {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account_order_total {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delivery_content {
+  width: 70%;
+  height: 15vh;
+}
+.delivery_address {
+  height: 7vh;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item_selected {
+  height: 7vh;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delivery {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+.delivery p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+.delivery span {
+  font-family: "Poppins", sans-serif;
+  color: gray;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.delivery_address h6 {
+  font-family: "Poppins", sans-serif;
+  color: #c42118;
+  font-weight: 700;
+  padding-top: 5px;
+}
+
+.item_selected h6 {
+  font-family: "Poppins", sans-serif;
+  color: #c42118;
+  font-weight: 700;
+  padding-top: 5px;
+}
+.place_order {
+  width: 60%;
+  height: 10vh;
+  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 19px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  display: flex;
+  /* background-color: aqua; */
+}
+.account_total_price {
+  width: 50%;
+  height: 10vh;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+}
+.account_total_price p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  padding-top: 15px;
+}
+.account_total_order {
+  width: 50%;
+  height: 10vh;
+  background-color: #c42118;
+  border-radius: 5px;
+}
+.account_total_order p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 18px;
+}
+.account_total_order span {
+  font-family: "Poppins", sans-serif;
+  line-height: 0.1;
+  color: white;
+  font-size: 12px;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .account_header{
+    display: none;
+  }
+  .account_section {
+    height: auto;
+  }
+  .account_content {
+    height: auto;
+
+  }
+  .account_text {
+    display: none;
+  }
+  .account_text h3 {
+    font-size: 20px;
+  }
+
+  .account_banner {
+    display: none;
+  }
+  .account_list_section {
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .account_list_show {
+    display: none;
+  }
+  .show_data {
+    width: 100%;
+    height: auto;
+  }
+  .account_order_section {
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    box-shadow: none;
+  }
+  .place_order{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .account_order_address {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .account_order_total {
+    width: 100%;
+  }
+  .delivery_content {
+    width: 95%;
+    height: 15vh;
+    padding-top: 8px;
+  }
+  .nav_list h6 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .delivery p {
+    font-size: 14px;
+  }
+  .delivery p span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .delivery img {
+    height: 18px;
+    width: 18px;
+  }
+  .place_order {
+    width: 100%;
+    height: auto;
+  }
+  .account_total_price{
+    height: 7vh;
+  }
+  .account_total_order{
+    height: 7vh;
+  }
+  .account_total_price p {
+    font-size: 14px;
+  }
+  .account_total_order p {
+    font-size: 14px;
+    padding-top: 12px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  
+  .account_section {
+    height: auto;
+    padding: 5px 0px;
+  }
+  .account_content {
+    height: auto;
+  }
+  
+  .account_profile {
+    display: flex;
+    gap: 0px;
+    line-height: 1.5;
+  }
+  .account_text h3 {
+    font-size: 20px;
+  }
+  .account_profile span {
+    font-size: 14px;
+    width: 100%;
+    text-align: right;
+  }
+  .account_profile p {
+    font-size: 14px;
+  }
+  .account_banner {
+    height: auto;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .account_banner img {
+    height: 28vh;
+  }
+  .account_list_section {
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .account_list_show {
+    width: 100%;
+    height: auto;
+  }
+  .show_data {
+    width: 100%;
+    height: auto;
+  }
+  .account_order_section {
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .account_order_address {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .account_order_total {
+    width: 100%;
+  }
+  .delivery_content {
+    width: 95%;
+    height: 15vh;
+    padding-top: 8px;
+  }
+  .nav_list h6 {
+    font-size: 14px;
+  }
+  .delivery p {
+    font-size: 14px;
+  }
+  .delivery p span {
+    font-size: 12px;
+  }
+  .delivery img {
+    height: 18px;
+    width: 18px;
+  }
+  .place_order {
+    width: 100%;
+    height: auto;
+  }
+  .account_total_price p {
+    font-size: 14px;
+  }
+  .account_total_order p {
+    font-size: 14px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .account_profile {
+    display: flex;
+    gap: 20px;
+    line-height: 1;
+  }
+  .account_text h3 {
+    font-size: 20px;
+  }
+  .account_profile span {
+    font-size: 14px;
+    width: 100%;
+    text-align: right;
+  }
+  .account_profile p {
+    font-size: 14px;
+  }
+  .account_banner {
+    height: auto;
+    width: 100%;
+    margin-top: 0px;
+    background-color: aliceblue;
+    margin-bottom: 20px;
+  }
+  .account_banner img {
+    height: 28vh;
+  }
+  .account_list_show {
+    width: 30%;
+    height: auto;
+  }
+  .show_data {
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1280px) {
+  /* CSS rules for extra large screens and TV */
+}

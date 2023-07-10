@@ -1,0 +1,706 @@
+.order_view_detail {
+  height: auto;
+  display: grid;
+  place-items: center;
+  padding: 3rem 0px;
+
+}
+.order_view_detail_container {
+  width: 60%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+/* order heading */
+
+.order_heading {
+  padding: 20px 20px;
+}
+.order_heading h5 {
+  color: #c42118;
+  font-family: regular;
+  font-weight: 600;
+}
+/* end order heading */
+
+/* order id para */
+
+.order_id_para {
+  /* background-color: pink; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_id_para p {
+  font-family: medium;
+  padding-left: 20px;
+}
+/* end order id para */
+
+/* order location */
+.order_location {
+  /* background-color: greenyellow; */
+  display: flex;
+  padding-left: 17px;
+  gap: 15px;
+}
+.order_location p {
+  font-family: "Poppins", sans-serif;
+}
+.order_location img {
+  padding-top: 3px;
+}
+/* end order location */
+/*  order_cancelled */
+.order_cancelled {
+  /* background-color: antiquewhite; */
+  height: 35vh;
+  /* padding: 20px 20px; */
+}
+.order_cancelled_container {
+  height: 30vh;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+}
+.order_cancelled_img_text {
+  height: 25vh;
+  width: 85%;
+  /* background-color: red; */
+  text-align: center;
+}
+.order_cancelled_img_text img {
+  height: 200px;
+  width: 200px;
+  align-items: center;
+}
+.order_cancelled_img_text p {
+  font-family: regular;
+  padding-top: .5rem;
+}
+/* end order_cancelled */
+
+/*  items order */
+.items_ordered {
+  width: 100%;
+  height: 5vh;
+  background-color: #444444;
+}
+.items_ordered p {
+  text-align: center;
+  font-family: regular;
+  padding-top: .5rem;
+  color: white;
+}
+/* end items order */
+/*  shipmenet cancle */
+.shipmenet_cancle {
+  height: 15vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.shipmenet_cancle_address {
+  height: 5vh;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  /* background-color: #c42118; */
+}
+.shipmenet_cancle_address p {
+  font-family: regular;
+  text-align: center;
+  padding-top: 0.4rem;
+}
+
+/* end shipmenet cancle */
+
+/* order name */
+.order_name {
+  /* background-color: pink; */
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+
+}
+.order_name_container {
+  /* background-color: orangered; */
+  width: 80%;
+  height: 17vh;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.order_name_container h5 {
+  padding-left: 15px;
+  font-family: semibold;
+  padding-top: .5rem;
+  font-size: 1.1rem;
+}
+.order_name_container_box {
+  /* background-color: yellow; */
+  width: 100%;
+  height: 10vh;
+  display: flex;
+}
+.order_name_container_box_image {
+  width: 15%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order_name_container_box_image img {
+  height: 65px;
+  width: 80%;
+  border-radius: 10px;
+}
+.order_name_container_box_name {
+  width: 85%;
+  height: 10vh;
+}
+.order_name_container_box_name p {
+  font-family: regular;
+  padding: 4px 3px;
+  color: #9c9c9c;
+}
+.order_name_container_box_name span {
+  font-family: regular;
+  /* padding-top: 100px; */
+  color: #9c9c9c;
+}
+/* end bill detail */
+
+/* bill full detail */
+.bill_detail {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  height: 30vh;
+  /* background-color: orange; */
+
+}
+.bill_full_detail {
+  width: 80%;
+  height: 22vh;
+  border: 2px dashed #9c9c9c;
+  border-radius: 5px;
+}
+
+.bill_full_detail h5 {
+  font-family: semibold;
+  font-size: 1.1rem;
+  padding: 1rem 0rem 0rem 1rem;
+
+
+}
+.bill_detail_price {
+  display: flex;
+  justify-content: space-between;
+}
+.bill_detail_price p {
+  padding: 0px 1rem;
+  color: #9c9c9c;
+  line-height: 1;
+
+}
+.bill_detail_total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  line-height: 1;
+  margin: 0px 15px;
+}
+.bill_detail_total p {
+  padding-top: 1rem;
+  font-size: 1rem;
+  font-family: semibold;
+
+}
+.bill_detail_container {
+  width: 100%;
+  height: 10vh;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2rem;
+}
+.bill_detail_button {
+  width: 80%;
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bill_detail_button1 {
+  width: 20%;
+  height: 6vh;
+  border: 1px solid #c42118;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bill_detail_button1 p {
+  padding-top: 12px;
+  font-family: regular;
+  color: #c42118;
+}
+.bill_detail_button2 {
+  width: 20%;
+  height: 6vh;
+  background-color: #c42118;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bill_detail_button2 p {
+  padding-top: 12px;
+  color: white;
+  font-family: regular;
+}
+/* end total bill amount */
+/* cancle modal*/
+.cancle_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 60vh;
+  background-color: white;
+  box-shadow: 24;
+}
+.Order_cancellation_head {
+  height: 5vh;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+.Order_cancellation_head p {
+  padding: 10px 25px;
+  font-family: semibold;
+}
+.select_cancle_reason {
+  width: 100%;
+  height: 4vh;
+}
+.select_cancle_reason p {
+  padding: 5px 25px;
+  font-family: regular;
+  font-size: 15px;
+  color: #838383;
+}
+.select_cancle_container {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 35vh;
+  display: grid;
+  place-items: center;
+}
+.select_cancle_option {
+  /* background-color: #c42118; */
+  height: 4vh;
+  width: 90%;
+  display: flex;
+  gap: 10px;
+}
+.select_input_radio input[type="radio"] {
+  accent-color: #c42118;
+  height: 30px;
+  width: 20px;
+}
+.select_cancle_option p {
+  font-family: medium;
+  padding-top: 2px;
+}
+.conform_order_content {
+  /* background-color: aqua; */
+  height: 10vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.conform_order_button {
+  /* background-color: #c42118; */
+  height: 6vh;
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.do_not_cancle {
+  width: 40%;
+  height: 5vh;
+  border: 1px solid black;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  padding-top: 8px;
+}
+.do_not_cancle p {
+  font-family: medium;
+}
+.do_not_cancle1 {
+  width: 40%;
+  height: 5vh;
+  background-color: #c42118;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  padding-top: 8px;
+}
+.do_not_cancle1 p {
+  font-family: medium;
+  color: white;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .view_detail_header {
+    display: none;
+  }
+  .order_view_detail {
+    height: auto;
+  }
+  .order_view_detail_container {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+  .order_heading h5 {
+    font-size: 12px;
+  }
+  .order_id_para p {
+    font-size: 12px;
+    line-height: 0.1;
+  }
+  .order_location img {
+    height: 20px;
+  }
+  .order_cancelled {
+    height: 35vh;
+  }
+  .order_cancelled_img_text {
+    width: 90%;
+  }
+  .order_cancelled_img_text img {
+    height: 150px;
+    width: 150px;
+  }
+  .order_cancelled_img_text h5 {
+    font-size: 15px;
+  }
+  .order_cancelled_img_text p {
+    font-size: 12px;
+  }
+  .items_ordered {
+    font-size: 12px;
+  }
+  .shipmenet_cancle_address {
+    width: 90%;
+  }
+  .shipmenet_cancle_address p {
+    font-size: 10px;
+    padding-top: 10px;
+  }
+  .order_name_container {
+    width: 90%;
+  }
+  .order_name_container h5 {
+    padding-top: 10px;
+    font-size: 12px;
+  }
+  .order_name_container_box_image {
+    width: 40%;
+  }
+  .order_name_container_box_image img {
+    width: 80%;
+    height: 60px;
+  }
+  .order_name_container_box_name p {
+    font-size: 12px;
+  }
+  .order_name_container_box_name span {
+    font-size: 12px;
+    padding-left: 4px;
+  }
+
+  .bill_full_detail {
+    width: 90%;
+  }
+
+  .bill_full_detail h5 {
+    font-size: 13px;
+    padding-bottom: 0;
+  }
+  .bill_detail_price p {
+    font-size: 12px;
+  }
+  .bill_detail_total p {
+    font-size: 14px;
+  }
+  .bill_detail_button {
+    width: 90%;
+  }
+
+  .bill_detail_container {
+    height: 7vh;
+  }
+
+  .bill_detail_button1 {
+    width: 40%;
+    height: 5vh;
+  }
+  .bill_detail_button1 p {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+  .bill_detail_button2 {
+    width: 40%;
+    height: 5vh;
+  }
+  .bill_detail_button2 p {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+  .cancle_modal {
+    top: 72%;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 57vh;
+  }
+  .Order_cancellation_head {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .Order_cancellation_head p {
+    padding: 8px 25px;
+    font-size: 14px;
+  }
+  .select_cancle_reason p {
+    padding: 8px 25px;
+    font-size: 12px;
+  }
+  .select_cancle_option {
+    width: 87%;
+  }
+  .select_input_radio input[type="radio"] {
+    height: 30px;
+    width: 14px;
+  }
+  .select_cancle_option p {
+    font-family: medium;
+    padding-top: 6px;
+    font-size: 12px;
+  }
+
+  .conform_order_button {
+    width: 87%;
+  }
+  .do_not_cancle {
+    padding-top: 8px;
+  }
+  .do_not_cancle p {
+    font-family: medium;
+    font-size: 12px;
+  }
+  .do_not_cancle1 {
+    padding-top: 8px;
+  }
+  .do_not_cancle1 p {
+    font-family: medium;
+    color: white;
+    font-size: 12px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .view_detail_header {
+    display: none;
+  }
+  .order_view_detail {
+    height: auto;
+  }
+  .order_view_detail_container {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+  .order_heading h5 {
+    font-size: 16px;
+    padding-left: 18px;
+  }
+  .order_id_para p {
+    font-size: 14px;
+    line-height: 0;
+    padding-left: 38px;
+  }
+  .order_location img {
+    height: 20px;
+  }
+  .order_cancelled {
+    height: 35vh;
+  }
+  .order_cancelled_img_text {
+    width: 90%;
+    /* background-color: #444444; */
+  }
+  .order_cancelled_img_text img {
+    height: 170px;
+    width: 170px;
+  }
+  .order_cancelled_img_text h5 {
+    font-size: 15px;
+  }
+  .order_cancelled_img_text p {
+    font-size: 14px;
+  }
+  .items_ordered {
+    font-size: 13px;
+    padding-top: 0px;
+  }
+  .shipmenet_cancle_address {
+    width: 90%;
+  }
+  .shipmenet_cancle_address p {
+    font-size: 13px;
+    padding-top: 7px;
+  }
+  .order_name_container {
+    width: 90%;
+    /* background-color: #9c9c9c; */
+  }
+  .order_name_container h5 {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  .order_name_container_box_image {
+    width: 20%;
+
+  }
+ 
+  .order_name_container_box_image img {
+    width: 80%;
+    height: 60px;
+  }
+  .order_name_container_box_name p {
+    font-size: 12px;
+  }
+  .order_name_container_box_name span {
+    font-size: 12px;
+    padding-left: 4px;
+  }
+
+  .bill_full_detail {
+    width: 90%;
+  }
+
+  .bill_full_detail h5 {
+    font-size: 13px;
+    padding-bottom: 0;
+  }
+  .bill_detail_price p {
+    font-size: 12px;
+  }
+  .bill_detail_total p {
+    font-size: 14px;
+  }
+  .bill_detail_button {
+    width: 90%;
+  }
+
+  .bill_detail_container {
+    height: 7vh;
+  }
+
+  .bill_detail_button1 {
+    width: 20%;
+    height: 5vh;
+  }
+  .bill_detail_button1 p {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+  .bill_detail_button2 {
+    width: 20%;
+    height: 5vh;
+  }
+  .bill_detail_button2 p {
+    font-size: 12px;
+    padding-top: 15px;
+  }
+  .cancle_modal {
+    top: 72%;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 57vh;
+  }
+  .Order_cancellation_head {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .Order_cancellation_head p {
+    padding: 8px 25px;
+    font-size: 14px;
+  }
+  .select_cancle_reason p {
+    padding: 8px 25px;
+    font-size: 14px;
+  }
+  .select_cancle_option {
+    width: 94%;
+  }
+  .select_input_radio input[type="radio"] {
+    height: 32px;
+    width: 17px;
+  }
+  .select_cancle_option p {
+    font-family: medium;
+    padding-top: 6px;
+    font-size: 14px;
+  }
+
+  .conform_order_button {
+    width: 94%;
+  }
+  .do_not_cancle {
+    padding-top: 8px;
+    /* background-color: yellow; */
+    width: 25%;
+  }
+  .do_not_cancle p {
+    font-family: medium;
+    font-size: 12px;
+  }
+  .do_not_cancle1 {
+    padding-top: 8px;
+    width: 25%;
+
+  }
+  .do_not_cancle1 p {
+    font-family: medium;
+    color: white;
+    font-size: 12px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

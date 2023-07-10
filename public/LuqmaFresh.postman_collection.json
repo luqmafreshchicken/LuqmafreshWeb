@@ -1,0 +1,2006 @@
+{
+	"info": {
+		"_postman_id": "e4db083e-0b4a-41e0-9a6d-42554b6957ef",
+		"name": "LuqmaFresh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "AdminRegister",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Ankit\",\r\n    \"email\":\"ankit@gmail.com\",\r\n    \"mobile\":\"7985893368\",\r\n    \"password\":\"Ankit@123\",\r\n    \"type\":\"Admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/createAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"createAdmin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AdminLogin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ0Njc1NjI0Zjc0MGEzNWVhZjJiZmNlIiwiaWF0IjoxNjgyMzQ1MTc1LCJleHAiOjE3Njg3NDUxNzV9.AdaRqfSHUAlA-HNk_99S-wLMkf7HVNsw76-GWj1mqdI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mobile\":\"7985893368\",\r\n    \"password\":\"Ankit@123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "showAdminList",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ0Njc1NjI0Zjc0MGEzNWVhZjJiZmNlIiwiaWF0IjoxNjgyMzY0NTMyLCJleHAiOjE3Njg3NjQ1MzJ9.NkSJJFF0X4d8cz0SfSx6S8tQkJvE_f4nKZDYX5lvQAE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/showAdminList",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"showAdminList"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logoutAdmin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ0Njc1NjI0Zjc0MGEzNWVhZjJiZmNlIiwiaWF0IjoxNjgyMzY0NDA1LCJleHAiOjE3Njg3NjQ0MDV9.SM6idSwlXxKZTPJvpyWDdM0HxhJesO4IFMvMdlA63IQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/logoutAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"logoutAdmin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateAdminname",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ0Njc1NjI0Zjc0MGEzNWVhZjJiZmNlIiwiaWF0IjoxNjgyMzQ1MTc1LCJleHAiOjE3Njg3NDUxNzV9.AdaRqfSHUAlA-HNk_99S-wLMkf7HVNsw76-GWj1mqdI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Ajay\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/updateName",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"updateName"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Banner",
+					"item": [
+						{
+							"name": "CreateBanner",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/predator/Desktop/5.jpg"
+										},
+										{
+											"key": "title1",
+											"value": "Test",
+											"type": "default"
+										},
+										{
+											"key": "title2",
+											"value": "Test1",
+											"type": "default"
+										},
+										{
+											"key": "title3",
+											"value": "Test2",
+											"type": "default"
+										},
+										{
+											"key": "description",
+											"value": "this is test banner",
+											"type": "default"
+										},
+										{
+											"key": "color1",
+											"value": "#111",
+											"type": "default"
+										},
+										{
+											"key": "color2",
+											"value": "#fff",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/banner/createBanner",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"createBanner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllBanner",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/banner/getAllBanner",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"getAllBanner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteBanner",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"6446e787affcbff6cd4c7285\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/banner/deleteBanner",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"deleteBanner"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateHalfBanner",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title1",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "title2",
+											"value": "Test1",
+											"type": "text"
+										},
+										{
+											"key": "title3",
+											"value": "Test2",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "this is test banner",
+											"type": "text"
+										},
+										{
+											"key": "color1",
+											"value": "#111",
+											"type": "text"
+										},
+										{
+											"key": "color2",
+											"value": "#fff",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/predator/Desktop/3.1.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/banner/createBanner1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"createBanner1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllHalfBanner",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/banner/getAllBanner1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"getAllBanner1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteHalfBanner",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":\"6446ebbc462be6916ae241ce\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/banner/deleteBanner1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"banner",
+										"deleteBanner1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "SubCategory",
+							"item": [
+								{
+									"name": "CreateSubcategory",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "subcategoryName",
+													"value": "Egg Curry",
+													"type": "default"
+												},
+												{
+													"key": "categoryId",
+													"value": "64481bd2b48129637d600488",
+													"type": "default"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/predator/Desktop/10.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/category/createSubcategory",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"category",
+												"createSubcategory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAllSubCategory",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:3000/category/getAllSubcategory",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"category",
+												"getAllSubcategory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GetAllSubCategoryByCategoryId",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":\"64481c98b48129637d60048a\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/category/getAllSubcategoryByCategoryId",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"category",
+												"getAllSubcategoryByCategoryId"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "DeleteSubcategory",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\":\"644ace9d915831fa1a33f7d6\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:3000/category/deleteSubcategory",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"category",
+												"deleteSubcategory"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UpdateSubCategory",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id",
+													"value": "644ace7d915831fa1a33f7d4",
+													"type": "default"
+												},
+												{
+													"key": "subcategoryName",
+													"value": "Hard meat masalaaaaa",
+													"type": "default"
+												},
+												{
+													"key": "categoryId",
+													"value": "64481c98b48129637d60048a",
+													"type": "default"
+												},
+												{
+													"key": "image",
+													"type": "file",
+													"src": "/C:/Users/predator/Desktop/17.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:3000/category/updateSubcategory",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"category",
+												"updateSubcategory"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "CreateCategory",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "categoryName",
+											"value": "Meat Masala",
+											"type": "default"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/predator/Desktop/PNG IMAGES/PNG IMAGES/P6.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/category/createCategory",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"createCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllCategory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/category/getAllCategory",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"getAllCategory"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCategory",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/category/deleteCategory/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"deleteCategory",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6446f2ca6a28a90e10104c8f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCategory",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Eggs",
+											"type": "default"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/predator/Desktop/5.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/category/updateCategory/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"updateCategory",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6446f4320a23696806a31a59"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "categoryAndSubcategoryList",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/category/categoryAndSubcategoryList",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"category",
+										"categoryAndSubcategoryList"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "AreaWeServe",
+					"item": [
+						{
+							"name": "CreateArea",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"areaName\":\"Nisatgunj\",\r\n    \"areaCode\":\"226028\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/createArea",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"createArea"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAreaList",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/getAreaList",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"getAreaList"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteAreaByID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"areaId\":\"64483001fa76be63dbc252c5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/deleteArea",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"deleteArea"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateArea",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"areaId\":\"644831a9b7e516daf1b574eb\",\r\n    \"areaName\":\"Nisatgunjjjjjjjjjjjjjjjj\",\r\n    \"areaCode\":\"222222\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/updateArea",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"updateArea"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Coupons",
+					"item": [
+						{
+							"name": "CreateCoupon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"couponCode\":\"Free150\",\r\n    \"discount\":\"110\",\r\n    \"applyAmount\":\"600\",\r\n    \"expiryDate\":\"05/29/2023\",\r\n    \"description1\":\"Maximum cashback of Rs. 500 on orders above 499 on your first order\",\r\n    \"description2\":\"Cashback will credited after the complete delivery and will avail for 30 days\",\r\n    \"description3\":\"This offer is not transferable and not refundable\",\r\n    \"description4\":\"Luqmafresh reserve the right to withdraw the offer without any prior notice\",\r\n    \"description5\":\"Offer will void on cancelled and not delivered order\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/coupon/CreateCoupon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"coupon",
+										"CreateCoupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllCoupon",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/coupon/GetAllCoupon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"coupon",
+										"GetAllCoupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCoupon/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/coupon/DeleteCoupon/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"coupon",
+										"DeleteCoupon",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "64483c6dc041178a26fca37e"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "applyCoupon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":\"6427f8e90e4a15005e88dea6\",\r\n    \"couponCode\":\"Free150\",\r\n    \"discount\":\"110\",\r\n    \"amount\":\"800\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/coupon/applyCoupon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"coupon",
+										"applyCoupon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "removeAppliedCoupon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":\"6427f8e90e4a15005e88dea6\",\r\n    \"couponCode\":\"Free150\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/coupon/removeAppliedCoupon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"coupon",
+										"removeAppliedCoupon"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "RegisterAndLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"countryCode\":\"+91\",\r\n    \"mobile\":\"8565002333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/loginWithMobile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"loginWithMobile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":\"8565002333\",\r\n    \"otp\":\"1037\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/verifyOtp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"verifyOtp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResendOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":\"8565002333\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/resendOtp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"resendOtp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserDeailsById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"6449972fdcc4ffbf1292ac61\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/userDeatilsById",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"userDeatilsById"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categoryId",
+									"value": "64481bd2b48129637d600488",
+									"type": "default"
+								},
+								{
+									"key": "subCategoryId",
+									"value": "644f998b1284f232aff6807e",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Chicken Leg Curry Cut - Large Pieces",
+									"type": "default"
+								},
+								{
+									"key": "price",
+									"value": "209.00",
+									"type": "default"
+								},
+								{
+									"key": "originalPrice",
+									"value": "250.00",
+									"type": "default"
+								},
+								{
+									"key": "discount",
+									"value": "15",
+									"type": "default"
+								},
+								{
+									"key": "weight",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "quantity",
+									"value": "4-6 pieces",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Thigh & Drumstick | Bone-in | Medium Pieces",
+									"type": "default"
+								},
+								{
+									"key": "description1",
+									"value": "Moist. Juicy. Tender. Mmmmm, that's got to be the Chicken Leg Curry Cut!",
+									"type": "default"
+								},
+								{
+									"key": "description2",
+									"value": "Perfect for slow-cooked curries and biryanis, they remain tender and juicy even when cooked for a long time or on high heat. This cut contains medium-sized pieces of thigh and drumstick chicken meat that are absolutely delectable.",
+									"type": "default"
+								},
+								{
+									"key": "description3",
+									"value": "Luqmafresh chickens are raised on bio-secure farms and are antibiotic-residue free. Our chicken is stored in temperature-controlled conditions, between 0-4?, to ensure that it is chilled and never frozen.",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/predator/Desktop/PNG IMAGES/PNG IMAGES/P1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/createProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"createProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categoryId",
+									"value": "64481c98b48129637d60048a",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryId",
+									"value": "644ace7d915831fa1a33f7d4",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Chicken Leg Curry Cut - Large Piecessss",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "209.000",
+									"type": "text"
+								},
+								{
+									"key": "originalPrice",
+									"value": "250.000",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "weight",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "4-8 pieces",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Thigh & Drumstick | Bone-in | Medium Piecessss",
+									"type": "text"
+								},
+								{
+									"key": "description1",
+									"value": "Moist. Juicy. Tender. Mmmmm, that's got to be the Chicken Leg Curry Cut!!!!",
+									"type": "text"
+								},
+								{
+									"key": "description2",
+									"value": "Perfect for slow-cooked curries and biryanis, they remain tender and juicy even when cooked for a long time or on high heat. This cut contains medium-sized pieces of thigh and drumstick chicken meat that are absolutely delectable....",
+									"type": "text"
+								},
+								{
+									"key": "description3",
+									"value": "Luqmafresh chickens are raised on bio-secure farms and are antibiotic-residue free. Our chicken is stored in temperature-controlled conditions, between 0-4?, to ensure that it is chilled and never frozen.",
+									"type": "text"
+								},
+								{
+									"key": "productId",
+									"value": "644ae6594c7592ea2e69e3ba",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/updateProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"updateProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\":\"chicken\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/SearchProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"SearchProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProductById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"644ae6594c7592ea2e69e3ba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/deleteProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"deleteProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product/getAllProduct",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"getAllProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductBySubCategoryId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subCategoryId\":\"644ace7d915831fa1a33f7d4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/ProductBySubCategoryId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"ProductBySubCategoryId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProductFullDetails",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"644ae6db00fb84ac4fcb4f3f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/ProductFullDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"ProductFullDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllProductByCategoryId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryId\":\"64481bd2b48129637d600488\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/ProductByCategoryId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"ProductByCategoryId"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rating",
+			"item": [
+				{
+					"name": "CreateRating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":\"644ae6db00fb84ac4fcb4f3f\",\r\n    \"userId\":\"6449974bdcc4ffbf1292ac66\",\r\n    \"rating\":\"5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/rating/createRating",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rating",
+								"createRating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DeliveryAddress",
+			"item": [
+				{
+					"name": "CreateAddress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"6449972fdcc4ffbf1292ac61\",\r\n    \"address\": \"shankarapuri, Kamta lucknow\",\r\n    \"address1\": \"Houese No 111/22\",\r\n    \"landmark\": \"near rajat pg road\",\r\n    \"city\": \"lucknow\",\r\n    \"mobile\": \"+918565002333\",\r\n    \"latitude\": \"60.2334434\",\r\n    \"longitude\": \"12.464574747\",\r\n    \"type\": \"Office\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/createAddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"createAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAddress",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"644c2b1a97dab1ff40fa5388\",\r\n    \"userId\": \"6449972fdcc4ffbf1292ac61\",\r\n    \"address\": \"shankarapuri, Kamta lucknowwwwww\",\r\n    \"address1\": \"Houese No 111/22wwwwww\",\r\n    \"landmark\": \"near rajat pg roaddddddd\",\r\n    \"city\": \"lucknowwww\",\r\n    \"mobile\": \"+918565002333333\",\r\n    \"latitude\": \"60.233443444444\",\r\n    \"longitude\": \"12.464574747\",\r\n    \"type\": \"Home\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/updateAddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"updateAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAddressById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"644c2b1a97dab1ff40fa5388\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/deleteAddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"deleteAddress"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6449972fdcc4ffbf1292ac61\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/address/getAllAddress",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"address",
+								"getAllAddress"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "AddToCart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6449972fdcc4ffbf1292ac61\",\r\n    \"productId\":\"644c33bb3fdd0686242d32ff\",\r\n    \"quantity\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/AddToCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"AddToCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RemoveFromCart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6449972fdcc4ffbf1292ac61\",\r\n    \"productId\":\"644ae6db00fb84ac4fcb4f3f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/RemoveFromCart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"RemoveFromCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowCartById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"6449972fdcc4ffbf1292ac61\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/ShowCartById",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"ShowCartById"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TImeslot",
+			"item": [
+				{
+					"name": "CreateTimeslot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2023-05-01\",\r\n    \"time1\":\"10:00\",\r\n    \"time2\":\"02:00\",\r\n    \"open\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/timeslot/createTimeslot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot",
+								"createTimeslot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllTimeslot",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/timeslot/getTimeslot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot",
+								"getTimeslot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTimeSlotById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\":\"2023-05-02\",\r\n    \"time1\":\"10:00\",\r\n    \"time2\":\"12:00\",\r\n    \"open\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/timeslot/updateTimeslot/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot",
+								"updateTimeslot",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644f5b9fbfdfc7b3625d1a06"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTimeslotById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/timeslot/deleteTimeslot/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"timeslot",
+								"deleteTimeslot",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "644f5b9fbfdfc7b3625d1a06"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Today Deals",
+			"item": [
+				{
+					"name": "CreateTodayDeals",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categoryId",
+									"value": "64481bd2b48129637d600488",
+									"type": "default"
+								},
+								{
+									"key": "discount",
+									"value": "15",
+									"type": "default"
+								},
+								{
+									"key": "dealsName",
+									"value": "Eggs",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/predator/Desktop/PNG IMAGES/PNG IMAGES/P5.png"
+								},
+								{
+									"key": "color",
+									"value": "#bd5e2e",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/createTodaydeals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"createTodaydeals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTodayDeals",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "644f91ff6bdabfa89f112f10",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "64481bd2b48129637d600488",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "dealsName",
+									"value": "Egg",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "#111",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/predator/Desktop/27.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/updateTodaydeals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"updateTodaydeals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TodayDealsDelete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"644f91ff6bdabfa89f112f10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/deleteTodaydeals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"deleteTodaydeals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTodayDeals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/product/getTodaydeals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"getTodaydeals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TodayDealsProductById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"644f923a17bfb9f9303df8a5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/getTodaydealsById",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								"getTodaydealsById"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": []
+		}
+	]
+}

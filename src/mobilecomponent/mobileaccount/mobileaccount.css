@@ -1,0 +1,350 @@
+.mobile_account_container {
+  display: none;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .mobile_account_container {
+    display: block;
+  }
+  .mobile_user_name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile_user_profile {
+    /* background-color: #c42118; */
+    height: 13vh;
+    border-bottom: 2px solid lightgrey;
+  }
+  .mobile_user_name p {
+    font-size: 18px;
+    padding-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+  }
+  .mobile_user_name span {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #c42118;
+  }
+  .mobile_user_email p {
+    font-size: 12px;
+    padding-left: 12px;
+    line-height: 0;
+  }
+  .mobile_list {
+    height: auto;
+    width: 100%;
+    /* background-color: #c42118; */
+    margin-top: 10px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+  }
+  .mobile_list_box {
+    height: 7vh;
+    width: 93%;
+    /* background-color: pink; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reward_img {
+    height: 6vh;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reward_img img {
+    height: 18px;
+    width: 18px;
+  }
+  .reward_text {
+    height: 6vh;
+    width: 80%;
+  }
+  .reward_text p {
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    padding: 12px 10px;
+  }
+  .reward_arrow {
+    height: 6vh;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reward_arrow img {
+    height: 16px;
+    width: 16px;
+  }
+
+  .mobile_login h5 {
+    padding-left: 13px;
+    padding-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 580;
+  }
+  .mobile_login p {
+    padding-left: 13px;
+    padding-right: 12px;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+  }
+  .mobile_login_btn {
+    background-color: #c42118;
+    height: 6vh;
+    width: 92%;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 11px;
+  }
+  .mobile_login_btn h6 {
+    font-size: 14px;
+    color: white;
+  }
+  .mobile_login_container {
+    position: absolute;
+    top: 95%;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .mobile_login_heading{
+    width: 100%;
+    padding: 0rem 1.3rem;
+    padding-top: .9rem;
+    height: 8vh;
+    background-color: #c42118;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .mobile_login_heading p{
+    font-size: 1.1rem;
+    font-family: regular;
+    font-weight: 600;
+    color: white;
+  }
+  .mobile_number_login{
+    width: 100%;
+    height: 12vh;
+    /* margin-bottom: 15rem; */
+    display: grid;
+    place-items: center;
+  }
+  .mobile_number_login_content{
+    width: 88%;
+    height: 6vh;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_number_login_content input{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    height: 5vh;
+    font-family: regular;
+    background-color: white;
+  }
+  .mobile_number_login_content p{
+     padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: regular;
+  }
+  .mobile_otp_login{
+    width: 100%;
+    height: 8vh;
+    /* margin-bottom: 15rem; */
+    /* background-color: aqua; */
+    display: grid;
+    place-items: center;
+  }
+  .mobile_otp_login_content{
+    width: 88%;
+    height: 6vh;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_otp_login_content input{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    height: 5vh;
+    font-family: regular;
+    background-color: white;
+  }
+  .mobile_otp_login_content p{
+    padding-top: 1rem;
+   font-size: 0.9rem;
+   font-family: regular;
+ }
+ .mobile_submit_login{
+  width: 100%;
+  height: 15vh;
+  margin-bottom: 15rem;
+  display: grid;
+  place-items: center;
+}
+ .mobile_submit_login_content{
+  width: 88%;
+  height: 6vh;
+  background-color: #c42118;
+  border-radius: 5px;
+}
+.mobile_submit_login_content p{
+  text-align: center;
+  padding-top: .5rem;
+  color: white;
+  font-family: semibold;
+}
+}
+
+/* iPads, Tablets (481px - 768px)   position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4, */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_account_container {
+    display: block;
+  }
+  .mobile_user_name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 27px;
+  }
+  .mobile_user_profile {
+    /* background-color: #c42118; */
+    height: 13vh;
+    border-bottom: 2px solid lightgrey;
+  }
+  .mobile_user_name p {
+    font-size: 18px;
+    padding-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+  }
+  .mobile_user_name span {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #c42118;
+  }
+  .mobile_user_email p {
+    font-size: 12px;
+    padding-left: 35px;
+    line-height: 0;
+  }
+  .mobile_list {
+    height: auto;
+    width: 100%;
+    /* background-color: #c42118; */
+    margin-top: 10px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+  }
+  .mobile_list_box {
+    height: 7vh;
+    width: 96%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .reward_img {
+    height: 6vh;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reward_img img {
+    height: 18px;
+    width: 18px;
+  }
+  .reward_text {
+    height: 6vh;
+    width: 100%;
+  }
+  .reward_text p {
+    font-size: 13px;
+    font-family: "Poppins", sans-serif;
+    padding: 12px 0px;
+  }
+  .reward_arrow {
+    height: 6vh;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reward_arrow img {
+    height: 16px;
+    width: 16px;
+  }
+
+  .mobile_login h5 {
+    padding-left: 13px;
+    padding-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 580;
+  }
+  .mobile_login p {
+    padding-left: 13px;
+    padding-right: 12px;
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+  }
+  .mobile_login_btn {
+    background-color: #c42118;
+    height: 6vh;
+    width: 92%;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 11px;
+  }
+  .mobile_login_btn h6 {
+    font-size: 14px;
+    color: white;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

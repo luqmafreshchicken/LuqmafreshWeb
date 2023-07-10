@@ -1,0 +1,208 @@
+.mobile_bottom_container {
+  display: none;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .mobile_bottom_container {
+    display: block;
+    height: 9vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    z-index: 999;
+  }
+  .mobile_bottom {
+    height: auto;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .active{
+    padding-bottom: 0.5rem;
+  }
+  .bottom_tab1 {
+    height: 5vh;
+    width: 15%;
+  }
+  .bottom_top_image{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .home {
+    height: 16px;
+    width: 16px;
+    color: black;
+    display: grid;
+    place-items: center;
+  }
+  .bottom_tab1 p {
+    font-size: 11px;
+    text-align: center;
+    padding-top: 3px;
+    color: gray;
+  }
+  .mob_nav {
+    text-decoration: none;
+  }
+  .bottom_tab2 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab3 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab4 {
+    height: 7vh;
+    width: 20%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_bottom_container {
+    display: block;
+    height: 9vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    display: grid;
+    place-items: center;
+    border-top: 1px solid lightgray;
+    z-index: 999;
+  }
+  .mobile_bottom {
+    height: 7vh;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: green; */
+  }
+  .bottom_tab1 {
+    height: 5vh;
+    width: 20%;
+    align-items: center;
+    /* background-color: pink; */
+  }
+  .home {
+    height: 16px;
+    width: 16px;
+    /* margin-left: 65px; */
+    color: black;
+  }
+  .bottom_tab1 p {
+    font-size: 11px;
+    text-align: center;
+    padding-top: 3px;
+    color: gray;
+  }
+  .mob_nav {
+    text-decoration: none;
+  }
+  .bottom_tab2 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab3 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab4 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_top_image{
+    /* background-color: green; */
+    display: grid;
+    place-items: center;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .mobile_bottom_container {
+    display: block;
+    height: 9vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background-color: white;
+    display: grid;
+    place-items: center;
+    border-top: 1px solid lightgray;
+    z-index: 999;
+  }
+  .mobile_bottom {
+    height: 7vh;
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: green; */
+  }
+  .bottom_tab1 {
+    height: 5vh;
+    width: 20%;
+    align-items: center;
+    /* background-color: pink; */
+  }
+  .home {
+    height: 16px;
+    width: 16px;
+    /* margin-left: 65px; */
+    color: black;
+  }
+  .bottom_tab1 p {
+    font-size: 11px;
+    text-align: center;
+    padding-top: 3px;
+    color: gray;
+  }
+  .mob_nav {
+    text-decoration: none;
+  }
+  .bottom_tab2 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab3 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_tab4 {
+    height: 7vh;
+    width: 20%;
+  }
+  .bottom_top_image{
+    /* background-color: green; */
+    display: grid;
+    place-items: center;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

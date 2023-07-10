@@ -1,0 +1,205 @@
+.mobile_categorie {
+  display: none;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .mobile_categorie {
+    display: block;
+  }
+  .mobile_All_categorie {
+    padding-left: 12px;
+    padding-top: 5px;
+  }
+  .mobile_All_categorie h5 {
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  .mobile_single_list {
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_categorie_container {
+    width: 93%;
+    height: auto;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_categorie_box {
+    height: 11vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile_categorie_image {
+    height: 10vh;
+    width: 15%;
+    padding-top: 10px;
+  }
+  .mobile_categorie_image img {
+    height: 45px;
+    width: 45px;
+  }
+  .mobile_categorie_name {
+    height: 10vh;
+    width: 100%;
+  }
+  .mobile_categorie_name p {
+    padding: 22px 10px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
+  .mobile_categorie_arr {
+    height: 10vh;
+    width: 10%;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_categorie_arr img {
+    height: 20px;
+    width: 20px;
+  }
+  .mobile_subcategory {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+  }
+  .mobile_subcategory_container {
+    width: 20%;
+    height: auto;
+  }
+
+  .mobile_subcategory_img {
+    width: 100%;
+    height: 6vh;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_subcategory_img img {
+    height: 40px;
+    width: 40px;
+  }
+  .mobile_subcategory_para {
+    width: auto;
+    height: auto;
+  }
+  .mobile_subcategory_para p {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    padding-top: 5px;
+    text-align: center;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_categorie {
+    display: block;
+  }
+  .mobile_All_categorie {
+    padding-left: 35px;
+    padding-top: 5px;
+  }
+  .mobile_All_categorie h5 {
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  .mobile_single_list {
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_categorie_container {
+    width: 93%;
+    height: auto;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_categorie_box {
+    height: 11vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobile_categorie_image {
+    height: 10vh;
+    width: 10%;
+    padding-top: 10px;
+  }
+  .mobile_categorie_image img {
+    height: 45px;
+    width: 45px;
+  }
+  .mobile_categorie_name {
+    height: 10vh;
+    width: 100%;
+  }
+  .mobile_categorie_name p {
+    padding: 22px 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
+  .mobile_categorie_arr {
+    height: 10vh;
+    width: 10%;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_categorie_arr img {
+    height: 20px;
+    width: 20px;
+  }
+  .mobile_subcategory {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+  }
+  .mobile_subcategory_container {
+    width: 20%;
+    height: auto;
+  }
+
+  .mobile_subcategory_img {
+    width: 100%;
+    height: 6vh;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_subcategory_img img {
+    height: 40px;
+    width: 40px;
+  }
+  .mobile_subcategory_para {
+    width: auto;
+    height: auto;
+  }
+  .mobile_subcategory_para p {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    padding-top: 5px;
+    text-align: center;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

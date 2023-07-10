@@ -1,0 +1,55 @@
+.submit_btn{
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.save_btn_btn{
+    height: 8vh;
+    width: 90%;
+    background-color: #EB2F06;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+.save_btn_btn p{
+    font-size: 1rem;
+   font-family: regular;
+   font-weight: 600;
+   color: white;
+   text-align: center;
+   padding-top: 1rem;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* CSS rules for mobile devices */
+  }
+  
+  /* iPads, Tablets (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* CSS rules for iPads and tablets */
+  }
+  
+  /* Small screens, laptops (769px - 1024px) */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* CSS rules for small screens and laptops */
+  }
+  
+  /* Desktops, large screens (1025px - 1200px) */
+  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    /* CSS rules for desktops and large screens */
+  }
+  
+  /* Extra large screens, TV (1201px and above) */
+  @media only screen and (min-width: 1201px) {
+    /* CSS rules for extra large screens and TV */
+    .save_btn_btn p{
+        font-size: 1rem;
+       font-family: regular;
+       font-weight: 600;
+       color: white;
+       text-align: center;
+       padding-top: 1rem;
+    }
+  }

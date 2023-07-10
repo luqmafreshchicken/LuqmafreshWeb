@@ -1,0 +1,95 @@
+.main_categorie_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categoriecard_content {
+  width: 89%;
+  display: flex;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .categoriecard_content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    word-wrap: break-word;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .categoriecard_content {
+    width: 93%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px){
+  /* CSS rules for iPads and tablets */
+  .categoriecard_content {
+    width: 93%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 768px){
+  /* CSS rules for iPads and tablets */
+  .categoriecard_content {
+    width: 93%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .categoriecard_content {
+    width: 93%;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .categoriecard_content {
+    width: 93%;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .categoriecard_content {
+    width: 91%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+.main_categorie_container{
+  padding-bottom: 2rem;
+}
+  .categoriecard_content {
+    width: 91%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+  }
+}

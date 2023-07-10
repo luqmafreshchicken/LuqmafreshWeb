@@ -1,0 +1,98 @@
+.main_today_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  height: auto;
+  width: 100%;
+}
+
+.today_card {
+  display: flex;
+  width: 90%;
+  gap: 30px;
+  align-items: center;
+}
+.subcategorie_contaner {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subcategorie_content {
+  width: 90%;
+  height: 30vh;
+  display: flex;
+  gap: 30px;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .today_card {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .subcategorie_content {
+    width: 90%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: grid;
+    grid-template-columns: 30% 30% 30% 30%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .today_card {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .main_today_card {
+    margin-bottom: 0%;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .main_today_card {
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
+  }
+  .today_card {
+    width: 90%;
+    height: 75vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above)  */
+@media screen and (min-width: 1201px) and (max-width: 1530px) {
+  .subcategorie_content {
+    gap: 10px;
+  }
+  .main_today_card {
+    margin-top: 1rem;
+  }
+  .today_card {
+    width: 90%;
+    height: 75vh;
+  }
+}

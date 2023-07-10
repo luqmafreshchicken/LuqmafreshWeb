@@ -1,0 +1,567 @@
+.singlecard {
+  height: 70vh;
+  width: 22%;
+  margin-right: 50px;
+}
+.image_singlecard {
+  height: 25vh;
+  width: 100%;
+}
+.image_singlecard img {
+  border-radius: 15px;
+}
+
+.offer_singlecard {
+  height: 10vh;
+  width: 100%;
+  /* background-color: green; */
+}
+.offer_singlecard h4 {
+  font-weight: 900;
+  font-family: bold;
+  padding-top: 39px;
+  font-size: 30px;
+  color: #ee1d23;
+}
+.icons_img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 28%;
+}
+.hover-image {
+  margin-right: 5px;
+}
+.rating {
+  height: 3vh;
+  padding-top: 3px;
+}
+.name_singlecard {
+  height: 6vh;
+  width: 100%;
+  /* background-color: orangered; */
+}
+.name_singlecard p {
+  /* font-weight: 900; */
+  font-family: semibold;
+  font-size: 15px;
+  padding-top: 10px;
+  color: black;
+}
+.weight_singlecard {
+  height: 4vh;
+  width: 100%;
+}
+.weight_singlecard p {
+  font-family: regular;
+  font-size: 15px;
+  padding-top: 5px;
+  color: black;
+}
+.price_singlecard {
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  gap: 10px;
+  /* background-color: orangered; */
+}
+.price_singlecard p {
+  font-family: medium;
+  font-size: 20px;
+  padding-top: 0px;
+}
+.today_singlecard {
+  height: 3vh;
+  width: 100%;
+}
+.today_singlecard p {
+  font-family: regular;
+  font-size: 15px;
+  color: black;
+}
+.time_singlecard {
+  height: 3vh;
+  width: 100%;
+}
+.time_singlecard p {
+  font-family: regular;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+}
+.total_singlecard {
+  height: 7vh;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+.incre_decre_btn {
+  height: 5.5vh;
+  width: 40%;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 2px solid #C42118;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 17px;
+}
+.incre_decre_btn p {
+  font-size: 18px;
+  font-family: regular;
+  font-weight: 600;
+  color: #C42118;
+}
+.ammount_singlecard {
+  height: 4vh;
+  width: 40%;
+  margin-top: 10px;
+  padding-top: 3px;
+}
+.ammount_singlecard p {
+  font-size: 1rem;
+  font-family: regular;
+  font-weight: 600;
+  color: black;
+  padding-top: 0.3rem;
+}
+.ammount_singlecard p span {
+  font-size: 18px;
+  font-family: regular;
+  font-weight: 600;
+  color: black;
+}
+.total_singlecard {
+  height: 15vh;
+}
+
+.total_singlecard button {
+  background-color: #C42118;
+  width: 40%;
+  height: 5.5vh;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .singlecard {
+    min-width: 70%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .ammount_singlecard p {
+    font-size: 14px;
+  }
+  .total_singlecard button {
+    background-color: #ee1d23;
+    width: 30%;
+    height: 5vh;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+@media only screen and (min-width: 400px) and (max-width: 480px) {
+  .singlecard {
+    min-width: 55%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .singlecard {
+    min-width: 47%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .ammount_singlecard p {
+    font-size: 14px;
+  }
+  .total_singlecard button {
+    background-color: #ee1d23;
+    width: 30%;
+    height: 5vh;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+
+@media only screen and (min-width: 570px) and (max-width: 768px) {
+  .singlecard {
+    min-width: 44%;
+  }
+}
+@media only screen and (min-width: 660px) and (max-width: 768px){
+  .singlecard {
+    min-width: 40%;
+  }
+}
+@media only screen and (min-width: 700px) and (max-width: 768px){
+  .singlecard {
+    min-width: 38%;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .singlecard {
+    min-width: 31%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .ammount_singlecard p {
+    font-size: 14px;
+  }
+  .total_singlecard button {
+    background-color: #ee1d23;
+    width: 30%;
+    height: 5vh;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+  .singlecard {
+    min-width: 29%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .ammount_singlecard p {
+    font-size: 14px;
+  }
+  .total_singlecard button {
+    background-color: #ee1d23;
+    width: 30%;
+    height: 5vh;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+@media only screen and (min-width: 940px) and (max-width: 1024px){
+  .singlecard {
+    min-width: 27%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+}
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .singlecard {
+    min-width: 25%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+    font-size: 27px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .ammount_singlecard p {
+    font-size: 14px;
+  }
+  .total_singlecard button {
+    background-color: #ee1d23;
+    width: 30%;
+    height: 5vh;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+  }
+}
+@media only screen and (min-width: 1140px) and (max-width: 1200px){
+  .singlecard {
+    min-width: 23%;
+  }
+}
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .singlecard {
+    min-width: 23%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_singlecard {
+    width: 100%;
+  }
+  .image_singlecard img {
+    height: 170px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .image_singlecard {
+    height: auto;
+  }
+  .name_singlecard {
+    width: 100%;
+  }
+  .name_singlecard p {
+    font-size: 14px;
+    padding-top: 15px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+  /* */
+  .offer_singlecard{
+    margin: 0.2rem 0rem 0.2rem 0rem;
+  }
+  .offer_singlecard h4 {
+    font-weight: 900;
+    font-family: semibold;
+    font-size: 1.5rem;
+    color: #ee1d23;
+  }
+  .offer_singlecard {
+    height: 8vh;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .total_singlecard{
+    padding-top: 1rem;
+  }
+ 
+}
+@media only screen and (min-width: 1260px) and (max-width: 1530px){
+  .singlecard {
+    min-width: 21%;
+  }
+ 
+}

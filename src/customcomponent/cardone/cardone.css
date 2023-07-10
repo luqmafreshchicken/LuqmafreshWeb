@@ -1,0 +1,390 @@
+.singlecard_combo {
+  height: 75vh;
+  width: 22%;
+  margin-right: 50px;
+}
+.image_doublecard {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.image_doublecard img {
+  border-radius: 15px;
+  height: 200px;
+  width: 300px;
+  cursor: pointer;
+}
+
+.name_singlecard_combo {
+  height: 8vh;
+}
+.name_singlecard_combo p {
+  font-weight: 570;
+  font-family: semibold;
+  font-size: 15px;
+  padding-top: 10px;
+  color: black;
+}
+.name_singlecard_combo {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .singlecard_combo {
+    min-width:70%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+ 
+}
+@media only screen and (min-width: 400px) and (max-width: 480px){
+  .singlecard_combo {
+    min-width: 55%;
+  }
+}
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .singlecard_combo {
+    min-width:47%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 570px) and (max-width: 768px){
+  .singlecard_combo {
+    min-width: 44%;
+  }
+}
+@media only screen and (min-width: 660px) and (max-width: 768px){
+  .singlecard_combo {
+    min-width: 40%;
+  }
+}
+@media only screen and (min-width: 700px)  and (max-width: 900px){
+  .singlecard_combo {
+    min-width: 38%;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .singlecard_combo {
+    min-width:31%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1024px){
+  .singlecard_combo {
+    min-width:29%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+}
+@media only screen and (min-width: 940px) and (max-width: 1024px){
+  .singlecard_combo {
+    min-width: 27%;
+  }
+}
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .singlecard_combo {
+    min-width:25%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 150px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1140px) and (max-width: 1200px){
+  .singlecard_combo {
+    min-width: 23%;
+  }
+}
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px){
+  /* CSS rules for extra large screens and TV */
+ 
+  .singlecard_combo {
+    min-width:23%;
+    height: auto;
+    margin-right: 1.4rem;
+  }
+  .image_doublecard{
+    width: 100%;
+  }
+  .image_doublecard img {
+    height: 170px;
+    width: 100%;
+    border-radius: 15px;
+  }
+  .name_singlecard {
+    height: 6.4vh;
+    /* background-color: green; */
+  }
+  .image_doublecard {
+    height: auto;
+  }
+  .offer_singlecard h4 {
+    padding-top: 20px;
+  }
+  .offer_singlecard {
+    height: 8vh;
+    width: 20%;
+  }
+  .price_singlecard p {
+    font-size: 17px;
+  }
+  .ammount_singlecard p span {
+    font-size: 17px;
+  }
+  .time_singlecard p {
+    font-size: 15px;
+  }
+  .name_singlecard_combo {
+    height: 5vh;
+    width: 100%;
+   
+  }
+  .name_singlecard_combo p {
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .icons_img{
+    width: 30%;
+  }
+}
+

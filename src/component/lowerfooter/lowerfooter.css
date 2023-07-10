@@ -1,0 +1,112 @@
+.lower_footer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #C42118;
+  height: auto;
+}
+.lowerfooter {
+  width: 90%;
+  color: white;
+  height: auto;
+  display: flex;
+  gap: 37.5rem;
+  align-items: center;
+  padding-top: 1rem;
+}
+.lowerfooter p {
+  font-family: light;
+  text-align: center;
+  font-size: 0.8rem;
+
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .lowerfooter p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
+  .lower_footer_container {
+    height: auto;
+    padding: 1rem 0rem;
+  }
+  .lowerfooter {
+    height: auto;
+    margin-bottom: 3.2rem;
+    min-width: 91%;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .lowerfooter p {
+    font-size: 12px;
+    text-align: justify;
+  }
+  .lower_footer_container {
+    height: 40vh;
+  }
+  .lowerfooter {
+    height: 30vh;
+    padding: 0px 0px;
+    margin-bottom: 0px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .lower_footer_container{
+    height: auto;
+    padding: 2rem 0rem;
+    margin-bottom: 3rem;
+  }
+  .lowerfooter{
+    height: auto;
+    text-align: justify;
+    padding-top: 0rem;
+  }
+  .lowerfooter p {
+    font-size: 12px;
+    text-align: justify;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .lower_footer_container{
+    height: auto;
+    padding: 2rem 0rem;
+    margin-bottom: 0rem;
+  }
+  .lowerfooter{
+    height: auto;
+    text-align: justify;
+    padding-top: 0rem;
+  }
+  .lowerfooter p {
+    font-size: 1rem;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .lower_footer_container{
+    height: auto;
+    padding: 2rem 0rem;
+    margin-bottom: 0rem;
+  }
+  .lowerfooter{
+    height: auto;
+    text-align: justify;
+    padding-top: 0rem;
+  }
+  .lowerfooter p {
+    font-size: 1rem;
+  }
+}

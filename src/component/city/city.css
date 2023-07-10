@@ -1,0 +1,168 @@
+.maincity {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subcity {
+  width: 90%;
+  margin-bottom: 30px;
+  height: auto;
+}
+.location_text {
+  display: flex;
+  padding: 10px 0px;
+  width: 100%;
+  font-size: 12px;
+  font-family: light;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto  ;
+  /* background-color: aqua; */
+  gap: 10px;
+}
+.location_text p{
+  /* background-color: blue; */
+  width: 100%;
+  text-align: center;
+  /* padding-top: 15px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subcity h5 {
+  padding-top: 25px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: semibold;
+}
+.para_city {
+  height: 5vh;
+  width: 50%;
+  border-radius: 50px;
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.5), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+
+  .subcity {
+    width: 93%;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .para_city{
+    background-color: #C42118;
+    color: white;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto  ;
+
+  } 
+  .location_text p{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .subcity {
+    width: 93%;
+  }
+   .para_city{
+    background-color: #C42118;
+    color: white;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+  } 
+}
+@media only screen and (min-width: 640px){
+  .subcity {
+    width: 93%;
+  }
+   .para_city{
+    background-color: #C42118;
+    color: white;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto ;
+  } 
+}
+@media only screen and (min-width: 700px){
+  .subcity {
+    width: 93%;
+  }
+   .para_city{
+    background-color: #C42118;
+    color: white;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+  } 
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .subcity {
+    width: 93%;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto ;
+
+  } 
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .subcity {
+    width: 93%;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto ;
+
+  } 
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+  .subcity {
+    width: 93%;
+  }
+  .subcity h5 {
+    font-size: 15px;
+  }
+  .location_text {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+
+  } 
+}
+

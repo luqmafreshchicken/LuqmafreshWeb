@@ -1,0 +1,56 @@
+.main_custom h6 {
+  font-family: medium;
+  color: white;
+}
+.main_custom p {
+  font-family: regular;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.main_custom {
+  height: auto;
+  width: 10%;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .main_custom {
+    width: 93%;
+    margin-top: 20px;
+    margin-left: 1px;
+  }
+  .main_custom h6 {
+    font-size: 0.8rem;
+  }
+  .main_custom p {
+    font-size: 0.7rem;
+    text-align: justify;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+.main_custom {
+  width: 93%;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

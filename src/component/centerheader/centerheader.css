@@ -1,0 +1,194 @@
+.center_header{
+   height: 15vh;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.firstcard_header{
+   width: 30%;
+   height: 15vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.secondcard_header{
+    width: 40%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thirdcard_header{
+   width: 50%;
+   height: 15vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.subcenter_header{
+   width: 30%;
+   height: 15vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+ .modal_style{
+     position: absolute;
+     top: 80%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     height: 60vh;
+     width: 100%;
+ }
+ 
+ .modal_style1{
+    position: absolute;
+    top: 80%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    height: 60vh;
+    width: 100%;
+ }
+ .style{
+    position:absolute;
+    top: 50%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 24;
+    /* p:4; */
+ 
+ }
+ .style1{
+    position:absolute;
+    top: 50%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 24;
+ }
+ 
+ .sign_in_logo{
+   width: 80%;
+   display: block;
+   padding: 10px 40px;
+   margin-left: 30px;
+   margin-top: 20px;
+ }
+ 
+ .otp_btn{
+    width: 90%;
+ }
+ 
+ .res_btn{
+    width: 82%;
+ }
+ 
+ .cross_img{
+    width: 40px;
+    height: 40px;
+    /* margin-left: 100%; */
+ }
+ .cross_img1{
+    width: 40px;
+    height: 40px;
+    margin-left: 100%;
+ 
+ }
+ 
+ 
+ 
+ 
+ @media screen and (max-width: 768px) {
+  .sign_in_logo{
+    width: 45%;
+    display: block;
+    padding: 10px 40px;
+    margin-left: 40px;
+    margin-top: 20px;
+  }
+  .style{
+    position:absolute;
+    top: 50%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    width: 180%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 24;
+    /* p:4; */
+ }
+ .style1{
+    position:absolute;
+    top: 50%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    width: 180%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 24;
+    /* p:4; */
+ }
+ 
+ .modal_style{
+    position: absolute;
+    top: 100%;
+    /* left: 50%; */
+    transform: translate(-95%, -80%);
+    height: 60vh;
+    width: 50%;
+ }
+ .modal_style1{
+    position: absolute;
+    top: 100%;
+    /* left: 50%; */
+    transform: translate(-105%, -80%);
+    height: 60vh;
+    width: 50%;
+ }
+ 
+ .otp_btn{
+    width: 92%;
+ }
+ .cross_img{
+   
+    margin-left: 80%;
+ }
+
+ .center_header{
+   width: 100%;
+   display: grid;
+   grid-template-columns: 100%;
+   height: auto;
+ }
+
+ .firstcard_header{
+   width: 55%;
+   height: 6vh;
+ }
+ 
+ .secondcard_header{
+   width: auto;
+   height: 7vh;
+ }
+
+ .subcenter_header{
+   height: auto;
+   padding-left: 50px;
+ }
+ .thirdcard_header{
+   width: auto;
+   height: 7vh;
+ }
+  }

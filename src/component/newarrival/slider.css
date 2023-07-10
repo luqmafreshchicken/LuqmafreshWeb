@@ -1,0 +1,107 @@
+.carouselitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 68vh;
+}
+.cardswrapper {
+  width: 89.5%;
+  align-items: center;
+  height: 68vh;
+}
+.card_slider {
+  display: flex;
+  justify-content: space-between;
+  overflow-y: hidden;
+  align-items: center;
+  overflow-x: scroll;
+  width: 100%;
+}
+.card_slider::-webkit-scrollbar {
+  overflow: hidden;
+}
+.slider_next_btn {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 7px;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 0px 5px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 60px;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  .slider_next_btn {
+    display: none;
+  }
+  .carouselitem {
+    height: auto;
+  }
+  .cardswrapper {
+    width: 91%;
+    height: 65vh;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .slider_next_btn {
+    display: none;
+  }
+  .cardswrapper {
+    width: 91%;
+    gap: 0px;
+    height: 65vh;
+  }
+  .carouselitem {
+    height: 65vh;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+  .carouselitem {
+    height: 65vh;
+  }
+  .cardswrapper {
+    width: 92%;
+    height: 65vh;
+  }
+}
+
+@media only screen and (min-width: 901px) and  (max-width: 1024px){
+  .slider_next_btn {
+    right: 10px;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .carouselitem {
+    height: 65vh;
+  }
+  .cardswrapper {
+    height: 65vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .carouselitem {
+    height: 80vh;
+
+  }
+  .cardswrapper {
+    height: 80vh;
+    width: 90%;
+
+  }
+}

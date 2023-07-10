@@ -1,0 +1,546 @@
+.navbar {
+  width: 100%;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.desktop_herder_content {
+  width: 90%;
+  background-color: white;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.luqma_location {
+  height: 5vh;
+  width: 20%;
+  /* background-color: pink; */
+}
+.luqma_location_top {
+  width: 100%;
+  height: 2.5vh;
+  /* background-color: orange; */
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+.luqma_location_top img {
+  width: 17px;
+  height: 17px;
+}
+.luqma_location_top p {
+  font-size: 0.8rem;
+  font-family: semibold;
+  padding-top: 1rem;
+}
+.luqma_location_bottom {
+  width: 90%;
+  height: 2.5vh;
+  padding-left: 1.2rem;
+}
+.luqma_location_bottom p {
+  font-size: 0.9rem;
+  font-family: regular;
+  line-height: 1.1;
+}
+.luqma_input {
+  height: 5vh;
+  width: 25%;
+  /* background-color: red; */
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.luqma_input input {
+  width: 300px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: regular;
+}
+.luqma_option {
+  width: 30%;
+  /* background-color: pink; */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 5vh;
+}
+.luqma_option ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: olivedrab; */
+  height: 5vh;
+}
+ul li {
+  list-style: none;
+  text-decoration: none;
+  font-family: regular;
+}
+.currency_container {
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.currency_container img {
+  height: 18px;
+  width: 18px;
+}
+.currency_container p {
+  font-size: 0.8rem;
+  padding-top: 1.1rem;
+}
+.cart_border_container {
+  border: 1px solid #c42118;
+  width: 115px;
+  height: 7vh;
+  border-radius: 10px;
+  display: flex;
+}
+.cart_border_content1 {
+  width: 35%;
+  /* background-color: aqua; */
+  height: 7vh;
+  display: grid;
+  place-items: center;
+}
+.cart_border_content1 img {
+  height: 18px;
+  width: 18px;
+}
+.cart_border_content2 {
+  width: 65%;
+  height: 7vh;
+}
+.cart_border_content2 p {
+  font-size: 0.8rem;
+  font-family: regular;
+  padding-top: 0.5rem;
+  color: black;
+}
+.cart_border_content2 p span {
+  font-size: 0.9rem;
+  font-family: regular;
+  font-weight: 600;
+  color: #c42118;
+  line-height: 1;
+}
+/* end header style */
+
+/* login style */
+
+.handle_login{
+  position: absolute;
+  top: 50%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 24;
+}
+.handle_login img{
+ width: 100%;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+}
+.handle_login_container{
+  position: absolute;
+  top: 90%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 94%;
+  background-color: white;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.handle_login_heading{
+  width: 100%;
+  height: 7vh;
+  background-color: #C42118;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.handle_login_heading p{
+  font-size: 1.2rem;
+  padding: .8rem 2rem;
+  font-family: regular;
+  font-weight: 600;
+  color: white;
+}
+.handle_login_number_container{
+  width: 100%;
+  height: 10vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+}
+.handle_login_number_content{
+  width: 85%;
+  height: 6vh;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+.handle_login_number_content input{
+  width: 100%;
+  height: 5vh;
+  border: none;
+  outline: none;
+  font-family: regular;
+}
+.handle_login_number_content p{
+  padding-top: 0.9rem;
+  font-family: regular;
+  color: #C42118;
+}
+.handle_login_otp_container{
+  width: 100%;
+  height: 10vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+}
+.handle_login_otp_content{
+  width: 85%;
+  height: 6vh;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+.handle_login_otp_content input{
+  width: 60%;
+  height: 5vh;
+  border: none;
+  outline: none;
+  font-family: regular;
+}
+.handle_login_otp_content p{
+  padding-top: 0.9rem;
+  font-family: regular;
+  color: #C42118;
+}
+.handle_login_btn_container{
+  width: 100%;
+  height: 14vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+  margin-bottom: 6rem;
+}
+.handle_login_btn_content{
+  width: 85%;
+  height: 6vh;
+  background-color: #C42118;
+  border-radius: 5px;
+}
+.handle_login_btn_content p{
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: regular;
+  font-weight: 600;
+  color: white;
+  padding-top: 0.6rem;
+}
+.handle_login_proceed_container{
+  width: 100%;
+  height: 14vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+  margin-bottom: 10rem;
+}
+.handle_login_proceed_content{
+  width: 85%;
+  height: 6vh;
+  background-color: #C42118;
+  border-radius: 5px;
+}
+.handle_login_proceed_content p{
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: regular;
+  font-weight: 600;
+  color: white;
+  padding-top: 0.6rem;
+}
+.mobile_input {
+  display: none;
+}
+.mobile_input_search {
+  width: 90%;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .luqma_logo_img img {
+    height: 70px;
+    width: 140px;
+  }
+  .style {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 100vh;
+    background-color: pink;
+    box-shadow: 24;
+  }
+  .modal_style {
+    position: absolute;
+    top: 100%;
+    transform: translate(-66%, -100%);
+    height: 50vh;
+    background-color: white;
+    width: 70%;
+  }
+  .close_btn_cross {
+    /* background-color: #ee1d23; */
+    height: 35px;
+    width: 7%;
+  }
+  .cross_img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }
+  .navbar {
+    display: none;
+  }
+  .mobile_input {
+    display: block;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mobile_input_search {
+    width: 90%;
+    height: 5.5vh;
+    border: 1px solid #b2b3b3;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .mobile_input_search img {
+    margin-right: 1rem;
+  }
+  .mobile_input_search input {
+    width: 100%;
+    height: 4vh;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    font-size: 0.8rem;
+    color: #b2b3b3;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_input {
+    display: block;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #c42118; */
+  }
+  .navbar {
+    display: none;
+  }
+  .mobile_input_search {
+    /* background-color: green; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    height: 6vh;
+    border: 1px solid #b2b3b3;
+    border-radius: 8px;
+  }
+
+  .mobile_input_search input {
+    width: 100%;
+    height: 5vh;
+    border: none;
+    outline: none;
+    padding-left: 1rem;
+    font-size: 1rem;
+  }
+  .mobile_input_search img {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 10px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .navbar {
+    display: none;
+  }
+ 
+  .mobile_input {
+    display: block;
+    height: 8vh;
+  }
+  .mobile_input_search {
+    width: 92%;
+    height: 7vh;
+    border: 1px solid #b2b3b3;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .mobile_input_search img {
+    margin-right: 1rem;
+    height: 25px;
+    width: 25px;
+  }
+  .mobile_input_search input {
+    width: 100%;
+    height: 4vh;
+    padding-left: 1rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #b2b3b3;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .desktop_herder_content{
+    width: 92%;
+  }
+  .luqma_location {
+    display: none;
+  }
+  .luqma_input {
+    width: 35%;
+    margin-left: 2.4rem;
+  }
+  .luqma_input input{
+    width: 250px;
+  }
+  .luqma_option {
+    width: 35%;
+   
+  }
+  .cart_border_container {
+    width: 90px;
+   
+  }
+}
+@media only screen and (min-width: 1024px){
+  .desktop_herder_content{
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 970px){
+  .luqma_input input{
+    width: 260px;
+  }
+}
+@media only screen and (min-width: 1050px){
+  .luqma_input input{
+    width: 280px;
+  }
+}
+@media only screen and (min-width: 1140px){
+  .luqma_input input{
+    width: 300px;
+  }
+}
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+ 
+  .luqma_logo img {
+    height: 110px;
+    width: 180px;
+
+  }
+  .luqma_location{
+    width: 25%;
+    padding-left: 2rem;
+  }
+  .luqma_location_top img{
+    height: 15px;
+    width: 15px;
+  }
+  .luqma_location_top p{
+    font-size: 0.7rem;
+  }
+  .luqma_location_bottom p{
+    font-size: 0.8rem;
+  }
+  .luqma_input {
+    width: 28%;
+  }
+  .luqma_input input {
+    width: 280px;
+    font-size: 0.8rem;
+    padding-bottom: 0.2rem;
+  }
+  .luqma_input img{
+    height: 17px;
+    width: 17px;
+  }
+  .luqma_option{
+    width: 30%;
+  }
+  .currency_container img{
+    height: 17px;
+    width: 17px;
+  }
+  .currency_container p{
+    font-size: 0.8rem;
+  }
+  .header_currency span{
+    font-size: 0.8rem;
+  }
+  .cart_border_container {
+    width: 100px;
+  }
+  .cart_border_content2 p {
+    font-size: 0.7rem;
+    padding-top: 0.4rem;
+  }
+  .cart_border_content2 p span {
+    font-size: 0.9rem;
+  }
+}

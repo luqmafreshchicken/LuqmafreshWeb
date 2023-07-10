@@ -1,0 +1,360 @@
+.cardetail_container {
+  width: 100%;
+  margin-top: 3%;
+  display: grid;
+  place-items: center;
+}
+.cardetail {
+  width: 92%;
+  height: auto;
+  display: flex;
+  gap: 50px;
+}
+.image_cardetail {
+  width: 30%;
+  height: auto;
+}
+.image_cardetail_slider,
+.full_view_image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.cardetail_content {
+  width: 50%;
+  height: auto;
+}
+.image_cardetail_slider {
+  display: flex;
+  width: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  gap: 20px;
+}
+
+.image_cardetail_slider::-webkit-scrollbar {
+  overflow: hidden;
+}
+.cardfull_detail_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+.cardfull_detail_container_text{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cardfull_detail_container_text p{
+  font-family: light;
+  font-weight: 600;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.image_text_container {
+  height: 12vh;
+  width: 100%;
+  border: 1px solid grey;
+}
+.image_text_content1 {
+  height: 6vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+.image_text_content1 span {
+  font-family: regular;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.image_text_content3{
+  height: 6vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.image_text_content3 span {
+  font-family: regular;
+  font-size: 14px;
+  padding-left: 10px;
+}
+.image_text_content1 img {
+  height: 40px;
+  width: 40px;
+}
+.image_text_content3 img {
+  height: 35px;
+  width: 35px;
+}
+.slider_next_btn_full_detail {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 7px;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 0px 5px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 30%;
+  top: 55%;
+}
+.Add_to_cart_btn{
+  width: 20%;
+}
+.Add_to_cart_btn button{
+  background-color: #C42118;
+  border: none;
+  height: 5vh;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 13px;
+  color: white;
+  text-align: center;
+  font-family: regular;
+
+}
+.full_view_incre_btn{
+  height: 6vh;
+  width: 20%;
+  border: 1px solid #C42118;
+  border-radius: 3px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+.full_view_incre_btn p{
+  color: #C42118;
+  font-size: 20px;
+  font-family: regular;
+  padding-top: 15px;
+}
+
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  
+  .slider_next_btn_full_detail{
+    display: none;
+  }
+  .fullview_search_mobile{
+    display: none;
+  }
+
+  .cardetail {
+    width: 93%;
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .image_cardetail {
+    width: 100%;
+    height: auto;
+  }
+  .image_cardetail_slider,
+  .full_view_image {
+    width: 100%;
+    height: 35vh;
+  }
+  .cardetail_content {
+    width: 100%;
+  }
+  .cardetail1 h4 {
+    font-size: 19px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+  .cardetail1 p {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+  }
+  .cardfull_detail_container_text{
+    gap: 10px;
+  }
+  .cardfull_detail_container_text p{
+    font-family: light;
+    padding-top: 15px;
+  }
+  .image_text_container{
+    height: 9vh;
+  }
+  .image_text_content1{
+    height: 4.5vh;
+  }
+  .image_text_content1 img {
+    height: 30px;
+    width: 30px;
+
+  }
+  .image_text_content1 span {
+    font-size: 12px;
+    padding-top: 7px;
+  }
+  .image_text_content3{
+    height: 4vh;
+  }
+  .image_text_content3 img {
+    height: 25px;
+    width: 25px;
+    margin-left: 3px;
+  }
+  .image_text_content3 span {
+    font-size: 12px;
+    padding-top: 2px;
+    padding-left: 7px;
+
+  }
+
+  .Add_to_cart_btn{
+    width: 30%;
+  }
+  .Add_to_cart_btn button{
+    font-size: 11px;
+  }
+  .cardetail_content h4{
+    font-size: 14px;
+    font-family: regular;
+  }
+  .cardetail_content p{
+    font-size: 12px;
+    font-family: regular;
+  }
+  .full_view_incre_btn{
+    width: 25%;
+    height: 5vh;
+  }
+  .full_view_incre_btn p{
+    font-size: 15px ;
+    padding-top: 18px;
+    font-family: semibold;
+
+  }
+ 
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .slider_next_btn_full_detail {
+    display: none;
+  }
+  .fullview_search_mobile{
+    display: none;
+  }
+  .cardetail {
+    width: 93%;
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+    gap: 10px;
+    margin-top: 0px;
+  }
+  .image_cardetail {
+    width: 100%;
+    height: auto;
+  }
+  .image_cardetail_slider,
+  .full_view_image {
+    width: 100%;
+    /* height: 50vh; */
+  }
+  .cardetail_content {
+    width: 100%;
+  }
+  .cardetail1 h4 {
+    font-size: 19px;
+    font-family: regular;
+    font-weight: 600;
+  }
+  .cardetail1 p {
+    font-size: 15px;
+    font-family: regular;
+  }
+  .image_text_content1 img {
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+  }
+  .image_text_content2 img {
+    height: 40px;
+    width: 40px;
+  }
+  .image_text_content3 img {
+    height: 40px;
+    width: 40px;
+  }
+  .image_text_content1 span {
+    font-size: 15px;
+  }
+  .image_text_content3 span {
+    font-size: 15px;
+  }
+  .image_cardetail_slider,
+.full_view_image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .cardetail{
+    width: 90%;
+  }
+  .image_cardetail{
+    width: 35%;
+  }
+  
+  .image_cardetail_slider img{
+    border-radius: 25px;
+  }
+  .slider_next_btn_full_detail {
+   
+    left: 35%;
+    top: 60%;
+  }
+}
+/*@media screen and (max-width: 768px)   {
+  .cardetail{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    height: auto;
+  }
+  
+  .image_cardetail{
+    width: 100%;
+  }
+  .cardetail_content{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: -40px;
+  }
+    /* .cardetail{
+     
+      }
+      .cardetail1{
+        width: 100%;
+    } */

@@ -1,0 +1,496 @@
+.main_addaddress_container {
+  height: 130vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.addaddress_container {
+  background-color: white;
+  width: 80%;
+  height: 120vh;
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: green; */
+}
+.addaddress_content_text {
+  width: 60%;
+  height: 115vh;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.addaddress_steps {
+  width: 30%;
+  height: 80vh;
+}
+.add_new_address_container {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add_new_address_text {
+  width: 80%;
+  height: 6vh;
+  border: 1px solid #c42118;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12px;
+
+}
+.add_new_address_text h5 {
+  color: #c42118;
+  font-family: regular;
+  font-weight: 600;
+}
+.saved_address {
+  width: 100%;
+  height: 7vh;
+
+}
+.saved_address h5 {
+  font-family: regular;
+  font-weight: 600;
+  padding-left: 70px;
+}
+.saved_address p {
+  color: grey;
+  font-family: regular;
+  font-weight: 600;
+  padding-left: 70px;
+}
+.select_saved_address_container {
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+
+}
+.select_saved_address_container::-webkit-scrollbar {
+  overflow: hidden;
+}
+.select_saved_address {
+  height: 25vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.input_radio {
+  width: 5%;
+  height: 5vh;
+  margin-top: 10px;
+}
+.saved_text_area {
+  width: 94%;
+  height: 25vh;
+  border: 1px solid #c42118;
+  border-radius: 5px;
+  /* background-color: #C42118; */
+}
+.input_radio input[type="radio"] {
+  accent-color: #c42118;
+  height: 30px;
+  width: 20px;
+}
+.local_area {
+  height: auto;
+}
+.local_area h6 {
+  padding: 15px 20px;
+  font-weight: 600;
+  font-family: regular;
+}
+.all_detail_text {
+  height: 12vh;
+  border-bottom: 1px solid lightgrey;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.all_detail_text p {
+  font-size: 13px;
+  line-height: 0.4;
+  color: grey;
+}
+.edit_delete_btn {
+  height: 5vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.edit_delete_btn {
+  display: flex;
+  justify-content: space-between;
+}
+.edit_delete_btn p {
+  padding-top: 7px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c42118;
+}
+.addaddress_button {
+  margin-top: 30px;
+  margin-left: 10%;
+  height: 6vh;
+  width: 30%;
+  background-color: #c42118;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-family: regular;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .addaddress_mobile_header {
+    display: none;
+  }
+  .add_new_address_container {
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .addaddress_steps {
+    display: none;
+  }
+  .main_addaddress_container {
+    height: auto;
+    width: 100%;
+  }
+  .addaddress_container {
+    height: auto;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .addaddress_content_text {
+    height: auto;
+    width: 93%;
+    box-shadow: none;
+  }
+  .add_new_address_text {
+    width: 100%;
+  }
+  .add_new_address_text h5 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .saved_address h5 {
+    padding-left: 0px;
+    font-size: 15px;
+    font-family: regular;
+  }
+  .saved_address p {
+    padding-left: 0px;
+    font-size: 12px;
+    font-family: light;
+  }
+  .select_saved_address {
+    width: 100%;
+    margin-left: 0%;
+    height: auto;
+  }
+  .local_area {
+    height: auto;
+    width: 100%;
+  }
+
+  .local_area h6 {
+    padding: 15px 0px;
+    font-size: 12px;
+    font-weight: none;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+  }
+  .all_detail_text p {
+    font-size: 11px;
+    line-height: 0.1;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 60%;
+    font-size: 14px;
+  }
+  .input_radio {
+    width: 8%;
+    margin-top: 14px;
+  }
+
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address_container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  .input_radio input[type="radio"] {
+    accent-color: #c42118;
+    height: 20px;
+    width: 15px;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 20px;
+    font-size: 10px;
+  }
+  .edit_delete_btn p {
+    font-size: 10px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .addaddress_mobile_header {
+    display: none;
+  }
+  .add_new_address_container {
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .addaddress_steps {
+    display: none;
+  }
+  .main_addaddress_container {
+    height: auto;
+    width: 100%;
+  }
+  .addaddress_container {
+    height: auto;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .addaddress_content_text {
+    height: auto;
+    width: 93%;
+    box-shadow: none;
+  }
+  .add_new_address_text {
+    width: 100%;
+  }
+  .add_new_address_text h5 {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .saved_address h5 {
+    padding-left: 0px;
+    font-size: 15px;
+    font-family: regular;
+  }
+  .saved_address p {
+    padding-left: 0px;
+    font-size: 12px;
+    font-family: light;
+  }
+  .select_saved_address {
+    width: 100%;
+    margin-left: 0%;
+    height: auto;
+  }
+  .local_area {
+    height: auto;
+    width: 100%;
+  }
+
+  .local_area h6 {
+    padding: 15px 0px;
+    font-size: 14px;
+    font-weight: none;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+  }
+  .all_detail_text p {
+    font-size: 13px;
+    line-height: 0.1;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 60%;
+    font-size: 14px;
+  }
+  .input_radio {
+    width: 4%;
+    margin-top: 14px;
+  }
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address_container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  .input_radio input[type="radio"] {
+    accent-color: #c42118;
+    height: 22px;
+    width: 17px;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 20px;
+    font-size: 10px;
+  }
+  .edit_delete_btn p {
+    font-size: 13px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .add_new_address_text {
+    width: 90%;
+  }
+  .add_new_address_text h5 {
+    font-size: 1rem;
+  }
+  .saved_address h5 {
+    padding-left: 2rem;
+    font-size: 1.1rem;
+  }
+  .saved_address p {
+    padding-left: 2rem;
+  }
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address{
+    width: 92%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    
+  }
+  /* select_saved_address */
+  .input_radio input[type="radio"] {
+    height: 22px;
+    width: 17px;
+  }
+  .local_area h6 {
+    padding: 10px 0px;
+    font-weight: 600;
+    font-family: regular;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .all_detail_text p {
+    font-size: 13px;
+    line-height: 0.4;
+    color: grey;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 0rem;
+  }
+  .edit_delete_btn {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 30%;
+    font-size: 0.8rem;
+    margin-top: 0px;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+  .add_new_address_text {
+    width: 90%;
+  }
+  .add_new_address_text h5 {
+    font-size: 1rem;
+  }
+  .saved_address h5 {
+    padding-left: 2rem;
+    font-size: 1.1rem;
+  }
+  .saved_address p {
+    padding-left: 2rem;
+  }
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address{
+    width: 92%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    
+  }
+  /* select_saved_address */
+  .input_radio input[type="radio"] {
+    height: 22px;
+    width: 17px;
+  }
+  .local_area h6 {
+    padding: 10px 0px;
+    font-weight: 600;
+    font-family: regular;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .all_detail_text p {
+    font-size: 13px;
+    line-height: 0.4;
+    color: grey;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 0rem;
+  }
+  .edit_delete_btn {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 30%;
+    font-size: 0.8rem;
+    margin-top: 0px;
+  }
+}

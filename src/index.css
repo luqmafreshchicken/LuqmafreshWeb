@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "bold";
+  src: local("bold"),
+    url("./fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "light";
+  src: local("light"),
+    url("./fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "medium";
+  src: local("medium"),
+    url("./fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "regular";
+  src: local("regular"),
+    url("./fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "semibold";
+  src: local("semibold"),
+    url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

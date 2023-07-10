@@ -1,0 +1,213 @@
+.main_newsfooter {
+  background-color: #ee1d23;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submain_newsfooter {
+  width: 92%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* gap: 20px; */
+}
+
+.newsletter {
+  color: white;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  gap: 20px;
+}
+
+.newsletter p {
+  font-size: 11px;
+  font-family: "Poppins", sans-serif;
+}
+
+.newsletter h5 {
+  font-family: regular;
+  font-weight: 500;
+}
+
+.subscribe {
+  background-color: white;
+  width: 40%;
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 35px;
+  margin-right: 40px;
+}
+
+.subscribe p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ee1d23;
+  font-family: regular;
+}
+.subscribe input {
+  height: 6vh;
+  margin-left: 20px;
+  width: 60%;
+  border: none;
+  padding-bottom: 3px;
+  outline: none;
+}
+
+.subscribe_btn {
+  background-color: yellow;
+  width: 30%;
+  height: 6vh;
+  border-radius: 35px;
+  margin-right: 4px;
+}
+
+.whatsapp {
+  /* background-color: #810605; */
+  color: white;
+  width: 22%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 40px;
+
+}
+.whatsapp p {
+  font-size: 17px;
+  /* font-weight: bold; */
+  font-family: light;
+  padding-top: 7px;
+  line-height: 0.1;
+}
+.whatsapp h6 {
+  font-family: medium;
+  line-height: 1;
+  font-size: 20px;
+
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .submain_newsfooter {
+    width: 93%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .main_newsfooter{
+    height: auto;
+  }
+  .newsletter {
+    width: 100%;
+    height: 15vh;
+  }
+  .newsletter img {
+    margin-top: 10px;
+  }
+  .subscribe{
+    width: 100%;
+  }
+  .whatsapp{
+    width: 70%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  .whatsapp img{
+    height: 40px;
+    width: 40px;
+  }
+  .whatsapp p{
+    padding-top: 5px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .submain_newsfooter {
+    width: 93%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .main_newsfooter{
+    height: auto;
+  }
+  .newsletter {
+    width: 100%;
+    height: 15vh;
+  }
+  .newsletter img {
+    margin-top: 10px;
+  }
+  .subscribe{
+    width: 100%;
+  }
+  .whatsapp{
+    width: 70%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+  }
+  .whatsapp img{
+    height: 40px;
+    width: 40px;
+  }
+  .whatsapp p{
+    padding-top: 5px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px){
+  /* CSS rules for extra large screens and TV */
+  .submain_newsfooter {
+    width: 90%;
+    height: auto;
+   
+  }
+  .main_newsfooter{
+    height: auto;
+    padding: 3rem 0rem;
+  }
+  .newsletter {
+    width: 100%;
+    height: 15vh;
+  }
+  .newsletter img {
+    margin-top: 0px;
+  }
+  .subscribe{
+    width: 100%;
+  }
+  .whatsapp{
+    width: 70%;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+  }
+  .whatsapp img{
+    height: 40px;
+    width: 40px;
+  }
+  .whatsapp p{
+    padding-top: 5px;
+  }
+}
+

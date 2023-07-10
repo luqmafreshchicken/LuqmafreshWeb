@@ -1,0 +1,21 @@
+.career_heading{
+    padding: 2.5rem 4.5rem;
+}
+.career_heading h3{
+    font-size: 2.2rem;
+    font-family: regular;
+    font-weight: 600;
+}
+.career_banner{
+    width: 100%;
+    height: 50vh;
+    display: grid;
+    place-items: center;
+}
+.career_banner img{
+    height: 50vh;
+    width: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}

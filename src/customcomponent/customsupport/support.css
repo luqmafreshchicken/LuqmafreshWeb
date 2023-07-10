@@ -1,0 +1,59 @@
+.content_support{
+  width: 15%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content_support p{
+  font-size: 13px;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.content_support img{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .content_support{
+    width: auto;
+    height: auto;
+  }
+  .content_support p{
+    line-height: 1.5;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+.content_support{
+  width: auto;
+  height: auto;
+}
+.content_support p{
+  line-height: 1.5;
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) {
+  /* CSS rules for extra large screens and TV */
+}

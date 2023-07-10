@@ -1,0 +1,429 @@
+.payment_container {
+  /* background-color: red; */
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+}
+
+.payment_section {
+  width: 80%;
+  height: auto;
+  /* background-color: greenyellow; */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.online_payment {
+  /* background-color: #f7f6f6; */
+  height: auto;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.online_payment_sidebar {
+  /* background-color: #4c8767; */
+  width: 30%;
+  height: 64vh;
+  /* border-right: 1px solid lightgrey; */
+  cursor: pointer;
+}
+.cash_on_delivery {
+  height: 8vh;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
+  /* border-top: 1px solid lightgrey; */
+}
+.cash_on_delivery:hover {
+  /* background-color: #fdf5f6; */
+  color: #c42118;
+  border-bottom: 3px solid #c42118;
+}
+.cash_on_delivery p {
+  font-family: light;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: justify;
+  padding-top: 18px;
+  padding-left: 15px;
+}
+.online_payment_content {
+  /* background-color: #4c8767; */
+  width: 68%;
+  height: auto;
+}
+.online_payment_steps {
+  height: auto;
+  width: 38%;
+  /* background-color: blue; */
+  padding-left: 3rem;
+  padding-top: 1.5rem;
+}
+.online_coupon {
+  background-color: white;
+  height: 20vh;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 9px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+.apply_coupon_btn {
+  display: flex;
+  justify-content: space-between;
+}
+.apply_coupon_btn h6 {
+  padding-left: 20px;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  font-family: regular;
+}
+.apply_coupon_btn img {
+  padding-top: 1rem;
+  padding-right: 25px;
+}
+.coupon_avilable {
+  display: flex;
+  gap: 20px;
+  /* background-color: aqua; */
+  padding-left: 18px;
+  margin-top: 0.9rem;
+}
+.coupon_avilable img {
+  margin-top: 5px;
+}
+.coupon_avilable_text {
+  background-color: #edf3ea;
+  border-radius: 3px;
+  height: 5vh;
+  width: 60%;
+}
+.coupon_avilable_text p {
+  color: #4c8767;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 0.1rem;
+
+}
+.bank_offer {
+  background-color: #faf7f2;
+  height: 5vh;
+  width: 90%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 1.6rem;
+  border-radius: 3px;
+}
+.bank_offer p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 0.6rem;
+}
+.online_bill_payment {
+  padding-top: 2rem;
+  font-family: regular;
+}
+.online_bill_payment h5 {
+  font-family: semibold;
+  font-weight: 600;
+}
+.payment_online_total {
+  /* background-color: greenyellow; */
+  width: 90%;
+  height: auto;
+  border-bottom: 1px solid #6d6e71;
+  padding-top: 0.3rem;
+
+}
+.online_subtotal {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: aqua; */
+}
+.online_subtotal p {
+  font-family: regular;
+  color: #6d6e71;
+  font-size: .9rem;
+}
+.online_total_count {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.7rem;
+  width: 90%;
+}
+.online_total_count p {
+  font-family: regular;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .mobile_payment {
+    display: none;
+  }
+  .mobile_steps {
+    display: none;
+  }
+  .payment_container {
+  }
+  .payment_section {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 92%;
+  }
+  .online_payment {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .online_payment_content{
+    width: 100%;
+  }
+  .online_payment_sidebar {
+    width: 100%;
+    height: 10vh;
+  }
+  .cash_on_delivery {
+    height: 5vh;
+  }
+  .cash_on_delivery p {
+    font-family: light;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: justify;
+    padding-top: 8px;
+    padding-left: 15px;
+  }
+  .online_coupon{
+    width: 100%;
+    margin-top: 10px;
+  }
+  .online_payment_steps{
+    width: 100%;
+  }
+  .apply_coupon_btn h6 {
+    padding-left: 20px;
+    padding-top: 12px;
+    font-size: 14px;
+  }
+  .coupon_avilable_text {
+    background-color: #edf3ea;
+    padding-top: 5px;
+    border-radius: 3px;
+    height: 4vh;
+    width: 50%;
+    text-align: center;
+  }
+  .coupon_avilable_text p {
+    color: #4c8767;
+    font-family: light;
+    font-size: 12px;
+  }
+  .coupon_avilable img {
+    margin-top: 0px;
+  }
+  .bank_offer {
+    width: 100%;
+    margin-left: 0px;
+    height: 6.3vh;
+  }
+  .bank_offer p {
+    font-family: light;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 12px;
+    padding-left: 0;
+  }
+  .online_bill_payment {
+    padding-top: 20px;
+  }
+  .online_bill_payment h5 {
+   font-size: 15px;
+   padding-left: 15px;
+  }
+  .payment_online_total {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #4c8767;
+  }
+
+  .online_subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+  }
+  .online_subtotal p {
+    font-family: light;
+    font-size: 12px;
+    padding: 0px 15px;
+  }
+  .mobile_dashed_border{
+    border: 1px dashed #4c8767;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .online_total_count {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    width: 100%;
+  }
+  .online_total_count p {
+    font-family: semibold;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0px 15px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .mobile_payment {
+    display: none;
+  }
+  .mobile_steps {
+    display: none;
+  }
+  .payment_container {
+  }
+  .payment_section {
+    display: grid;
+    grid-template-columns: 100%;
+    width: 92%;
+  }
+  .online_payment {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: #c42118; */
+  }
+  .online_payment_content{
+    width: 100%;
+  }
+
+  .online_payment_sidebar {
+    width: 170%;
+    height: 12vh;
+  }
+  .cash_on_delivery {
+    height: 6vh;
+  }
+  .cash_on_delivery p {
+    font-family: light;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: justify;
+    padding-top: 7px;
+    padding-left: 15px;
+  }
+  .online_coupon{
+    width: 100%;
+    margin-top: 10px;
+  }
+  .online_payment_steps{
+    width: 100%;
+  }
+  .apply_coupon_btn h6 {
+    padding-left: 20px;
+    padding-top: 12px;
+    font-size: 14px;
+  }
+  .coupon_avilable_text {
+    background-color: #edf3ea;
+    padding-top: 5px;
+    border-radius: 3px;
+    height: 4vh;
+    width: 50%;
+    text-align: center;
+  }
+  .coupon_avilable_text p {
+    color: #4c8767;
+    font-family: light;
+    font-size: 12px;
+  }
+  .coupon_avilable img {
+    margin-top: 0px;
+  }
+  .bank_offer {
+    width: 100%;
+    margin-left: 0px;
+    height: 6.3vh;
+  }
+  .bank_offer p {
+    font-family: light;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 12px;
+    padding-left: 0;
+  }
+  .online_bill_payment {
+    padding-top: 20px;
+  }
+  .online_bill_payment h5 {
+   font-size: 15px;
+   padding-left: 15px;
+  }
+  .payment_online_total {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #4c8767;
+  }
+
+  .online_subtotal {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0px;
+  }
+  .online_subtotal p {
+    font-family: light;
+    font-size: 12px;
+    padding: 0px 15px;
+  }
+  .mobile_dashed_border{
+    border: 1px dashed #4c8767;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .online_total_count {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    width: 100%;
+  }
+  .online_total_count p {
+    font-family: semibold;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0px 15px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1280px) {
+  /* CSS rules for extra large screens and TV */
+  .online_coupon {
+    height: 25vh;
+  }
+  .coupon_avilable_text {
+    padding-top: 0.4rem;
+    padding-left: 1rem;
+  }
+  
+}
+

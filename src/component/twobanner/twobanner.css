@@ -1,0 +1,16 @@
+.main_twobanner{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.onebanner{
+    width: 49%;
+    height: 45vh;
+}
+.twobanner{
+    width: 49%;
+    height: 45vh;
+}

@@ -1,0 +1,51 @@
+
+.blogs_para{
+    color: grey;
+    padding-top: 20px;
+    font-size: 17px;
+}
+
+.blogs_para:hover{
+    color: #d13369;
+  
+}
+
+.blogs_head{
+    color: black;
+}
+
+.blogs_head:hover{
+    color: #d13369;
+}
+
+.blogs_para1{
+    color: #d13369;
+    padding-top: 20px;
+    font-size: 15px;
+    letter-spacing: 2;
+}
+
+.blogs_par2{
+    color: black;
+    text-align: justify;
+    font-size: 15px;
+    line-height: 2;
+}
+
+.blogs_btn{
+    border: 1px solid grey;
+    color: grey;
+    background-color: white;
+    height: 6vh;
+    width: 60%;
+    font-size: 14px;
+    font-weight: 550;
+    margin: 20px;
+    font-family: sans-serif;
+}
+
+.blogs_btn:hover{
+    background-color: #d13369;
+    color: white;
+    border: 1px solid #d13369;
+}

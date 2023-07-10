@@ -1,0 +1,256 @@
+.topheader_container {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topheader_location {
+  width: 70%;
+  height: 8vh;
+  display: flex;
+}
+.topheader_icon {
+  width: 17%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.top_location {
+  height: 8vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding-left: 72px;
+  gap: 10px;
+}
+.top_location img {
+  height: 18px;
+  width: 18px;
+  margin-bottom: 12px;
+}
+.top_location p {
+  padding-top: 20px;
+  font-size: 13px;
+  padding-right: 15px;
+  font-family: "Poppins", sans-serif;
+}
+.top_location p span {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+.toplemail_mob {
+  height: 8vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toplemail_mob img {
+  height: 30px;
+  width: 30px;
+}
+.toplemail_mob p {
+  padding-top: 15px;
+  font-size: 13px;
+}
+.facebook {
+  font-size: 18px;
+  color: #c42118;
+  filter: brightness(100%);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.facebook:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+.insta {
+  font-size: 18px;
+  color: #c42118;
+  filter: brightness(100%);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.insta:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+.twitter {
+  font-size: 18px;
+  color: #c42118;
+  filter: brightness(100%);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.twitter:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+.youtube {
+  font-size: 18px;
+  color: #c42118;
+  filter: brightness(100%);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.youtube:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+.in {
+  font-size: 18px;
+  color: #c42118;
+  filter: brightness(100%);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.in:hover {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+
+  .topheader_location {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0px 5px rgb(0 0 0 / 0.2);
+    z-index: 999;
+  }
+  .top_location {
+    padding-left: 1.1rem;
+    gap: 5px;
+    /* background-color: aqua; */
+    width: 100%;
+  }
+  .top_location img {
+    height: 1rem;
+    width: 1rem;
+  }
+  .top_location p {
+    font-size: 0.7rem;
+  }
+  .top_location p span {
+    font-size: 0.8rem;
+  }
+
+  .toplemail_mob {
+    display: none;
+  }
+  .topheader_icon {
+    display: none;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .toplemail_mob {
+    display: none;
+  }
+  .topheader_icon {
+    display: none;
+  }
+  .topheader_location {
+    /* background-color: aqua; */
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0px 5px rgb(0 0 0 / 0.2);
+    z-index: 999;
+  }
+  .top_location {
+    /* background-color: blue; */
+    padding-left: 35px;
+  }
+  .top_location p {
+    font-size: 11px;
+  }
+  .top_location p span {
+    font-size: 13px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .topheader_container {
+    margin-bottom: 1rem;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  .top_location {
+    padding-left: 2rem;
+    gap: 10px;
+  }
+
+  .topheader_icon {
+    width: 30%;
+    gap: 25px;
+  }
+  .facebook,
+  .insta,
+  .twitter,
+  .youtube,
+  .in {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+  /* CSS rules for desktops and large screens */
+
+  .top_location {
+    padding-left: 2.2rem;
+  }
+
+  .toplemail_mob p {
+    padding-top: 0.7rem;
+  }
+  .topheader_icon {
+    min-width: 23%;
+  }
+}
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+
+  .top_location {
+    padding-left: 3rem;
+  }
+
+  .toplemail_mob p {
+    padding-top: 0.7rem;
+  }
+  .topheader_icon {
+    min-width: 22%;
+  }
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width:1530px) {
+  /* CSS rules for extra large screens and TV */
+
+  .top_location {
+    padding-left: 4rem;
+  }
+
+  .toplemail_mob p {
+    padding-top: 0.7rem;
+  }
+  .topheader_icon {
+    min-width: 17%;
+  }
+  .facebook,
+  .insta,
+  .twitter,
+  .youtube,
+  .in {
+    font-size: 1rem;
+  }
+}

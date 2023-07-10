@@ -1,0 +1,21 @@
+.steps_container{
+    width: 100%;
+}
+
+.choose_address{
+    display: flex;
+    gap: 10px;
+    height: 3.3vh;
+}
+.choose_address p{
+    font-family: semibold;
+    font-size: 18px;
+    font-weight: 600;
+}
+.verticle_line{
+    width: 2px;
+    height: 15vh;
+    background-color: #989c99;
+    margin: 1rem 0rem;
+    margin-left: 0.7rem;
+}

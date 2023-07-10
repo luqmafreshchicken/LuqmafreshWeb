@@ -1,0 +1,28 @@
+.pravacy_container {
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+}
+.pravacy_content {
+  width: 30%;
+  height: auto;
+}
+.pravacy_content h2 {
+  font-family: regular;
+  font-weight: 600;
+  padding-top: 3.5rem;
+  text-align: center;
+}
+.pravacy_content p {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .main_content {
+    width: 100%;
+  }
+  .main_para {
+    padding: 0px 10px;
+  }
+}

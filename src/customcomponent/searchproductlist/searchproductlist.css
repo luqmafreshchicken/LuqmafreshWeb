@@ -1,0 +1,213 @@
+.searchproductlist_component {
+  width: 100%;
+  height: 16vh;
+  display: flex;
+  border-bottom: 1px solid #d5d5d7;
+}
+.searchproduct_img {
+  width: 20%;
+  height: 12vh;
+}
+.searchproduct_img img {
+  width: 100%;
+  height: 12vh;
+  border-radius: 10px;
+}
+
+.searchproduct_content {
+  width: 80%;
+  height: 12vh;
+}
+.searchproduct_weight_qty {
+  height: 8vh;
+}
+.searchproduct_weight_qty p {
+  font-family: "Poppins", sans-serif;
+  color: grey;
+  line-height: 1.2;
+  padding-left: 10px;
+}
+.searchproduct_name_price {
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchproduct_name_price p {
+  padding-left: 10px;
+  color: grey;
+  font-family: "Poppins", sans-serif;
+}
+.productnameprice {
+  width: 60%;
+  padding-top: 20px;
+}
+.producticon {
+  width: 40%;
+  display: flex;
+  gap: 20px;
+}
+.producticon img {
+  margin-top: 8px;
+}
+.add_to_cart {
+  width: 60%;
+  height: 5vh;
+  border: 1px solid #c42118;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6px;
+}
+.add_to_cart p {
+  font-size: 10px;
+  color: #c42118;
+  padding-top: 11px;
+  padding-right: 7px;
+}
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .searchproductlist_component {
+    height: 15vh;
+    padding-left: 12px;
+    width: 100%;
+    padding-right: 12px;
+    margin-bottom: 0px;
+  }
+  .searchproduct_img img {
+    width: 100%;
+    height: 11vh;
+    border-radius: 5px;
+  }
+  .searchproduct_weight_qty {
+    width: 100%;
+    height: 8vh;
+  }
+  .searchproduct_weight_qty p {
+    font-size: 13px;
+  }
+  .searchproduct_name_price {
+    height: auto;
+  }
+  .productnameprice {
+    padding-top: 1px;
+  }
+  .productnameprice p {
+    font-size: 13px;
+  }
+  .producticon {
+    width: 40%;
+    margin-bottom: 10px;
+  }
+  .producticon img {
+    margin-top: 4px;
+    height: 18px;
+    width: 18px;
+  }
+  .add_to_cart {
+    width: 100%;
+    height: 5vh;
+  }
+  .add_to_cart p {
+    font-size: 10px;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .searchproductlist_component {
+    height: 15vh;
+    padding-left: 12px;
+    width: 100%;
+    padding-right: 12px;
+    margin-bottom: 0px;
+  }
+  .searchproduct_img img {
+    width: 100%;
+    height: 11vh;
+    border-radius: 5px;
+  }
+  .searchproduct_weight_qty {
+    width: 100%;
+    height: 8vh;
+  }
+  .searchproduct_weight_qty p {
+    font-size: 13px;
+  }
+  .searchproduct_name_price {
+    height: auto;
+  }
+  .productnameprice {
+    padding-top: 1px;
+  }
+  .productnameprice p {
+    font-size: 13px;
+  }
+  .producticon {
+    width: 40%;
+    margin-bottom: 10px;
+  }
+  .producticon img {
+    margin-top: 4px;
+    height: 18px;
+    width: 18px;
+  }
+  .add_to_cart {
+    width: 100%;
+    height: 5vh;
+  }
+  .add_to_cart p {
+    font-size: 10px;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .searchproductlist_component {
+    height: 12vh;
+  }
+
+  .searchproduct_weight_qty {
+    /* background-color: orange; */
+    width: 100%;
+    height: 5vh;
+  }
+  .searchproduct_weight_qty p {
+    font-size: 0.7rem;
+  }
+  .productnameprice p {
+    font-size: 0.7rem;
+  }
+  .searchproduct_img img {
+    width: 100%;
+    height: 10vh;
+    border-radius: 5px;
+  }
+  .producticon {
+    gap: 3.5rem;
+  }
+  .producticon img {
+    height: 20px;
+    widows: 20px;
+    margin-top: 4px;
+  }
+  .add_to_cart {
+    width: 100%;
+    height: 4vh;
+  }
+ 
+}

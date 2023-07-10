@@ -1,0 +1,106 @@
+.main_discountsection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submain_discountsection {
+  width: 89%;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  align-items: center;
+  /* margin-top: 30px; */
+  gap: 34px;
+}
+.submain_discountsection::-webkit-scrollbar {
+  overflow: hidden;
+}
+.slider_next_btn2 {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 7px;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.1), 0 0px 5px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 60px;
+  margin-bottom: 60px;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .submain_discountsection {
+    gap: 0px;
+    width: 100%;
+  }
+  .main_discountsection {
+    height: 35vh;
+  }
+  .slider_next_btn2 {
+    display: none;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .main_discountsection {
+    height: 40vh;
+  }
+  .submain_discountsection {
+    gap: 0px;
+    width: 100%;
+    margin-top: 0;
+  }
+  .slider_next_btn2 {
+    display: none;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  /* CSS rules for small screens and laptops */
+  .submain_discountsection {
+    gap: 0px;
+    width: 100%;
+    margin-top: 0;
+  }
+  .slider_next_btn2 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+  .submain_discountsection {
+    width: 92%;
+  }
+  .slider_next_btn2 {
+    right: 10px;
+  }
+}
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .submain_discountsection {
+    margin-top: 1rem;
+    gap: 1.5rem;
+  }
+
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .submain_discountsection {
+    width: 90%;
+    gap: 1.6rem;
+  }
+  .main_discountsection{
+    height: 75vh;
+  }
+}
