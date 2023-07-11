@@ -12,6 +12,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Pagination, Autoplay } from "swiper";
+import "swiper/css/navigation";
 
 export default function CardFullDetail({ id }) {
   let location = useLocation();
@@ -101,14 +109,25 @@ export default function CardFullDetail({ id }) {
           {/* image_card */}
           <div className="image_cardetail">
             <div className="image_cardetail_slider">
-              {allImage.map((img) => (
-                <img src={img.image} style={{ width: "100%", height: 376 }} />
-              ))}
-              {
-                <div className="slider_next_btn_full_detail">
-                  <img src="rtarrow.png" height="20px" width="20px" />
-                </div>
-              }
+              <Swiper
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay={{
+                  delay: 2500,
+                }}
+                modules={[Pagination, Autoplay]}
+                className="mySwiper"
+              >
+                {allImage.map((img) => (
+                  <SwiperSlide>
+                    <img
+                      src={img.image}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
           {/* card_content */}
@@ -125,9 +144,7 @@ export default function CardFullDetail({ id }) {
                 <div className="image_text_content1">
                   <div style={{ display: "flex" }}>
                     <img src="usp.png" />
-                    <span>
-                      No. of Pieces 3-4
-                    </span>
+                    <span>No. of Pieces 3-4</span>
                   </div>
                 </div>
 
@@ -138,7 +155,7 @@ export default function CardFullDetail({ id }) {
                   }}
                 >
                   <div className="image_text_content3">
-                    <img src="usp8.png"  />
+                    <img src="usp8.png" />
                     <span>
                       Net wt.{product.quantity}
                       {product.unit}
