@@ -1,5 +1,5 @@
 .main_newsfooter {
-  background-color: #ee1d23;
+  background-color: #FF0040;
   height: 30vh;
   display: flex;
   justify-content: center;
@@ -43,12 +43,13 @@
   align-items: center;
   border-radius: 35px;
   margin-right: 40px;
+  
 }
 
 .subscribe p {
   font-size: 13px;
   font-weight: 600;
-  color: #ee1d23;
+  color: #FF0040;
   font-family: regular;
 }
 .subscribe input {
@@ -61,11 +62,13 @@
 }
 
 .subscribe_btn {
-  background-color: yellow;
+  background-color: #f1c40f;
   width: 30%;
   height: 6vh;
   border-radius: 35px;
   margin-right: 4px;
+  padding-top: 0.25rem;
+
 }
 
 .whatsapp {
