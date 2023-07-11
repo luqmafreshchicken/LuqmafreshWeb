@@ -1,0 +1,67 @@
+.carddetail_slider_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+
+}
+.carddetail_slider_content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  /* background-color: aqua; */
+}
+.carddetail_slider_content::-webkit-scrollbar {
+  overflow: hidden;
+}
+.carddetail_slider_heading_container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  place-items: center;
+}
+.carddetail_slider_heading_content {
+  width: 90%;
+  height: auto;
+  padding-top: 3rem;
+}
+.carddetail_slider_heading_content h4 {
+  font-family: regular;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+  .carddetail_slider_container {   
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  
+  }
+}
