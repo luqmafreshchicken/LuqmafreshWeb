@@ -540,4 +540,12 @@ ul li {
   .cart_border_content2 p span {
     font-size: 0.9rem;
   }
+  .handle_login_btn_content p{
+  
+    padding-top: 0.4rem;
+  }
+  .handle_login_heading p{
+    padding: .6rem 2rem;
+ 
+  }
 }
