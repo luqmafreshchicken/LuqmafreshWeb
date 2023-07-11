@@ -33,6 +33,7 @@
 .topheader_icon p:hover{
   color: #FF0040;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 .top_location {
   height: 8vh;
