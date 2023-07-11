@@ -145,7 +145,7 @@ const Header = ({ onchange, value }) => {
           <nav className="main_nav">
             <NavLink to="/">
               <div className="luqma_logo">
-                <img src="MAIN LOGO3.png" height="110px" width="180px" />
+                <img src="MAIN LOGO.png" height="120px" width="180px" />
               </div>
             </NavLink>
 
@@ -326,7 +326,7 @@ const Header = ({ onchange, value }) => {
             <div className="handle_login_number_container">
               <div className="handle_login_number_content">
                 <input
-                  placeholder="Enter mobile number"
+                  placeholder="Enter your email"
                   value={mobileNumber}
                   onChange={handleMobileNumber}
                 />
