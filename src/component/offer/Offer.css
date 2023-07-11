@@ -9,7 +9,7 @@
 .submain_offer {
   width: 89.5%;
   height: 15vh;
-  background-color: #c42118;
+  background-color: #FF0040;
   border-radius: 20px;
   display: flex;
   justify-content: space-around;
@@ -26,7 +26,7 @@
   width: 200px;
   border: none;
   border-radius: 10px;
-  background-color: #f9fb1c;
+  background-color: #f1c40f;
   color: #c12118;
   font-weight: 600;
   font-size: 20px;
