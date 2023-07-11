@@ -19,7 +19,7 @@
   display: flex;
 }
 .topheader_icon {
-  width: 22%;
+  width: 24%;
   height: 8vh;
   display: flex;
   align-items: center;
@@ -29,6 +29,10 @@
   font-size: 0.85rem;
   padding-top: 1rem;
   font-family: regular;
+}
+.topheader_icon p:hover{
+  color: #FF0040;
+  transition: 0.2s ease-in-out;
 }
 .top_location {
   height: 8vh;
@@ -70,7 +74,7 @@
 }
 .facebook {
   font-size: 18px;
-  color: #c42118;
+  color: #FF0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -81,7 +85,7 @@
 }
 .insta {
   font-size: 18px;
-  color: #c42118;
+  color: #FF0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -92,7 +96,7 @@
 }
 .twitter {
   font-size: 18px;
-  color: #c42118;
+  color: #FF0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -103,7 +107,7 @@
 }
 .youtube {
   font-size: 18px;
-  color: #c42118;
+  color: #FF0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -114,7 +118,7 @@
 }
 .in {
   font-size: 18px;
-  color: #c42118;
+  color: #FF0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
