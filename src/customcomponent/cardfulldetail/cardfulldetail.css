@@ -13,6 +13,7 @@
 .image_cardetail {
   width: 35%;
   height: auto;
+  border-radius: 20px;
 }
 .image_cardetail_slider img {
   width: 100%;
@@ -318,6 +319,7 @@
   }
   .image_cardetail {
     width: 35%;
+    border-radius: 20px;
   }
 
   .image_cardetail_slider img {
