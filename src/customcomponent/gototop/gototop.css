@@ -3,11 +3,11 @@
   width: 3rem;
   height: 3rem;
   color: #fff;
-  background-color: #c42118;
+  background-color: #FF0040;
   box-shadow: 24;
   border-radius: 50%;
   position: fixed;
-  bottom: 2rem;
+  bottom: 4rem;
   right: 2rem;
   z-index: 999;
   display: flex;
@@ -45,4 +45,8 @@
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1201px) {
   /* CSS rules for extra large screens and TV */
+  .top-btn{
+  bottom: 5rem;
+
+  }
 }
