@@ -1,7 +1,7 @@
 .contactfooter {
   width: 90%;
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
 }
 .maincontactfooter {
   width: 100%;
@@ -61,7 +61,7 @@
 }
 
 .contact4 {
-  width: 35%;
+  width: 33%;
 }
 
 .contact4 h6 {
