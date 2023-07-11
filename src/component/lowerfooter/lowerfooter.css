@@ -10,14 +10,14 @@
   color: white;
   height: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
 }
 .lowerfooter p {
   font-family: light;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
 
 }
 
