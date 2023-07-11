@@ -12,6 +12,7 @@ import {
 const TopHeader = () => {
   return (
     <div className="topheader_container">
+    <div className="topheader_content">
       {/* left side */}
       <div className="topheader_location">
         <div className="top_location">
@@ -29,6 +30,7 @@ const TopHeader = () => {
       {/* right side */}
 
       <div className="topheader_icon">
+        <p>Sign in | Login</p>
         <FaFacebookF className="icon facebook" />
         <FaInstagram className="icon insta" />
         <FaTwitter className="icon twitter" />
@@ -36,6 +38,7 @@ const TopHeader = () => {
         <FaLinkedinIn className="icon in" />
       </div>
       {/* end right side */}
+      </div>
     </div>
   );
 };
