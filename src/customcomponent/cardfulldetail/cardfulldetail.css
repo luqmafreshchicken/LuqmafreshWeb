@@ -1,6 +1,6 @@
 .cardetail_container {
   width: 100%;
-  margin-top: 3%;
+  margin-top: 5%;
   display: grid;
   place-items: center;
 }
@@ -11,13 +11,12 @@
   gap: 50px;
 }
 .image_cardetail {
-  width: 30%;
+  width: 35%;
   height: auto;
 }
-.image_cardetail_slider,
-.full_view_image img {
+.image_cardetail_slider img {
   width: 100%;
-  height: 100%;
+  height: 60vh;
   border-radius: 20px;
 }
 
@@ -42,12 +41,12 @@
   align-items: center;
   padding-top: 20px;
 }
-.cardfull_detail_container_text{
+.cardfull_detail_container_text {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.cardfull_detail_container_text p{
+.cardfull_detail_container_text p {
   font-family: light;
   font-weight: 600;
   padding-top: 10px;
@@ -72,7 +71,7 @@
   padding-top: 10px;
   padding-left: 5px;
 }
-.image_text_content3{
+.image_text_content3 {
   height: 6vh;
   width: 100%;
   display: flex;
@@ -104,11 +103,11 @@
   left: 30%;
   top: 55%;
 }
-.Add_to_cart_btn{
+.Add_to_cart_btn {
   width: 20%;
 }
-.Add_to_cart_btn button{
-  background-color: #C42118;
+.Add_to_cart_btn button {
+  background-color: #ff0040;
   border: none;
   height: 5vh;
   width: 100%;
@@ -117,33 +116,31 @@
   color: white;
   text-align: center;
   font-family: regular;
-
 }
-.full_view_incre_btn{
+.full_view_incre_btn {
   height: 6vh;
   width: 20%;
-  border: 1px solid #C42118;
+  border: 1px solid #c42118;
   border-radius: 3px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
 }
-.full_view_incre_btn p{
-  color: #C42118;
+.full_view_incre_btn p {
+  color: #c42118;
   font-size: 20px;
   font-family: regular;
   padding-top: 15px;
 }
 
-
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
-  
-  .slider_next_btn_full_detail{
+
+  .slider_next_btn_full_detail {
     display: none;
   }
-  .fullview_search_mobile{
+  .fullview_search_mobile {
     display: none;
   }
 
@@ -177,29 +174,28 @@
     font-size: 15px;
     font-family: "Poppins", sans-serif;
   }
-  .cardfull_detail_container_text{
+  .cardfull_detail_container_text {
     gap: 10px;
   }
-  .cardfull_detail_container_text p{
+  .cardfull_detail_container_text p {
     font-family: light;
     padding-top: 15px;
   }
-  .image_text_container{
+  .image_text_container {
     height: 9vh;
   }
-  .image_text_content1{
+  .image_text_content1 {
     height: 4.5vh;
   }
   .image_text_content1 img {
     height: 30px;
     width: 30px;
-
   }
   .image_text_content1 span {
     font-size: 12px;
     padding-top: 7px;
   }
-  .image_text_content3{
+  .image_text_content3 {
     height: 4vh;
   }
   .image_text_content3 img {
@@ -211,34 +207,31 @@
     font-size: 12px;
     padding-top: 2px;
     padding-left: 7px;
-
   }
 
-  .Add_to_cart_btn{
+  .Add_to_cart_btn {
     width: 30%;
   }
-  .Add_to_cart_btn button{
+  .Add_to_cart_btn button {
     font-size: 11px;
   }
-  .cardetail_content h4{
+  .cardetail_content h4 {
     font-size: 14px;
     font-family: regular;
   }
-  .cardetail_content p{
+  .cardetail_content p {
     font-size: 12px;
     font-family: regular;
   }
-  .full_view_incre_btn{
+  .full_view_incre_btn {
     width: 25%;
     height: 5vh;
   }
-  .full_view_incre_btn p{
-    font-size: 15px ;
+  .full_view_incre_btn p {
+    font-size: 15px;
     padding-top: 18px;
     font-family: semibold;
-
   }
- 
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -247,7 +240,7 @@
   .slider_next_btn_full_detail {
     display: none;
   }
-  .fullview_search_mobile{
+  .fullview_search_mobile {
     display: none;
   }
   .cardetail {
@@ -299,12 +292,12 @@
     font-size: 15px;
   }
   .image_cardetail_slider,
-.full_view_image img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
+  .full_view_image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
 }
 
 /* Small screens, laptops (769px - 1024px) */
@@ -320,20 +313,24 @@
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
-  .cardetail{
+  .cardetail {
     width: 90%;
   }
-  .image_cardetail{
+  .image_cardetail {
     width: 35%;
   }
-  
-  .image_cardetail_slider img{
+
+  .image_cardetail_slider img {
     border-radius: 25px;
+    height: 70vh;
   }
   .slider_next_btn_full_detail {
-   
     left: 35%;
     top: 60%;
+  }
+  .image_cardetail {
+    width: 38%;
+    height: auto;
   }
 }
 /*@media screen and (max-width: 768px)   {
