@@ -288,6 +288,14 @@ ul li {
 .mobile_input_search {
   width: 90%;
 }
+.currency_container p{
+  color: black;
+}
+.currency_container p:hover{
+  color: #FF0040;
+  transition: 0.2s ease-in-out;
+}
+
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 280px) and (max-width: 480px) {
