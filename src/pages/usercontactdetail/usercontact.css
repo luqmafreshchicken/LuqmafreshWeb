@@ -1,19 +1,18 @@
 .main_usercontact {
   width: 100%;
-  height: 80vh;
+  height:85vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .main_user_contact_location {
-  width: 90%;
+  width: 96%;
   height: 75vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 60px;
   margin-bottom: 60px;
-  margin-left: 70px;
 }
 .user_contact_location {
   width: 70%;
@@ -22,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.user_steps {
+.user_contact_location_steps {
   width: 30%;
   height: 70vh;
   padding-left: 30px;
@@ -32,9 +31,8 @@
   height: 70vh;
 }
 .user_contact_detail {
-  width: 45%;
+  width: 90%;
   height: 70vh;
-  align-items: center;
 }
 
 @media screen and (max-width: 768px) {
