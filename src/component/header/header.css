@@ -168,15 +168,12 @@ ul li {
   height: auto;
   width: 94%;
   background-color: white;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
 }
 .handle_login_heading{
   width: 100%;
   height: 7vh;
   background-color: #C42118;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+
 }
 .handle_login_heading p{
   font-size: 1.2rem;
