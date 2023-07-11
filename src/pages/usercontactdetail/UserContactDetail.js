@@ -80,16 +80,6 @@ const UserContactDetail = () => {
       <div className="main_user_contact_location">
         {/* contact page */}
         <div className="user_contact_location">
-          <div className="user_map_location">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.7502265620556!2d80.98881587535837!3d26.784230676724054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be4ac0341a871%3A0x96e094c54c92ecc7!2sLulu%20Mall%2C%20Lucknow!5e0!3m2!1sen!2sin!4v1682236460750!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
           <div className="user_contact_detail">
             <Input
               lable="Search for Area/Locality"
@@ -128,6 +118,10 @@ const UserContactDetail = () => {
             />
             <Button onclick={() => handleCreateAdd(userId)} />
           </div>
+          <div className="user_contact_location_steps">
+          <Steps img1="radio.png" img2="radio.png" img3="radio.png" />
+
+          </div>
         </div>
         {/* end contact page */}
        
@@ -150,3 +144,7 @@ const UserContactDetail = () => {
 };
 
 export default UserContactDetail;
+
+
+
+
