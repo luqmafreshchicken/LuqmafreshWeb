@@ -21,7 +21,7 @@
   font-family: bold;
   padding-top: 39px;
   font-size: 30px;
-  color: #ee1d23;
+  color: #ff0040;
 }
 .icons_img {
   display: flex;
@@ -100,7 +100,7 @@
   width: 40%;
   margin-top: 10px;
   border-radius: 10px;
-  border: 2px solid #C42118;
+  border: 2px solid #ff0040;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -110,7 +110,7 @@
   font-size: 18px;
   font-family: regular;
   font-weight: 600;
-  color: #C42118;
+  color: #ff0040;
 }
 .ammount_singlecard {
   height: 4vh;
@@ -136,7 +136,7 @@
 }
 
 .total_singlecard button {
-  background-color: #C42118;
+  background-color: #FF0040;
   width: 40%;
   height: 5.5vh;
   margin-top: 10px;
@@ -201,7 +201,6 @@
     font-size: 14px;
   }
   .total_singlecard button {
-    background-color: #ee1d23;
     width: 30%;
     height: 5vh;
     margin-top: 10px;
@@ -271,7 +270,6 @@
     font-size: 14px;
   }
   .total_singlecard button {
-    background-color: #ee1d23;
     width: 30%;
     height: 5vh;
     margin-top: 10px;
@@ -353,7 +351,6 @@
     font-size: 14px;
   }
   .total_singlecard button {
-    background-color: #ee1d23;
     width: 30%;
     height: 5vh;
     margin-top: 10px;
@@ -416,7 +413,6 @@
     font-size: 14px;
   }
   .total_singlecard button {
-    background-color: #ee1d23;
     width: 30%;
     height: 5vh;
     margin-top: 10px;
@@ -488,7 +484,6 @@
     font-size: 14px;
   }
   .total_singlecard button {
-    background-color: #ee1d23;
     width: 30%;
     height: 5vh;
     margin-top: 10px;
