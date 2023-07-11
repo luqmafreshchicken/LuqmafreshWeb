@@ -31,6 +31,7 @@ const TopHeader = () => {
 
       <div className="topheader_icon">
         <p>Login</p>
+        <p>|</p>
         <p>Sign in</p>
 
         <FaFacebookF className="icon facebook" />
