@@ -30,7 +30,9 @@ const TopHeader = () => {
       {/* right side */}
 
       <div className="topheader_icon">
-        <p>Login | Sign in</p>
+        <p>Login</p>
+        <p>Sign in</p>
+
         <FaFacebookF className="icon facebook" />
         <FaInstagram className="icon insta" />
         <FaTwitter className="icon twitter" />
