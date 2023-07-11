@@ -1,27 +1,40 @@
 .topheader_container {
   height: 10vh;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+}
+.topheader_content{
+   width: 90%;
+   height: 10vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
 }
 .topheader_location {
-  width: 70%;
+  width: 50%;
   height: 8vh;
   display: flex;
 }
 .topheader_icon {
-  width: 17%;
+  width: 22%;
   height: 8vh;
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+}
+.topheader_icon p{
+  font-size: 0.9rem;
+  padding-top: 0.9rem;
+  font-family: regular;
 }
 .top_location {
   height: 8vh;
   width: auto;
   display: flex;
   align-items: center;
-  padding-left: 72px;
   gap: 10px;
 }
 .top_location img {
@@ -220,37 +233,7 @@
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
 
-  .top_location {
-    padding-left: 3rem;
-  }
-
-  .toplemail_mob p {
-    padding-top: 0.7rem;
-  }
-  .topheader_icon {
-    min-width: 22%;
-  }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) and (max-width:1530px) {
-  /* CSS rules for extra large screens and TV */
 
-  .top_location {
-    padding-left: 4rem;
-  }
-
-  .toplemail_mob p {
-    padding-top: 0.7rem;
-  }
-  .topheader_icon {
-    min-width: 17%;
-  }
-  .facebook,
-  .insta,
-  .twitter,
-  .youtube,
-  .in {
-    font-size: 1rem;
-  }
-}
