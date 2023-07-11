@@ -172,7 +172,7 @@ ul li {
 .handle_login_heading{
   width: 100%;
   height: 7vh;
-  background-color: #C42118;
+  background-color: #FF0040;
 
 }
 .handle_login_heading p{
@@ -249,7 +249,7 @@ ul li {
 .handle_login_btn_content{
   width: 85%;
   height: 6vh;
-  background-color: #C42118;
+  background-color: #FF0040;
   border-radius: 5px;
 }
 .handle_login_btn_content p{
@@ -271,7 +271,7 @@ ul li {
 .handle_login_proceed_content{
   width: 85%;
   height: 6vh;
-  background-color: #C42118;
+  background-color: #FF0040;
   border-radius: 5px;
 }
 .handle_login_proceed_content p{
