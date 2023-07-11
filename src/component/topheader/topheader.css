@@ -241,4 +241,13 @@
 }
 
 /* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
+  /* CSS rules for desktops and large screens */
+  .topheader_icon {
+    width: 22%;
+  }
+  .top_location p {
+    padding-right: 2rem;
+  }
+}
 
