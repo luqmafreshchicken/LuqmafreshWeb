@@ -309,10 +309,6 @@ const Header = ({ onchange, value }) => {
       </div>
       <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} />
 
-
-
-
-
       <Modal
         open={open}
         onClose={handleClose}
@@ -320,9 +316,7 @@ const Header = ({ onchange, value }) => {
         aria-describedby="modal-modal-description"
       >
         <Box className="handle_login">
-        
           <img src="01.jpg" className="sign_in_logo" />
-
 
           <div className="handle_login_container">
             {/* heading */}
@@ -330,7 +324,7 @@ const Header = ({ onchange, value }) => {
               <p>Sign In</p>
             </div>
             {/* end heading */}
-            
+
             {/* input number */}
             <div className="handle_login_number_container">
               <div className="handle_login_number_content">
@@ -365,7 +359,7 @@ const Header = ({ onchange, value }) => {
                   onClick={() => handleLogin()}
                   disabled={btn}
                   style={{
-                    backgroundColor: btn === true ? "#C42118" : "#C42118",
+                    backgroundColor: btn === true ? "#FF0040" : "#FF0040",
                     opacity: btn === true ? 0.4 : 100,
                     color: btn === true ? "white" : "white",
                   }}
