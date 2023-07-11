@@ -10,7 +10,7 @@
   color: white;
   height: auto;
   display: flex;
-  gap: 37.5rem;
+  justify-content: space-around;
   align-items: center;
   padding-top: 1rem;
 }
@@ -61,13 +61,11 @@
   /* CSS rules for small screens and laptops */
   .lower_footer_container{
     height: auto;
-    padding: 2rem 0rem;
-    margin-bottom: 3rem;
   }
   .lowerfooter{
     height: auto;
     text-align: justify;
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
   .lowerfooter p {
     font-size: 12px;
@@ -80,13 +78,12 @@
   /* CSS rules for desktops and large screens */
   .lower_footer_container{
     height: auto;
-    padding: 2rem 0rem;
     margin-bottom: 0rem;
   }
   .lowerfooter{
     height: auto;
     text-align: justify;
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
   .lowerfooter p {
     font-size: 1rem;
@@ -98,13 +95,12 @@
   /* CSS rules for extra large screens and TV */
   .lower_footer_container{
     height: auto;
-    padding: 2rem 0rem;
     margin-bottom: 0rem;
   }
   .lowerfooter{
     height: auto;
     text-align: justify;
-    padding-top: 0rem;
+    padding-top: 1rem;
   }
   .lowerfooter p {
     font-size: 1rem;
