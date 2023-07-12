@@ -56,15 +56,14 @@
 }
 .online_payment_steps {
   height: auto;
-  width: 38%;
+  width: 45%;
   /* background-color: blue; */
   padding-left: 3rem;
   padding-top: 1.5rem;
 }
 .online_coupon {
-  background-color: white;
-  height: 20vh;
-  width: 90%;
+  height: 22vh;
+  width: 100%;
   border-radius: 5px;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.12), 0 3px 9px 0 rgba(0, 0, 0, 0.1);
   margin-top: 2rem;
@@ -72,6 +71,9 @@
 .apply_coupon_btn {
   display: flex;
   justify-content: space-between;
+}
+.apply_coupon_btn img{
+  cursor: pointer;
 }
 .apply_coupon_btn h6 {
   padding-left: 20px;
@@ -104,21 +106,19 @@
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   text-align: center;
-  padding-top: 0.1rem;
+  padding-top: 0.5rem;
 
 }
 .bank_offer {
   background-color: #faf7f2;
   height: 5vh;
-  width: 90%;
-  margin-left: 20px;
+  width: 100%;
   margin-right: 20px;
   margin-top: 1.6rem;
-  border-radius: 3px;
 }
 .bank_offer p {
   font-family: "Poppins", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-align: center;
   padding-top: 0.6rem;
 }
@@ -132,7 +132,7 @@
 }
 .payment_online_total {
   /* background-color: greenyellow; */
-  width: 90%;
+  width: 100%;
   height: auto;
   border-bottom: 1px solid #6d6e71;
   padding-top: 0.3rem;
@@ -152,7 +152,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 0.7rem;
-  width: 90%;
+  width: 100%;
 }
 .online_total_count p {
   font-family: regular;
@@ -415,10 +415,12 @@
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) and (max-width: 1530px){
   /* CSS rules for extra large screens and TV */
   .online_coupon {
     height: 25vh;
+    background-color: #4c8767;
+    width: 100%;
   }
   .coupon_avilable_text {
     padding-top: 0.4rem;
