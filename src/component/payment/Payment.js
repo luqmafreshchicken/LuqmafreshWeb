@@ -292,7 +292,7 @@ const Payment = () => {
               </div>
               <div className="online_total_count">
                 <p>Total</p>
-                <p style={{color:"#C42118"}}>₹ {calculateTotalBill()}</p>
+                <p style={{color:"#FF0040"}}>₹ {calculateTotalBill()}</p>
               </div>
             </div>
           </div>
