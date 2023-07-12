@@ -18,14 +18,14 @@
 .online_payment {
   /* background-color: #f7f6f6; */
   height: auto;
-  width: 60%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .online_payment_sidebar {
   /* background-color: #4c8767; */
-  width: 30%;
+  width: 28%;
   height: 64vh;
   /* border-right: 1px solid lightgrey; */
   cursor: pointer;
