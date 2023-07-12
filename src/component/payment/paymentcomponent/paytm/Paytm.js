@@ -6,46 +6,57 @@ const Paytm = () => {
 
   return (
     <div className="paytm_container">
-      {/* heading */}
-      {/* <div className="paytm_heading">
-        <p>paytm Pay</p>
-  </div>*/}
-      {/* end heading */}
       {/* radio & paytm image */}
       <div className="paytm_select_content">
-        <div className="paytm_radio_btn"></div>
-        <div className="paytm_image_container">
-          <img src="paytm.png" />
-        </div>
-        <div className="paytm_link_account" onClick={() => setPaytm(true)}>
-          <p>Link Account</p>
+        <div className="radio_paytm_image">
+          {/* paytm caontainer */}
+          <div className="paytm_radio_btn"></div>
+          <div className="paytm_image_container">
+            <img src="paytm.png" height="35px" width="130px" />
+          </div>
+          <div
+            className="paytm_linkaccount_text"
+            onClick={() => setPaytm(true)}
+          >
+            <p>Link Account</p>
+          </div>
+          {/* end paytm caontainer */}
         </div>
       </div>
-      {/* end radio & paytm image */}
-      {/* input otp */}
       {paytm == true ? (
         <div className="paytm_inputotp_container">
           <div className="paytm_inputotp_content">
-            <input placeholder="Enter OTP" type="" />
-            <p> Resend </p>
+            <div className="input_resend">
+              <input placeholder="Enter OTP" type="" />
+              <p> Resend </p>
+            </div>
           </div>
         </div>
       ) : null}
-      {/* end input otp */}
       {paytm == true ? (
         <div className="paytm_payment_btn_container">
-          <p>1246.65</p>
+          <div className="paytm_payment_btn_content">
+            <div className="paytm_payment_btn">
+              <p>4653.33</p>
+            </div>
+          </div>
         </div>
-      ) : (
-        <div
-          className="paytm_payment_btn_container"
-          style={{ backgroundColor: "#a2a2a2", color: "white" }}
-        >
-          <p>1246.65</p>
+      ) : null}
+      {paytm == false ? (
+        <div className="paytm_payment_btn_container">
+          <div className="paytm_payment_btn_content">
+            <div
+              className="paytm_payment_btn"
+              style={{ backgroundColor: "#a2a2a2", color: "white" }}
+            >
+              <p>653.33</p>
+            </div>
+          </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
 
 export default Paytm;
+
