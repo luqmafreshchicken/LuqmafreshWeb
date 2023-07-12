@@ -11,6 +11,7 @@
     background-color: #FF0040;
     border-radius: 8px;
     margin-top: 1rem;
+    cursor: pointer;
 }
 .save_btn_btn p{
     font-size: 1rem;
