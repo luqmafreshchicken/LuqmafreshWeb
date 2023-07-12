@@ -1,105 +1,118 @@
 .amazon_container {
   width: 100%;
-  height: 60vh;
+  height: 40vh;
+  /* background-color: aqua; */
+ padding-top: 7.5rem;
 }
-/* heading */
-.amazon_heading p {
-  font-size: 1.4rem;
-  font-family: regular;
-  font-weight: 600;
-  padding: 1rem 0rem 0rem 2rem;
-}
-/* end heading */
-
-/* select content */
 .amazon_select_content {
-  height: 10vh;
+  height: 8vh;
   width: 100%;
   display: flex;
-  /* gap: 1rem; */
+  justify-content: center;
   align-items: center;
-  padding-left: 2rem;
-  /* background-color: aqua; */
-  padding-top: 9.5rem;
+  /* background-color: orange; */
 }
-.amazon_radio_btn {
-  height: 22px;
-  width: 23px;
-  border: 1px solid lightgray;
-  border-radius: 50px;
+.radio_amazon_image{
   /* background-color: blue; */
+  width: 92%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
 }
-.amazon_image_container {
+.amazon_radio_btn{
+  height: 21px;
+  width: 21px;
+  border: 1px solid #FF0040;
+  border-radius: 50px;
+}
+.amazon_image_container{
   width: 30%;
-  height: 7vh;
-  border-radius: 5px;
-  padding-top: 0.9rem;
-  /* background-color: pink; */
+  height: 5vh;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
 }
-.amazon_image_container img {
-  height: 30px;
-  width: 150px;
-  /* background-color: red; */
+.amazon_linkaccount_text{
+  width: 25%;
+  /* background-color: green; */
+  height: 5vh;
 }
-.amazon_link_account {
-  width: 20%;
-  height: 7vh;
-  padding-top: 0.8rem;
-}
-.amazon_link_account p {
-  font-size: 0.9rem;
+.amazon_linkaccount_text p{
   font-family: regular;
-  font-weight: 600;
+  padding-top: 0.45rem;
+  /* text-align: center; */
 }
-.amazon_link_account p:hover {
+.amazon_linkaccount_text:hover{
   border-bottom: 2px solid #FF0040;
   cursor: pointer;
-  /* transition: 0.2s ease-in-out; */
+  transition: 0.2s ease-in-out;
 }
-/* end select content */
-
-.amazon_inputotp_container {
-  /* background-color: red; */
-  height: 10vh;
-  padding-top: 2rem;
+.amazon_inputotp_container{
+  width: 100%;
+  height: 5vh;
+  /* background-color: yellowgreen; */
 }
-.amazon_inputotp_content {
-  /* background-color: orange; */
+.amazon_inputotp_content{
+ /* background-color: pink; */
+  width: 70%;
+  float: right;
+  height: 5vh;
+  display: grid;
+  place-items: center;
+}
+.input_resend{
+  /* background-color: orangered; */
+  height: 5vh;
+  width: 84%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 61%;
-  float: right;
   border-bottom: 1px solid lightgray;
 }
-.amazon_inputotp_content input {
+.input_resend input{
   width: 100%;
-  height: 5vh;
+  height: 4vh;
   border: none;
   outline: none;
   font-size: 0.9rem;
   font-family: regular;
-  padding-bottom: 0.9rem;
 }
-.amazon_inputotp_content p {
+.input_resend p{
   font-size: 0.9rem;
   font-family: regular;
   font-weight: 600;
   color: #FF0040;
+  padding-top: 0.9rem;
 }
-.amazon_payment_btn_container {
-  width: 30%;
-  height: 6vh;
-  background-color: #FF0040;
-  margin-left: 12rem;
-  margin-top: 1.5rem;
-  border-radius: 5px;
-  color: white;
+.amazon_payment_btn_container{
+  width: 100%;
+  height: 12vh;
+  /* background-color: blueviolet; */
+  display: grid;
+  place-items: center;
 }
-.amazon_payment_btn_container p {
+.amazon_payment_btn_content{
+  width: 60%;
+  height: 8vh;
+  /* background-color: blanchedalmond; */
+  display: grid;
+  place-items: center;
+}
+.amazon_payment_btn{
+ width: 48%;
+ background-color: #FF0040;
+ height: 6vh;
+ border-radius: 5px;
+ cursor: pointer;
+}
+.amazon_payment_btn p{
+  font-family: regular;
+  font-weight: 600;
   text-align: center;
+  color: white;
   padding-top: 0.7rem;
-  font-family: semibold;
 }
 
 /* Mobile devices (320px - 480px) */
@@ -126,19 +139,66 @@
 @media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
  /* select content */
-.amazon_select_content {
+ .amazon_container {
+ padding-top: 6.5rem;
+}
+
+.amazon_radio_btn{
+  height: 21px;
+  width: 21px;
+  border: 1px solid #FF0040;
+  border-radius: 50px;
+}
+.amazon_image_container{
+  min-width: 37%;
+  /* background-color: aqua; */
+
  
-  padding-left: 1rem;
-  padding-top: 8.2rem;
 }
-.amazon_link_account {
-  width: auto;
-  padding-left: 1rem;
+.amazon_linkaccount_text{
+  min-width: 26%;
 }
-.amazon_payment_btn_container {
-  margin-left: 11.5rem;
-  margin-top: 1.5rem;
-  border-radius: 5px;
+.amazon_linkaccount_text p{
+  font-family: regular;
+  padding-top: 0.2rem;
+  /* text-align: center; */
+}
+
+.amazon_inputotp_content{
+  width: 63%;
+  /* background-color: #FF0040; */
+  height: 6vh;
+}
+.amazon_payment_btn_container{
+  width: 100%;
+  height: 15vh;
+  /* background-color: blueviolet; */
+  display: grid;
+  place-items: center;
+}
+.amazon_payment_btn_content{
+  min-width: 30%;
+  height: 12vh;
+  /* background-color: blanchedalmond; */
+  display: grid;
+  place-items: center;
+  padding-left: 3.2rem;
+}
+.amazon_payment_btn{
+ min-width: 50%;
+ /* background-color: #FF0040; */
+ height: 6vh;
+ border-radius: 5px;
+}
+.amazon_payment_btn p{
+  font-family: regular;
+  font-weight: 600;
+  text-align: center;
   color: white;
+  padding-top: 0.5rem;
 }
+.amazon_inputotp_container{
+  padding-top: 0.5rem;
+}
+
 }
