@@ -52,7 +52,7 @@
   font-weight: 600;
 }
 .amazon_link_account p:hover {
-  border-bottom: 2px solid #c42118;
+  border-bottom: 2px solid #FF0040;
   cursor: pointer;
   /* transition: 0.2s ease-in-out; */
 }
@@ -85,12 +85,12 @@
   font-size: 0.9rem;
   font-family: regular;
   font-weight: 600;
-  color: #c42118;
+  color: #FF0040;
 }
 .amazon_payment_btn_container {
   width: 30%;
   height: 6vh;
-  background-color: #c42118;
+  background-color: #FF0040;
   margin-left: 12rem;
   margin-top: 1.5rem;
   border-radius: 5px;
@@ -100,4 +100,45 @@
   text-align: center;
   padding-top: 0.7rem;
   font-family: semibold;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+ /* select content */
+.amazon_select_content {
+ 
+  padding-left: 1rem;
+  padding-top: 8.2rem;
+}
+.amazon_link_account {
+  width: auto;
+  padding-left: 1rem;
+}
+.amazon_payment_btn_container {
+  margin-left: 11.5rem;
+  margin-top: 1.5rem;
+  border-radius: 5px;
+  color: white;
+}
 }
