@@ -49,7 +49,7 @@
     font-weight: 600;
   }
   .paytm_link_account p:hover {
-    border-bottom: 2px solid #c42118;
+    border-bottom: 2px solid #FF0040;
     cursor: pointer;
   }
   /* end select content */
@@ -79,12 +79,12 @@
     font-size: 0.9rem;
     font-family: regular;
     font-weight: 600;
-    color: #c42118;
+    color: #FF0040;
   }
   .paytm_payment_btn_container {
     width: 30%;
     height: 6vh;
-    background-color: #c42118;
+    background-color: #FF0040;
     margin-left: 13.7rem;
     margin-top: 1.5rem;
     border-radius: 5px;
