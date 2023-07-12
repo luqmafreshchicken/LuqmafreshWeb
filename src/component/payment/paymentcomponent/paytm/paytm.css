@@ -1,98 +1,204 @@
 .paytm_container {
-    width: 100%;
-    height: 60vh;
-  }
-  /* heading */
-  .paytm_heading p {
-    font-size: 1.4rem;
-    font-family: regular;
-    font-weight: 600;
-    padding: 1rem 0rem 0rem 2rem;
-  }
-  /* end heading */
-  
-  /* select content */
-  .paytm_select_content {
-    height: 10vh;
-    width: 100%;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    padding-left: 2rem;
-    padding-top: 17rem;
-  }
-  .paytm_radio_btn {
-    height: 22px;
-    width: 23px;
-    border: 1px solid lightgray;
-    border-radius: 50px;
-  }
-  .paytm_image_container {
-    width: 32%;
-    height: 7vh;
-    border-radius: 5px;
-    padding-top: 0.3rem;
+  width: 100%;
+  height: 40vh;
+  /* background-color: aqua; */
+ padding-top: 15rem;
+}
+.paytm_select_content {
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+}
+.radio_paytm_image{
+  /* background-color: blue; */
+  width: 92%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+}
+.paytm_radio_btn{
+  height: 21px;
+  width: 21px;
+  border: 1px solid #FF0040;
+  border-radius: 50px;
+}
+.paytm_image_container{
+  width: 30%;
+  height: 5vh;
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0rem;
+}
+.paytm_linkaccount_text{
+  width: 20%;
+  /* background-color: green; */
+  height: 5vh;
+}
+.paytm_linkaccount_text p{
+  font-family: regular;
+  padding-top: 0.45rem;
+  /* text-align: center; */
+}
+.paytm_linkaccount_text:hover{
+  border-bottom: 2px solid #FF0040;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.paytm_inputotp_container{
+  width: 100%;
+  height: 5vh;
+  /* background-color: yellowgreen; */
+}
+.paytm_inputotp_content{
+ /* background-color: pink; */
+  width: 70%;
+  float: right;
+  height: 5vh;
+  display: grid;
+  place-items: center;
+}
+.input_resend{
+  /* background-color: orangered; */
+  height: 5vh;
+  width: 84%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
 
-  }
-  .paytm_image_container img {
-    height: 40px;
-    width: 130px;
-  }
-  .paytm_link_account {
-    width: 20%;
-    height: 7vh;
-    padding-top: 1rem;
-  }
-  .paytm_link_account p {
-    font-size: 0.9rem;
-    font-family: regular;
-    font-weight: 600;
-  }
-  .paytm_link_account p:hover {
-    border-bottom: 2px solid #FF0040;
-    cursor: pointer;
-  }
-  /* end select content */
+}
+.input_resend input{
+  width: 100%;
+  height: 5vh;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  font-family: regular;
+}
+.input_resend p{
+  font-size: 0.9rem;
+  font-family: regular;
+  font-weight: 600;
+  color: #FF0040;
+  padding-top: 0.9rem;
+}
+.paytm_payment_btn_container{
+  width: 100%;
+  height: 12vh;
+  /* background-color: blueviolet; */
+  display: grid;
+  place-items: center;
+}
+.paytm_payment_btn_content{
+  width: 60%;
+  height: 8vh;
+  /* background-color: blanchedalmond; */
+  display: grid;
+  place-items: center;
+}
+.paytm_payment_btn{
+ width: 48%;
+ background-color: #FF0040;
+ height: 6vh;
+ border-radius: 5px;
+ cursor: pointer;
+}
+.paytm_payment_btn p{
+  font-family: regular;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  padding-top: 0.7rem;
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+}
+
+/* Extra large screens, TV (1201px and above) */
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
+  /* CSS rules for extra large screens and TV */
+ /* select content */
+ .paytm_container {
+  padding-top: 13.3rem;
+ }
+ 
+ .paytm_radio_btn{
+   height: 21px;
+   width: 21px;
+   border: 1px solid #FF0040;
+   border-radius: 50px;
+ }
+ .paytm_image_container{
+   min-width: 32%;
+   /* background-color: aqua; */
+   padding-bottom: 0.3rem;
+ 
   
-  .paytm_inputotp_container {
-    height: 10vh;
-    padding-top: 2rem;
-  }
-  .paytm_inputotp_content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 55.5%;
-    float: right;
-    border-bottom: 1px solid lightgray;
-  }
-  .paytm_inputotp_content input {
-    width: 100%;
-    height: 5vh;
-    border: none;
-    outline: none;
-    font-size: 0.9rem;
-    font-family: regular;
-    padding-bottom: 0.9rem;
-  }
-  .paytm_inputotp_content p {
-    font-size: 0.9rem;
-    font-family: regular;
-    font-weight: 600;
-    color: #FF0040;
-  }
-  .paytm_payment_btn_container {
-    width: 30%;
-    height: 6vh;
-    background-color: #FF0040;
-    margin-left: 13.7rem;
-    margin-top: 1.5rem;
-    border-radius: 5px;
-    color: white;
-  }
-  .paytm_payment_btn_container p {
-    text-align: center;
-    padding-top: 0.7rem;
-    font-family: semibold;
-  }
-  
+ }
+ .paytm_linkaccount_text{
+   min-width: 23%;
+   /* background-color: aqua; */
+ }
+ .paytm_linkaccount_text p{
+   font-family: regular;
+   padding-top: 0.2rem;
+   /* text-align: center; */
+ }
+ 
+ .paytm_inputotp_content{
+   width: 68%;
+   /* background-color: #FF0040; */
+   height: 6vh;
+ }
+ .paytm_payment_btn_container{
+   width: 100%;
+   height: 15vh;
+   /* background-color: blueviolet; */
+   display: grid;
+   place-items: center;
+ }
+ .paytm_payment_btn_content{
+   height: 12vh;
+   display: grid;
+   place-items: center;
+   padding-left: 0rem;
+ }
+ .paytm_payment_btn{
+  max-width: 42%;
+  height: 6vh;
+  border-radius: 5px;
+ }
+ .paytm_payment_btn p{
+   font-family: regular;
+   font-weight: 600;
+   text-align: center;
+   color: white;
+   padding-top: 0.5rem;
+ }
+ .paytm_inputotp_container{
+   padding-top: 0.5rem;
+ }
+
+}
