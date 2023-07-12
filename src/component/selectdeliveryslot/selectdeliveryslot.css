@@ -28,7 +28,7 @@
 }
 .select_text_container h5 {
   padding: 30px 30px;
-  color: #c42118;
+  color: #ff0040;
   font-family: semibold;
   font-weight: 600;
 }
@@ -37,14 +37,14 @@
   height: 7vh;
   width: 60%;
   margin-left: 3.6%;
-  border: 1px solid #c42118;
+  border: 1px solid #ff0040;
   border-radius: 5px;
   padding-top: 0.2rem;
-
+  cursor: pointer;
 }
 .select_delivery_time p {
   text-align: center;
-  color: #c42118;
+  color: #ff0040;
   font-family: regular;
   font-weight: 600;
 }
@@ -65,12 +65,16 @@
   border-radius: 5px;
   box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
+
 .product_selectdeliveryslot_text p {
-  color: #c42118;
+  color: #ff0040;
   font-family: regular;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product_selectdeliveryslot_text span {
   font-family: light;
@@ -96,17 +100,16 @@
   padding-top: 25px;
 }
 .selectdeliveryslot_btn_proceed {
-   width: 30%;
-   background-color: #c42118;
-   height: 7vh;
-   text-align: center;
-   padding-top: 0.9rem;
-   border-radius: 10px;
-   font-family: semibold;
-   color: white;
-   font-size: 1rem;
-
-
+  width: 30%;
+  background-color: #ff0040;
+  height: 7vh;
+  text-align: center;
+  padding-top: 0.9rem;
+  border-radius: 10px;
+  font-family: semibold;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
 }
 .selectdeliveryslot_modal {
   position: absolute;
@@ -147,13 +150,13 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
-  border: 1px solid #c42118;
+  border: 1px solid #ff0040;
 }
 .selectdeliveryslot_time_slot p {
   font-family: light;
   font-weight: 600;
   font-size: 14px;
-  color: #c42118;
+  color: #ff0040;
   padding-top: 18px;
 }
 .select_proceed {
@@ -166,11 +169,12 @@
 .selectdeliveryslot_btn1 {
   height: 6vh;
   width: 40%;
-  background-color: #c42118;
+  background-color: #ff0040;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .selectdeliveryslot_btn1 p {
@@ -179,7 +183,6 @@
   color: white;
   padding-top: 15px;
 }
-
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -293,7 +296,6 @@
     height: 6vh;
     width: 35%;
     border-radius: 5px;
-    border: 1px solid #c42118;
   }
   .selectdeliveryslot_btn1 p {
     font-size: 11px;
