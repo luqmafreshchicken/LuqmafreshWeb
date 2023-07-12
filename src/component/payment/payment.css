@@ -38,8 +38,8 @@
 }
 .cash_on_delivery:hover {
   /* background-color: #fdf5f6; */
-  color: #c42118;
-  border-bottom: 3px solid #c42118;
+  color: #FF0040;
+  border-bottom: 3px solid #FF0040;
 }
 .cash_on_delivery p {
   font-family: light;
