@@ -17,6 +17,7 @@ const Input = ({ lable, onChange, value , id , name}) => {
         justifyContent: "center",
         alignItems: "center",
         height: "66px",
+        marginBottom:"1rem"
       }}
     >
       <TextField
