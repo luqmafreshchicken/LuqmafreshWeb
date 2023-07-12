@@ -153,7 +153,7 @@ const AddNewAddress = ({ id }) => {
             ) : null}
           </div>
           <div className="addaddress_steps">
-            <Steps img1="mark.png" img2="button.png" img3="button.png" />
+            <Steps img1="mark.png" img2="radio.png" img3="radio.png" />
           </div>
         </div>
         <ToastContainer
