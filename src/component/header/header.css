@@ -21,6 +21,10 @@
   align-items: center;
   width: 100%;
 }
+.luqma_logo img{
+  height: 120px;
+  width: 180px;
+}
 .luqma_location {
   height: 5vh;
   width: 20%;
@@ -431,6 +435,7 @@ ul li {
     justify-content: space-evenly;
     align-items: center;
   }
+  
   .mobile_input_search img {
     margin-right: 1rem;
     height: 25px;
@@ -449,57 +454,129 @@ ul li {
 }
 
 /* Desktops, large screens (1025px - 1200px) */
-@media only screen and (min-width: 901px) and (max-width: 1200px) {
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
   /* CSS rules for desktops and large screens */
+  .navbar{
+    height: 7rem;
+  }
   .desktop_herder_content{
     width: 92%;
+    height: 6rem;
   }
   .luqma_location {
     display: none;
   }
   .luqma_input {
     width: 35%;
-    margin-left: 2.4rem;
+    margin-left: 1rem;
+  }
+ 
+  .luqma_logo img{
+    height: 80px;
+    width: 130px;
   }
   .luqma_input input{
     width: 250px;
   }
   .luqma_option {
-    width: 35%;
+    width: 40%;
    
   }
   .cart_border_container {
-    width: 90px;
-   
+    width: 100px;
+  }
+  .cart_border_content2 p{
+    padding-top: 0.4rem;
+    font-size: 0.7rem;
   }
 }
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .navbar{
+    height: 7rem;
+  }
   .desktop_herder_content{
     width: 90%;
+    height: 6rem;
+  }
+  .luqma_logo img{
+    height: 80px;
+    width: 130px;
+  }
+
+  .luqma_location {
+    height: 5vh;
+    min-width: 27%;
+    /* background-color: pink; */
+    padding-left: 1rem;
+
+  }
+  .luqma_location_top img {
+    width: 15px;
+    height: 15px;
+  }
+  .luqma_location_top p {
+    font-size: 0.7rem;
+  }
+  
+  .luqma_location_bottom p {
+    font-size: 0.8rem;
+  }
+  .luqma_input {
+    width: 26%;
+    /* background-color: aqua; */
+    padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  .luqma_input input{
+    width: 180px;
+
+  }
+  .luqma_option{
+    min-width: 35%;
+    
+  }
+  .cart_border_container{
+    width: 100px;
+  }
+  .cart_border_content2 p{
+    padding-top: 0.4rem;
+    font-size: 0.7rem;
   }
 }
-@media only screen and (min-width: 970px){
+ /* @media only screen and (min-width: 970px){
   .luqma_input input{
     width: 260px;
   }
-}
-@media only screen and (min-width: 1050px){
+} */
+@media only screen and (min-width: 1090px) and (max-width: 1150px){
   .luqma_input input{
-    width: 280px;
+    width: 200px;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
   }
+
 }
-@media only screen and (min-width: 1140px){
+@media only screen and (min-width: 1151px) and (max-width: 1200px){
   .luqma_input input{
-    width: 300px;
+    width: 230px;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+} 
+@media only screen and (min-width: 1201px) and (max-width: 1324px){
+  .luqma_input input {
+    width: 170px;
   }
 }
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
  
   .luqma_logo img {
-    height: 110px;
-    width: 180px;
+    height: 100px;
+    width: 160px;
 
   }
   .luqma_location{
@@ -520,20 +597,24 @@ ul li {
     width: 28%;
   }
   .luqma_input input {
-    width: 280px;
+    min-width: 280px;
     font-size: 0.8rem;
     padding-bottom: 0.2rem;
+    padding-left: 0.9rem;
+
   }
   .luqma_input img{
     height: 17px;
     width: 17px;
+    margin-right: 0.3rem;
+
   }
   .luqma_option{
     width: 30%;
   }
   .currency_container img{
-    height: 17px;
-    width: 17px;
+    height: 16px;
+    width: 16px;
   }
   .currency_container p{
     font-size: 0.8rem;
@@ -560,3 +641,4 @@ ul li {
  
   }
 }
+
