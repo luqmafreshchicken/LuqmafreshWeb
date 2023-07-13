@@ -183,7 +183,9 @@
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
-
+.main_offer{
+  height: 22vh;
+}
   .submain_offer {
     width: 92%;
     height: 12vh;
@@ -198,17 +200,21 @@
   .coupon_container button {
     height: 6vh;
     width: 120px;
-    background-color: #f9fb1c;
     font-size: 12px;
   }
 
 }
 @media only screen and (min-width: 901px) and (max-width: 1024px){
+  .main_offer{
+    height: 25vh;
+  }
   .coupon_container h1 {
     font-size: 2rem;
   }
   .coupon_container button {
     width: 120px;
+    font-size: 0.8rem;
+
   }
 
 }
@@ -216,6 +222,9 @@
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .main_offer{
+    height: 25vh;
+  }
   .submain_offer {
     width: 90%;
   }
@@ -225,6 +234,8 @@
   }
   .coupon_container button {
     width: 140px;
+    font-size: 0.9rem;
+
   }
  
 }
@@ -237,5 +248,7 @@
   }
   .coupon_container button {
     width: 150px;
+    font-size: 1rem;
+
   }
 }
