@@ -4,14 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.topheader_content{
-   width: 90%;
-   height: 10vh;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.topheader_content {
+  width: 90%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .topheader_location {
   width: 50%;
@@ -25,13 +24,13 @@
   align-items: center;
   justify-content: space-between;
 }
-.topheader_icon p{
+.topheader_icon p {
   font-size: 0.85rem;
   padding-top: 1rem;
   font-family: regular;
 }
-.topheader_icon p:hover{
-  color: #FF0040;
+.topheader_icon p:hover {
+  color: #ff0040;
   transition: 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -75,7 +74,7 @@
 }
 .facebook {
   font-size: 18px;
-  color: #FF0040;
+  color: #ff0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -86,7 +85,7 @@
 }
 .insta {
   font-size: 18px;
-  color: #FF0040;
+  color: #ff0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -97,7 +96,7 @@
 }
 .twitter {
   font-size: 18px;
-  color: #FF0040;
+  color: #ff0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -108,7 +107,7 @@
 }
 .youtube {
   font-size: 18px;
-  color: #FF0040;
+  color: #ff0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -119,7 +118,7 @@
 }
 .in {
   font-size: 18px;
-  color: #FF0040;
+  color: #ff0040;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -133,6 +132,10 @@
 @media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
 
+  .topheader_content {
+    width: 100%;
+  }
+
   .topheader_location {
     width: 100%;
     background-color: white;
@@ -140,12 +143,14 @@
     top: 0;
     box-shadow: 0 0px 5px rgb(0 0 0 / 0.2);
     z-index: 999;
+    padding: 0px;
+    display: grid;
+    place-items: center;
   }
   .top_location {
-    padding-left: 1.1rem;
+    /* padding-left: 1.1rem; */
     gap: 5px;
-    /* background-color: aqua; */
-    width: 100%;
+    width: 91%;
   }
   .top_location img {
     height: 1rem;
@@ -175,6 +180,9 @@
   .topheader_icon {
     display: none;
   }
+  .topheader_content {
+    width: 100%;
+  }
   .topheader_location {
     /* background-color: aqua; */
     width: 100%;
@@ -183,71 +191,144 @@
     top: 0;
     box-shadow: 0 0px 5px rgb(0 0 0 / 0.2);
     z-index: 999;
+    display: grid;
+    place-items: center;
   }
   .top_location {
     /* background-color: blue; */
-    padding-left: 35px;
+    /* padding-left: 20px; */
+    width: 92%;
+  }
+  .top_location img {
+    height: 1.2rem;
+    width: 1.2rem;
   }
   .top_location p {
-    font-size: 11px;
+    font-size: 0.8rem;
   }
   .top_location p span {
-    font-size: 13px;
+    font-size: 0.9rem;
   }
 }
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
-  .topheader_container {
-    margin-bottom: 1rem;
-    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+  .toplemail_mob {
+    display: none;
+  }
+  .topheader_icon {
+    display: none;
+  }
+  .topheader_content {
+    width: 100%;
+  }
+  .topheader_location {
+    /* background-color: aqua; */
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0px 5px rgb(0 0 0 / 0.2);
+    z-index: 999;
+    display: grid;
+    place-items: center;
   }
   .top_location {
-    padding-left: 2rem;
-    gap: 10px;
+    width: 92%;
   }
-
-  .topheader_icon {
-    width: 30%;
-    gap: 25px;
+  .top_location img {
+    height: 1.2rem;
+    width: 1.2rem;
   }
-  .facebook,
-  .insta,
-  .twitter,
-  .youtube,
-  .in {
-    font-size: 1.2rem;
+  .top_location p {
+    font-size: 0.8rem;
+  }
+  .top_location p span {
+    font-size: 0.9rem;
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1024px) {
   /* CSS rules for desktops and large screens */
-
-  .top_location {
-    padding-left: 2.2rem;
+  .topheader_content {
+    min-width: 92%;
+  }
+  .topheader_location {
+    min-width: 60%;
+    gap: 5px;
+  }
+  .topheader_icon {
+    min-width: 30%;
   }
 
   .toplemail_mob p {
     padding-top: 0.7rem;
   }
-  .topheader_icon {
-    min-width: 23%;
+  .in,
+  .facebook,
+  .insta,
+  .youtube,
+  .twitter {
+    font-size: 1rem;
+  }
+  .topheader_icon p{
+    font-size: 0.8rem;
   }
 }
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .topheader_content {
+    min-width: 90%;
+  }
+  .topheader_location {
+    min-width: 60%;
+    gap: 5px;
+  }
+  .topheader_icon {
+    min-width: 26%;
+  }
 
+  .toplemail_mob p {
+    padding-top: 0.7rem;
+  }
+  .in,
+  .facebook,
+  .insta,
+  .youtube,
+  .twitter {
+    font-size: 1rem;
+  }
+  .topheader_icon p{
+    font-size: 0.8rem;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for desktops and large screens */
-  .topheader_icon {
-    width: 22%;
+  .topheader_content {
+    min-width: 90%;
   }
-  .top_location p {
-    padding-right: 2rem;
+  .topheader_location {
+    min-width: 60%;
+    gap: 5px;
+  }
+  .topheader_icon {
+    min-width: 23%;
+  }
+
+  .toplemail_mob p {
+    padding-top: 0.7rem;
+  }
+  .in,
+  .facebook,
+  .insta,
+  .youtube,
+  .twitter {
+    font-size: 1.1rem;
+  }
+  .topheader_icon p{
+    font-size: 0.8rem;
   }
 }
-
