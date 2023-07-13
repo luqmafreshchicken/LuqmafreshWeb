@@ -33,17 +33,17 @@
   margin-top: 15%;
 }
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width:280px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   .slider_next_btn1 {
     display: none;
   }
   .carouselitem1 {
     height: auto;
+    background-color: pink;
   }
   .cardswrapper1 {
     width: 91%;
-    height: 65vh;
-
+    height: 78vh;
   }
 }
 
@@ -59,21 +59,22 @@
     height: 65vh;
   }
   .carouselitem1 {
-    height: 80vh;
+    height: 78vh;
   }
 }
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
- 
+.slider_next_btn1{
+  display: none;
+}
   .carouselitem1 {
     height: 65vh;
-
   }
   .cardswrapper1 {
     width: 92%;
-    height: 65vh;
+    height: 78vh;
   }
 }
 
@@ -82,13 +83,17 @@
   /* CSS rules for desktops and large screens */
   .carouselitem1 {
     height: 65vh;
-
   }
   .cardswrapper1 {
-    height: 65vh;
+    height: 78vh;
   }
 }
 
+@media only screen and (min-width: 900px) and (max-width: 1200px){
+  .cardswrapper1 {
+    height: 78vh;
+  }
+}
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
@@ -96,8 +101,7 @@
     width: 90%;
     height: 80vh;
   }
-  .carouselitem1{
+  .carouselitem1 {
     height: 80%;
   }
-
 }
