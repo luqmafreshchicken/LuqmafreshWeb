@@ -43,6 +43,7 @@
   .mobile_lower_footer{
     display: none;
   }
+ 
 }
 
 /* Small screens, laptops (769px - 1024px) */
@@ -51,7 +52,19 @@
   .mobile_news_footer {
     display: none;
   }
+  .mobile_header_footer{
+    display: none;
+  }
   .mobile_support_section {
+    display: none;
+  }
+  .mobile_gototop{
+    display: none;
+  }
+  .mobile_contact_footer{
+    display: none;
+  }
+  .mobile_lower_footer{
     display: none;
   }
 }
