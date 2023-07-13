@@ -145,7 +145,7 @@ const Header = ({ onchange, value }) => {
           <nav className="main_nav">
             <NavLink to="/">
               <div className="luqma_logo">
-                <img src="MAIN LOGO.png" height="120px" width="180px" />
+                <img src="MAIN LOGO.png" />
               </div>
             </NavLink>
 
