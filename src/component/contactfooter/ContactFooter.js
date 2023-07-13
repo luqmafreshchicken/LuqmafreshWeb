@@ -25,8 +25,8 @@ export default function ContactFooter() {
             }}
             className="store_img"
           >
-            <img src="App2.png" width="120px" height="35px" />
-            <img src="App3.png" width="120px" height="35px" />
+            <img src="App2.png"  />
+            <img src="App3.png"  />
           </div>
           <p
             style={{
