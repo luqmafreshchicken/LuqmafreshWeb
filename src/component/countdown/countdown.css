@@ -25,7 +25,7 @@
   font-size: 15px;
 }
 .countdown {
-  background-color: #FF0040;
+  background-color: #ff0040;
   height: 8vh;
   width: 35%;
   border-radius: 10px;
@@ -64,7 +64,6 @@
     width: 91%;
     height: 22vh;
     gap: 20px;
-
   }
   .top_severweek {
     width: 100%;
@@ -90,44 +89,57 @@
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
 
-  .countdown {
-    width: 30%;
-    /* background-color: orange; */
-  }
-
-  .countdown_section {
-    width: 90%;
-    gap: 10px;
-    /* background-color: aqua; */
-    height: 10vh;
-
-  }
-
-  .top_severweek {
-    padding-left: 35px;
-    padding-top: 0px;
-    width: 60%;
-  }
-  .top_severweek p{
-    /* padding-left: 35px; */
-    font-size: 17px;
-  }
-  .top_severweek span{
-    font-size: 13px;
-  }
   .countdown_section_container {
-    height: 12vh;
-    /* background-color: greenyellow; */
-    margin-bottom: 20px;
+    height: 29vh;
+    margin-left: 0;
   }
   .countdown_section {
-    /* background-color: greenyellow; */
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 91%;
+    height: 22vh;
+    gap: 20px;
+  }
+  .top_severweek {
     width: 100%;
   }
   .countdown {
-    margin-left: 15px;
-    width: 84%;
-    margin-bottom: 60px;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .top_severweek p {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 0;
+    padding-top: 18px;
+  }
+  .top_severweek span {
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  .countdown_section_container {
+    height: 22vh;
+  }
+  .top_severweek p {
+    font-size: 1.1rem;
+    font-family: regular;
+  }
+  .top_severweek span {
+    font-size: 13px;
+  }
+  .countdown_section {
+    width: 92%;
+    height: auto;
+    display: flex;
+    padding-top: 1.2rem;
+  }
+  .countdown {
+    margin-left: 25px;
+    width: 130%;
     padding: 0;
   }
 }
@@ -137,7 +149,6 @@
   /* CSS rules for small screens and laptops */
   .countdown_section_container {
     height: 18vh;
-  
   }
   .countdown_section {
     width: 92%;
