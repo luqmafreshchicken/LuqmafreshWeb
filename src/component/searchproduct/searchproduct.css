@@ -11,11 +11,11 @@
   margin-bottom: 3%;
   display: flex;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto;
 }
 
 .search_content {
-  width: 92%;
+  width: 90%;
   height: auto;
 }
 .search_text {
@@ -51,6 +51,7 @@
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
+ 
   .search_text {
     margin-top: 10px;
   }
@@ -65,12 +66,13 @@
     font-family: light;
   }
   .search_content {
-    width: 100%;
+    min-width: 96%;
   }
   .search_categoriecard {
-    width: 98%;
+    width: 100%;
     display: grid;
     grid-template-columns: 24% 24% 24% 24%;
+    height: auto;
   }
   .searchsroductlist_container {
     display: grid;
@@ -79,24 +81,28 @@
   }
 }
 
+
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
+  .search_content {
+    min-width: 94%;
+  }
   .search_text {
     margin-top: 10px;
   }
   .search_text h5 {
     font-size: 18px;
-    padding-left: 8px;
+    padding-left: 10px;
   }
   .search_text p {
     font-size: 14px;
-    padding-left: 8px;
+    padding-left: 10px;
   }
   .search_categoriecard {
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
   }
   .searchsroductlist_container {
     display: grid;
@@ -104,10 +110,33 @@
     grid-template-columns: 45% 45%;
   }
 }
+@media only screen and (min-width: 600px) and (max-width: 768px){
+  .search_categoriecard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
+  .search_categoriecard {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+  .search_content {
+    min-width: 96%;
+  }
+  .search_text h5 {
+    font-size: 18px;
+    padding-left: 1rem;
+  }
+  .search_text p {
+    font-size: 14px;
+    padding-left: 1rem;
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
@@ -130,7 +159,7 @@
     grid-template-columns: auto auto auto auto auto auto auto;
   }
   .search_content{
-    width: 90%;
+    width: 92%;
   }
 
 }
