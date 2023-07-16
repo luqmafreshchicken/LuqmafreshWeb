@@ -9,7 +9,7 @@ export const getUserID = async () => {
 
 export const loginRegister = async (requestData) => {
   const response = await axios.post(
-    `${API_BASE_URL}loginWithMobile`,
+    `${API_BASE_URL}loginWithEmail`,
     requestData
   );
   return response.data;
