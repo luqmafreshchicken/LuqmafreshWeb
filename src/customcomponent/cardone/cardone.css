@@ -7,12 +7,20 @@
   display: flex;
   align-items: center;
   width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
 }
 .image_doublecard img {
   border-radius: 15px;
   height: 200px;
   width: 300px;
   cursor: pointer;
+  transition: 0.3s ease-in-out
+
+}
+.image_doublecard:hover img{
+  transform: scale(1.2);
+
 }
 
 .name_singlecard_combo {
