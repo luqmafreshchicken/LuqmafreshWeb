@@ -6,9 +6,18 @@
 .image_singlecard {
   height: 25vh;
   width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+
 }
+
 .image_singlecard img {
   border-radius: 15px;
+  display: block;
+  transition: 0.3s ease-in-out
+}
+.image_singlecard:hover img {
+  transform: scale(1.2);
 }
 
 .offer_singlecard {
