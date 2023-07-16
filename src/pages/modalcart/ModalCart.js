@@ -10,7 +10,7 @@ import {
   newArrival,
 } from "../../serverRequest/Index";
 
-const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
+const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
   const [count, setCount] = useState(0);
   const [cartProduct, setCartProduct] = useState([]);
   const [loginStatus, setLoginStatus] = useState(false);
@@ -25,10 +25,16 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
     getData();
   }, []);
 
-
   useEffect(() => {
     localContent();
+    showcart();
+    const interval = setInterval(showcart, 4000); // Call showcart every four seconds
+    return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
+
+  // useEffect(() => {
+  //   localContent();
+  // }, []);
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -61,7 +67,6 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
-
     } else {
     }
   };
@@ -135,7 +140,7 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                         <p> ₹{option.productId.originalPrice}</p>
                       </div>
                     </div>
-                    <div className="count_show">
+                    {/*<di className="count_show">
                       <div className="increment" onClick={incre}>
                         <p>+</p>
                       </div>
@@ -145,16 +150,16 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                       <div className="decrement" onClick={decre}>
                         <p>-</p>
                       </div>
-                    </div>
+              </di>*/}
                   </div>
                 </div>
               ))}
 
-              <div className="try_section">
+              {/*  <div className="try_section">
                 <p>You May Want To Try</p>
-              </div>
+              </div>*/}
               {/* card Detail */}
-              <div className="main_div">
+              {/*<div className="main_div">
                 <div className="center_div">
                   {data.map((card) => (
                     <div className="small_card_content">
@@ -175,7 +180,7 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                               color: "green",
                             }}
                           >
-                          ₹{card.originalPrice}
+                            ₹{card.originalPrice}
                           </p>
                           <p style={{}}>₹{card.price}</p>
                         </div>
@@ -186,7 +191,7 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                     </div>
                   ))}
                 </div>
-              </div>
+                          </div>*/}
               <div className="biil_payment">
                 <div className="bill_name">
                   <p>Bill Details</p>
@@ -196,14 +201,14 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                     SubTotal
                   </p>
                   <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                    {cartPrice}
+                  ₹ {cartPrice}
                   </p>
                 </div>
                 <div className="delivery_charge">
-                  <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
+                  <p style={{ paddingLeft: "15px", paddingTop: "10px" }}>
                     Delivery Charge
                   </p>
-                  <p style={{ paddingRight: "15px", paddingTop: "15px" }}>0</p>
+                  <p style={{ paddingRight: "15px", paddingTop: "10px" }}>₹ 0</p>
                 </div>
                 <div className="cong_charge_section">
                   <p style={{ paddingLeft: "15px" }}>
@@ -213,7 +218,7 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
                 <div className="border_line"></div>
                 <div className="total_payments">
                   <p style={{ paddingTop: "10px" }}>Total</p>
-                  <p style={{ paddingTop: "10px" }}>₹ {cartPrice}</p>
+                  <p style={{ paddingTop: "10px", color:"#FF0040" }}>₹ {cartPrice}</p>
                 </div>
               </div>
               {cartProduct?.length >= 1 ? (
@@ -233,12 +238,14 @@ const ModalCart = ({ cartopen, carthandleClose,onclick }) => {
 
           {loginStatus == false ? (
             <>
-            <div className="mobile_cart_nologin">
-              <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
-            </div>
-            <div className="mobile_shopping">
-               <button><h6>Continue Shopping</h6></button>
-          </div>
+              <div className="mobile_cart_nologin">
+                <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
+              </div>
+              <div className="mobile_shopping">
+                <button>
+                  <h6>Continue Shopping</h6>
+                </button>
+              </div>
             </>
           ) : null}
         </Box>
