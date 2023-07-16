@@ -13,37 +13,50 @@
 .modalcart_btn {
   background-color: white;
   border: none;
-  margin: 5px;
+  border: 1px solid #ff0040;
+  border-radius: 50px;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
-.modalcart_btn img{
-  height: 40px;
-  width: 40px;
+.modalcart_btn img {
+  height: 27px;
+  width: 27px;
 }
 .order_summary p {
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: 600;
   font-family: regular;
-  padding: 0px 20px;
+  padding: 0px 0.5rem;
+  color: #ff0040;
 }
 .Cong_section {
-  background-color: #dbd6d6;
+  background-color: #ff0040;
   height: 5vh;
   width: 93%;
   margin-left: 8px;
   border-radius: 3px;
 }
 .Cong_section p {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-family: light;
   font-weight: 600;
   text-align: center;
+  color: white;
+  padding-top: 0.5rem;
 }
 .save_section {
-  border: 1px solid #dbd6d6;
+  border: 1px solid #ff0040;
   height: 5vh;
   width: 93%;
   margin-left: 8px;
   margin-top: 8px;
+  margin-bottom: 1rem;
   border-radius: 3px;
 }
 .save_section p {
@@ -52,14 +65,15 @@
   font-weight: 600;
   text-align: center;
   padding-top: 8px;
+  color: #ff0040;
 }
 .product_card {
   height: 14vh;
   width: 93%;
   margin-left: 8px;
-  margin-top: 20px;
+  margin-top: 1rem;
   border-radius: 3px;
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 }
 .product_detail {
   display: flex;
@@ -102,10 +116,10 @@
   text-overflow: ellipsis;
 }
 .number {
-  background-color: #dbd6d6;
+  background-color: #ff0040;
   height: 30px;
-  width: 35px;
-  border-radius: 5px;
+  width: 30px;
+  border-radius: 50px;
   margin-top: 3px;
   margin-left: 10px;
 }
@@ -115,6 +129,7 @@
   font-weight: 600;
   font-family: regular;
   padding-top: 6px;
+  color: white;
 }
 .peices_content {
   height: 6vh;
@@ -143,7 +158,6 @@
   font-weight: 600;
   padding-top: 10px;
   font-family: regular;
-
 }
 .count_show {
   width: 40%;
@@ -156,9 +170,8 @@
   padding-top: 20px;
   font-size: 13px;
   font-weight: 600;
-  color: #d11243;
+  color: #ff0040;
   font-family: regular;
-
 }
 .cut_count p {
   padding-top: 20px;
@@ -166,10 +179,9 @@
   font-weight: 600;
   color: green;
   font-family: regular;
-
   text-decoration: line-through;
 }
-.increment {
+/* .increment {
   height: 25px;
   width: 25px;
   border-radius: 5px;
@@ -224,8 +236,8 @@
   font-family: light;
   font-weight: 600;
   text-align: center;
-}
-.main_div {
+} */
+/* .main_div {
   width: 93%;
   margin-left: 8px;
   margin-top: 20px;
@@ -249,10 +261,9 @@
   margin-top: 16px;
   margin-right: 10px;
   border-radius: 3px;
-  /* border: 1px solid #d11243; */
-}
+} */
 
-.product_item_name {
+/* .product_item_name {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -268,8 +279,8 @@
   font-size: 12px;
   font-family: regular;
   font-weight: 600;
-}
-.increment_btn {
+} */
+/* .increment_btn {
   width: 20%;
   height: auto;
   height: 7vh;
@@ -282,7 +293,7 @@
   height: 28px;
   border: 2px solid #dbd6d6;
   background-color: white;
-}
+} */
 .product_item_detail {
   width: 100%;
   height: 5vh;
@@ -313,9 +324,9 @@
   height: 24vh;
   width: 93%;
   margin-left: 8px;
-  margin-top: 10px;
+  margin-top: 1.2rem;
   /* margin-bottom: 130px; */
-  border: 1px dashed #dbd6d6;
+  border: 1px dashed #ff0040;
 }
 .bill_name {
   height: 7vh;
@@ -424,14 +435,12 @@
   height: 7vh;
   margin-left: 8px;
   margin-top: 10px;
-  /* margin-bottom: -230px; */
-  /* position: fixed; */
-  /* bottom: 0; */
   box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 19px 0 rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 3px;
+  background-color: white;
 }
 .proceed_payment {
   height: 7vh;
@@ -446,14 +455,13 @@
   font-size: 1rem;
   font-family: regular;
   font-weight: 600;
-  color: #d11243;
+  color: #ff0040;
   text-align: center;
   padding-top: 20px;
   padding-left: 2.7rem;
-
 }
 .proceed_btn {
-  background-color: #c42118;
+  background-color: #ff0040;
   height: 7vh;
   width: 45%;
   display: flex;
@@ -462,7 +470,7 @@
   border-radius: 3px;
 }
 .proceed_btn p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-family: regular;
   font-weight: 600;
   color: white;
@@ -690,7 +698,6 @@
     font-size: 15px;
     text-align: center;
   }
- 
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -764,7 +771,6 @@
   .item_name {
     width: 70%;
     padding-top: 0px;
-
   }
   .item_name p {
     font-size: 12px;
@@ -774,12 +780,10 @@
   }
   .increment_btn {
     width: 20%;
-
   }
   .increment_btn button {
     font-family: regular;
     margin-left: 0px;
-   
   }
   .biil_payment {
     width: 90%;
@@ -789,7 +793,6 @@
   .proceed_section {
     width: 90%;
     margin-left: 22px;
-   
   }
 }
 
@@ -814,10 +817,10 @@
   }
   .Cong_section {
     width: 90%;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
   .Cong_section p {
-    font-size: .8rem;
+    font-size: 0.8rem;
     padding-top: 0.5rem;
   }
 
@@ -857,7 +860,6 @@
   .item_name {
     width: 80%;
     padding-top: 0px;
-
   }
   .item_name p {
     font-size: 12px;
@@ -874,7 +876,7 @@
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
-  .style2{
+  .style2 {
     width: 40%;
   }
   .modalcart_btn img {
@@ -886,11 +888,11 @@
     padding-left: 1.2rem;
   }
   .Cong_section {
-   max-width: 75%; 
+    max-width: 75%;
     margin-left: 1.2rem;
   }
   .Cong_section p {
-    font-size: .8rem;
+    font-size: 0.8rem;
     padding-top: 0.5rem;
   }
 
@@ -929,7 +931,6 @@
   .item_name {
     width: 80%;
     padding-top: 0px;
-
   }
   .item_name p {
     font-size: 12px;
@@ -948,6 +949,4 @@
     max-width: 75%;
     margin-left: 1.2rem;
   }
-
-  
 }
