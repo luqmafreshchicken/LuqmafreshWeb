@@ -342,7 +342,7 @@
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   .cashback_container {
-    min-width: 45%;
+    min-width: 43%;
   }
   .cashback_container h1 {
     padding-top: 3rem;
