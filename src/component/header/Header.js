@@ -23,9 +23,15 @@ const Header = ({ onchange, value }) => {
   const [otp, setOtp] = useState("");
   const [showbtn, setShowbtn] = useState(false);
 
+  // useEffect(() => {
+  //   localContent();
+  //   showcart();
+  // }, []);
   useEffect(() => {
     localContent();
     showcart();
+    const interval = setInterval(showcart, 4000); // Call showcart every four seconds
+    return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
   const localContent = () => {
@@ -64,15 +70,16 @@ const Header = ({ onchange, value }) => {
     }
   };
   const handleLogin = () => {
-    const requestData = { countryCode: "+91", mobile: mobileNumber };
+    const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
       setShowInput(!showInput);
+
       setShowbtn(true);
     });
   };
 
   const handleOTP = () => {
-    const requestData = { mobile: mobileNumber, otp: otp };
+    const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
         toast.success(res.message, {
@@ -103,7 +110,7 @@ const Header = ({ onchange, value }) => {
 
   const handleMobileNumber = (e) => {
     setMobileNumber(e.target.value);
-    if (e.target.value.length == 10) {
+    if (e.target.value.length <= 40) {
       setBtn(false);
     } else {
       setBtn(true);
@@ -324,7 +331,6 @@ const Header = ({ onchange, value }) => {
               <p>Sign In</p>
             </div>
             {/* end heading */}
-
             {/* input number */}
             <div className="handle_login_number_container">
               <div className="handle_login_number_content">
@@ -332,6 +338,7 @@ const Header = ({ onchange, value }) => {
                   placeholder="Enter your email"
                   value={mobileNumber}
                   onChange={handleMobileNumber}
+                  type="email"
                 />
                 <p>Edit</p>
               </div>
@@ -379,7 +386,6 @@ const Header = ({ onchange, value }) => {
                 </div>
               </div>
             ) : null}
-
             {/* end submit btn */}
           </div>
         </Box>
