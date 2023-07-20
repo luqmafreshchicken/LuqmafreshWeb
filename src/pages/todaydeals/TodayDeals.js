@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SubCategorieList from "./component/subcategorielist/SubCategorieList";
-import CustomTodayCard from "./customtodaycomponent/customtodaycard/CustomTodayCard";
 import { useLocation } from "react-router-dom";
 import "./todaydeal.css";
 import {
@@ -14,6 +13,7 @@ import Loader from "../../component/loder/Loader";
 import * as moment from "moment";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Card from "../../customcomponent/card/Card";
 
 const TodayDeals = () => {
   let location = useLocation();
@@ -108,7 +108,7 @@ const TodayDeals = () => {
         <div className="main_today_card">
           <div className="today_card">
             {product.map((item) => (
-              <CustomTodayCard
+              <Card
                 offer={item.discount}
                 productName={item.name}
                 weight={item.quantity + "  " + item.unit}
@@ -124,6 +124,7 @@ const TodayDeals = () => {
                 to="/carddetail"
                 onclick={() => handleCart(item._id)}
               />
+             
             ))}
             <Loader loading={load} />
           </div>
