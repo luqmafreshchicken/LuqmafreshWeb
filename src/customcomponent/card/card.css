@@ -56,6 +56,9 @@
   font-size: 15px;
   padding-top: 10px;
   color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .weight_singlecard {
   height: 4vh;
@@ -114,6 +117,7 @@
   justify-content: space-around;
   align-items: center;
   padding-top: 17px;
+  cursor: pointer;
 }
 .incre_decre_btn p {
   font-size: 18px;
