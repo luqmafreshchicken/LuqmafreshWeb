@@ -12,35 +12,39 @@ import {
 const TopHeader = () => {
   return (
     <div className="topheader_container">
-    <div className="topheader_content">
-      {/* left side */}
-      <div className="topheader_location">
-        <div className="top_location">
-          <img src="pin.png" />
-          <p><span>Lucknow</span><br/> A Store Near Wazirgunj Aminabad, Lucknow</p>
-        </div>
-        <div className="toplemail_mob">
-          <img src="smartphone.png" />
-          <p>
-            <b>+971 56 655 1636</b>
-          </p>
-        </div>
-      </div>
-      {/* end left side */}
-      {/* right side */}
+      <div className="topheader_content">
+        {/* left side */}
+        <div className="topheader_location">
+          <div className="top_location">
+            <img src="pin.png" />
+            <p>
+              <span>Lucknow</span>
+              <br /> A Store Near Wazirgunj Aminabad, Lucknow
+            </p>
+          </div>
 
-      <div className="topheader_icon">
-        <p>Login</p>
+          <div className="toplemail_mob">
+            <img src="smartphone.png" />
+            <p>
+              <b>+971 56 655 1636</b>
+            </p>
+          </div>
+        </div>
+        {/* end left side */}
+        {/* right side */}
+
+        <div className="topheader_icon">
+          {/*<p>Login</p>
         <p>|</p>
-        <p>Sign in</p>
+  <p>Sign in</p>*/}
 
-        <FaFacebookF className="icon facebook" />
-        <FaInstagram className="icon insta" />
-        <FaTwitter className="icon twitter" />
-        <FaYoutube className="icon youtube" />
-        <FaLinkedinIn className="icon in" />
-      </div>
-      {/* end right side */}
+          <FaFacebookF className="icon facebook" />
+          <FaInstagram className="icon insta" />
+          <FaTwitter className="icon twitter" />
+          <FaYoutube className="icon youtube" />
+          <FaLinkedinIn className="icon in" />
+        </div>
+        {/* end right side */}
       </div>
     </div>
   );
