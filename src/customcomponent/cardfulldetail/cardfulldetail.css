@@ -105,32 +105,33 @@
   top: 55%;
 }
 .Add_to_cart_btn {
-  width: 20%;
+  width: 17%;
 }
 .Add_to_cart_btn button {
   background-color: #ff0040;
   border: none;
-  height: 5vh;
+  height: 5.5vh;
   width: 100%;
-  border-radius: 5px;
-  font-size: 13px;
+  border-radius: 10px;
+  font-size: 1.1rem;
   color: white;
   text-align: center;
-  font-family: regular;
+  font-family: semibold;
 }
 .full_view_incre_btn {
-  height: 6vh;
-  width: 20%;
-  border: 1px solid #c42118;
-  border-radius: 3px;
+  height: 5.5vh;
+  width: 18%;
+  border: 2px solid #ff0040;
+  border-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
 }
 .full_view_incre_btn p {
-  color: #c42118;
-  font-size: 20px;
-  font-family: regular;
+  color: #ff0040;
+  font-size: 1.2rem;
+  font-family: semibold;
   padding-top: 15px;
 }
 
