@@ -18,7 +18,7 @@
   display: flex;
 }
 .topheader_icon {
-  width: 24%;
+  width: 14%;
   height: 8vh;
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@
     gap: 5px;
   }
   .topheader_icon {
-    min-width: 30%;
+    min-width: 18%;
   }
 
   .toplemail_mob p {
@@ -286,7 +286,7 @@
     gap: 5px;
   }
   .topheader_icon {
-    min-width: 26%;
+    min-width: 15%;
   }
 
   .toplemail_mob p {
@@ -315,7 +315,7 @@
     gap: 5px;
   }
   .topheader_icon {
-    min-width: 23%;
+    min-width: 15%;
   }
 
   .toplemail_mob p {
