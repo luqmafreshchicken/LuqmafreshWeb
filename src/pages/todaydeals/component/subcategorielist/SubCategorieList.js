@@ -8,11 +8,12 @@ const SubCategorieList = ({ img, name, id, onclick }) => {
       onClick={onclick}
       state={{ id: id }}
     >
-      <img src={img} />
+      <div className="subcategorie_product_img_comtainer">
+        <img src={img} />
+      </div>
       <p>{name}</p>
     </div>
   );
 };
 
 export default SubCategorieList;
-
