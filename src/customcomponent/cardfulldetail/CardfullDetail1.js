@@ -174,7 +174,7 @@ export default function CardFullDetail1({ id }) {
                 </div>
                 {show === false ? (
                   <div className="Add_to_cart_btn">
-                    <button onClick={() => setShow(!show)}>ADD TO CART</button>
+                    <button onClick={() => setShow(!show)}>ADD</button>
                   </div>
                 ) : (
                   <div
