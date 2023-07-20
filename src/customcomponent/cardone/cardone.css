@@ -32,12 +32,11 @@
   font-size: 15px;
   padding-top: 10px;
   color: black;
-}
-.name_singlecard_combo {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 280px) and (max-width: 480px) {
