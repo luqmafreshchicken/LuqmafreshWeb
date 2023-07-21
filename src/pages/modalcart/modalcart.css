@@ -38,7 +38,7 @@
 .Cong_section {
   background-color: #ff0040;
   height: 5vh;
-  width: 93%;
+  width: 97%;
   margin-left: 8px;
   border-radius: 3px;
 }
@@ -53,7 +53,7 @@
 .save_section {
   border: 1px solid #ff0040;
   height: 5vh;
-  width: 93%;
+  width: 97%;
   margin-left: 8px;
   margin-top: 8px;
   margin-bottom: 1rem;
@@ -69,7 +69,7 @@
 }
 .product_card {
   height: 14vh;
-  width: 93%;
+  width: 97%;
   margin-left: 8px;
   margin-top: 1rem;
   border-radius: 3px;
@@ -181,119 +181,7 @@
   font-family: regular;
   text-decoration: line-through;
 }
-/* .increment {
-  height: 25px;
-  width: 25px;
-  border-radius: 5px;
-  background-color: #dbd6d6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.increment p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #d11243;
-  padding-top: 18px;
-  font-family: regular;
 
-}
-.show_value p {
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding-top: 18px;
-  font-family: regular;
-
-}
-.decrement {
-  height: 25px;
-  width: 25px;
-  border-radius: 5px;
-  background-color: #dbd6d6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 18px;
-}
-.decrement p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #d11243;
-  font-family: regular;
-
-  text-align: center;
-}
-.try_section {
-  height: 5vh;
-  background-color: #dbd6d6;
-  width: 93%;
-  margin-left: 8px;
-  margin-top: 20px;
-  border-radius: 3px;
-}
-.try_section p {
-  font-size: 12px;
-  font-family: light;
-  font-weight: 600;
-  text-align: center;
-} */
-/* .main_div {
-  width: 93%;
-  margin-left: 8px;
-  margin-top: 20px;
-  height: 28vh;
-  border-radius: 3px;
-  display: grid;
-  place-items: center;
-}
-.center_div {
-  display: flex;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  width: 100%;
-}
-.center_div::-webkit-scrollbar {
-  overflow: hidden;
-}
-.small_card_content {
-  width: 100%;
-  height: 25vh;
-  margin-top: 16px;
-  margin-right: 10px;
-  border-radius: 3px;
-} */
-
-/* .product_item_name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 5vh;
-  padding-top: 1rem;
-
-}
-.item_name {
-  width: 80%;
-  height: auto;
-}
-.item_name p {
-  font-size: 12px;
-  font-family: regular;
-  font-weight: 600;
-} */
-/* .increment_btn {
-  width: 20%;
-  height: auto;
-  height: 7vh;
-}
-.increment_btn button {
-  font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  margin-left: 6px;
-  height: 28px;
-  border: 2px solid #dbd6d6;
-  background-color: white;
-} */
 .product_item_detail {
   width: 100%;
   height: 5vh;
@@ -322,7 +210,7 @@
 }
 .biil_payment {
   height: 24vh;
-  width: 93%;
+  width: 97%;
   margin-left: 8px;
   margin-top: 1.2rem;
   /* margin-bottom: 130px; */
@@ -389,7 +277,7 @@
   font-weight: 600;
 }
 .add_address {
-  width: 93%;
+  width: 97%;
   height: 7vh;
   background-color: white;
   margin-left: 8px;
@@ -441,6 +329,8 @@
   align-items: center;
   border-radius: 3px;
   background-color: white;
+  position: absolute;
+  bottom: 8px;
 }
 .proceed_payment {
   height: 7vh;
@@ -476,21 +366,26 @@
   color: white;
   padding-top: 15px;
 }
+.modalcart_scroll_bar_container {
+  width: 100%;
+  height: 82vh;
+  padding-top: 1rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.modalcart_scroll_bar_container::-webkit-scrollbar {
+  overflow: hidden;
+}
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .modalcart_btn {
-    border: 1px solid #c42118;
-    border-radius: 50px;
-    width: 34px;
-    height: 34px;
+  
     margin-top: 40px;
-    margin-bottom: 10px;
-    margin-left: 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 0px;
+    margin-left: 1rem;
+  
   }
   .modalcart_btn img {
     height: 30px;
@@ -498,15 +393,16 @@
   }
   .order_summary p {
     font-size: 17px;
+    margin-left: 0.5rem;
+
   }
   .style2 {
     left: 50%;
     width: 100%;
-    height: 100vh;
   }
   .Cong_section {
-    width: 90%;
-    margin-left: 17px;
+    width: 96%;
+    margin-left: 1rem;
   }
   .Cong_section p {
     text-align: center;
@@ -517,8 +413,8 @@
     font-size: 11px;
   }
   .save_section {
-    width: 90%;
-    margin-left: 17px;
+    width: 96%;
+    margin-left: 1rem;
   }
   .save_section p {
     text-align: center;
@@ -528,16 +424,16 @@
     width: 80%;
   }
   .product_card {
-    width: 90%;
-    margin-left: 17px;
+    width: 96%;
+    margin-left: 1rem;
   }
   .number {
-    height: 24px;
+    height: 30px;
     width: 30px;
   }
   .number p {
     text-align: center;
-    padding-top: 3px;
+    padding-top: 6px;
   }
   .product_name {
     width: 75%;
@@ -566,59 +462,11 @@
   .cut_count p {
     font-size: 12px;
   }
-  .increment {
-    height: 23px;
-    width: 23px;
-  }
-  .increment p {
-    font-size: 15px;
-  }
-  .decrement {
-    height: 23px;
-    width: 23px;
-  }
-  .decrement p {
-    font-size: 20px;
-  }
-  .show_value p {
-    font-size: 14px;
-  }
-  .try_section {
-    width: 90%;
-    margin-left: 17px;
-  }
-  .try_section p {
-    font-size: 11px;
-    padding-top: 10px;
-  }
-  .main_div {
-    width: 90%;
-    margin-left: 17px;
-  }
-
-  .small_card_content img {
-    width: 125px;
-    height: 90px;
-  }
-  .item_name {
-    width: 70%;
-  }
-  .item_name p {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .increment_btn {
-    width: auto;
-  }
-  .product_item_detail p {
-    font-size: 12px;
-  }
+ 
   .biil_payment {
-    width: 90%;
-    margin-left: 17px;
-    margin-top: 0px;
+    width: 96%;
+    margin-left: 1rem;
+    margin-top: 1rem;
   }
 
   .bill_name p {
@@ -636,7 +484,7 @@
     color: gray;
   }
   .proceed_section {
-    width: 90%;
+    width: 93%;
     margin-left: 17px;
     position: fixed;
     bottom: 10;
@@ -691,12 +539,16 @@
     font-size: 12px;
   }
   .proceed_payment p {
-    font-size: 12px;
+    font-size: 0.9rem;
     text-align: center;
   }
   .proceed_btn p {
-    font-size: 15px;
+    font-size: 0.9rem;
     text-align: center;
+    padding-top: 1.5rem;
+  }
+  .modalcart_scroll_bar_container {
+    height: 77vh;
   }
 }
 
@@ -704,32 +556,26 @@
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .style2 {
-    left: 70%;
-    width: 60%;
-    height: 100%;
+    left: 65%;
+    width: 75%;
   }
   .modalcart_btn {
-    border: 1px solid #c42118;
-    border-radius: 50px;
-    width: 34px;
-    height: 34px;
-    margin-top: 40px;
+  
+    margin-top: 2rem;
     margin-bottom: 10px;
-    margin-left: 17px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-left: 0.6rem;
+  
   }
   .modalcart_btn img {
-    height: 30px;
-    width: 30px;
+    height: 28px;
+    width: 28px;
   }
   .order_summary p {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .Cong_section {
-    width: 90%;
-    margin-left: 22px;
+    width: 95%;
+    margin-left: 0.6rem;
   }
   .Cong_section p {
     font-size: 12px;
@@ -737,87 +583,59 @@
   }
   .save_section {
     height: 5vh;
-    width: 90%;
-    margin-left: 22px;
+    width: 95%;
+    margin-left: 0.6rem;
   }
   .save_section p {
     font-size: 12px;
     padding-top: 7px;
   }
   .product_card {
-    width: 90%;
-    margin-left: 22px;
+    width: 95%;
+    margin-left: 0.6rem;
   }
-  .try_section {
-    width: 90%;
-    margin-left: 22px;
-  }
-  .try_section p {
-    font-size: 12px;
-    padding-top: 8px;
-  }
-  .main_div {
-    width: 90%;
-    margin-left: 22px;
-    margin-top: 10px;
-  }
-  .small_card_content {
-    width: 37%;
-    height: 27vh;
-    margin-top: 16px;
-    margin-right: 10px;
-    border-radius: 3px;
-  }
-  .item_name {
-    width: 70%;
-    padding-top: 0px;
-  }
-  .item_name p {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .increment_btn {
-    width: 20%;
-  }
-  .increment_btn button {
-    font-family: regular;
-    margin-left: 0px;
-  }
+
   .biil_payment {
-    width: 90%;
-    margin-left: 22px;
-    margin-top: 10px;
+    width: 95%;
+    margin-left: 0.6rem;
+    margin-top: 1rem;
   }
   .proceed_section {
-    width: 90%;
-    margin-left: 22px;
+    width: 91%;
+    margin-left: 0.6rem;
+  }
+  .modalcart_scroll_bar_container {
+    height: 77vh;
+    padding-top: 0.7rem;
+  }
+  .proceed_btn p{
+    font-size: 0.8rem;
+  }
+  .proceed_payment p{
+    font-size: 0.8rem;
   }
 }
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
-}
-
-/* Desktops, large screens (1025px - 1200px) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  /* CSS rules for desktops and large screens */
   .style2 {
-    width: 30%;
+    width: 65%;
+  }
+  .modalcart_btn {
+    margin-left: 0.6rem;
   }
   .modalcart_btn img {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
   }
   .order_summary p {
     font-size: 1.2rem;
-    padding-left: 0.5rem;
+    padding-left: 0.6rem;
   }
   .Cong_section {
-    width: 90%;
-    margin-left: 0.5rem;
+    width: 69%;
+    margin-left: 0.6rem;
   }
   .Cong_section p {
     font-size: 0.8rem;
@@ -826,50 +644,97 @@
 
   .save_section {
     height: 5vh;
-    width: 90%;
-    margin-left: 0.5rem;
+    width: 69%;
+    margin-left: 0.6rem;
   }
   .save_section p {
     font-size: 0.8rem;
+    padding-top: 0.4rem;
   }
   .product_card {
-    width: 90%;
-    margin-left: 0.5rem;
+    width: 69%;
+    margin-left: 0.6rem;
   }
-  .try_section {
-    width: 90%;
-    margin-left: 0.5rem;
+
+  .biil_payment {
+    width: 69%;
+    margin-left: 0.6rem;
   }
-  .try_section p {
+  .modalcart_scroll_bar_container {
+    height: 80vh;
+    padding-top: 0.7rem;
+  }
+  .proceed_section {
+    max-width: 67%;
+    margin-left: 0.6rem;
+  }
+  .proceed_btn{
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 870px){
+  .proceed_btn p{
+    font-size: 0.8rem;
+  }
+  .proceed_payment p{
+    font-size: 0.8rem;
+  }
+  .cong_charge_section p{
+    font-size: 0.75rem;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .style2 {
+    width: 45%;
+  }
+  .modalcart_btn {
+    margin-left: 0.7rem;
+  }
+  .modalcart_btn img {
+    height: 30px;
+    width: 30px;
+  }
+  .order_summary p {
+    font-size: 1.2rem;
+    padding-left: 0.7rem;
+  }
+  .Cong_section {
+    width: 77%;
+    margin-left: 0.7rem;
+  }
+  .Cong_section p {
     font-size: 0.8rem;
     padding-top: 0.5rem;
   }
-  .main_div {
-    width: 90%;
-    margin-left: 0.5rem;
-    margin-top: 0.6rem;
+
+  .save_section {
+    height: 5vh;
+    width: 77%;
+    margin-left: 0.7rem;
   }
-  .small_card_content {
-    width: 37%;
-    height: 27vh;
-    margin-top: 1rem;
-    margin-right: 1.3rem;
-    border-radius: 3px;
-    gap: 2rem;
+  .save_section p {
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
   }
-  .item_name {
-    width: 80%;
-    padding-top: 0px;
+  .product_card {
+    width: 77%;
+    margin-left: 0.7rem;
   }
-  .item_name p {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+
   .biil_payment {
-    width: 90%;
-    margin-left: 0.5rem;
+    width: 77%;
+    margin-left: 0.7rem;
+  }
+  .modalcart_scroll_bar_container {
+    height: 80vh;
+    padding-top: 0.7rem;
+  }
+  .proceed_section {
+    max-width: 75%;
+    margin-left: 0.7rem;
   }
 }
 
@@ -879,17 +744,20 @@
   .style2 {
     width: 40%;
   }
+  .modalcart_btn {
+    margin-left: 1rem;
+  }
   .modalcart_btn img {
-    height: 40px;
-    width: 40px;
+    height: 25px;
+    width: 25px;
   }
   .order_summary p {
     font-size: 1.2rem;
-    padding-left: 1.2rem;
+    padding-left: 1rem;
   }
   .Cong_section {
-    max-width: 75%;
-    margin-left: 1.2rem;
+    max-width: 79%;
+    margin-left: 1rem;
   }
   .Cong_section p {
     font-size: 0.8rem;
@@ -897,56 +765,32 @@
   }
 
   .save_section {
-    max-width: 75%;
+    max-width: 79%;
     height: 5vh;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
   }
   .save_section p {
     font-size: 0.8rem;
+    padding-top: 0.4rem;
   }
   .product_card {
-    max-width: 75%;
-    margin-left: 1.2rem;
+    max-width: 79%;
+    margin-left: 1rem;
   }
-  .try_section {
-    max-width: 75%;
-    margin-left: 1.2rem;
-  }
-  .try_section p {
-    font-size: 0.8rem;
-    padding-top: 0.5rem;
-  }
-  .main_div {
-    max-width: 75%;
-    margin-left: 1.2rem;
-    margin-top: 0.6rem;
-  }
-  .small_card_content {
-    width: 37%;
-    height: 27vh;
-    margin-top: 2rem;
-    margin-right: 1.2rem;
-    gap: 2rem;
-  }
-  .item_name {
-    width: 80%;
-    padding-top: 0px;
-  }
-  .item_name p {
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+
   .biil_payment {
-    max-width: 75%;
-    margin-left: 1.2rem;
+    max-width: 79%;
+    margin-left: 1rem;
   }
   .cong_charge_section p {
     font-size: 0.8rem;
   }
   .proceed_section {
-    max-width: 75%;
-    margin-left: 1.2rem;
+    max-width: 77%;
+    margin-left: 1rem;
+  }
+  .modalcart_scroll_bar_container {
+    height: 80vh;
+    padding-top: 0.7rem;
   }
 }
