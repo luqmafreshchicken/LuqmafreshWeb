@@ -10,7 +10,7 @@ import {
   newArrival,
 } from "../../serverRequest/Index";
 
-const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
+const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
   const [count, setCount] = useState(0);
   const [cartProduct, setCartProduct] = useState([]);
   const [loginStatus, setLoginStatus] = useState(false);
@@ -92,6 +92,7 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
         open={cartopen}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        onClose={onclose}
       >
         <Box className="style2">
           <button onClick={carthandleClose} className="modalcart_btn">
