@@ -147,7 +147,7 @@ const AddNewAddress = ({ id }) => {
                 state={{ id: addressid }}
               >
                 <button className="addaddress_button">
-                  Proceed to Shipment
+                  <p>Proceed</p>
                 </button>
               </NavLink>
             ) : null}
