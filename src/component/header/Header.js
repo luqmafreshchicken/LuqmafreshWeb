@@ -314,7 +314,7 @@ const Header = ({ onchange, value }) => {
           </nav>
         </div>
       </div>
-      <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} />
+      <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} onclose={carthandleClose}/>
 
       <Modal
         open={open}
