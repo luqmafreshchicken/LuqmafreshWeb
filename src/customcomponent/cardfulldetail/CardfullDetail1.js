@@ -12,6 +12,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Pagination, Autoplay } from "swiper";
+import "swiper/css/navigation";
 
 export default function CardFullDetail1({ id }) {
   let location = useLocation();
@@ -25,7 +33,11 @@ export default function CardFullDetail1({ id }) {
     setIncre(incre + 1);
   };
   const decrement = () => {
-    setIncre(incre - 1);
+    if (incre > 0) {
+      setIncre(incre - 1);
+    } else {
+      setIncre(0);
+    }
   };
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -99,14 +111,31 @@ export default function CardFullDetail1({ id }) {
           {/* image_card */}
           <div className="image_cardetail">
             <div className="image_cardetail_slider">
-              {allImage.map((img) => (
-                <img src={img.image} style={{ width: "100%", height: 376 }} />
-              ))}
-              {
-                <div className="slider_next_btn_full_detail">
-                  <img src="rtarrow.png" height="20px" width="20px" />
-                </div>
-              }
+              <Swiper
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                autoplay={{
+                  delay: 2500,
+                }}
+                modules={[Pagination, Autoplay]}
+                className="mySwiper"
+              >
+                {/*allImage.map((img) => (
+              <SwiperSlide>
+                <img
+                  src={img.image}
+                />
+              </SwiperSlide>
+            ))*/}
+                <SwiperSlide>
+                  <img src="loginBg.jpg" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src="Country-Eggs1.jpg" />
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
           {/* card_content */}
@@ -149,28 +178,24 @@ export default function CardFullDetail1({ id }) {
                 </div>
               </div>
               <div className="cardfull_detail_text">
-                <div>
-                  <h3 style={{ paddingTop: "20px", color: "#d11243" }}>
-                    ₹{product.price}
-                    <span
-                      style={{
-                        fontSize: "14px",
-                        color: "grey",
-                        textDecoration: "line-through",
-                      }}
-                    >
-                      {" "}
-                      MRP: ₹{product.originalPrice}{" "}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "17px",
-                        color: "green",
-                      }}
-                    >
-                      {product.discount}% OFF
-                    </span>
-                  </h3>
+                <div className="cardfull_detail_container_text">
+                  <p style={{ color: "#d11243" }}>₹{product.price}</p>
+                  <p
+                    style={{
+                      color: "grey",
+                      textDecoration: "line-through",
+                    }}
+                  >
+                    {" "}
+                    MRP: ₹{product.originalPrice}{" "}
+                  </p>
+                  <p
+                    style={{
+                      color: "green",
+                    }}
+                  >
+                    {product.discount}% OFF
+                  </p>
                 </div>
                 {show === false ? (
                   <div className="Add_to_cart_btn">
@@ -182,9 +207,9 @@ export default function CardFullDetail1({ id }) {
                     onClick={() => AddToCart()}
                     className="full_view_incre_btn"
                   >
-                    <p onClick={increment}>+</p>
-                    <p>{incre}</p>
                     <p onClick={decrement}>-</p>
+                    <p>{incre}</p>
+                    <p onClick={increment}>+</p>
                   </div>
                 )}
               </div>
