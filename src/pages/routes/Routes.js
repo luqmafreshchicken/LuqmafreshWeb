@@ -27,6 +27,7 @@ import AffliateMarket from "../affliatemarket/AffliateMarket";
 import Franchies from "../franchies/Franchies";
 import Recipies from "../recipes/Recipies";
 import Track from "../track/Track";
+import CardDetail1 from "../carddetail1/CardDetail1";
 
 const Routes1 = () => {
   return (
@@ -34,7 +35,7 @@ const Routes1 = () => {
       <Route exact path="/" element={<Home />} />
       <Route path="/todaydeals" element={<TodayDeals />} />
       <Route path="/carddetail" element={<CardDetail />} />
-      <Route path="/carddetail1" element={<CardFullDetail1 />} />
+      <Route path="/carddetail1" element={<CardDetail1 />} />
       <Route path="/topseverweek" element={<TopSeverWeek />} />
       <Route path="/bestseller" element={<BestSeller />} />
       <Route path="/privacypolicy" element={<PrivacyPolicy />} />
