@@ -1,17 +1,16 @@
 .main_addaddress_container {
-  height: 130vh;
+  height: auto;
   width: 100%;
   display: grid;
   place-items: center;
+  padding: 3rem 0rem;
 }
 .addaddress_container {
   background-color: white;
   width: 80%;
-  height: 120vh;
-  margin-top: 4%;
+  height: auto;
   display: flex;
   justify-content: space-evenly;
-  /* background-color: green; */
 }
 .addaddress_content_text {
   width: 60%;
@@ -33,24 +32,22 @@
 .add_new_address_text {
   width: 80%;
   height: 6vh;
-  border: 1px solid #FF0040;
+  border: 1px solid #ff0040;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 12px;
   cursor: pointer;
-
 }
 .add_new_address_text h5 {
-  color: #FF0040;
+  color: #ff0040;
   font-family: regular;
   font-weight: 600;
 }
 .saved_address {
   width: 100%;
   height: 7vh;
-
 }
 .saved_address h5 {
   font-family: regular;
@@ -69,8 +66,6 @@
   display: grid;
   overflow-x: hidden;
   overflow-y: scroll;
-
-
 }
 .select_saved_address_container::-webkit-scrollbar {
   overflow: hidden;
@@ -82,7 +77,6 @@
   margin-top: 3%;
   display: flex;
   justify-content: space-between;
-
 }
 .input_radio {
   width: 5%;
@@ -92,12 +86,12 @@
 .saved_text_area {
   width: 94%;
   height: 25vh;
-  border: 1px solid #FF0040;
+  border: 1px solid #ff0040;
   border-radius: 5px;
   /* background-color: #C42118; */
 }
 .input_radio input[type="radio"] {
-  accent-color: #FF0040;
+  accent-color: #ff0040;
   height: 30px;
   width: 20px;
   cursor: pointer;
@@ -135,24 +129,29 @@
   font-family: "Poppins", sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #FF0040;
+  color: #ff0040;
   cursor: pointer;
 }
 .addaddress_button {
   margin-top: 2rem;
   margin-left: 10%;
+  font-size: 30px;
   width: 30%;
   border: none;
   color: white;
   font-family: regular;
   font-weight: 600;
-  background-color: #FF0040;
+  background-color: #ff0040;
   height: 7vh;
   text-align: center;
   border-radius: 10px;
   font-family: semibold;
-  font-size: 1rem;
 }
+.addaddress_button p{
+  font-size: 1.1rem;
+  padding-top: 0.8rem;
+}
+
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -170,6 +169,8 @@
   .main_addaddress_container {
     height: auto;
     width: 100%;
+  padding: 1rem 0rem;
+
   }
   .addaddress_container {
     height: auto;
@@ -223,9 +224,15 @@
     line-height: 0.1;
   }
   .addaddress_button {
-    margin-left: 5%;
-    width: 60%;
-    font-size: 14px;
+    margin-left: 0.3rem;
+    width: 30%;
+    margin-top: 1rem;
+    /* margin-bottom: 3rem; */
+  }
+  .addaddress_button p{
+    padding-top: 0.6rem;
+    font-size: 01rem;
+
   }
   .input_radio {
     width: 8%;
@@ -275,16 +282,20 @@
   .main_addaddress_container {
     height: auto;
     width: 100%;
+    /* background-color: #ff0040; */
+    padding: 1rem 0rem;
   }
   .addaddress_container {
     height: auto;
     width: 100%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    /* background-color: aqua; */
   }
   .addaddress_content_text {
     height: auto;
     width: 93%;
     box-shadow: none;
+    /* background-color: pink; */
   }
   .add_new_address_text {
     width: 100%;
@@ -314,23 +325,26 @@
   }
 
   .local_area h6 {
-    padding: 15px 0px;
+    padding: 15px 3px;
     font-size: 14px;
     font-weight: none;
   }
   .all_detail_text {
     height: 12vh;
     border-bottom: 1px solid grey;
-    margin-left: 0px;
+    margin-left: 3px;
   }
   .all_detail_text p {
     font-size: 13px;
     line-height: 0.1;
   }
   .addaddress_button {
-    margin-left: 5%;
-    width: 60%;
-    font-size: 14px;
+    margin-left: 0.4rem;
+    min-width: 20%;
+    margin-bottom: 0rem;
+  }
+  .addaddress_button p{
+    padding-top: 0.5rem;
   }
   .input_radio {
     width: 4%;
@@ -354,7 +368,7 @@
   }
   .edit_delete_btn {
     height: 5vh;
-    margin-left: 0px;
+    margin-left: 3px;
     margin-right: 20px;
     font-size: 10px;
   }
@@ -364,8 +378,153 @@
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
+  .add_new_address_text {
+    width: 90%;
+  }
+  .addaddress_content_text{
+    width: 100%;
+
+  }
+  .addaddress_steps{
+    display: none;
+  }
+  .addaddress_container{
+    width: 92%;
+  }
+  .add_new_address_text h5 {
+    font-size: 1rem;
+  }
+  .saved_address h5 {
+    padding-left: 2rem;
+    font-size: 1.1rem;
+  }
+  .saved_address p {
+    padding-left: 2rem;
+  }
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address {
+    width: 92%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  /* select_saved_address */
+  .input_radio input[type="radio"] {
+    height: 22px;
+    width: 17px;
+  }
+  .local_area h6 {
+    padding: 10px 0px;
+    font-weight: 600;
+    font-family: regular;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .all_detail_text p {
+    font-size: 13px;
+    line-height: 0.4;
+    color: grey;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 0rem;
+  }
+  .edit_delete_btn {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 30%;
+    margin-top: 0px;
+  }
+  .addaddress_button p{
+    font-size: 1rem;
+    padding-top: 0.6rem;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1024px){
+  .add_new_address_text {
+    width: 90%;
+  }
+  .addaddress_content_text{
+    width: 80%;
+
+  }
+ 
+  .addaddress_container{
+    width: 92%;
+    gap: 2rem;
+  }
+  .add_new_address_text h5 {
+    font-size: 1rem;
+  }
+  .saved_address h5 {
+    padding-left: 2rem;
+    font-size: 1.1rem;
+  }
+  .saved_address p {
+    padding-left: 2rem;
+  }
+  .saved_text_area {
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .select_saved_address {
+    width: 92%;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  /* select_saved_address */
+  .input_radio input[type="radio"] {
+    height: 22px;
+    width: 17px;
+  }
+  .local_area h6 {
+    padding: 10px 0px;
+    font-weight: 600;
+    font-family: regular;
+  }
+  .all_detail_text {
+    height: 12vh;
+    border-bottom: 1px solid grey;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .all_detail_text p {
+    font-size: 13px;
+    line-height: 0.4;
+    color: grey;
+  }
+  .edit_delete_btn {
+    height: 5vh;
+    margin-left: 0px;
+    margin-right: 0rem;
+  }
+  .edit_delete_btn {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addaddress_button {
+    margin-left: 5%;
+    width: 30%;
+    margin-top: 0px;
+  }
+  .addaddress_button p{
+    font-size: 1rem;
+    padding-top: 0.6rem;
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
@@ -377,6 +536,14 @@
   .add_new_address_text h5 {
     font-size: 1rem;
   }
+  .addaddress_content_text{
+    width: 100%;
+
+  }
+  .addaddress_container{
+    width: 90%;
+    gap: 2rem;
+  }
   .saved_address h5 {
     padding-left: 2rem;
     font-size: 1.1rem;
@@ -389,11 +556,10 @@
     height: auto;
     border: none;
   }
-  .select_saved_address{
+  .select_saved_address {
     width: 92%;
     margin-left: 2rem;
     margin-top: 1rem;
-    
   }
   /* select_saved_address */
   .input_radio input[type="radio"] {
@@ -427,14 +593,17 @@
   }
   .addaddress_button {
     margin-left: 5%;
-    width: 30%;
-    font-size: 0.8rem;
+    width: 25%;
     margin-top: 0px;
+  }
+  .addaddress_button p{
+    font-size: 1rem;
+    padding-top: 0.7rem;
   }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1201px) and  (max-width: 1530px){
   /* CSS rules for extra large screens and TV */
   .add_new_address_text {
     width: 90%;
@@ -442,23 +611,30 @@
   .add_new_address_text h5 {
     font-size: 1rem;
   }
+  .addaddress_content_text{
+    width: 100%;
+
+  }
+  .addaddress_container{
+    width: 90%;
+    gap: 2rem;
+  }
   .saved_address h5 {
-    padding-left: 2rem;
+    padding-left: 2.7rem;
     font-size: 1.1rem;
   }
   .saved_address p {
-    padding-left: 2rem;
+    padding-left: 2.7rem;
   }
   .saved_text_area {
     width: 100%;
     height: auto;
     border: none;
   }
-  .select_saved_address{
+  .select_saved_address {
     width: 92%;
-    margin-left: 2rem;
+    margin-left: 2.7rem;
     margin-top: 1rem;
-    
   }
   /* select_saved_address */
   .input_radio input[type="radio"] {
@@ -492,8 +668,12 @@
   }
   .addaddress_button {
     margin-left: 5%;
-    width: 30%;
+    width: 20%;
     font-size: 0.8rem;
     margin-top: 0px;
+  }
+  .addaddress_button p{
+    font-size: 1rem;
+    padding-top: 0.6rem;
   }
 }
