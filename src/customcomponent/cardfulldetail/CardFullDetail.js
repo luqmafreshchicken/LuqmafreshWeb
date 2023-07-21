@@ -33,7 +33,11 @@ export default function CardFullDetail({ id }) {
     setIncre(incre + 1);
   };
   const decrement = () => {
-    setIncre(incre - 1);
+    if (incre > 0) {
+      setIncre(incre - 1);
+    } else {
+      setIncre(0);
+    }
   };
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -122,9 +126,7 @@ export default function CardFullDetail({ id }) {
               >
                 {allImage.map((img) => (
                   <SwiperSlide>
-                    <img
-                      src={img.image}
-                    />
+                    <img src={img.image} />
                   </SwiperSlide>
                 ))}
               </Swiper>
