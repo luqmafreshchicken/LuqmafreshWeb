@@ -98,7 +98,7 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
             <img src="cross.png" className="close_modal" />
           </button>
           {loginStatus == true ? (
-            <>
+            <div className="modalcart_scroll_bar_container">
               <div className="order_summary">
                 <p>Order Summary</p>
               </div>
@@ -140,58 +140,10 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
                         <p> ₹{option.productId.originalPrice}</p>
                       </div>
                     </div>
-                    {/*<di className="count_show">
-                      <div className="increment" onClick={incre}>
-                        <p>+</p>
-                      </div>
-                      <div className="show_value">
-                        <p>{option.quantity}</p>
-                      </div>
-                      <div className="decrement" onClick={decre}>
-                        <p>-</p>
-                      </div>
-              </di>*/}
                   </div>
                 </div>
               ))}
 
-              {/*  <div className="try_section">
-                <p>You May Want To Try</p>
-              </div>*/}
-              {/* card Detail */}
-              {/*<div className="main_div">
-                <div className="center_div">
-                  {data.map((card) => (
-                    <div className="small_card_content">
-                      <img src={card.image} width="150" height="100" />
-                      <div className="product_item_name">
-                        <div className="item_name">
-                          <p>{card.name}</p>
-                        </div>
-                        <div className="increment_btn">
-                          <button>+</button>
-                        </div>
-                      </div>
-                      <div className="product_item_detail">
-                        <div className="product_item_price">
-                          <p
-                            style={{
-                              textDecoration: "line-through",
-                              color: "green",
-                            }}
-                          >
-                            ₹{card.originalPrice}
-                          </p>
-                          <p style={{}}>₹{card.price}</p>
-                        </div>
-                        <div className="product_item_quantity">
-                          <p>{card.discount}%</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                          </div>*/}
               <div className="biil_payment">
                 <div className="bill_name">
                   <p>Bill Details</p>
@@ -201,14 +153,16 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
                     SubTotal
                   </p>
                   <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                  ₹ {cartPrice}
+                    ₹ {cartPrice}
                   </p>
                 </div>
                 <div className="delivery_charge">
                   <p style={{ paddingLeft: "15px", paddingTop: "10px" }}>
                     Delivery Charge
                   </p>
-                  <p style={{ paddingRight: "15px", paddingTop: "10px" }}>₹ 0</p>
+                  <p style={{ paddingRight: "15px", paddingTop: "10px" }}>
+                    ₹ 0
+                  </p>
                 </div>
                 <div className="cong_charge_section">
                   <p style={{ paddingLeft: "15px" }}>
@@ -218,7 +172,9 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
                 <div className="border_line"></div>
                 <div className="total_payments">
                   <p style={{ paddingTop: "10px" }}>Total</p>
-                  <p style={{ paddingTop: "10px", color:"#FF0040" }}>₹ {cartPrice}</p>
+                  <p style={{ paddingTop: "10px", color: "#FF0040" }}>
+                    ₹ {cartPrice}
+                  </p>
                 </div>
               </div>
               {cartProduct?.length >= 1 ? (
@@ -233,7 +189,7 @@ const ModalCart = ({ cartopen, carthandleClose, onclick }) => {
                   </div>
                 </div>
               ) : null}
-            </>
+            </div>
           ) : null}
 
           {loginStatus == false ? (
