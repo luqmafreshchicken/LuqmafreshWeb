@@ -381,11 +381,9 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .modalcart_btn {
-  
     margin-top: 40px;
     margin-bottom: 0px;
     margin-left: 1rem;
-  
   }
   .modalcart_btn img {
     height: 30px;
@@ -394,7 +392,6 @@
   .order_summary p {
     font-size: 17px;
     margin-left: 0.5rem;
-
   }
   .style2 {
     left: 50%;
@@ -462,7 +459,7 @@
   .cut_count p {
     font-size: 12px;
   }
- 
+
   .biil_payment {
     width: 96%;
     margin-left: 1rem;
@@ -551,6 +548,41 @@
     height: 77vh;
   }
 }
+/* Mobile devices (320px - 420px) */
+
+@media only screen and (min-width: 320px) and (max-width: 420px) {
+  .modalcart_btn,
+  .Cong_section,
+  .save_section,
+  .product_card,
+  .biil_payment,
+  .proceed_section {
+    margin-left: 0.5rem;
+  }
+  .proceed_section{
+    bottom: 1.5rem;
+  }
+  .order_summary p {
+    margin-left: 0rem;
+  }
+
+  .proceed_payment {
+    width: 45%;
+  }
+  .proceed_payment p {
+    font-size: 0.9rem;
+    padding-top: 1rem;
+
+    padding-left: 1rem;
+  }
+  .proceed_btn {
+    width: 55%;
+  }
+  .proceed_btn p {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+}
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -560,11 +592,9 @@
     width: 75%;
   }
   .modalcart_btn {
-  
     margin-top: 2rem;
     margin-bottom: 10px;
     margin-left: 0.6rem;
-  
   }
   .modalcart_btn img {
     height: 28px;
@@ -608,10 +638,10 @@
     height: 77vh;
     padding-top: 0.7rem;
   }
-  .proceed_btn p{
+  .proceed_btn p {
     font-size: 0.8rem;
   }
-  .proceed_payment p{
+  .proceed_payment p {
     font-size: 0.8rem;
   }
 }
@@ -668,18 +698,18 @@
     max-width: 67%;
     margin-left: 0.6rem;
   }
-  .proceed_btn{
+  .proceed_btn {
     width: 50%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 870px){
-  .proceed_btn p{
+@media only screen and (min-width: 768px) and (max-width: 870px) {
+  .proceed_btn p {
     font-size: 0.8rem;
   }
-  .proceed_payment p{
+  .proceed_payment p {
     font-size: 0.8rem;
   }
-  .cong_charge_section p{
+  .cong_charge_section p {
     font-size: 0.75rem;
   }
 }
