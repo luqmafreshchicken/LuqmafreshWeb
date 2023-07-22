@@ -152,6 +152,12 @@
     margin-top: 0px;
     gap: 10px;
   }
+
+  .image_cardetail_slider img {
+    width: 100%;
+    height: 30vh;
+    border-radius: 20px;
+  }
   .image_cardetail {
     width: 100%;
   }
@@ -174,8 +180,15 @@
     font-size: 0.7rem;
   }
   .cardfull_detail_container_text p{
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    padding-top: 1rem;
   }
+  .cardfull_detail_container_text {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+ 
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -196,6 +209,11 @@
   }
   .image_cardetail {
     width: 100%;
+  }
+  .image_cardetail_slider img {
+    width: 100%;
+    height: 50vh;
+    border-radius: 20px;
   }
   .cardetail_content {
     width: 100%;
