@@ -559,8 +559,9 @@
   .proceed_section {
     margin-left: 0.5rem;
   }
-  .proceed_section{
-    bottom: 1.5rem;
+  .proceed_section {
+    bottom: 2rem;
+    width: 95%;
   }
   .order_summary p {
     margin-left: 0rem;
@@ -581,6 +582,9 @@
   .proceed_btn p {
     font-size: 0.8rem;
     padding-top: 1rem;
+  }
+  .modalcart_scroll_bar_container {
+    height: 75vh;
   }
 }
 
