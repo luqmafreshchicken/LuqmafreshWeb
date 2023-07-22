@@ -38,7 +38,7 @@ const MobileAccount = () => {
     localContent();
   };
   const handleLogin = () => {
-    const requestData = { countryCode: "+91", mobile: mobileNumber };
+    const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
       setShowInput(!showInput);
       setShowbtn(true);
@@ -46,14 +46,14 @@ const MobileAccount = () => {
   };
   const handleMobileNumber = (e) => {
     setMobileNumber(e.target.value);
-    if (e.target.value.length == 10) {
+    if (e.target.value.length <= 40) {
       setBtn(false);
     } else {
       setBtn(true);
     }
   };
   const handleOTP = () => {
-    const requestData = { mobile: mobileNumber, otp: otp };
+    const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
         toast.success(res.message, {
@@ -81,6 +81,7 @@ const MobileAccount = () => {
       }
     });
   };
+
 
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
@@ -238,11 +239,11 @@ const MobileAccount = () => {
             <div className="mobile_number_login">
               <div className="mobile_number_login_content">
                 <input
-                  type="number"
-                  placeholder="Enter mobile number"
+                  type="email"
+                  placeholder="Enter Your Email..."
                   value={mobileNumber}
                   onChange={handleMobileNumber}
-                  maxLength="10"
+                  // maxLength="10"
                 />
                 <p>edit</p>
               </div>
