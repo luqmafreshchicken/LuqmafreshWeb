@@ -98,7 +98,7 @@ const TodayDeals = () => {
           <div className="subcategorie_content">
             {subcategorie.map((category) => (
               <SubCategorieList
-                img={category.subcategoryImage}
+                // img={category.subcategoryImage}
                 name={category.subcategoryName}
                 onclick={() => categoryProduct(category._id)}
               />
