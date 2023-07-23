@@ -8,9 +8,9 @@ const SubCategorieList = ({ img, name, id, onclick }) => {
       onClick={onclick}
       state={{ id: id }}
     >
-      <div className="subcategorie_product_img_comtainer">
+    { /* <div className="subcategorie_product_img_comtainer">
         <img src={img} />
-      </div>
+  </div>*/}
       <p>{name}</p>
     </div>
   );
