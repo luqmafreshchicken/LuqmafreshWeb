@@ -78,7 +78,9 @@ export default function BannerCard1() {
                 <h1>{ban.title1}</h1>
                 <h2>{ban.title2}% OFF</h2>
                 <h5>{ban.title3}</h5>
+                <div className="ban_discription">
                 <h6>{ban.description}</h6>
+                </div>
                 <div className="order_shop_btn">
                   <button>SHOP NOW</button>
                 </div>
