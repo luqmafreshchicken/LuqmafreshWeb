@@ -81,7 +81,7 @@ const CardDetail = () => {
                   today={moment(detail.discountExpiryDate).format("dddd")}
                   date={detail.deliveryTime}
                   totalpayment={detail.price}
-                  // to="/carddetail"
+                  to="/carddetail"
                   onclick={() => AddToCart(detail._id)}
                   id={{ id: detail._id }}
                   rating={detail.rating}
