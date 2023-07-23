@@ -60,9 +60,9 @@ const Card = ({
   }
 
   return (
-    <div onClick={onclick} className="singlecard">
+    <div  className="singlecard">
       <NavLink to={to} state={{ id: id }} className="nav_list">
-        <div className="image_singlecard">
+        <div  className="image_singlecard">
           <img src={img} height="200" width="300" />
         </div>
       </NavLink>
@@ -102,7 +102,7 @@ const Card = ({
         />
       </div>
       <div className="rating">
-        <Rating name="size-small" defaultValue={rating}  style={{fontSize:"20px", color:"#ee1d23"}}/>
+        <Rating name="size-small" defaultValue={rating}  style={{fontSize:"20px", color:"#ff0040"}}/>
       </div>
       <div className="name_singlecard">
         <p>{productName}</p>
@@ -126,7 +126,7 @@ const Card = ({
       <div className="time_singlecard">
         <p>{date}</p>
       </div>
-      <div className="total_singlecard">
+      <div onClick={onclick} className="total_singlecard">
         {!showData && <button onClick={handleShow}>ADD</button>}
         {showData && (
           <div className="incre_decre_btn" onClick={onclick}>
