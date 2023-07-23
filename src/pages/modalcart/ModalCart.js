@@ -99,6 +99,8 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
             <img src="cross.png" className="close_modal" />
           </button>
           {loginStatus == true ? (
+            <>
+            {cartProduct?.length >= 1 ? (
             <div className="modalcart_scroll_bar_container">
               <div className="order_summary">
                 <p>Order Summary</p>
@@ -191,6 +193,19 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
                 </div>
               ) : null}
             </div>
+            ) : (
+              <>
+              <div className="mobile_cart_nologin">
+                <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
+              </div>
+              <div className="mobile_shopping">
+                <button>
+                  <h6>Continue Shopping</h6>
+                </button>
+              </div>
+            </> 
+            )}
+            </>
           ) : null}
 
           {loginStatus == false ? (
