@@ -12,34 +12,23 @@ const Editprofile = ({ edit, edithandleClose }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [gender, setGender] = useState("male");
+  const [gender, setGender] = useState("");
   const [image, setImage] = useState("");
   const InputRef = useRef(null);
-
-  const handleImageClick = () => {
-    InputRef.current.click();
-  };
-
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
-  };
 
   const handleUpdate = async () => {
     if (!name || name == "" || name == null) {
       console.log("No Name");
       return false;
     }
-    if (!email || email == "" || email == null) {
-      console.log("No Email");
+    if (!mobile || mobile == "" || mobile == null) {
+      console.log("No mobile");
       return false;
     }
     if (!gender || gender == "" || gender == null) {
       console.log("No Gender");
     }
-    if (!image || image == "" || image == null) {
-      console.log("No Image");
-    }
-    const user = await EditprofileUser(name, email, gender, image);
+    const user = await EditprofileUser(name, email, gender);
     console.log(user);
   };
 
@@ -67,7 +56,7 @@ const Editprofile = ({ edit, edithandleClose }) => {
               <h5>Update Profile</h5>
             </div>
           </div>
-          <div className="edit_picture">
+        {/*  <div className="edit_picture">
             <img
               src={image}
               height="50%"
@@ -89,7 +78,7 @@ const Editprofile = ({ edit, edithandleClose }) => {
               style={{ display: "none" }}
               onChange={handleImageChange}
             />
-          </div>
+            </div>*/}
           <div className="all_mandatory">
             <p>* All the following details are mandatory</p>
           </div>
