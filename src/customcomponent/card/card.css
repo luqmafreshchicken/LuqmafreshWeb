@@ -1,18 +1,20 @@
 .singlecard {
-  height: 70vh;
+  height: 75vh;
   width: 22%;
   margin-right: 50px;
 }
 .image_singlecard {
-  height: 25vh;
+  height: 30vh;
   width: 100%;
   overflow: hidden;
   border-radius: 15px;
+  /* background-color: aqua; */
 
 }
 
 .image_singlecard img {
   border-radius: 15px;
+  height: 30vh;
   display: block;
   transition: 0.3s ease-in-out
 }
