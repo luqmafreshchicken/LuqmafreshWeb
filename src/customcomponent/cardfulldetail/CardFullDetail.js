@@ -25,6 +25,8 @@ export default function CardFullDetail({ id }) {
   let location = useLocation();
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
+  const [dre, setDre] = useState(false);
+
   const [product, setProduct] = useState([]);
   const [allImage, setAllImage] = useState([]);
   const [load, setLoad] = useState(false);
@@ -33,10 +35,10 @@ export default function CardFullDetail({ id }) {
     setIncre(incre + 1);
   };
   const decrement = () => {
-    if (incre > 0) {
+    if (incre > 1) {
       setIncre(incre - 1);
     } else {
-      setIncre(0);
+      setIncre(1);
     }
   };
   React.useEffect(() => {
@@ -175,7 +177,14 @@ export default function CardFullDetail({ id }) {
                 </div>
                 {show === false ? (
                   <div className="Add_to_cart_btn">
-                    <button onClick={() => setShow(!show)}>ADD</button>
+                    <button 
+                    onClick={ 
+                      () => {
+                        setShow(!show); 
+                        AddToCart()
+                      }
+                  }
+                    >ADD</button>
                   </div>
                 ) : (
                   <div
@@ -184,7 +193,6 @@ export default function CardFullDetail({ id }) {
                     className="full_view_incre_btn"
                   >
                     <p onClick={decrement}>-</p>
-
                     <p>{incre}</p>
                     <p onClick={increment}>+</p>
                   </div>
@@ -205,7 +213,6 @@ export default function CardFullDetail({ id }) {
           draggable
           pauseOnHover
         />
-        <ToastContainer />
         <Loader loading={load} />
       </div>
     </>
