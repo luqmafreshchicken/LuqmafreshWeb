@@ -16,6 +16,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
+
       if (res.status == true) {
         setViewUser(res.data);
       } else {
@@ -52,7 +53,9 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
           {/* information_section */}
           <div className="information_container">
             <div className="profile_picture">
-              <img src={viewUser.profile} height="50%" width="22%" />
+              <div className="profile_picture_name">
+                 <p>K</p>
+              </div>
             </div>
             <div className="basic_information">
               <p>Basic Information</p>
@@ -86,14 +89,6 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
               <span>
                 Gender <br />
                 <p>{viewUser.gender}</p>
-              </span>
-            </div>
-            {/*  Marital_status */}
-
-            <div className="first_name">
-              <span>
-                Marital status <br />
-                <p>Single</p>
               </span>
             </div>
           </div>
