@@ -72,12 +72,12 @@ export default function BannerCard1() {
               <div
                 className="cashback_container"
                 style={{
-                  background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
+                  // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
                 }}
               >
                 <h1>{ban.title1}</h1>
                 <h2>{ban.title2}% OFF</h2>
-                <h5>{ban.title2 + " " + ban.title3}</h5>
+                <h5>{ban.title3}</h5>
                 <h6>{ban.description}</h6>
                 <div className="order_shop_btn">
                   <button>SHOP NOW</button>
