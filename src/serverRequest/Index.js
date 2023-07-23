@@ -1,5 +1,37 @@
 import axios from "axios";
+import { apiConfig } from "./url";
 const API_BASE_URL = "https://luqmafresh-backend-icd4.onrender.com/";
+
+
+// ort const Current_Live_Location = async (latitude, longitude) => {
+//   return await API({
+//     method: 'POST',
+//     url:
+//       apiConfig.Current_Location_Url +
+//       latitude +
+//       ',' +
+//       longitude +
+//       apiConfig.Current_Location_Url1,
+//   })
+//     .then(res => {
+//       return res.data;
+//     })
+//     .catch(err => {
+//       return err;
+//     });
+// };
+
+export const currentLocation = async (latitude,longitude) => {
+  console.log(latitude,longitude,"Kishan")
+  const response = await axios.post(
+    apiConfig.Current_Location_Url +
+      latitude +
+      ',' +
+      longitude +
+      apiConfig.Current_Location_Url1,
+  );
+  return response.data;
+};
 
 
 export const getUserID = async () => {
@@ -210,8 +242,10 @@ export const searchProduct = async (requestData) => {
     formdata.append("name", name);
     formdata.append("email", email);
     formdata.append("gender", gender);
-    formdata.append("image", image);
+    // formdata.append("image", image);
     const res = await axios.post(`${API_BASE_URL}updateUserById`, formdata);
+    console.log(formdata, "=====gayrav===============")
+
     return res.data;
   };
 
