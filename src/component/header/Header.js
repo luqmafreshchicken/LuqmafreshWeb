@@ -3,7 +3,11 @@ import "./header.css";
 import ModalCart from "../../pages/modalcart/ModalCart";
 import Options from "../dropdownvalue/Dropdownvalue";
 import { NavLink } from "react-router-dom";
-import { Show_Cart, getUserID } from "../../serverRequest/Index";
+import {
+  Show_Cart,
+  currentLocation,
+  getUserID,
+} from "../../serverRequest/Index";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { ToastContainer, toast } from "react-toastify";
@@ -22,6 +26,35 @@ const Header = ({ onchange, value }) => {
   const [btn, setBtn] = useState(false);
   const [otp, setOtp] = useState("");
   const [showbtn, setShowbtn] = useState(false);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [add1, setAdd1] = useState(null);
+  const [add2, setAdd2] = useState(null);
+  const [add3, setAdd3] = useState(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          currentLocation(
+            position.coords.latitude,
+            position.coords.longitude
+          ).then((loc) => {
+            setAdd1(loc.results[0]?.address_components?.[3]?.long_name);
+            setAdd2(loc.results[0]?.address_components?.[5]?.long_name);
+            setAdd3(loc.results[0].formatted_address);
+          });
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+  });
 
   // useEffect(() => {
   //   localContent();
@@ -73,7 +106,6 @@ const Header = ({ onchange, value }) => {
     const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
       setShowInput(!showInput);
-
       setShowbtn(true);
     });
   };
@@ -159,11 +191,11 @@ const Header = ({ onchange, value }) => {
             <div className="luqma_location">
               <div className="luqma_location_top">
                 <img src="pin.png" />
-                <p>Lucknow</p>
+                <p>{add1}</p>
                 <img src="down (2).png" />
               </div>
               <div className="luqma_location_bottom">
-                <p>Near Lulu Mall, Lucknow India</p>
+                <p>{add3}</p>
               </div>
             </div>
             <div className="luqma_input">
@@ -314,7 +346,11 @@ const Header = ({ onchange, value }) => {
           </nav>
         </div>
       </div>
-      <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} onclose={carthandleClose}/>
+      <ModalCart
+        cartopen={cartopen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+      />
 
       <Modal
         open={open}
