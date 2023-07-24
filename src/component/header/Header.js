@@ -13,6 +13,7 @@ import Modal from "@mui/material/Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRegister, otpVerify } from "../../serverRequest/Index";
+import Card from "../../customcomponent/card/Card";
 
 const Header = ({ onchange, value }) => {
   const [open, setOpen] = useState(false);
@@ -311,7 +312,6 @@ const Header = ({ onchange, value }) => {
                   </div>
                 )}
 
-                {loginStatus == true ? (
                   <NavLink className="nav_list">
                     <li>
                       <div
@@ -330,22 +330,13 @@ const Header = ({ onchange, value }) => {
                       </div>
                     </li>
                   </NavLink>
-                ) : null}
-                {loginStatus == false ? (
-                  <NavLink className="nav_list">
-                    <li>
-                      <div className="currency_container">
-                        <img src="cart (2).png" />
-                        <p>Cart</p>
-                      </div>
-                    </li>
-                  </NavLink>
-                ) : null}
+             
               </ul>
             </div>
           </nav>
         </div>
       </div>
+
       <ModalCart
         cartopen={cartopen}
         carthandleClose={carthandleClose}
