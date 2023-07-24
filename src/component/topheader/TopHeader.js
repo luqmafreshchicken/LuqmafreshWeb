@@ -38,11 +38,21 @@ const TopHeader = () => {
         <p>|</p>
   <p>Sign in</p>*/}
 
-          <FaFacebookF className="icon facebook" />
-          <FaInstagram className="icon insta" />
-          <FaTwitter className="icon twitter" />
-          <FaYoutube className="icon youtube" />
-          <FaLinkedinIn className="icon in" />
+          <a href="https://www.facebook.com/">
+            <FaFacebookF className="icon facebook" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank">
+            <FaInstagram className="icon insta" />
+          </a>
+          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F">
+            <FaTwitter className="icon twitter" />
+          </a>
+          <a href="https://www.youtube.com/">
+            <FaYoutube className="icon youtube" />
+          </a>
+          <a href="https://www.linkedin.com/">
+            <FaLinkedinIn className="icon in" />
+          </a>
         </div>
         {/* end right side */}
       </div>
