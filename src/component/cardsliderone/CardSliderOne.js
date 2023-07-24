@@ -51,11 +51,11 @@ const CardSliderOne = () => {
     }
   };
   return (
-    <div className="carouselitem1">
-      <div className="cardswrapper1">
-        <div className="card_slider1">
-          {data.length >= 1 ? (
-            <>
+    <>
+      {data.length >= 1 ? (
+        <div className="carouselitem1">
+          <div className="cardswrapper1">
+            <div className="card_slider1">
               {data.map((card) => (
                 <CardOne
                   img1={card.image}
@@ -73,14 +73,14 @@ const CardSliderOne = () => {
                   id={{ id: card._id }}
                 />
               ))}
-            </>
-          ) : null}
-          <div className="slider_next_btn1">
-            <img src="rtarrow.png" height="20px" width="20px" />
+              <div className="slider_next_btn1">
+                <img src="rtarrow.png" height="20px" width="20px" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      ) : null}
+    </>
   );
 };
 
