@@ -40,6 +40,19 @@
   align-items: center;
   width: 28%;
 }
+.fa_search{
+  font-size: 18px;
+  color: rgb(192, 194, 196);
+  cursor: pointer;
+  
+} 
+.fa_search:hover{
+  color: #FF0040;
+  transition: 0.3s ease-in-out;
+}
+.icons_img img{
+  cursor: pointer;
+}
 .hover-image {
   margin-right: 5px;
 }
