@@ -13,6 +13,7 @@ import {
   EffectFade,
 } from "swiper";
 import "swiper/css/navigation";
+import { NavLink } from "react-router-dom";
 
 export default function BannerCard1() {
   const [banner, setBanner] = useState([]);
@@ -27,6 +28,9 @@ export default function BannerCard1() {
     }
     getBanner();
   }, []);
+  const hanfleFullView = (id) => {
+    console.log(id, "===============================");
+  };
 
   return (
     <div classname="main_banner_card" style={{ marginTop: "20px" }}>
@@ -44,10 +48,13 @@ export default function BannerCard1() {
           delay: 2500,
           disableOnInteraction: false,
         }}
-        navigation={{
-          prevEl: "swiperNavPrevRef.current",
-          nextEl: "swiperNavNextRef.current",
+        pagination={{
+          clickable: true,
         }}
+        // navigation={{
+        //   prevEl: "swiperNavPrevRef.current",
+        //   nextEl: "swiperNavNextRef.current",
+        // }}
         effect="fade"
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = swiperNavPrevRef.current;
@@ -71,25 +78,32 @@ export default function BannerCard1() {
             >
               <div
                 className="cashback_container"
-                style={{
-                  // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
-                }}
+                style={
+                  {
+                    // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
+                  }
+                }
               >
                 <h1>{ban.title1}</h1>
                 <h2>{ban.title2}% OFF</h2>
                 <h5>{ban.title3}</h5>
                 <div className="ban_discription">
-                <h6>{ban.description}</h6>
+                  <h6>{ban.description}</h6>
                 </div>
-                <div className="order_shop_btn">
-                  <button>SHOP NOW</button>
-                </div>
+                <NavLink>
+                  <div
+                    className="order_shop_btn"
+                    onClick={() => hanfleFullView(ban._id)}
+                  >
+                    <button>SHOP NOW</button>
+                  </div>
+                </NavLink>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        <div className="swiperNavPrev" ref={swiperNavPrevRef}></div>
-        <div className="swiperNavNext" ref={swiperNavNextRef}></div>
+        {/*  <div className="swiperNavPrev" ref={swiperNavPrevRef}></div>
+              <div className="swiperNavNext" ref={swiperNavNextRef}></div>*/}
       </Swiper>
     </div>
   );
