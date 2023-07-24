@@ -2,7 +2,9 @@ import React, { useState, useHistory } from "react";
 import Rating from "@mui/material/Rating";
 import { NavLink } from "react-router-dom";
 import "./card.css";
-
+import SearchModal from "../searchmodal/SearchModal";
+import WhistList from "../whistlist/WhistList";
+import { FaSearch, FaHeart, FaShoppingBag } from "react-icons/fa";
 
 const Card = ({
   offer,
@@ -16,15 +18,24 @@ const Card = ({
   date,
   totalpayment,
   onclick,
+  onclick1,
   id,
   to,
   rating,
-  img
+  img,
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [whistlistOpen, setWhistlistOpen] = useState(false);
+
+  const handleSearchOpen = () => setSearchOpen(true);
+  const handleSearchClose = () => setSearchOpen(false);
+
+  const handlewhistlistOpen = () => setWhistlistOpen(true);
+  const handlewhistlistClose = () => setWhistlistOpen(false);
 
   const handleDre = () => {
     if (incre >= 1) {
@@ -40,29 +51,14 @@ const Card = ({
     setShowData(true);
   }
 
-
-
-  const defaultImageStyle = {
-    // backgroundImage: `url(${defaultImage})`,
-  };
-
-  const hoverImageStyle = {
-    // backgroundImage: `url(${hoverImage})`,
-  };
-
-  function handleMouseEnter() {
-    console.log("Hreeeeeeeeeeee")
-    setIsHovered(true);
-  }
-
   function handleMouseLeave() {
     setIsHovered(false);
   }
 
   return (
-    <div  className="singlecard">
+    <div className="singlecard">
       <NavLink to={to} state={{ id: id }} className="nav_list">
-        <div  className="image_singlecard">
+        <div className="image_singlecard">
           <img src={img} height="200" width="300" />
         </div>
       </NavLink>
@@ -71,38 +67,39 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <img
-          src="sea.png"
-          // src={defaultImage}
-          height="24px"
-          width="24px"
-          // style={isHovered ? hoverImageStyle : defaultImageStyle}
-          onMouseOver={()=>console.log("Kishan")}
-          onMouseLeave={()=>handleMouseLeave()}
-        />
+        {/*  <img
+            src="sea.png"
+            // src={defaultImage}
+            height="24px"
+            width="24px"
+            onClick={() => handleSearchOpen()}
+  />*/}
+        <FaSearch className="fa_search" onClick={() => handleSearchOpen()} />
+        {/*
         <img
           src="heart.png"
-          // src={defaultImage}
-          // style={isHovered ? hoverImageStyle : defaultImageStyle}
-          onMouseOver={()=>console.log("Kishan")}
-          onMouseLeave={()=>handleMouseLeave()}
           height="18px"
           width="18px"
           // style={{ marginRight: "5px" }}
           className="hover-image"
-        />
-        <img
+          onClick={() => handlewhistlistOpen()}
+/>*/}
+        <FaHeart className="fa_search" onClick={() => handlewhistlistOpen()} />
+        <FaShoppingBag className="fa_search" />
+        {/* <img
           src="bag.png"
           // src={defaultImage}
           height="19px"
           width="19px"
-          // style={isHovered ? hoverImageStyle : defaultImageStyle}
-         onMouseOver={()=>console.log("Kishan")}
-          onMouseLeave={()=>handleMouseLeave()}
-        />
+          onClick={onclick1}
+/>*/}
       </div>
       <div className="rating">
-        <Rating name="size-small" defaultValue={rating}  style={{fontSize:"20px", color:"#ff0040"}}/>
+        <Rating
+          name="size-small"
+          defaultValue={rating}
+          style={{ fontSize: "20px", color: "#ff0040" }}
+        />
       </div>
       <div className="name_singlecard">
         <p>{productName}</p>
@@ -142,6 +139,16 @@ const Card = ({
           </p>
         </div>
       </div>
+      <SearchModal
+        searchOpen={searchOpen}
+        handleSearchClose={handleSearchClose}
+        onclick={handleSearchClose}
+      />
+      <WhistList
+        whistlistOpen={whistlistOpen}
+        handlewhistlistClose={handlewhistlistClose}
+        onclick={handlewhistlistClose}
+      />
     </div>
   );
 };
