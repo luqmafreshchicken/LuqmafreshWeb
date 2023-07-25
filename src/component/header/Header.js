@@ -64,7 +64,7 @@ const Header = ({ onchange, value }) => {
   useEffect(() => {
     localContent();
     showcart();
-    const interval = setInterval(showcart, 4000); // Call showcart every four seconds
+    const interval = setInterval(showcart,localContent, 3000); // Call showcart every four seconds
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
