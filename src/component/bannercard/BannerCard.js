@@ -90,7 +90,12 @@ export default function BannerCard1() {
                 <div className="ban_discription">
                   <h6>{ban.description}</h6>
                 </div>
-                <NavLink>
+                <NavLink to="/carddetail"
+                state={{
+                  id: {
+                    id: ban.productId,
+                  },
+                }}>
                   <div
                     className="order_shop_btn"
                     onClick={() => hanfleFullView(ban._id)}
