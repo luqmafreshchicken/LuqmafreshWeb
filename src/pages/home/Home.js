@@ -9,7 +9,7 @@ import DiscountSection from "../../component/discountsection/DiscountSection";
 import Offer from "../../component/offer/Offer";
 import CardSliderOne from "../../component/cardsliderone/CardSliderOne";
 import CountDown from "../../component/countdown/CountDown";
-import { productCategorie } from "../../serverRequest/Index";
+import { productCategorie, productDeatail } from "../../serverRequest/Index";
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
 import Bestseller from "../../component/bestseller/BestSeller";
 import Header from "../../component/header/Header";
@@ -18,24 +18,44 @@ import Loader from "../../component/loder/Loader";
 // import Card from "../../customcomponent/card/Card";
 import "react-multi-carousel/lib/styles.css";
 // import "./slider.css";
-import { Add_to_cart, getUserID, newArrival } from "../../serverRequest/Index";
+import {
+  Add_to_cart,
+  getUserID,
+  newArrival,
+  loginRegister,
+  otpVerify,
+} from "../../serverRequest/Index";
+
 import * as moment from "moment";
+import { useNavigate } from "react-router-dom";
 // import Loader from "../loder/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Card from "../../customcomponent/card/Card";
 import WhistList from "../../customcomponent/whistlist/WhistList";
+import SearchModal from "../../customcomponent/searchmodal/SearchModal";
 
 const Home = () => {
+  let navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [data1, setData1] = useState([]);
-
+  const [showInput, setShowInput] = useState(false);
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [btn, setBtn] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [showbtn, setShowbtn] = useState(false);
   const [load, setLoad] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [showSubmit, setshowSubmit] = useState(false);
+  const [hideOTP, setHideOTP] = useState(false);
+  const [product,setProduct] = useState([]);
 
   // const handlewhistlistOpen = () => setWhistlistOpen(true);
   const handlewhistlistClose = () => setWhistlistOpen(false);
+  const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
     localContent();
@@ -113,6 +133,83 @@ const Home = () => {
       });
     }
   };
+
+  {
+    /* login api */
+  }
+  const handleLogin = () => {
+    const requestData = { email: mobileNumber };
+    loginRegister(requestData).then((res) => {
+      setShowInput(!showInput);
+      setHideOTP(true);
+      setBtn(true)
+    });
+  };
+
+  const handleMobileNumber = (e) => {
+    setMobileNumber(e.target.value);
+    if (e.target.value.length <= 40) {
+      setBtn(false);
+    } else {
+      setBtn(true);
+    }
+  };
+
+  const handleOTP = () => {
+    const requestData = { email: mobileNumber, otp: otp };
+    otpVerify(requestData).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        localStorage.setItem("userDetail", JSON.stringify(res.data));
+        localContent();
+        setWhistlistOpen(false);
+        // navigate('/')
+        window.location.reload();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+
+  {
+    /* end login api */
+  }
+
+
+  const fullView = async (id) => {
+    const requestData = {
+      productId: id,
+    };
+    productDeatail(requestData).then((res) => {
+      if (res.status == true) {
+        setSearchOpen(true)
+        setProduct(res.data);
+        setLoad(false);
+      } else {
+        setLoad(false);
+      }
+    });
+  };
+
+  
+  { /* end full view */}
+  console.log(product,"========================================")
   return (
     <>
       <Header />
@@ -125,6 +222,7 @@ const Home = () => {
           <div className="card_slider">
             {data.length >= 1 ? (
               <>
+              
                 {data.map((detail, index) => (
                   <Card
                     offer={detail.discount}
@@ -142,6 +240,7 @@ const Home = () => {
                     id={{ id: detail._id }}
                     rating={detail.rating}
                     img={detail.image}
+                    onclick1={() => fullView(detail._id)}
                     onclick2={() => setWhistlistOpen(true)}
                   />
                 ))}
@@ -155,6 +254,34 @@ const Home = () => {
             whistlistOpen={whistlistOpen}
             handlewhistlistClose={handlewhistlistClose}
             onclick={handlewhistlistClose}
+            proceedOTP="Proceed Via OTP"
+            proceedsubmit="Submit"
+            onChange={handleMobileNumber}
+            value={mobileNumber}
+            onChange1={(e) => setOtp(e.target.value)}
+            // value1={}
+            onclick1={() => handleLogin()}
+            onclick2={() => handleOTP()}
+            otpHide={hideOTP}
+            btnShow={btn}
+          />
+
+          <SearchModal
+            searchOpen={searchOpen}
+            handleSearchClose={handleSearchClose}
+            onclick={handleSearchClose}
+            image={product.image}
+            name={product.name}
+            description={product.description}
+            description1={product.description1}
+            description2={product.description2}
+            description3={product.description3}
+            qty={product.quantity}
+            unit={product.unit}
+            price={product.price}
+            ogp={product.originalPrice}
+            discount={product.discount}
+
           />
         </div>
       </div>
