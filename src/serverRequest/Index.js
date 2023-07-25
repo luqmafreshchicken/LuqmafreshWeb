@@ -310,3 +310,12 @@ export const createOrder = async (requestData) => {
     );
     return response.data;
   };
+
+    // /* cancle order API */
+    export const productbyCategorie = async (requestData) => {
+      const response = await axios.post(
+        `${API_BASE_URL}product/ProductByCategoryId`,
+        requestData
+      );
+      return response.data;
+    };
