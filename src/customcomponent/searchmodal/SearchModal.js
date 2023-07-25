@@ -5,7 +5,22 @@ import { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import "./searchmodal.css";
 
-const SearchModal = ({ searchOpen, handleSearchClose ,onclick}) => {
+const SearchModal = ({
+  searchOpen,
+  handleSearchClose,
+  onclick,
+  image,
+  name,
+  description,
+  description1,
+  description2,
+  description3,
+  qty,
+  unit,
+  price,
+  ogp,
+  discount,
+}) => {
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
 
@@ -30,46 +45,39 @@ const SearchModal = ({ searchOpen, handleSearchClose ,onclick}) => {
         <Box className="search_modal">
           <img
             src="cross.png"
-            style={{ position: "absolute", top: "1rem", right: "1.5rem", cursor:"pointer" }}
+            style={{
+              position: "absolute",
+              top: "1rem",
+              right: "1.5rem",
+              cursor: "pointer",
+            }}
             onClick={onclick}
           />
 
           <div className="search_modal_image_container">
-            <img src="FRESH BONELESS MUTTON.png" />
+            <img src={image} />
           </div>
           <div className="search_modal_content_container">
-            <h4>Fresh Boneless Mutton</h4>
-            <p>
-              With precisely cut bite-sized pieces, it ensures even
-              tenderization
-            </p>
+            <h4>{name}</h4>
+            <p>{description}</p>
             <hr style={{ height: "1px" }} />
 
+            <p>{description1}</p>
+            <p>{description2}</p>
+            <p>{description3}</p>
             <p>
-              {" "}
-              Mutton Boneless - Indulge in this extraordinary cut, meticulously
-              crafted from the most succulent sections meticulously trimmed of
-              excess fat.
-            </p>
-            <p>
-              Once prepared, relish its exquisitely tender and velvety texture
-              that imparts a luxurious flavor to your gravies.
-            </p>
-            <p>
-              With precisely cut bite-sized pieces, it ensures even
-              tenderization, perfect for creating mouthwatering pan-fried
-              delicacies.
-            </p>
-            <p>
-              Quantity : <span>500gms</span>
+              Quantity :{" "}
+              <span>
+                {qty} {unit}
+              </span>
             </p>
             <di className="cardfull_detail_text">
               <div className="cardfull_detail_container_text">
-                <p style={{ color: "#d11243" }}>₹900</p>
+                <p style={{ color: "#d11243" }}>₹{price}</p>
                 <p style={{ color: "grey", textDecoration: "line-through" }}>
-                  MRP: ₹1000
+                  MRP: ₹{ogp}
                 </p>
-                <p style={{ color: "green" }}>10% OFF</p>
+                <p style={{ color: "green" }}>{discount}% OFF</p>
               </div>
               {show === false ? (
                 <div className="Add_to_cart_btn">
