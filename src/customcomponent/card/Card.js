@@ -18,21 +18,18 @@ const Card = ({
   date,
   totalpayment,
   onclick,
-  onclick1,
   id,
   to,
   rating,
   img,
+  onclick1 = ()=>{},
   onclick2 = ()=>{}
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
 
-  const handleSearchOpen = () => setSearchOpen(true);
-  const handleSearchClose = () => setSearchOpen(false);
 
   
   const handleDre = () => {
@@ -65,7 +62,7 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <FaSearch className="fa_search" onClick={() => handleSearchOpen()} />
+        <FaSearch className="fa_search" onClick={onclick1} />
         <FaHeart className="fa_search" onClick={onclick2}/>
         <FaShoppingBag className="fa_search" />
       </div>
@@ -114,11 +111,7 @@ const Card = ({
           </p>
         </div>
       </div>
-      <SearchModal
-        searchOpen={searchOpen}
-        handleSearchClose={handleSearchClose}
-        onclick={handleSearchClose}
-      />
+     
      
     </div>
   );
