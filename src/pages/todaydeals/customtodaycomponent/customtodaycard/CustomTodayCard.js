@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Rating from "@mui/material/Rating";
 import { NavLink } from "react-router-dom";
 import "./customtodaycard.css";
@@ -17,11 +17,10 @@ export default function CustomTodayCard({
   rating,
   id,
   to,
-  onclick
+  onclick,
 }) {
   const [incre, setIncre] = useState(1);
   const [showData, setShowData] = useState(false);
-
 
   const increment = () => {
     setIncre(incre + 1);
@@ -39,7 +38,7 @@ export default function CustomTodayCard({
   }
   return (
     <div className="singlecard_container">
-      <NavLink  to={to} state={{ id: id }} className="nav_list">
+      <NavLink to={to} state={{ id: id }} className="nav_list">
         <div className="image_singlecard_detail">
           <img src={img} />
         </div>
@@ -48,12 +47,17 @@ export default function CustomTodayCard({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <img src="sea.png" height="17px" width="17px" />
-        <img src="heart.png" height="13px" width="13px" />
-        <img src="bag.png" height="14px" width="14px" />
+        <img src="sea.png" height="22px" width="22px" />
+        <img src="heart.png" height="17px" width="17px" />
+        <img src="bag.png" height="17px" width="17px" />
       </div>
       <div className="rating">
-        <Rating name="size-small" defaultValue={rating} size="small" />
+        <Rating
+          name="size-small"
+          defaultValue={rating}
+          size="small"
+          style={{ fontSize: "20px", color: "#ff0040" }}
+        />
       </div>
       <div className="name_singlecard">
         <p>{productName}</p>
