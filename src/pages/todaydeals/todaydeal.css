@@ -5,7 +5,8 @@
   height: auto;
   width: 100%;
   /* background-color: aqua; */
-  padding: 4rem 0rem;
+  padding: 0rem 0rem;
+  padding-top: 3rem;
 }
 
 .today_card {
@@ -13,9 +14,12 @@
   width: 90%;
   /* gap: 1rem; */
   align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  
 }
 .subcategorie_contaner {
-  height: 15vh;
+  height: 20vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -27,7 +31,7 @@
   width: 90%;
   height: auto;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   /* background-color: green; */
   border-bottom: 1px solid lightgray;
 }
