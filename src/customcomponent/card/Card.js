@@ -1,4 +1,4 @@
-import React, { useState, useHistory } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { NavLink } from "react-router-dom";
 import "./card.css";
@@ -23,20 +23,18 @@ const Card = ({
   to,
   rating,
   img,
+  onclick2 = ()=>{}
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [whistlistOpen, setWhistlistOpen] = useState(false);
 
   const handleSearchOpen = () => setSearchOpen(true);
   const handleSearchClose = () => setSearchOpen(false);
 
-  const handlewhistlistOpen = () => setWhistlistOpen(true);
-  const handlewhistlistClose = () => setWhistlistOpen(false);
-
+  
   const handleDre = () => {
     if (incre >= 1) {
       setIncre(incre - 1);
@@ -67,32 +65,9 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        {/*  <img
-            src="sea.png"
-            // src={defaultImage}
-            height="24px"
-            width="24px"
-            onClick={() => handleSearchOpen()}
-  />*/}
         <FaSearch className="fa_search" onClick={() => handleSearchOpen()} />
-        {/*
-        <img
-          src="heart.png"
-          height="18px"
-          width="18px"
-          // style={{ marginRight: "5px" }}
-          className="hover-image"
-          onClick={() => handlewhistlistOpen()}
-/>*/}
-        <FaHeart className="fa_search" onClick={() => handlewhistlistOpen()} />
+        <FaHeart className="fa_search" onClick={onclick2}/>
         <FaShoppingBag className="fa_search" />
-        {/* <img
-          src="bag.png"
-          // src={defaultImage}
-          height="19px"
-          width="19px"
-          onClick={onclick1}
-/>*/}
       </div>
       <div className="rating">
         <Rating
@@ -144,11 +119,7 @@ const Card = ({
         handleSearchClose={handleSearchClose}
         onclick={handleSearchClose}
       />
-      <WhistList
-        whistlistOpen={whistlistOpen}
-        handlewhistlistClose={handlewhistlistClose}
-        onclick={handlewhistlistClose}
-      />
+     
     </div>
   );
 };
