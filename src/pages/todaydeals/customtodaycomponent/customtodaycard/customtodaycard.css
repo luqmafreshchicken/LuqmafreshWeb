@@ -2,8 +2,9 @@
   width: 90%;
 }
 .singlecard_container {
-  width: 23%;
-  height: 65vh;
+  width: 100%;
+  height: auto;
+  /* background-color: aqua; */
 }
 .customtodaycard1 {
   margin-left: 10%;
@@ -26,10 +27,21 @@
   font-weight: 600;
   color: black;
 }
+.image_singlecard_detail{
+  height: 30vh;
+  width: 80%;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: aqua;
+}
 .image_singlecard_detail img {
   border-radius: 10px;
-  height: 100;
-  width: 100%;
+  height: 30vh;
+  display: block;
+  transition: 0.3s ease-in-out
+}
+.image_singlecard_detail:hover img {
+  transform: scale(1.2);
 }
 
 /* Mobile devices (320px - 480px) */
