@@ -28,6 +28,8 @@ import WhistList from "../../customcomponent/whistlist/WhistList";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [data1, setData1] = useState([]);
+
   const [load, setLoad] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
@@ -55,7 +57,7 @@ const Home = () => {
     setLoad(true);
     async function getData(res) {
       const newData = await productCategorie();
-      setData(newData.data);
+      setData1(newData.data);
     }
     getData();
     const timer = setTimeout(() => {
@@ -165,7 +167,7 @@ const Home = () => {
       />
       <div className="main_categorie_container">
         <div className="categoriecard_content">
-          {data.map((cat) => (
+          {data1.map((cat) => (
             <CategorieCard
               text={cat.categoryName}
               img={cat.categoryImage}
