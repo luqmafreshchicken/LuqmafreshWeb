@@ -1,7 +1,8 @@
 .singlecard {
-  height: 75vh;
-  width: 22%;
+  height: 85vh;
+  width: 90%;
   margin-right: 50px;
+  /* background-color: #ff0040; */
 }
 .image_singlecard {
   height: 30vh;
