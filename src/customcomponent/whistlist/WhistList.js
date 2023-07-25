@@ -5,7 +5,22 @@ import { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import "./whistlist.css";
 
-const SearchModal = ({ whistlistOpen, handlewhistlistClose, onclick }) => {
+const SearchModal = ({
+  whistlistOpen,
+  handlewhistlistClose,
+  onclick,
+  proceedOTP,
+  proceedsubmit,
+  onclick1,
+  onclick2,
+
+  onChange,
+  onChange1,
+  value,
+  value1,
+  otpHide = false,
+  btnShow = true
+}) => {
   return (
     <div>
       <Modal
@@ -27,15 +42,30 @@ const SearchModal = ({ whistlistOpen, handlewhistlistClose, onclick }) => {
           />
 
           <div className="whist_list_image_container">
-           <img src="whist.png"/>
+            <img src="whist.png" />
           </div>
           <div className="whist_list_content_container">
-             <div className="whist_list_input_container">
-             <h4>Sign In</h4>
-                <input placeholder="Enter Email..."/>
-                <input placeholder="Enter OTP..."/>
-                <button>Proceed Via OTP</button>
-             </div>
+            <div className="whist_list_input_container">
+              <h4>Sign In</h4>
+              <input
+                placeholder="Enter Email..."
+                value={value}
+                onChange={onChange}
+              />
+              {otpHide === true &&
+              <input
+                placeholder="Enter OTP..." 
+                value={value1}
+                onChange={onChange1}
+              />
+              }
+              {btnShow == false ?  (
+              <button onClick={onclick1}>{proceedOTP}</button>
+              ):(
+              <button onClick={onclick2}>{proceedsubmit}</button>
+              )}
+
+            </div>
           </div>
         </Box>
       </Modal>
