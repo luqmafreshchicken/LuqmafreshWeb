@@ -3,22 +3,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 24vh;
+  height: 15vh;
+  /* background-color: aqua; */
+  /* padding-top: 1.2rem; */
+  padding-bottom: 1rem;
 }
 
 .countdown_section {
-  width: 89.5%;
-  font-family: "Poppins", sans-serif;
+  width: 99%;
   display: flex;
   gap: 60px;
+  /* background-color: blue; */
 }
 
 .top_severweek p {
   font-family: semibold;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 20px;
   line-height: 0;
-  padding-top: 18px;
+  padding-top: 1rem;
 }
 .top_severweek span {
   font-family: "Poppins", sans-serif;
@@ -27,13 +29,14 @@
 .countdown {
   background-color: #ff0040;
   height: 8vh;
-  width: 35%;
+  width: 50%;
   border-radius: 10px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   color: white;
   font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 .countdown p {
   text-align: center;
