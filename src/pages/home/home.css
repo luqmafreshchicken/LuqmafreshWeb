@@ -12,6 +12,99 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
 }
+.swiperNavPrev {
+  left: 0rem;
+  border-radius: 50px;
+  border: 1px solid #929294;
+  display: grid;
+  place-items: center;
+}
+.swiperNavPrev:hover {
+  border: 1px solid #ff0040;
+  transition: 0.3s ease-in-out;
+}
+.swiperNavNext {
+  right: 0rem;
+  border-radius: 50px;
+  border: 1px solid #929294;
+  display: grid;
+  place-items: center;
+}
+.swiperNavNext:hover {
+  border: 1px solid #ff0040;
+  transition: 0.3s ease-in-out;
+}
+.swiperNavNext,
+.swiperNavPrev {
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+.next_prev_btn_container {
+  /* background-color: yellowgreen; */
+  width: 100%;
+  display: grid;
+  place-items: center;
+  height: 15vh;
+  padding-top: 1rem;
+}
+.next_prev_btn {
+  /* background-color: olivedrab; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  gap: 1rem;
+}
+.next_prev_btn_content {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.head_box {
+  /* background-color: blue; */
+  width: 50%;
+}
+.FaArrowRight {
+  color: #929294;
+}
+.FaArrowLeft {
+  color: #929294;
+}
+.FaArrowRight:hover {
+  color: #ff0040;
+  transition: 0.3s ease-in-out;
+}
+.FaArrowLeft:hover {
+  color: #ff0040;
+  transition: 0.3s ease-in-out;
+}
+.todaydeals_container {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 18vh;
+  display: grid;
+  place-items: center;
+}
+.todaydeals_content {
+  width: 89%;
+  height: 10vh;
+  /* background-color: orangered; */
+}
+.todaydeals_content h5 {
+  font-family: semibold;
+}
+.todaydeals_content p {
+  font-family: light;
+}
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -34,7 +127,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 768px){
+@media only screen and (min-width: 600px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .categoriecard_content {
     width: 93%;
@@ -42,7 +135,7 @@
     grid-template-columns: auto auto auto auto auto;
   }
 }
-@media only screen and (min-width: 720px) and (max-width: 768px){
+@media only screen and (min-width: 720px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .categoriecard_content {
     width: 93%;
@@ -67,7 +160,7 @@
     width: 93%;
 
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto ;
+    grid-template-columns: auto auto auto auto auto auto;
   }
 }
 
@@ -77,19 +170,19 @@
   .categoriecard_content {
     width: 91%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto ;
+    grid-template-columns: auto auto auto auto auto auto;
   }
 }
 
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
-.main_categorie_container{
-  padding-bottom: 2rem;
-}
+  .main_categorie_container {
+    padding-bottom: 2rem;
+  }
   .categoriecard_content {
     width: 91%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto ;
+    grid-template-columns: auto auto auto auto auto auto;
   }
 }
