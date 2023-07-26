@@ -64,7 +64,6 @@ const Card = ({
       <div className="icons_img">
         <FaSearch className="fa_search" onClick={onclick1} />
         <FaHeart className="fa_search" onClick={onclick2}/>
-        <FaShoppingBag className="fa_search" />
       </div>
       <div className="rating">
         <Rating
