@@ -5,7 +5,7 @@
     transform: translate(-50%, -50%);
     background-color: white;
     box-shadow: 24;
-    height: 50vh;
+    height: auto;
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,31 @@
     color: white;
     font-family: semibold;
   }
-  
+  .predefine_massege_container{
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 6rem;
+  }
+  .predefine_massege_content{
+    width: 50%;
+    height: auto;
+  }
+  .predefine_massege_content p{
+    color: white;
+    text-align: justify;
+    font-size: 0.9rem;
+  }
+  /* .responsive_size{
+    position: absolute;
+    display: grid;
+    place-items: center;
+  }
+  .responsive_size p{
+    text-align: center;
+  } */
   
   
   
