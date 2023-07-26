@@ -50,10 +50,12 @@
 }
 
 .subscribe p {
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 600;
-  color: #ff0040;
+  color: white;
   font-family: regular;
+  text-align: center;
+  padding-top: 0.4rem;
 }
 .subscribe input {
   height: 6vh;
@@ -71,6 +73,7 @@
   border-radius: 35px;
   margin-right: 4px;
   padding-top: 0.25rem;
+  cursor: pointer;
 }
 
 .whatsapp {
