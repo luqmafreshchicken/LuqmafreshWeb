@@ -35,9 +35,6 @@ const DiscountSection = () => {
           br="25px"
         />
       </div>
-      <div className="slider_next_btn2">
-        <img src="rtarrow.png" height="20px" width="20px" />
-      </div>
     </div>
   );
 };
