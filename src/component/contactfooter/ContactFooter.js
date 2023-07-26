@@ -10,8 +10,17 @@ import {
   FaFacebookF,
   FaLinkedinIn,
 } from "react-icons/fa";
+import Android from "../../customcomponent/androidmodal/Android";
 
 export default function ContactFooter() {
+  const [androidopen, setAndroidopen] = React.useState(false);
+  const [iOsopen, setIOsopen] = React.useState(false);
+
+  const handleAndroid = () => setAndroidopen(true);
+  const handleClose = () => setAndroidopen(false);
+
+  const handleiOs = () => setIOsopen(true);
+  const handleCloseIos = () => setIOsopen(false);
   return (
     <Box className="maincontactfooter">
       <Grid className="contactfooter">
@@ -25,8 +34,8 @@ export default function ContactFooter() {
             }}
             className="store_img"
           >
-            <img src="App2.png"  />
-            <img src="App3.png"  />
+            <img src="App2.png" onClick={handleAndroid} />
+            <img src="App3.png" onClick={handleiOs} />
           </div>
           <p
             style={{
@@ -118,6 +127,18 @@ export default function ContactFooter() {
           <p>mail : contact@luqmafresh.com</p>
         </Grid>
       </Grid>
+      <Android
+        androidopen={androidopen}
+        handleAndroid={handleClose}
+        heading="Android Application"
+        para="Luqmafresh,  Android Application are coming soon few days then enjoy it."
+      />
+      <Android
+      androidopen={iOsopen}
+      handleAndroid={handleCloseIos}
+      heading="iOs Application"
+      para="Luqmafresh,  iOs Application are coming soon then enjoy it."
+    />
     </Box>
   );
 }
