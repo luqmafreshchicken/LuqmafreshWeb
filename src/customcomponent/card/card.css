@@ -9,13 +9,14 @@
   width: 100%;
   overflow: hidden;
   border-radius: 15px;
-  /* background-color: aqua; */
+  display: block;
 
 }
 
 .image_singlecard img {
   border-radius: 15px;
   height: 30vh;
+  width: 100%;
   display: block;
   transition: 0.3s ease-in-out
 }
@@ -538,15 +539,17 @@
   }
   .image_singlecard {
     width: 100%;
+    border-radius: 15px;
+    height: auto;
+
+
   }
   .image_singlecard img {
-    height: 170px;
+    height: 30vh;
     width: 100%;
     border-radius: 15px;
   }
-  .image_singlecard {
-    height: auto;
-  }
+ 
   .name_singlecard {
     width: 100%;
   }
