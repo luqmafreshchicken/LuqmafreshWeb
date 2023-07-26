@@ -1,25 +1,24 @@
-.head_text {
+ .head_text {
   width: 90%;
-  font-family: "Poppins", sans-serif;
-  /* background-color: orange; */
+  padding-top: 1.6rem;
+
 }
 .head_text h5 {
-  line-height: 0.6;
   font-family: semibold;
 }
 .head_text p {
   font-family: light;
 }
-.head_text_container {
+/* .head_text_container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: 22vh;
   padding-top: 30px;
   padding-left: 5px;
-  /* background-color: aqua; */
-}
+  background-color: brown;
+} */
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
