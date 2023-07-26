@@ -67,12 +67,18 @@ const Home = () => {
   const sliderRef = useRef(null);
 
   // const handlewhistlistOpen = () => setWhistlistOpen(true);
-  const handlewhistlistClose = () => setWhistlistOpen(false);
+  const handlewhistlistClose = () => {
+    setWhistlistOpen(false);
+    let data = {
+      modalCount: false,
+    };
+    localStorage.setItem("modalCount", JSON.stringify({ data: data }));
+  };
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
     localContent();
-    modalCount();
+    // modalCount();
     // showcart();
     // const interval = setInterval(showcart, 4000); // Call showcart every four seconds
     // return () => clearInterval(interval); // Clear interval on component unmount
@@ -80,11 +86,14 @@ const Home = () => {
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
-    console.log(items1, "===============================");
     if (items) {
       setWhistlistOpen(false);
     } else {
-      setWhistlistOpen(true);
+      if (items1) {
+        setWhistlistOpen(false);
+      } else {
+        setWhistlistOpen(true);
+      }
     }
   };
 
@@ -274,17 +283,6 @@ const Home = () => {
       }
     });
   };
-  const modalCount = () => {
-    let count = 0;
-    localStorage.setItem("modalCount", JSON.stringify(count));
-    // const items = JSON.parse(localStorage.getItem("modalCount"));
-    // console.log(items)
-    // if (items != '') {
-    //   setWhistlistOpen(false);
-    // } else {
-
-    // }
-  };
 
   const swiperNavPrevRef = useRef(null);
   const swiperNavNextRef = useRef(null);
@@ -344,7 +342,7 @@ const Home = () => {
                 },
               }}
               autoplay={{
-                delay: 2000,
+                delay: 3000,
               }}
               modules={[Navigation, Autoplay, Parallax]}
             >
@@ -459,7 +457,7 @@ const Home = () => {
                 },
               }}
               autoplay={{
-                delay: 2000,
+                delay: 3000,
               }}
               modules={[Navigation, Autoplay, Parallax]}
             >
@@ -602,11 +600,11 @@ const Home = () => {
                 },
                 768: {
                   slidesPerView: 4,
-                  spaceBetween: 40,
+                  spaceBetween: 50,
                 },
               }}
               autoplay={{
-                delay: 2000,
+                delay: 3000,
               }}
               modules={[Navigation, Autoplay, Parallax]}
             >
