@@ -16,6 +16,7 @@
 .store_img img {
   width: 120px;
   height: 35px;
+  cursor: pointer;
 }
 .contact1 p {
   font-family: regular;
