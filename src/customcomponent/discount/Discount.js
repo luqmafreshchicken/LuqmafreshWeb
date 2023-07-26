@@ -10,6 +10,7 @@ const Discount = ({
   height,
   width,
   br,
+  onclick
 }) => {
   return (
     <div className="main_discount">
@@ -20,6 +21,7 @@ const Discount = ({
             borderRadius: br,
           }}
           className="main_discount2"
+          onClick={onclick}
         >
         <div className="upto_text_center">
           <h1>
