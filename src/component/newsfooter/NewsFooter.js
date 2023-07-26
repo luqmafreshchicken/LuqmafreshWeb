@@ -1,7 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./newsfooter.css";
+import { emailRegister } from "../../serverRequest/Index";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NewsFooter = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = async () => {
+    if (email == "") {
+      toast.error("please enter your email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const data = {
+        email: email,
+      };
+      const res = await emailRegister(data);
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
+  };
   return (
     <div className="main_newsfooter">
       <div className="submain_newsfooter">
@@ -17,18 +61,20 @@ const NewsFooter = () => {
         {/* second card */}
 
         <div className="subscribe">
-          <input placeholder="Your Email Address..."/>
-          <div className="subscribe_btn">
-            <p style={{ textAlign: "center", paddingTop: "11px" }}>
-              Subscribe!
-            </p>
+          <input
+            placeholder="Your Email Address..."
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <div className="subscribe_btn" onClick={() => handleSubscribe()}>
+            <p>Subscribe!</p>
           </div>
         </div>
 
         {/* third card */}
 
         <div className="whatsapp">
-          <img src="whatsapp.png"  />
+          <img src="whatsapp.png" />
           <div
             style={{
               height: "5vh",
