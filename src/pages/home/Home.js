@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import BannerCard from "../../component/bannercard/BannerCard";
 import CategorieCard from "../../component/categoriecard/CategorieCard";
 import Text from "../../component/text/Text";
@@ -34,6 +34,15 @@ import "react-toastify/dist/ReactToastify.css";
 import Card from "../../customcomponent/card/Card";
 import WhistList from "../../customcomponent/whistlist/WhistList";
 import SearchModal from "../../customcomponent/searchmodal/SearchModal";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import {
+  Navigation,
+  Autoplay,
+  Parallax
+} from "swiper";
+import "swiper/css/navigation";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -51,7 +60,9 @@ const Home = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [showSubmit, setshowSubmit] = useState(false);
   const [hideOTP, setHideOTP] = useState(false);
-  const [product,setProduct] = useState([]);
+  const [product, setProduct] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const sliderRef = useRef(null);
 
   // const handlewhistlistOpen = () => setWhistlistOpen(true);
   const handlewhistlistClose = () => setWhistlistOpen(false);
@@ -59,12 +70,15 @@ const Home = () => {
 
   useEffect(() => {
     localContent();
+    modalCount();
     // showcart();
     // const interval = setInterval(showcart, 4000); // Call showcart every four seconds
     // return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    console.log(items1, "===============================");
     if (items) {
       setWhistlistOpen(false);
     } else {
@@ -142,7 +156,7 @@ const Home = () => {
     loginRegister(requestData).then((res) => {
       setShowInput(!showInput);
       setHideOTP(true);
-      setBtn(true)
+      setBtn(true);
     });
   };
 
@@ -191,14 +205,13 @@ const Home = () => {
     /* end login api */
   }
 
-
   const fullView = async (id) => {
     const requestData = {
       productId: id,
     };
     productDeatail(requestData).then((res) => {
       if (res.status == true) {
-        setSearchOpen(true)
+        setSearchOpen(true);
         setProduct(res.data);
         setLoad(false);
       } else {
@@ -206,10 +219,19 @@ const Home = () => {
       }
     });
   };
+  const modalCount = () => {
+    let count = 0;
+    localStorage.setItem("modalCount", JSON.stringify(count));
+    // const items = JSON.parse(localStorage.getItem("modalCount"));
+    // console.log(items)
+    // if (items != '') {
+    //   setWhistlistOpen(false);
+    // } else {
 
-  
-  { /* end full view */}
-  console.log(product,"========================================")
+    // }
+  };
+
+
   return (
     <>
       <Header />
@@ -220,35 +242,60 @@ const Home = () => {
       <div className="carouselitem">
         <div className="cardswrapper">
           <div className="card_slider">
-            {data.length >= 1 ? (
-              <>
-              
-                {data.map((detail, index) => (
-                  <Card
-                    offer={detail.discount}
-                    productName={detail.name}
-                    weight={detail.quantity}
-                    unit={detail.unit}
-                    total={detail.price}
-                    cutotal={detail.originalPrice}
-                    offer1={detail.discount}
-                    today={moment(detail.discountExpiryDate).format("dddd")}
-                    date={detail.deliveryTime}
-                    totalpayment={detail.price}
-                    to="/carddetail"
-                    onclick={() => AddToCart(detail._id)}
-                    id={{ id: detail._id }}
-                    rating={detail.rating}
-                    img={detail.image}
-                    onclick1={() => fullView(detail._id)}
-                    onclick2={() => setWhistlistOpen(true)}
-                  />
-                ))}
-              </>
-            ) : null}
-            <div className="slider_next_btn">
-              <img src="rtarrow.png" height="20px" width="20px" />
-            </div>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={8}
+              pagination={{
+                clickable: true,
+              }}
+              parallax={true}
+              navigation={true}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 40,
+                },
+               
+              }}
+              autoplay={{
+                delay: 2000,
+                // disableOnInteraction: false,
+              }}
+              modules={[Navigation,Autoplay,Parallax]}
+              // style={{ backgroundColor: "pink" }}
+            >
+              {data.length >= 1 ? (
+                <>
+                  {data.map((detail, index) => (
+                    <SwiperSlide>
+                      <Card
+                        offer={detail.discount}
+                        productName={detail.name}
+                        weight={detail.quantity}
+                        unit={detail.unit}
+                        total={detail.price}
+                        cutotal={detail.originalPrice}
+                        offer1={detail.discount}
+                        today={moment(detail.discountExpiryDate).format("dddd")}
+                        date={detail.deliveryTime}
+                        totalpayment={detail.price}
+                        to="/carddetail"
+                        onclick={() => AddToCart(detail._id)}
+                        id={{ id: detail._id }}
+                        rating={detail.rating}
+                        img={detail.image}
+                        onclick1={() => fullView(detail._id)}
+                        onclick2={() => setWhistlistOpen(true)}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </>
+              ) : null}
+            </Swiper>
           </div>
           <WhistList
             whistlistOpen={whistlistOpen}
@@ -281,13 +328,16 @@ const Home = () => {
             price={product.price}
             ogp={product.originalPrice}
             discount={product.discount}
-
           />
         </div>
       </div>
       {/* end new arrival section */}
       <CountDown />
+      {/* topserverweek */}
       <TopSeverWeek />
+
+      {/* topserverweek */}
+
       <Text
         heading1="Shop by Categories"
         text1="Most popular products near you!"
