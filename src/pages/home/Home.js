@@ -26,6 +26,7 @@ import {
   otpVerify,
   topSeverweek,
   bestSeller,
+  todayDeals,
 } from "../../serverRequest/Index";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -42,14 +43,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Navigation, Autoplay, Parallax } from "swiper";
 import "swiper/css/navigation";
+import Discount from "../../customcomponent/discount/Discount";
 
 const Home = () => {
-  let navigate = useNavigate();
-
   const [data, setData] = useState([]);
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
+  const [today, setToday] = useState([]);
 
   const [showInput, setShowInput] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
@@ -78,10 +79,6 @@ const Home = () => {
 
   useEffect(() => {
     localContent();
-    // modalCount();
-    // showcart();
-    // const interval = setInterval(showcart, 4000); // Call showcart every four seconds
-    // return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -212,6 +209,16 @@ const Home = () => {
     getData();
   }, []);
   // end bestSeller api
+
+  // todeal deals Api
+  useEffect(() => {
+    async function today() {
+      const newData = await todayDeals();
+      setToday(newData.data);
+    }
+    today();
+  }, []);
+  // end today deals Api
   {
     /* login api */
   }
@@ -552,7 +559,48 @@ const Home = () => {
           <p>Offers curated only for you!</p>
         </div>
       </div>
-      <DiscountSection />
+      {/**************** today Deals Section **************************/}
+      <div className="main_discountsection">
+        <div className="submain_discountsection">
+          {today.map((deals) => (
+            <Discount
+              bgColor={deals.color}
+              src={deals.image}
+              percen={deals.discount}
+              text={deals.dealsName}
+              radius="100px"
+              br="25px"
+              onclick={() => fullView(deals._id)}
+            />
+          ))}
+
+          <Discount
+            bgColor="#C42118"
+            src="Eggs.png"
+            percen="40"
+            text="On Mutton"
+            br="25px"
+          />
+        </div>
+        <SearchModal
+          searchOpen={searchOpen}
+          handleSearchClose={handleSearchClose}
+          onclick={handleSearchClose}
+          image={product.image}
+          name={product.name}
+          description={product.description}
+          description1={product.description1}
+          description2={product.description2}
+          description3={product.description3}
+          qty={product.quantity}
+          unit={product.unit}
+          price={product.price}
+          ogp={product.originalPrice}
+          discount={product.discount}
+        />
+      </div>
+      {/**************** today Deals Section **************************/}
+
       <Offer />
       {/****************bestSeller*********************/}
       <div>
