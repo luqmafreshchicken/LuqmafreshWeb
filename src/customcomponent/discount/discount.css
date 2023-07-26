@@ -18,6 +18,8 @@
   border-bottom-right-radius: 25px;
   display: grid;
   place-items: center;
+  cursor: pointer;
+
 }
 .upto_text_center{
   /* background-color: aqua; */
@@ -46,6 +48,7 @@
 .main_discount img {
   height: 26vh;
   width: 81%;
+  cursor: pointer;
 }
 .discount_image {
   display: flex;
