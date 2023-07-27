@@ -387,6 +387,7 @@
   width: 50%;
 }
 .cart_empty {
+  padding-right: 1.5rem;
 }
 .cart_empty h5{
   text-align: center;
@@ -396,7 +397,7 @@
 }
 .cart_empty p{
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
   font-family: light;
   font-size: 0.9rem;
 }
