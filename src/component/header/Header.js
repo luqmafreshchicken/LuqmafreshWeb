@@ -16,7 +16,7 @@ import { loginRegister, otpVerify } from "../../serverRequest/Index";
 import Card from "../../customcomponent/card/Card";
 import Loader from "../loder/Loader";
 
-const Header = ({ onchange, value }) => {
+const Header = ({ onchange, value,code,currency,flag }) => {
   const [open, setOpen] = useState(false);
   const [cartopen, setCartopen] = useState(false);
   const [ishover, sethover] = useState(false);
@@ -229,8 +229,8 @@ const Header = ({ onchange, value }) => {
                 <NavLink className="nav_list">
                   <li>
                     <div className="currency_container">
-                      <img src="menu (4).png" />
-                      <p>Currency</p>
+                      <img src={flag} />
+                      <p>{code}  {currency}</p>
                     </div>
                   </li>
                 </NavLink>
