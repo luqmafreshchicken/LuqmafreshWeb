@@ -18,22 +18,7 @@
 .carddetail_slider_content::-webkit-scrollbar {
   overflow: hidden;
 }
-.carddetail_slider_heading_container {
-  width: 100%;
-  height: auto;
-  display: grid;
-  place-items: center;
-}
-.carddetail_slider_heading_content {
-  width: 90%;
-  height: auto;
-  padding-top: 3rem;
-}
-.carddetail_slider_heading_content h4 {
-  font-family: regular;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
+
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
