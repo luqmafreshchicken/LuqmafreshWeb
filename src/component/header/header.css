@@ -158,15 +158,19 @@ ul li {
   background-color: white;
   box-shadow: 24;
 }
-.handle_login img{
- width: 100%;
- position: absolute;
- top: 0;
- bottom: 0;
+.sign_in_logo{
+  background-color: aqua;
+  width: 95%;
+  height: 60vh;
+}
+.sign_in_logo img{
+  width: 430px;
+  height: 450px;
+
 }
 .handle_login_container{
   position: absolute;
-  top: 90%;
+  top: 80%;
   left: 47%;
   transform: translate(-50%, -50%);
   height: auto;
@@ -186,6 +190,7 @@ ul li {
   font-weight: 600;
   color: white;
 }
+
 .handle_login_number_container{
   width: 100%;
   height: 10vh;
@@ -236,6 +241,7 @@ ul li {
   border: none;
   outline: none;
   font-family: regular;
+  cursor: pointer;
 }
 .handle_login_otp_content p{
   padding-top: 0.9rem;
@@ -244,11 +250,11 @@ ul li {
 }
 .handle_login_btn_container{
   width: 100%;
-  height: 14vh;
+  height: 12vh;
   /* background-color: orange; */
   display: grid;
   place-items: center;
-  margin-bottom: 6rem;
+  /* margin-bottom: 6rem; */
 }
 .handle_login_btn_content{
   width: 85%;
@@ -269,17 +275,18 @@ ul li {
 }
 .handle_login_proceed_container{
   width: 100%;
-  height: 14vh;
+  height: 12vh;
   /* background-color: orange; */
   display: grid;
   place-items: center;
-  margin-bottom: 10rem;
+  /* margin-bottom: 10rem; */
 }
 .handle_login_proceed_content{
   width: 85%;
   height: 6vh;
   background-color: #FF0040;
   border-radius: 5px;
+  cursor: pointer;
 }
 .handle_login_proceed_content p{
   text-align: center;
@@ -301,6 +308,44 @@ ul li {
 .currency_container p:hover{
   color: #FF0040;
   transition: 0.2s ease-in-out;
+}
+
+/* google login */
+.continue_or_container{
+  width: 100%;
+  height: 2vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+  }
+.continue_or_content{
+  width: 30%;
+  height: 2vh;
+  /* background-color: aqua; */
+}
+.continue_or_content img{
+  width: 100%;
+  height: 1vh;
+  display: block;
+}
+.continue_google_container{
+  width: 100%;
+  height: 10vh;
+  /* background-color: orange; */
+  display: grid;
+  place-items: center;
+  margin-bottom: 3rem;
+}
+.continue_google_content{
+  width: 55%;
+  height: 6vh;
+  /* background-color: aqua; */
+  
+}
+.continue_google_content img{
+  width: 100%;
+  height: 6vh;
+  cursor: pointer;
 }
 
 
