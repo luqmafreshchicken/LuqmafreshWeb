@@ -201,8 +201,9 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
                   <div className="cart_empty">
                     <h5>Your cart is empty</h5>
                     <p>
-                      It appears that your cart is currently empty.<br/> Feel free to
-                      explore our top categories and add items to your cart.
+                      It appears that your cart is currently empty.
+                      <br /> Feel free to explore our top categories and add
+                      items to your cart.
                     </p>
                   </div>
                 </>
@@ -213,12 +214,15 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
           {loginStatus == false ? (
             <>
               <div className="mobile_cart_nologin">
-                <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
+                <img src="lock.png" />
               </div>
-              <div className="mobile_shopping">
-                <button>
-                  <h6>Continue Shopping</h6>
-                </button>
+              <div className="cart_empty">
+                <h5>Please Login First</h5>
+                <p>
+                  It seems that you haven't logged in yet. Please feel welcome
+                  to log in and explore our premium categories, as well as add
+                  items to your cart.
+                </p>
               </div>
             </>
           ) : null}
