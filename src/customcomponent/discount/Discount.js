@@ -1,5 +1,6 @@
 import React from "react";
 import "./discount.css";
+import { NavLink } from "react-router-dom";
 
 const Discount = ({
   bgColor,
@@ -10,7 +11,9 @@ const Discount = ({
   height,
   width,
   br,
-  onclick
+  onclick,
+  to,
+  state
 }) => {
   return (
     <div className="main_discount">
@@ -33,10 +36,16 @@ const Discount = ({
           </div>
         </div>
         <div className="discount_image">
+        <NavLink
+                to={to}
+                state={state}
+                
+              >
           <img
             src={src}
             style={{ borderRadius: radius, height: height, width: width }}
           />
+          </NavLink>
         </div>
       </div>
     </div>
