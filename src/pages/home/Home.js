@@ -348,10 +348,8 @@ const Home = () => {
                   spaceBetween: 40,
                 },
               }}
-              autoplay={{
-                delay: 3000,
-              }}
-              modules={[Navigation, Autoplay, Parallax]}
+            
+              modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
                 <>
@@ -463,10 +461,8 @@ const Home = () => {
                   spaceBetween: 40,
                 },
               }}
-              autoplay={{
-                delay: 3000,
-              }}
-              modules={[Navigation, Autoplay, Parallax]}
+             
+              modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
                 <>
@@ -651,10 +647,8 @@ const Home = () => {
                   spaceBetween: 50,
                 },
               }}
-              autoplay={{
-                delay: 3000,
-              }}
-              modules={[Navigation, Autoplay, Parallax]}
+           
+              modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
                 <>
