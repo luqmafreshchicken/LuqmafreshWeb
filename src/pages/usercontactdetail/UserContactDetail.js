@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createAddress, getUserID } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../component/loder/Loader";
 
 const UserContactDetail = () => {
   let navigate = useNavigate();
@@ -19,27 +20,26 @@ const UserContactDetail = () => {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [fullName, setFullName] = useState("");
-
+  const [load, setLoad] = useState(false);
   const [userId, setUserId] = useState("");
   const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-  
-    useEffect(() => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            setLatitude(position.coords.latitude);
-            setLongitude(position.coords.longitude);
-          },
-          (error) => {
-            console.error("Error retrieving location:", error);
-          }
-        );
-      } else {
-        console.error("Geolocation is not supported by your browser.");
-      }
-    }, []);
-    console.log(latitude, longitude , "===========glllllllllllllll===================");
+  const [longitude, setLongitude] = useState(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+  }, []);
 
   useEffect(() => {
     getUserID().then((res) => {});
@@ -63,6 +63,7 @@ const UserContactDetail = () => {
       type: "Office",
     };
     createAddress(requestData).then((res) => {
+      setLoad(true);
       console.log(res.message);
       if (res.status == true) {
         toast.success(res.message + "Successfully", {
@@ -75,6 +76,7 @@ const UserContactDetail = () => {
           progress: undefined,
         });
         navigate("/addnewaddress");
+        setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -152,6 +154,7 @@ const UserContactDetail = () => {
           pauseOnHover
         />
         <ToastContainer />
+        <Loader loading={load} />
       </div>
     </>
   );
