@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginRegister, otpVerify } from "../../serverRequest/Index";
 import Card from "../../customcomponent/card/Card";
+import Loader from "../loder/Loader";
 
 const Header = ({ onchange, value }) => {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,7 @@ const Header = ({ onchange, value }) => {
   const [add1, setAdd1] = useState(null);
   const [add2, setAdd2] = useState(null);
   const [add3, setAdd3] = useState(null);
+  const [load, setLoad] = useState(false);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -107,14 +109,21 @@ const Header = ({ onchange, value }) => {
     }
   };
   const handleLogin = () => {
+    setLoad(true);
     const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
-      setShowInput(!showInput);
-      setShowbtn(true);
+      if (res.status == true) {
+        setShowInput(!showInput);
+        setShowbtn(true);
+        setLoad(false);
+      } else {
+      }
     });
   };
 
   const handleOTP = () => {
+    setLoad(true);
+
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
@@ -130,6 +139,7 @@ const Header = ({ onchange, value }) => {
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         localContent();
         setOpen(false);
+        setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -457,6 +467,7 @@ const Header = ({ onchange, value }) => {
         pauseOnHover
       />
       <ToastContainer />
+      <Loader loading={load} />
     </>
   );
 };
