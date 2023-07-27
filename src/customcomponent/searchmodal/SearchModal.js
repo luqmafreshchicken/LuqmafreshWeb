@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import "./searchmodal.css";
 
 const SearchModal = ({
+  currency,
   searchOpen,
   handleSearchClose,
   onclick,
@@ -73,7 +74,7 @@ const SearchModal = ({
             </p>
             <di className="cardfull_detail_text">
               <div className="cardfull_detail_container_text">
-                <p style={{ color: "#d11243" }}>₹{price}</p>
+                <p style={{ color: "#d11243" }}>{currency}{price}</p>
                 <p style={{ color: "grey", textDecoration: "line-through" }}>
                   MRP: ₹{ogp}
                 </p>
