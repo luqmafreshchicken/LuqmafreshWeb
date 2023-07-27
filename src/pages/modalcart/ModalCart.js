@@ -100,111 +100,118 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
           </button>
           {loginStatus == true ? (
             <>
-            {cartProduct?.length >= 1 ? (
-            <div className="modalcart_scroll_bar_container">
-              <div className="order_summary">
-                <p>Order Summary</p>
-              </div>
-              <div className="Cong_section">
-                <p> Your delivery charge is waived off!!!</p>
-              </div>
-              <div className="save_section">
-                <p>Congratulations! You've saved ₹24</p>
-              </div>
-              {cartProduct.map((option, index) => (
-                <div className="product_card">
-                  <div className="product_detail">
-                    <div className="subproduct_detail">
-                      <div className="number">
-                        <p>{index + 1}</p>
-                      </div>
-
-                      <div className="product_name">
-                        <p>{option.productId.name}</p>
-                      </div>
-                    </div>
-
-                    <div
-                      onClick={() => removeProduct(option._id)}
-                      className="product_cross"
-                    >
-                      <img src="cross.png" height="22px" width="22px" />
-                    </div>
-                  </div>
-                  <div className="peices_content">
-                    <div className="peices_price">
-                      <div className="border_peices">
-                        <p>{option.productId.quantity}gms</p>
-                      </div>
-                      <div className="color_count">
-                        <p> ₹{option.productId.price}</p>
-                      </div>
-                      <div className="cut_count">
-                        <p> ₹{option.productId.originalPrice}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              <div className="biil_payment">
-                <div className="bill_name">
-                  <p>Bill Details</p>
-                </div>
-                <div className="subbill_Detail">
-                  <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
-                    SubTotal
-                  </p>
-                  <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                    ₹ {cartPrice}
-                  </p>
-                </div>
-                <div className="delivery_charge">
-                  <p style={{ paddingLeft: "15px", paddingTop: "10px" }}>
-                    Delivery Charge
-                  </p>
-                  <p style={{ paddingRight: "15px", paddingTop: "10px" }}>
-                    ₹ 0
-                  </p>
-                </div>
-                <div className="cong_charge_section">
-                  <p style={{ paddingLeft: "15px" }}>
-                    Congratulations, Your delivery charge is waived off!!!
-                  </p>
-                </div>
-                <div className="border_line"></div>
-                <div className="total_payments">
-                  <p style={{ paddingTop: "10px" }}>Total</p>
-                  <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                    ₹ {cartPrice}
-                  </p>
-                </div>
-              </div>
               {cartProduct?.length >= 1 ? (
-                <div className="proceed_section">
-                  <div className="proceed_payment">
-                    <p>Total : ₹{cartPrice}</p>
+                <div className="modalcart_scroll_bar_container">
+                  <div className="order_summary">
+                    <p>Order Summary</p>
                   </div>
-                  <div className="proceed_btn" onClick={onclick}>
-                    <NavLink to="/addnewaddress" className="nav_list">
-                      <p>Proceed to Checkout</p>
-                    </NavLink>
+                  <div className="Cong_section">
+                    <p> Your delivery charge is waived off!!!</p>
                   </div>
+                  <div className="save_section">
+                    <p>Congratulations! You've saved ₹24</p>
+                  </div>
+                  {cartProduct.map((option, index) => (
+                    <div className="product_card">
+                      <div className="product_detail">
+                        <div className="subproduct_detail">
+                          <div className="number">
+                            <p>{index + 1}</p>
+                          </div>
+
+                          <div className="product_name">
+                            <p>{option.productId.name}</p>
+                          </div>
+                        </div>
+
+                        <div
+                          onClick={() => removeProduct(option._id)}
+                          className="product_cross"
+                        >
+                          <img src="cross.png" height="22px" width="22px" />
+                        </div>
+                      </div>
+                      <div className="peices_content">
+                        <div className="peices_price">
+                          <div className="border_peices">
+                            <p>{option.productId.quantity}gms</p>
+                          </div>
+                          <div className="color_count">
+                            <p> ₹{option.productId.price}</p>
+                          </div>
+                          <div className="cut_count">
+                            <p> ₹{option.productId.originalPrice}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
+                  <div className="biil_payment">
+                    <div className="bill_name">
+                      <p>Bill Details</p>
+                    </div>
+                    <div className="subbill_Detail">
+                      <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
+                        SubTotal
+                      </p>
+                      <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
+                        ₹ {cartPrice}
+                      </p>
+                    </div>
+                    <div className="delivery_charge">
+                      <p style={{ paddingLeft: "15px", paddingTop: "10px" }}>
+                        Delivery Charge
+                      </p>
+                      <p style={{ paddingRight: "15px", paddingTop: "10px" }}>
+                        ₹ 0
+                      </p>
+                    </div>
+                    <div className="cong_charge_section">
+                      <p style={{ paddingLeft: "15px" }}>
+                        Congratulations, Your delivery charge is waived off!!!
+                      </p>
+                    </div>
+                    <div className="border_line"></div>
+                    <div className="total_payments">
+                      <p style={{ paddingTop: "10px" }}>Total</p>
+                      <p style={{ paddingTop: "10px", color: "#FF0040" }}>
+                        ₹ {cartPrice}
+                      </p>
+                    </div>
+                  </div>
+                  {cartProduct?.length >= 1 ? (
+                    <div className="proceed_section">
+                      <div className="proceed_payment">
+                        <p>Total : ₹{cartPrice}</p>
+                      </div>
+                      <div className="proceed_btn" onClick={onclick}>
+                        <NavLink to="/addnewaddress" className="nav_list">
+                          <p>Proceed to Checkout</p>
+                        </NavLink>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
-            </div>
-            ) : (
-              <>
-              <div className="mobile_cart_nologin">
-                <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
-              </div>
-              <div className="mobile_shopping">
-                <button>
-                  <h6>Continue Shopping</h6>
-                </button>
-              </div>
-            </> 
-            )}
+              ) : (
+                <>
+                  <div className="mobile_cart_nologin">
+                    <img src="emty cart.png" />
+                  </div>
+                  <div className="cart_empty">
+                    <h5>Your cart is empty</h5>
+                    <p>
+                      It appears that your cart is currently empty. Feel free to
+                      explore our top categories and add items to your cart.
+                    </p>
+                  </div>
+                  <div className="mobile_shopping">
+                    <button>
+                      <h6>Continue Shopping</h6>
+                    </button>
+                  </div>
+                </>
+              )}
             </>
           ) : null}
 
