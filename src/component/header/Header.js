@@ -64,7 +64,7 @@ const Header = ({ onchange, value }) => {
   useEffect(() => {
     localContent();
     showcart();
-    const interval = setInterval(showcart,localContent, 3000); // Call showcart every four seconds
+    const interval = setInterval(showcart, localContent, 3000); // Call showcart every four seconds
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
@@ -86,6 +86,7 @@ const Header = ({ onchange, value }) => {
   }
 
   const handleclear = async (index) => {
+    window.location.reload();
     if (index == 4) {
       await localStorage.clear();
       localContent();
@@ -101,6 +102,8 @@ const Header = ({ onchange, value }) => {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
     } else {
+      setCartProduct([]);
+      setCartPrice("");
     }
   };
   const handleLogin = () => {
@@ -312,25 +315,24 @@ const Header = ({ onchange, value }) => {
                   </div>
                 )}
 
-                  <NavLink className="nav_list">
-                    <li>
-                      <div
-                        className="cart_border_container"
-                        onClick={carthandleOpen}
-                      >
-                        <div className="cart_border_content1">
-                          <img src="grocery-store.png" />
-                        </div>
-                        <div className="cart_border_content2">
-                          <p>
-                            {cartProduct.length} Items <br />
-                            <span>₹{cartPrice}</span>
-                          </p>
-                        </div>
+                <NavLink className="nav_list">
+                  <li>
+                    <div
+                      className="cart_border_container"
+                      onClick={carthandleOpen}
+                    >
+                      <div className="cart_border_content1">
+                        <img src="grocery-store.png" />
                       </div>
-                    </li>
-                  </NavLink>
-             
+                      <div className="cart_border_content2">
+                        <p>
+                          {cartProduct.length} Items <br />
+                          <span>₹{cartPrice}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </NavLink>
               </ul>
             </div>
           </nav>
@@ -350,7 +352,9 @@ const Header = ({ onchange, value }) => {
         aria-describedby="modal-modal-description"
       >
         <Box className="handle_login">
-          <img src="01.jpg" className="sign_in_logo" />
+          <div className="sign_in_logo">
+            <img src="01.jpg" />
+          </div>
 
           <div className="handle_login_container">
             {/* heading */}
@@ -359,17 +363,22 @@ const Header = ({ onchange, value }) => {
             </div>
             {/* end heading */}
             {/* input number */}
-            <div className="handle_login_number_container">
-              <div className="handle_login_number_content">
-                <input
-                  placeholder="Enter your email"
-                  value={mobileNumber}
-                  onChange={handleMobileNumber}
-                  type="email"
-                />
-                <p>Edit</p>
+            {showbtn == true ? (
+              <></>
+            ) : (
+              <div className="handle_login_number_container">
+                <div className="handle_login_number_content">
+                  <input
+                    placeholder="Enter your email"
+                    value={mobileNumber}
+                    onChange={handleMobileNumber}
+                    type="email"
+                  />
+                  <p>Edit</p>
+                </div>
               </div>
-            </div>
+            )}
+
             {/* input number */}
             {/* input otp */}
             {showbtn == true ? (
@@ -398,22 +407,33 @@ const Header = ({ onchange, value }) => {
                     color: btn === true ? "white" : "white",
                   }}
                 >
-                  <p>Proceed Via OTP</p>
+                  <p>Continue</p>
                 </div>
               </div>
             ) : null}
 
             {showbtn == true ? (
-              <div className="handle_login_proceed_container">
-                <div
-                  className="handle_login_proceed_content"
-                  onClick={() => handleOTP()}
-                >
-                  <p>Submit</p>
+              <>
+                <div className="handle_login_proceed_container">
+                  <div
+                    className="handle_login_proceed_content"
+                    onClick={() => handleOTP()}
+                  >
+                    <p>Submit</p>
+                  </div>
                 </div>
-              </div>
+              </>
             ) : null}
-            {/* end submit btn */}
+            <div className="continue_or_container">
+              <div className="continue_or_content">
+                <img src="or.png" />
+              </div>
+            </div>
+            <div className="continue_google_container">
+              <div className="continue_google_content">
+                <img src="Google1.png" />
+              </div>
+            </div>
           </div>
         </Box>
       </Modal>
