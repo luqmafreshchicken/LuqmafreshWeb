@@ -603,6 +603,13 @@ const Home = () => {
               radius="100px"
               br="25px"
               onclick={() => fullView(deals._id)}
+              // id={deals.productId}
+              to={'/carddetail'}
+              state={{
+                id:{
+                  id:deals.productId
+                }
+              }}
             />
           ))}
 
