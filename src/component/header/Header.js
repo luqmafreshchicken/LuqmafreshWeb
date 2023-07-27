@@ -390,6 +390,14 @@ const Header = ({ onchange, value }) => {
                   />
                   <p>Resend OTP</p>
                 </div>
+
+                <div className="email_verify">
+                  <p>
+                    One Time Password Send to{" "}
+                    <span>gauravjoshi897@gmail.com</span>. Please enter it below
+                    to complete verification
+                  </p>
+                </div>
               </div>
             ) : null}
 
