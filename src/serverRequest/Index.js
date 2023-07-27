@@ -33,6 +33,15 @@ export const currentLocation = async (latitude,longitude) => {
   return response.data;
 };
 
+export const GetCountry = async (lat,lng) => {
+  const response = await axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+  return response.data;
+};
+export const CountryDetail = async (Cname) => {
+  const response = await axios.get(`https://restcountries.com/v2/name/${Cname}?fullText=true`);
+  return response.data;
+};
+
 
 export const getUserID = async () => {
   const items = JSON.parse(localStorage.getItem("userDetail"));
