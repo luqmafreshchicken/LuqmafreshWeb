@@ -201,14 +201,9 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
                   <div className="cart_empty">
                     <h5>Your cart is empty</h5>
                     <p>
-                      It appears that your cart is currently empty. Feel free to
+                      It appears that your cart is currently empty.<br/> Feel free to
                       explore our top categories and add items to your cart.
                     </p>
-                  </div>
-                  <div className="mobile_shopping">
-                    <button>
-                      <h6>Continue Shopping</h6>
-                    </button>
                   </div>
                 </>
               )}
