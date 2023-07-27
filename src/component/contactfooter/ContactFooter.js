@@ -45,19 +45,19 @@ export default function ContactFooter() {
             FOLLOW ON US
           </p>
           <div className="all_icons">
-            <a href="https://www.facebook.com/">
+            <a href="https://www.facebook.com/" target="_blank">
               <FaFacebookF className="icon facebook" />
             </a>
             <a href="https://www.instagram.com/" target="_blank">
               <FaInstagram className="icon insta" />
             </a>
-            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F">
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F" target="_blank">
               <FaTwitter className="icon twitter" />
             </a>
-            <a href="https://www.youtube.com/">
+            <a href="https://www.youtube.com/" target="_blank">
               <FaYoutube className="icon youtube" />
             </a>
-            <a href="https://www.linkedin.com/">
+            <a href="https://www.linkedin.com/" target="_blank">
               <FaLinkedinIn className="icon in" />
             </a>
           </div>
