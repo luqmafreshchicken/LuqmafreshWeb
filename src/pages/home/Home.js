@@ -9,7 +9,12 @@ import DiscountSection from "../../component/discountsection/DiscountSection";
 import Offer from "../../component/offer/Offer";
 import CardSliderOne from "../../component/cardsliderone/CardSliderOne";
 import CountDown from "../../component/countdown/CountDown";
-import { productCategorie, productDeatail } from "../../serverRequest/Index";
+import {
+  CountryDetail,
+  GetCountry,
+  productCategorie,
+  productDeatail,
+} from "../../serverRequest/Index";
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
 import Bestseller from "../../component/bestseller/BestSeller";
 import Header from "../../component/header/Header";
@@ -66,6 +71,10 @@ const Home = () => {
   const [product, setProduct] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const sliderRef = useRef(null);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
 
   // const handlewhistlistOpen = () => setWhistlistOpen(true);
   const handlewhistlistClose = () => {
@@ -78,6 +87,32 @@ const Home = () => {
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
     localContent();
   }, []);
   const localContent = () => {
@@ -296,7 +331,7 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header code={countrytitle} currency={countrycurrency} flag={flag} />
       <BannerCard />
       {/*<Twobanner />*/}
       {/********************************new arrival section****************************** */}
@@ -348,7 +383,6 @@ const Home = () => {
                   spaceBetween: 40,
                 },
               }}
-            
               modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
@@ -356,6 +390,7 @@ const Home = () => {
                   {data.map((detail, index) => (
                     <SwiperSlide>
                       <Card
+                        currency={countrycurrency}
                         offer={detail.discount}
                         productName={detail.name}
                         weight={detail.quantity}
@@ -461,7 +496,6 @@ const Home = () => {
                   spaceBetween: 40,
                 },
               }}
-             
               modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
@@ -469,6 +503,7 @@ const Home = () => {
                   {data2.map((detail, index) => (
                     <SwiperSlide>
                       <Card
+                        currency={countrycurrency}
                         offer={detail.discount}
                         productName={detail.name}
                         weight={detail.quantity}
@@ -510,6 +545,7 @@ const Home = () => {
           />
 
           <SearchModal
+            currency={countrycurrency}
             searchOpen={searchOpen}
             handleSearchClose={handleSearchClose}
             onclick={handleSearchClose}
@@ -579,6 +615,7 @@ const Home = () => {
           />
         </div>
         <SearchModal
+          currency={countrycurrency}
           searchOpen={searchOpen}
           handleSearchClose={handleSearchClose}
           onclick={handleSearchClose}
@@ -647,7 +684,6 @@ const Home = () => {
                   spaceBetween: 50,
                 },
               }}
-           
               modules={[Navigation, Parallax]}
             >
               {data.length >= 1 ? (
@@ -655,6 +691,7 @@ const Home = () => {
                   {data3.map((detail, index) => (
                     <SwiperSlide>
                       <Card
+                        currency={countrycurrency}
                         offer={detail.discount}
                         productName={detail.name}
                         weight={detail.quantity}
@@ -696,6 +733,7 @@ const Home = () => {
           />
 
           <SearchModal
+            currency={countrycurrency}
             searchOpen={searchOpen}
             handleSearchClose={handleSearchClose}
             onclick={handleSearchClose}
