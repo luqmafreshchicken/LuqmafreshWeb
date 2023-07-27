@@ -7,6 +7,7 @@ import WhistList from "../whistlist/WhistList";
 import { FaSearch, FaHeart, FaShoppingBag } from "react-icons/fa";
 
 const Card = ({
+  currency,
   offer,
   productName,
   weight,
@@ -82,9 +83,9 @@ const Card = ({
         </p>
       </div>
       <div className="price_singlecard">
-        <p style={{ color: "black" }}>₹{total}</p>
+        <p style={{ color: "black" }}>{currency}{total}</p>
         <p style={{ textDecoration: "line-through", color: "grey" }}>
-          ₹{cutotal}
+          {currency}{cutotal}
         </p>
         <p style={{ color: "green" }}>{offer1}%off</p>{" "}
       </div>
@@ -106,7 +107,7 @@ const Card = ({
 
         <div className="ammount_singlecard">
           <p>
-            Total <span>₹{totalpayment}</span>
+            Total <span>{currency}{totalpayment}</span>
           </p>
         </div>
       </div>
