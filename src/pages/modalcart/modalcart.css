@@ -377,14 +377,28 @@
   overflow: hidden;
 }
 .mobile_cart_nologin{
-  height: 84vh;
+  height: 48vh;
   width: 100%;
   display: grid;
   place-items: center;
 }
 .mobile_cart_nologin img{
-  height: 45%;
-  width: 70%;
+  height: 60%;
+  width: 50%;
+}
+.cart_empty {
+}
+.cart_empty h5{
+  text-align: center;
+  /* padding-top: 1rem; */
+  font-family: regular;
+  font-weight: 600;
+}
+.cart_empty p{
+  text-align: center;
+  padding: 1rem 1rem;
+  font-family: light;
+  font-size: 0.9rem;
 }
 .mobile_shopping{
   background-color: #ff0040;
