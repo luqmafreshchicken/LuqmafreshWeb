@@ -3,17 +3,11 @@ import "./header.css";
 import ModalCart from "../../pages/modalcart/ModalCart";
 import Options from "../dropdownvalue/Dropdownvalue";
 import { NavLink } from "react-router-dom";
-import {
-  Show_Cart,
-  currentLocation,
-  getUserID,
-} from "../../serverRequest/Index";
+import { currentLocation } from "../../serverRequest/Index";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { loginRegister, otpVerify } from "../../serverRequest/Index";
-import Card from "../../customcomponent/card/Card";
 import Loader from "../loder/Loader";
 
 const Header = ({
@@ -25,25 +19,30 @@ const Header = ({
   cartProductlength,
   cartPrice,
   curr,
+  cartopen = () => {},
+  carthandleClose = () => {},
+  carthandleOpen = () => {},
+  loginStatus,
+  handleOpen = () => {},
+  handleClose = () => {},
+  open,
+  showbtn,
+  handleLogin = () => {},
+  handleOTP = () => {},
+  mobileNumber,
+  handleMobileNumber = () => {},
+  sethandleOtp = () => {},
+  btn,
+  totalAmount,
+  store
 }) => {
-  const [open, setOpen] = useState(false);
-  const [cartopen, setCartopen] = useState(false);
   const [ishover, sethover] = useState(false);
-  const [loginStatus, setLoginStatus] = useState(false);
-  const [cartProduct, setCartProduct] = useState([]);
-  // const [cartPrice, setCartPrice] = useState([]);
-  const [showInput, setShowInput] = useState(false);
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [btn, setBtn] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [showbtn, setShowbtn] = useState(false);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [add1, setAdd1] = useState(null);
   const [add2, setAdd2] = useState(null);
   const [add3, setAdd3] = useState(null);
   const [load, setLoad] = useState(false);
-  const [store, setStore] = useState(false);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -69,20 +68,14 @@ const Header = ({
     }
   });
 
-  // useEffect(() => {
-  //   localContent();
-  //   showcart();
-  // }, []);
-  useEffect(() => {
-    localContent();
-  }, []);
-
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     if (items) {
-      setLoginStatus(true);
+      // setLoginStatus(true);
+      loginStatus = true;
     } else {
-      setLoginStatus(false);
+      // setLoginStatus(false);
+      loginStatus = false;
     }
   };
   function MouseOver(e) {
@@ -95,88 +88,13 @@ const Header = ({
   }
 
   const handleclear = async (index) => {
+    console.log(index, "=======================");
     window.location.reload();
     if (index == 4) {
       await localStorage.clear();
       localContent();
     }
   };
-  // const showcart = async () => {
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     setCartProduct(res.data.cart);
-  //     setCartPrice(res.data.totalAmount);
-  //   } else {
-  //     setCartProduct([]);
-  //     setCartPrice("");
-  //   }
-  // };
-  const handleLogin = () => {
-    let newEmail = mobileNumber;
-    setStore(newEmail);
-    setLoad(true);
-    const requestData = { email: mobileNumber };
-    console.log(requestData, "================email=================");
-
-    loginRegister(requestData).then((res) => {
-      if (res.status == true) {
-        setShowInput(!showInput);
-        setShowbtn(true);
-        setLoad(false);
-      } else {
-      }
-    });
-  };
-
-  const handleOTP = () => {
-    setLoad(true);
-    const requestData = { email: mobileNumber, otp: otp };
-    otpVerify(requestData).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        localStorage.setItem("userDetail", JSON.stringify(res.data)); 
-        localContent();
-        setOpen(false);
-        setLoad(false);
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    });
-  };
-
-  const handleMobileNumber = (e) => {
-    setMobileNumber(e.target.value);
-    if (e.target.value.length <= 40) {
-      setBtn(false);
-    } else {
-      setBtn(true);
-    }
-  };
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const carthandleOpen = () => setCartopen(true);
-  const carthandleClose = () => setCartopen(false);
 
   return (
     <>
@@ -348,7 +266,7 @@ const Header = ({
                       </div>
                       <div className="cart_border_content2">
                         <p>
-                          {cartProductlength} Items <br />
+                          {cartProductlength?.length} Items <br />
                           <span>
                             {curr} {cartPrice}
                           </span>
@@ -367,6 +285,9 @@ const Header = ({
         cartopen={cartopen}
         carthandleClose={carthandleClose}
         onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProductlength}
+        totalAmount={totalAmount}
       />
 
       <Modal
@@ -388,7 +309,7 @@ const Header = ({
             {/* end heading */}
             {/* input number */}
             {showbtn == true ? (
-              <></>
+              <div></div>
             ) : (
               <div className="handle_login_number_container">
                 <div className="handle_login_number_content">
@@ -403,14 +324,13 @@ const Header = ({
               </div>
             )}
 
-            {/* input number */}
-            {/* input otp */}
             {showbtn == true ? (
               <div className="handle_login_otp_container">
                 <div className="handle_login_otp_content">
                   <input
                     placeholder="Enter OTP"
-                    onChange={(e) => setOtp(e.target.value)}
+                    onChange={sethandleOtp}
+                    // value={otp}
                   />
                   <p>Resend OTP</p>
                 </div>
@@ -430,7 +350,7 @@ const Header = ({
               <div className="handle_login_btn_container">
                 <div
                   className="handle_login_btn_content"
-                  onClick={() => handleLogin()}
+                  onClick={handleLogin}
                   disabled={btn}
                   style={{
                     backgroundColor: btn === true ? "#FF0040" : "#FF0040",
@@ -448,7 +368,7 @@ const Header = ({
                 <div className="handle_login_proceed_container">
                   <div
                     className="handle_login_proceed_content"
-                    onClick={() => handleOTP()}
+                    onClick={handleOTP}
                   >
                     <p>Submit</p>
                   </div>
