@@ -16,7 +16,7 @@ import { loginRegister, otpVerify } from "../../serverRequest/Index";
 import Card from "../../customcomponent/card/Card";
 import Loader from "../loder/Loader";
 
-const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice }) => {
+const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice,curr }) => {
   const [open, setOpen] = useState(false);
   const [cartopen, setCartopen] = useState(false);
   const [ishover, sethover] = useState(false);
@@ -334,7 +334,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                       <div className="cart_border_content2">
                         <p>
                           {cartProductlength} Items <br />
-                          <span>₹{cartPrice}</span>
+                          <span>{curr} {cartPrice}</span>
                         </p>
                       </div>
                     </div>
