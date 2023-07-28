@@ -19,8 +19,6 @@ import {
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
-// import React, { useEffect, useState } from "react";
-// import Card from "../../customcomponent/card/Card";
 import "react-multi-carousel/lib/styles.css";
 // import "./slider.css";
 import {
@@ -38,8 +36,6 @@ import {
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 import * as moment from "moment";
-import { useNavigate } from "react-router-dom";
-// import Loader from "../loder/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Card from "../../customcomponent/card/Card";
@@ -51,6 +47,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Parallax } from "swiper";
 import "swiper/css/navigation";
 import Discount from "../../customcomponent/discount/Discount";
+import ModalCart from "../modalcart/ModalCart";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -58,22 +55,16 @@ const Home = () => {
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
   const [today, setToday] = useState([]);
-
   const [showInput, setShowInput] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [btn, setBtn] = useState(false);
   const [otp, setOtp] = useState("");
-  const [showbtn, setShowbtn] = useState(false);
   const [load, setLoad] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [showSubmit, setshowSubmit] = useState(false);
   const [hideOTP, setHideOTP] = useState(false);
   const [product, setProduct] = useState([]);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const sliderRef = useRef(null);
   const [country, setCountry] = useState("");
   const [countrycurrency, setCountryCurrency] = useState("");
   const [countrytitle, setCountryTitle] = useState("");
@@ -81,8 +72,10 @@ const Home = () => {
   const [cartProduct, setCartProduct] = useState([]);
   const [cartPrice, setCartPrice] = useState([]);
   const [whistList, setWhistList] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [store, setStore] = useState(false);
 
-  // const handlewhistlistOpen = () => setWhistlistOpen(true);
   const handlewhistlistClose = () => {
     setWhistlistOpen(false);
     let data = {
@@ -122,15 +115,17 @@ const Home = () => {
     localContent();
     showcart();
   }, []);
+
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     if (items) {
       setWhistlistOpen(false);
+      setLoginStatus(true);
     } else {
+      setLoginStatus(false);
       if (items1) {
         setWhistlistOpen(false);
-        setLoginStatus(true);
       } else {
         setWhistlistOpen(true);
         setLoginStatus(false);
@@ -138,14 +133,14 @@ const Home = () => {
     }
   };
 
-  // const localContent = () => {
-  //   const items = JSON.parse(localStorage.getItem("userDetail"));
-  //   if (items) {
-  //     setLoginStatus(true);
-  //   } else {
-  //     setLoginStatus(false);
-  //   }
-  // };
+  const localContent1 = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -172,6 +167,7 @@ const Home = () => {
   }, []);
 
   const AddToCart = async (id) => {
+    setLoad(true);
     const UserId = await getUserID();
     const data = {
       userId: UserId,
@@ -189,6 +185,8 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
+      showcart();
+      setLoad(false);
     } else {
       toast.error(res.message, {
         position: "top-right",
@@ -213,36 +211,6 @@ const Home = () => {
     getData();
   }, []);
 
-  // const AddToCart = async (id) => {
-  //   const UserId = await getUserID();
-  //   const data = {
-  //     userId: UserId,
-  //     productId:id,
-  //     quantity:"1"
-  //   };
-  //   const res = await Add_to_cart(data);
-  //   if (res.status == true) {
-  //     toast.success(res.message, {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //     });
-  //   } else {
-  //     toast.error(res.message, {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //     });
-  //   }
-  // };
   // end topseverweek
 
   // bestSeller api
@@ -269,11 +237,36 @@ const Home = () => {
     /* login api */
   }
   const handleLogin = () => {
+    setLoad(true);
+    let newEmail = mobileNumber;
     const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
-      setShowInput(!showInput);
-      setHideOTP(true);
-      setBtn(true);
+      if (res.status === true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setShowInput(!showInput);
+        setHideOTP(true);
+        setBtn(true);
+        setStore(newEmail);
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
     });
   };
 
@@ -285,8 +278,12 @@ const Home = () => {
       setBtn(true);
     }
   };
+  const sethandleOtp = (e) => {
+    setOtp(e.target.value);
+  };
 
   const handleOTP = () => {
+    setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
@@ -301,10 +298,14 @@ const Home = () => {
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         localContent();
+        localContent1();
         setWhistlistOpen(false);
-        // navigate('/')
+        setOpen(false);
+        setLoad(false);
+
         window.location.reload();
       } else {
+        console.log(res);
         toast.error(res.message, {
           position: "top-right",
           autoClose: 5000,
@@ -323,6 +324,7 @@ const Home = () => {
   }
 
   const fullView = async (id) => {
+    setLoad(true);
     const requestData = {
       productId: id,
     };
@@ -357,7 +359,6 @@ const Home = () => {
 
   const handleWhistlist = async (id) => {
     const userId = await getUserID();
-    console.log(id, "==========kuwgiugeiugif===================");
     const data = {
       userId: userId,
       productId: id,
@@ -386,6 +387,8 @@ const Home = () => {
       });
     }
   };
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
   return (
     <>
       <Header
@@ -393,8 +396,24 @@ const Home = () => {
         currency={countrycurrency}
         flag={flag}
         cartPrice={cartPrice}
-        cartProductlength={cartProduct.length}
+        cartProductlength={cartProduct}
         curr={countrycurrency}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        loginStatus={loginStatus}
+        handleOpen={() => setOpen(true)}
+        handleClose={() => setOpen(false)}
+        open={open}
+        showbtn={btn}
+        handleLogin={() => handleLogin()}
+        handleOTP={() => handleOTP()}
+        mobileNumber={mobileNumber}
+        handleMobileNumber={(e) => handleMobileNumber(e)}
+        sethandleOtp={(e) => sethandleOtp(e)}
+        otp={otp}
+        totalAmount={cartPrice}
+        store={store}
       />
       <BannerCard />
       {/*<Twobanner />*/}
