@@ -17,6 +17,9 @@ const List = [
     {
         routeName: "Refer a Friend",
     },
+    {
+        routeName: "WhistList",
+    },
    
 ];
 
