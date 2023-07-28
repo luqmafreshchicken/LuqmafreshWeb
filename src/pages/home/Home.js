@@ -394,6 +394,7 @@ const Home = () => {
         flag={flag}
         cartPrice={cartPrice}
         cartProductlength={cartProduct.length}
+        curr={countrycurrency}
       />
       <BannerCard />
       {/*<Twobanner />*/}
