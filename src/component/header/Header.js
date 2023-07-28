@@ -235,7 +235,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                   <NavLink className="nav_list">
                     <li>
                       <div className="currency_container" onClick={handleOpen}>
-                        <img src="user (3).png" />
+                        <img src="user.png" />
                         <p>Login</p>
                       </div>
                     </li>
@@ -248,7 +248,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                       onMouseOut={(e) => MouseOut(e)}
                     >
                       <div className="header_currency">
-                        <img src="user (3).png" height="17px" width="17px" />
+                        <img src="user1.png" height="17px" width="17px" />
                         <span
                           style={{
                             fontSize: "13px",
