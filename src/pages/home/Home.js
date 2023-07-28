@@ -14,9 +14,9 @@ import {
   GetCountry,
   productCategorie,
   productDeatail,
+  whistUserIDproductId,
 } from "../../serverRequest/Index";
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
-import Bestseller from "../../component/bestseller/BestSeller";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
 // import React, { useEffect, useState } from "react";
@@ -32,6 +32,8 @@ import {
   topSeverweek,
   bestSeller,
   todayDeals,
+  Show_Cart,
+  currentLocation,
 } from "../../serverRequest/Index";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
@@ -58,6 +60,7 @@ const Home = () => {
   const [today, setToday] = useState([]);
 
   const [showInput, setShowInput] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [btn, setBtn] = useState(false);
   const [otp, setOtp] = useState("");
@@ -75,6 +78,9 @@ const Home = () => {
   const [countrycurrency, setCountryCurrency] = useState("");
   const [countrytitle, setCountryTitle] = useState("");
   const [flag, setFlag] = useState("");
+  const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [whistList, setWhistList] = useState([]);
 
   // const handlewhistlistOpen = () => setWhistlistOpen(true);
   const handlewhistlistClose = () => {
@@ -96,7 +102,7 @@ const Home = () => {
               position?.coords?.longitude
             ).then((res) => {
               if (res?.address?.country) {
-                CountryDetail(res?.address?.country).then((res) => {
+                CountryDetail("UAE").then((res) => {
                   setCountry(res[0]?.name);
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
@@ -114,6 +120,7 @@ const Home = () => {
       console.error("Geolocation is not supported by your browser.");
     }
     localContent();
+    showcart();
   }, []);
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -123,27 +130,31 @@ const Home = () => {
     } else {
       if (items1) {
         setWhistlistOpen(false);
+        setLoginStatus(true);
       } else {
         setWhistlistOpen(true);
+        setLoginStatus(false);
       }
     }
   };
 
+  // const localContent = () => {
+  //   const items = JSON.parse(localStorage.getItem("userDetail"));
+  //   if (items) {
+  //     setLoginStatus(true);
+  //   } else {
+  //     setLoginStatus(false);
+  //   }
+  // };
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    setLoad(true);
+    // setLoad(true);
     async function getData(res) {
       const newData = await productCategorie();
       setData1(newData.data);
     }
     getData();
-    const timer = setTimeout(() => {
-      setLoad(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
   const handleNav = (id) => {
     //  console.log(id);
@@ -329,9 +340,61 @@ const Home = () => {
   const swiperNavPrevRef = useRef(null);
   const swiperNavNextRef = useRef(null);
 
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      setCartProduct(res.data.cart);
+      setCartPrice(res.data.totalAmount);
+    } else {
+      setCartProduct([]);
+      setCartPrice("");
+    }
+  };
+
+  const handleWhistlist = async (id) => {
+    const userId = await getUserID();
+    console.log(id, "==========kuwgiugeiugif===================");
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    const res = await whistUserIDproductId(data);
+    if (res.status == true) {
+      toast.success(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setWhistList(res.data);
+    } else {
+      toast.error(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
     <>
-      <Header code={countrytitle} currency={countrycurrency} flag={flag} />
+      <Header
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        cartProductlength={cartProduct.length}
+      />
       <BannerCard />
       {/*<Twobanner />*/}
       {/********************************new arrival section****************************** */}
@@ -389,32 +452,60 @@ const Home = () => {
                 <>
                   {data.map((detail, index) => (
                     <SwiperSlide>
-                      <Card
-                        currency={countrycurrency}
-                        offer={detail.discount}
-                        productName={detail.name}
-                        weight={detail.quantity}
-                        unit={detail.unit}
-                        total={detail.price}
-                        cutotal={detail.originalPrice}
-                        offer1={detail.discount}
-                        today={moment(detail.discountExpiryDate).format("dddd")}
-                        date={detail.deliveryTime}
-                        totalpayment={detail.price}
-                        to="/carddetail"
-                        onclick={() => AddToCart(detail._id)}
-                        id={{ id: detail._id }}
-                        rating={detail.rating}
-                        img={detail.image}
-                        onclick1={() => fullView(detail._id)}
-                        onclick2={() => setWhistlistOpen(true)}
-                      />
+                      {loginStatus == true ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() => AddToCart(detail._id)}
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() => AddToCart(detail._id)}
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                        />
+                      )}
                     </SwiperSlide>
                   ))}
                 </>
               ) : null}
             </Swiper>
           </div>
+
           <WhistList
             whistlistOpen={whistlistOpen}
             handlewhistlistClose={handlewhistlistClose}
@@ -604,22 +695,14 @@ const Home = () => {
               br="25px"
               onclick={() => fullView(deals._id)}
               // id={deals.productId}
-              to={'/carddetail'}
+              to={"/carddetail"}
               state={{
-                id:{
-                  id:deals.productId
-                }
+                id: {
+                  id: deals.productId,
+                },
               }}
             />
           ))}
-
-          <Discount
-            bgColor="#C42118"
-            src="Eggs.png"
-            percen="40"
-            text="On Mutton"
-            br="25px"
-          />
         </div>
         <SearchModal
           currency={countrycurrency}
