@@ -34,6 +34,8 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
   const [add2, setAdd2] = useState(null);
   const [add3, setAdd3] = useState(null);
   const [load, setLoad] = useState(false);
+  const [store, setStore] = useState(false);
+
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -106,9 +108,14 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
   //   }
   // };
   const handleLogin = () => {
+    let newEmail = mobileNumber
+    setStore(newEmail)
     setLoad(true);
     const requestData = { email: mobileNumber };
+    console.log(requestData,"================email=================");
+
     loginRegister(requestData).then((res) => {
+
       if (res.status == true) {
         setShowInput(!showInput);
         setShowbtn(true);
@@ -401,7 +408,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                 <div className="email_verify">
                   <p>
                     One Time Password Send to{" "}
-                    <span>gauravjoshi897@gmail.com</span>. Please enter it below
+                    <span>{store}</span>. Please enter it below
                     to complete verification
                   </p>
                 </div>
