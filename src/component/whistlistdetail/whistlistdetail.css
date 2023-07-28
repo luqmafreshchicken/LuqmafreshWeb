@@ -1,0 +1,46 @@
+.whist_list_heading_container h1{
+  font-family: semibold;
+    
+}
+.whist_list_detail_container{
+    background-color: aqua;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    gap: 1rem;
+}
+.whist_list_image{
+    width: 12%;
+    background-color: blue;
+    height: 12vh;
+}
+.whist_list_text{
+    width: auto;
+    background-color: pink;
+    height: 12vh;
+  
+
+
+}
+.whist_list_text_name{
+    width: auto;
+    height: 6vh;
+    background-color: yellow;
+    /* padding: 0rem 1rem; */
+
+
+}
+.whist_list_text_qty{
+    width: auto;
+    height: 6vh;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+}
+.whist_list_addtocart{
+    width: 20%;
+    background-color: orange;
+    height: 12vh;
+}
