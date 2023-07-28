@@ -16,7 +16,16 @@ import { loginRegister, otpVerify } from "../../serverRequest/Index";
 import Card from "../../customcomponent/card/Card";
 import Loader from "../loder/Loader";
 
-const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice,curr }) => {
+const Header = ({
+  onchange,
+  value,
+  code,
+  currency,
+  flag,
+  cartProductlength,
+  cartPrice,
+  curr,
+}) => {
   const [open, setOpen] = useState(false);
   const [cartopen, setCartopen] = useState(false);
   const [ishover, sethover] = useState(false);
@@ -35,7 +44,6 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
   const [add3, setAdd3] = useState(null);
   const [load, setLoad] = useState(false);
   const [store, setStore] = useState(false);
-
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -108,14 +116,13 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
   //   }
   // };
   const handleLogin = () => {
-    let newEmail = mobileNumber
-    setStore(newEmail)
+    let newEmail = mobileNumber;
+    setStore(newEmail);
     setLoad(true);
     const requestData = { email: mobileNumber };
-    console.log(requestData,"================email=================");
+    console.log(requestData, "================email=================");
 
     loginRegister(requestData).then((res) => {
-
       if (res.status == true) {
         setShowInput(!showInput);
         setShowbtn(true);
@@ -127,7 +134,6 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
 
   const handleOTP = () => {
     setLoad(true);
-
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
@@ -140,7 +146,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
           draggable: true,
           progress: undefined,
         });
-        localStorage.setItem("userDetail", JSON.stringify(res.data));
+        localStorage.setItem("userDetail", JSON.stringify(res.data)); 
         localContent();
         setOpen(false);
         setLoad(false);
@@ -234,7 +240,9 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                   <li>
                     <div className="currency_container">
                       <img src={flag} />
-                      <p>{code}  {currency}</p>
+                      <p>
+                        {code} {currency}
+                      </p>
                     </div>
                   </li>
                 </NavLink>
@@ -341,7 +349,9 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
                       <div className="cart_border_content2">
                         <p>
                           {cartProductlength} Items <br />
-                          <span>{curr} {cartPrice}</span>
+                          <span>
+                            {curr} {cartPrice}
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -407,8 +417,7 @@ const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice
 
                 <div className="email_verify">
                   <p>
-                    One Time Password Send to{" "}
-                    <span>{store}</span>. Please enter it below
+                    One Time Password Send to <span>{store}</span>. Please enter
                     to complete verification
                   </p>
                 </div>
