@@ -53,7 +53,7 @@ const WhistListDetail = () => {
         draggable: true,
         progress: undefined,
       });
-      setRemoveList(res.data)
+      handleShowList()
       setload(false);
     } else {
       toast.error(res.message, {
