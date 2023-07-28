@@ -5,17 +5,20 @@ import "./modalcart.css";
 import { NavLink } from "react-router-dom";
 import {
   getUserID,
-  Show_Cart,
   removeFromCart,
   newArrival,
 } from "../../serverRequest/Index";
 
-const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
-  const [count, setCount] = useState(0);
-  const [cartProduct, setCartProduct] = useState([]);
-  const [loginStatus, setLoginStatus] = useState(false);
+const ModalCart = ({
+  cartopen,
+  carthandleClose,
+  onclick,
+  onclose,
+  loginStatus,
+  cartProduct,
+  totalAmount,
+}) => {
   const [data, setData] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
 
   useEffect(() => {
     async function getData(res) {
@@ -25,51 +28,6 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
     getData();
   }, []);
 
-  useEffect(() => {
-    localContent();
-    showcart();
-    const interval = setInterval(showcart, 4000); // Call showcart every four seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
-  }, []);
-
-  // useEffect(() => {
-  //   localContent();
-  // }, []);
-
-  const localContent = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    if (items) {
-      setLoginStatus(true);
-    } else {
-      setLoginStatus(false);
-    }
-  };
-
-  const incre = () => {
-    setCount(count + 1);
-  };
-  const decre = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    } else {
-      setCount(0);
-    }
-  };
-  useEffect(() => {
-    showcart();
-  }, []);
-  const showcart = async () => {
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-    };
-    const res = await Show_Cart(data);
-    if (res.status == true) {
-      setCartProduct(res.data.cart);
-      setCartPrice(res.data.totalAmount);
-    } else {
-    }
-  };
   const removeProduct = async (productId) => {
     const userId = await getUserID();
     if (!userId) {
@@ -83,7 +41,7 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
       productId: productId,
     };
     removeFromCart(data).then((res) => {
-      showcart();
+      // showcart();
     });
   };
   return (
@@ -156,7 +114,7 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
                         SubTotal
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                        ₹ {cartPrice}
+                        ₹ {totalAmount}
                       </p>
                     </div>
                     <div className="delivery_charge">
@@ -176,14 +134,14 @@ const ModalCart = ({ cartopen, carthandleClose, onclick, onclose }) => {
                     <div className="total_payments">
                       <p style={{ paddingTop: "10px" }}>Total</p>
                       <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                        ₹ {cartPrice}
+                        ₹ {totalAmount}
                       </p>
                     </div>
                   </div>
                   {cartProduct?.length >= 1 ? (
                     <div className="proceed_section">
                       <div className="proceed_payment">
-                        <p>Total : ₹{cartPrice}</p>
+                        <p>Total : ₹{totalAmount}</p>
                       </div>
                       <div className="proceed_btn" onClick={onclick}>
                         <NavLink to="/addnewaddress" className="nav_list">
