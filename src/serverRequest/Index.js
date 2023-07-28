@@ -2,7 +2,6 @@ import axios from "axios";
 import { apiConfig } from "./url";
 const API_BASE_URL = "https://luqmafresh-backend-icd4.onrender.com/";
 
-
 // ort const Current_Live_Location = async (latitude, longitude) => {
 //   return await API({
 //     method: 'POST',
@@ -21,27 +20,30 @@ const API_BASE_URL = "https://luqmafresh-backend-icd4.onrender.com/";
 //     });
 // };
 
-export const currentLocation = async (latitude,longitude) => {
-  console.log(latitude,longitude,"Kishan")
+export const currentLocation = async (latitude, longitude) => {
+  console.log(latitude, longitude, "Kishan");
   const response = await axios.post(
     apiConfig.Current_Location_Url +
       latitude +
-      ',' +
+      "," +
       longitude +
-      apiConfig.Current_Location_Url1,
+      apiConfig.Current_Location_Url1
   );
   return response.data;
 };
 
-export const GetCountry = async (lat,lng) => {
-  const response = await axios.get(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`);
+export const GetCountry = async (lat, lng) => {
+  const response = await axios.get(
+    `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`
+  );
   return response.data;
 };
 export const CountryDetail = async (Cname) => {
-  const response = await axios.get(`https://restcountries.com/v2/name/${Cname}?fullText=true`);
+  const response = await axios.get(
+    `https://restcountries.com/v2/name/${Cname}?fullText=true`
+  );
   return response.data;
 };
-
 
 export const getUserID = async () => {
   const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -55,7 +57,7 @@ export const loginRegister = async (requestData) => {
   );
   return response.data;
 };
-                                                                          
+
 export const otpVerify = async (requestData) => {
   const response = await axios.post(`${API_BASE_URL}verifyOtp`, requestData);
   return response.data;
@@ -67,7 +69,9 @@ export const BannerCard = async () => {
 };
 
 export const productCategorie = async () => {
-  const response = await axios.get(`${API_BASE_URL}category/categoryAndSubcategoryList`);
+  const response = await axios.get(
+    `${API_BASE_URL}category/categoryAndSubcategoryList`
+  );
   return response.data;
 };
 
@@ -107,35 +111,35 @@ export const updataAddress = async (requestData) => {
   return response.data;
 };
 
-  /* get all timeSlot */
+/* get all timeSlot */
 
 export const getTimeslot = async () => {
   const response = await axios.get(`${API_BASE_URL}timeslot/getTimeslot`);
   return response.data;
 };
 
-  /* newArrival API */
+/* newArrival API */
 
 export const newArrival = async () => {
   const response = await axios.get(`${API_BASE_URL}product/NewArrivals`);
   return response.data;
 };
 
-  /* topSeverWeek API */
+/* topSeverWeek API */
 
 export const topSeverweek = async () => {
   const response = await axios.get(`${API_BASE_URL}product/TopSaverWeek`);
   return response.data;
 };
 
-  /* bestSeller API */
+/* bestSeller API */
 
 export const bestSeller = async () => {
   const response = await axios.get(`${API_BASE_URL}product/Bestsellers`);
   return response.data;
 };
 
-  /* combo API */
+/* combo API */
 
 export const comBos = async () => {
   const response = await axios.get(`${API_BASE_URL}product/getComboProduct`);
@@ -220,8 +224,7 @@ export const ProductBySubCategoryId = async (requestData) => {
   return response.data;
 };
 
-
-  /* areaWeServe API */
+/* areaWeServe API */
 export const areaWeServe = async () => {
   const response = await axios.get(`${API_BASE_URL}admin/getAreaList`);
   return response.data;
@@ -236,40 +239,39 @@ export const searchProduct = async (requestData) => {
   return response.data;
 };
 
-  /* viewProfile API */
-  export const viewProfile = async (UserId) => {
-    const response = await axios.get(`${API_BASE_URL}userDeatilsById/` + UserId);
-    return response.data;
-  };
+/* viewProfile API */
+export const viewProfile = async (UserId) => {
+  const response = await axios.get(`${API_BASE_URL}userDeatilsById/` + UserId);
+  return response.data;
+};
 
-  /* viewProfile API */
+/* viewProfile API */
 
-  export const EditprofileUser = async (name, email, gender, image) => {
-    const userId = await getUserID();
-    const formdata = new FormData();
-    formdata.append("id", userId);
-    formdata.append("name", name);
-    formdata.append("email", email);
-    formdata.append("gender", gender);
-    // formdata.append("image", image);
-    const res = await axios.post(`${API_BASE_URL}updateUserById`, formdata);
-    console.log(formdata, "=====gayrav===============")
+export const EditprofileUser = async (name, email, gender, image) => {
+  const userId = await getUserID();
+  const formdata = new FormData();
+  formdata.append("id", userId);
+  formdata.append("name", name);
+  formdata.append("email", email);
+  formdata.append("gender", gender);
+  // formdata.append("image", image);
+  const res = await axios.post(`${API_BASE_URL}updateUserById`, formdata);
+  console.log(formdata, "=====gayrav===============");
 
-    return res.data;
-  };
+  return res.data;
+};
 
-  // remove product from cart
-  export const removeFromCart = async (requestData) => {
-    console.log(requestData)
-    const response = await axios.post(
-      `${API_BASE_URL}product/RemoveFromCart`,
-      requestData
-    );
-    return response.data;
-  };
+// remove product from cart
+export const removeFromCart = async (requestData) => {
+  console.log(requestData);
+  const response = await axios.post(
+    `${API_BASE_URL}product/RemoveFromCart`,
+    requestData
+  );
+  return response.data;
+};
 
-
-  // /* create Order API */
+// /* create Order API */
 export const createOrder = async (requestData) => {
   const response = await axios.post(
     `${API_BASE_URL}order/createOrder`,
@@ -278,61 +280,89 @@ export const createOrder = async (requestData) => {
   return response.data;
 };
 
-  // /* verifyPayment API */
-  export const verifyPayment = async (requestData) => {
-    const response = await axios.post(
-      `${API_BASE_URL}order/verifyPayment`,
-      requestData
-    );
-    return response.data;
-  };
+// /* verifyPayment API */
+export const verifyPayment = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}order/verifyPayment`,
+    requestData
+  );
+  return response.data;
+};
 
-  // /* getOrderByUserId API */
-  export const getOrderByUserId = async (requestData) => {
-    const response = await axios.post(
-      `${API_BASE_URL}order/getOrderByUserId`,
-      requestData
-    );
-    return response.data;
-  };
+// /* getOrderByUserId API */
+export const getOrderByUserId = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}order/getOrderByUserId`,
+    requestData
+  );
+  return response.data;
+};
 
-   // /* getOrderById API */
-   export const getOrderById = async (requestData) => {
-    const response = await axios.post(
-      `${API_BASE_URL}order/getOrderById`,
-      requestData
-    );
-    return response.data;
-  };
+// /* getOrderById API */
+export const getOrderById = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}order/getOrderById`,
+    requestData
+  );
+  return response.data;
+};
 
-   /* viewProfile API */
-   export const notificationList = async (UserId) => {
-    const response = await axios.get(`${API_BASE_URL}notification/notificationByUserId/` + UserId);
-    return response.data;
-  };
+/* viewProfile API */
+export const notificationList = async (UserId) => {
+  const response = await axios.get(
+    `${API_BASE_URL}notification/notificationByUserId/` + UserId
+  );
+  return response.data;
+};
 
-   // /* cancle order API */
-   export const cancleOrder = async (requestData) => {
-    const response = await axios.post(
-      `${API_BASE_URL}order/cancelOrder`,
-      requestData
-    );
-    return response.data;
-  };
+// /* cancle order API */
+export const cancleOrder = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}order/cancelOrder`,
+    requestData
+  );
+  return response.data;
+};
 
-    // /* cancle order API */
-    export const productbyCategorie = async (requestData) => {
-      const response = await axios.post(
-        `${API_BASE_URL}product/ProductByCategoryId`,
-        requestData
-      );
-      return response.data;
-    };
-        // /* cancle order API */
-        export const emailRegister = async (requestData) => {
-          const response = await axios.post(
-            `${API_BASE_URL}newsletter/registerNewsletter`,
-            requestData
-          );
-          return response.data;
-        };
+// /* cancle order API */
+export const productbyCategorie = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}product/ProductByCategoryId`,
+    requestData
+  );
+  return response.data;
+};
+// /* cancle order API */
+export const emailRegister = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}newsletter/registerNewsletter`,
+    requestData
+  );
+  return response.data;
+};
+
+// /* cancle order API */
+export const whistUserIDproductId = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}wishlist/addToWishlist`,
+    requestData
+  );
+  return response.data;
+};
+// /* cancle order API */
+export const showWhistListUserId = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}wishlist/wishlistById`,
+    requestData
+  );
+  return response.data;
+};
+
+// /* cancle order API */
+export const deleteVistList = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}wishlist/remove`,
+    requestData
+  );
+  return response.data;
+};
