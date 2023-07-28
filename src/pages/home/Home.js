@@ -102,7 +102,7 @@ const Home = () => {
               position?.coords?.longitude
             ).then((res) => {
               if (res?.address?.country) {
-                CountryDetail("UAE").then((res) => {
+                CountryDetail(res?.address?.country).then((res) => {
                   setCountry(res[0]?.name);
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
