@@ -16,13 +16,13 @@ import { loginRegister, otpVerify } from "../../serverRequest/Index";
 import Card from "../../customcomponent/card/Card";
 import Loader from "../loder/Loader";
 
-const Header = ({ onchange, value,code,currency,flag }) => {
+const Header = ({ onchange, value,code,currency,flag,cartProductlength,cartPrice }) => {
   const [open, setOpen] = useState(false);
   const [cartopen, setCartopen] = useState(false);
   const [ishover, sethover] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
   const [cartProduct, setCartProduct] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
+  // const [cartPrice, setCartPrice] = useState([]);
   const [showInput, setShowInput] = useState(false);
   const [mobileNumber, setMobileNumber] = useState("");
   const [btn, setBtn] = useState(false);
@@ -65,9 +65,6 @@ const Header = ({ onchange, value,code,currency,flag }) => {
   // }, []);
   useEffect(() => {
     localContent();
-    showcart();
-    const interval = setInterval(showcart, localContent, 3000); // Call showcart every four seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
 
   const localContent = () => {
@@ -94,20 +91,20 @@ const Header = ({ onchange, value,code,currency,flag }) => {
       localContent();
     }
   };
-  const showcart = async () => {
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-    };
-    const res = await Show_Cart(data);
-    if (res.status == true) {
-      setCartProduct(res.data.cart);
-      setCartPrice(res.data.totalAmount);
-    } else {
-      setCartProduct([]);
-      setCartPrice("");
-    }
-  };
+  // const showcart = async () => {
+  //   const userId = await getUserID();
+  //   const data = {
+  //     userId: userId,
+  //   };
+  //   const res = await Show_Cart(data);
+  //   if (res.status == true) {
+  //     setCartProduct(res.data.cart);
+  //     setCartPrice(res.data.totalAmount);
+  //   } else {
+  //     setCartProduct([]);
+  //     setCartPrice("");
+  //   }
+  // };
   const handleLogin = () => {
     setLoad(true);
     const requestData = { email: mobileNumber };
@@ -336,7 +333,7 @@ const Header = ({ onchange, value,code,currency,flag }) => {
                       </div>
                       <div className="cart_border_content2">
                         <p>
-                          {cartProduct.length} Items <br />
+                          {cartProductlength} Items <br />
                           <span>₹{cartPrice}</span>
                         </p>
                       </div>
