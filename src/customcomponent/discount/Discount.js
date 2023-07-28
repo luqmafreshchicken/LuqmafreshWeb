@@ -13,7 +13,7 @@ const Discount = ({
   br,
   onclick,
   to,
-  state
+  state,
 }) => {
   return (
     <div className="main_discount">
@@ -26,25 +26,21 @@ const Discount = ({
           className="main_discount2"
           onClick={onclick}
         >
-        <div className="upto_text_center">
-          <h1>
-            UPTO <br />
-            {percen}%
-            <br /> OFF
-          </h1>
-          <p>{text}</p>
+          <div className="upto_text_center">
+            <h1>
+              UPTO <br />
+              {percen}%
+              <br /> OFF
+            </h1>
+            <p>{text}</p>
           </div>
         </div>
         <div className="discount_image">
-        <NavLink
-                to={to}
-                state={state}
-                
-              >
-          <img
-            src={src}
-            style={{ borderRadius: radius, height: height, width: width }}
-          />
+          <NavLink to={to} state={state}>
+            <img
+              src={src}
+              style={{ borderRadius: radius, height: height, width: width }}
+            />
           </NavLink>
         </div>
       </div>
