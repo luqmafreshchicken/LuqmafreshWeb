@@ -7,6 +7,7 @@ import Orderhistory from "../orderhistory/Orderhistory";
 import Header from "../header/Header";
 import { viewProfile, getUserID } from "../../serverRequest/Index";
 import Notification from "../notification/Notification";
+import WhistListDetail from "../whistlistdetail/WhistListDetail";
 
 const Account = () => {
   const [profile, setProfile] = useState(false);
@@ -18,6 +19,9 @@ const Account = () => {
       return <Orderhistory />;
     }if (open === 4) {
       return <Notification/>
+    } 
+    if (open === 6) {
+      return <WhistListDetail/>
     } 
   };
   useEffect(() => {
