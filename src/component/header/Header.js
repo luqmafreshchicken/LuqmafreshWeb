@@ -9,6 +9,8 @@ import Modal from "@mui/material/Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
+import { useNavigate } from "react-router-dom";
+
 
 const Header = ({
   onchange,
@@ -19,7 +21,7 @@ const Header = ({
   cartProductlength,
   cartPrice,
   curr,
-  cartopen = false,
+  cartopen = () => {},
   carthandleClose = () => {},
   carthandleOpen = () => {},
   loginStatus,
@@ -36,6 +38,8 @@ const Header = ({
   totalAmount,
   store
 }) => {
+let navigate = useNavigate();
+
   const [ishover, sethover] = useState(false);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
@@ -88,11 +92,12 @@ const Header = ({
   }
 
   const handleclear = async (index) => {
-    console.log(index, "=======================");
-    window.location.reload();
+    // window.location.reload();
     if (index == 4) {
       await localStorage.clear();
-      localContent();
+      navigate("/");
+      // localContent();
+
     }
   };
 
@@ -318,7 +323,6 @@ const Header = ({
                     value={mobileNumber}
                     onChange={handleMobileNumber}
                     type="email"
-                    enterKeyHint="next"
                   />
                   <p>Edit</p>
                 </div>
@@ -331,8 +335,7 @@ const Header = ({
                   <input
                     placeholder="Enter OTP"
                     onChange={sethandleOtp}
-                    type="number"
-                    maxLength={4}
+                    // value={otp}
                   />
                   <p>Resend OTP</p>
                 </div>
