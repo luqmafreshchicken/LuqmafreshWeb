@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./selectdeliveryslot.css";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Show_Cart, getTimeslot, getUserID } from "../../serverRequest/Index";
+import {
+  Show_Cart,
+  getTimeslot,
+  getUserID,
+  CountryDetail,
+  GetCountry,
+} from "../../serverRequest/Index";
 import * as moment from "moment";
 import Header from "../header/Header";
 import Steps from "../../customcomponent/steps/Steps";
@@ -15,11 +21,21 @@ const SelectDeliveryslot = () => {
 
   const [time, setTime] = useState([]);
   const [daySlot, setDaySlot] = useState("");
-  const [open, setOpen] = useState(false);
-  const [cartProduct, setCartProduct] = useState([]);
+  // const [open, setOpen] = useState(false);
+  // const [cartProduct, setCartProduct] = useState([]);
   const [select, setSelect] = useState("");
   const [slotId, setSlotId] = useState("");
   const [load, setLoad] = useState(false);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
+  const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [btn, setBtn] = useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     setLoad(true);
@@ -39,9 +55,64 @@ const SelectDeliveryslot = () => {
     showcart();
   }, []);
 
-  const showcart = async () => {
-    setLoad(true);
+  // const showcart = async () => {
+  //   setLoad(true);
 
+  //   const userId = await getUserID();
+  //   const data = {
+  //     userId: userId,
+  //   };
+  //   const res = await Show_Cart(data);
+  //   if (res.status == true) {
+  //     setCartProduct(res.data.cart);
+  //     setLoad(false);
+  //   } else {
+  //   }
+  // };
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    localContent();
+    showcart();
+  }, []);
+  const localContent = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+      if (items1) {
+      } else {
+        setLoginStatus(false);
+      }
+    }
+  };
+  const showcart = async () => {
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -49,22 +120,42 @@ const SelectDeliveryslot = () => {
     const res = await Show_Cart(data);
     if (res.status == true) {
       setCartProduct(res.data.cart);
-      setLoad(false);
+      setCartPrice(res.data.totalAmount);
     } else {
+      setCartProduct([]);
+      setCartPrice("");
     }
   };
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
+
+  const handleOpen1 = () => setOpen1(true);
+  const handleClose1 = () => setOpen1(false);
   return (
     <>
       <div className="mobile_selectdeliveryslot_container">
-        <Header />
+        <Header
+          code={countrytitle}
+          currency={countrycurrency}
+          flag={flag}
+          cartPrice={cartPrice}
+          cartProductlength={cartProduct}
+          curr={countrycurrency}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          carthandleOpen={carthandleOpen}
+          loginStatus={loginStatus}
+          // handleOpen={() => setOpen(true)}
+          // handleClose={() => setOpen(false)}
+          // open={open}
+          showbtn={btn}
+          totalAmount={cartPrice}
+        />
       </div>
       <div className="selectdeliveryslot_container">
         <div className="selectdeliveryslot_content">
-
-        {/* /************************************** */}
+          {/* /************************************** */}
           <div className="selectime_container">
             <div className="select_text_container">
               <h5>6 Items order</h5>
@@ -102,7 +193,7 @@ const SelectDeliveryslot = () => {
 
               {/* card 02 */}
             </div>
-            <div className="select_delivery_time" onClick={handleOpen}>
+            <div className="select_delivery_time" onClick={handleOpen1}>
               <p>
                 {slotId != ""
                   ? select
@@ -129,8 +220,8 @@ const SelectDeliveryslot = () => {
         </div>
 
         <Modal
-          open={open}
-          onClose={handleClose}
+          open={open1}
+          onClose={handleClose1}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
@@ -149,7 +240,7 @@ const SelectDeliveryslot = () => {
                   onClick={() => {
                     setSlotId(slots._id);
                     setSelect(slots.time1 + " - " + slots.time2);
-                    setOpen(false);
+                    setOpen1(false);
                   }}
                   style={{
                     borderColor: slotId != "" ? "#C42118" : "lightgray",
@@ -166,7 +257,7 @@ const SelectDeliveryslot = () => {
               ))}
             </div>
             <div className="select_proceed">
-              <div className="selectdeliveryslot_btn1" onClick={handleClose}>
+              <div className="selectdeliveryslot_btn1" onClick={handleClose1}>
                 <p>Select & Proceed</p>
               </div>
             </div>
