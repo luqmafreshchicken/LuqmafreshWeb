@@ -319,7 +319,6 @@ const Header = ({
                     onChange={handleMobileNumber}
                     type="email"
                     enterKeyHint="next"
-                    maxLength={12}
                   />
                   <p>Edit</p>
                 </div>
