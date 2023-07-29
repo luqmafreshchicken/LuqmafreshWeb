@@ -11,7 +11,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
 import { useNavigate } from "react-router-dom";
 
-
 const Header = ({
   onchange,
   value,
@@ -36,9 +35,9 @@ const Header = ({
   sethandleOtp = () => {},
   btn,
   totalAmount,
-  store
+  store,
 }) => {
-let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [ishover, sethover] = useState(false);
   const [latitude, setLatitude] = useState(null);
@@ -92,13 +91,12 @@ let navigate = useNavigate();
   }
 
   const handleclear = async (index) => {
+    window.location.reload();
+
     if (index == 4) {
       await localStorage.clear();
       navigate("/");
       // localContent();
-    // window.location.reload();
-
-
     }
   };
 
@@ -302,95 +300,100 @@ let navigate = useNavigate();
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="handle_login">
-          <div className="sign_in_logo">
-            <img src="01.jpg" />
-          </div>
-
-          <div className="handle_login_container">
-            {/* heading */}
-            <div className="handle_login_heading">
-              <p>Sign In</p>
+        <Box>
+          <div className="handle_login">
+            <div className="sign_in_logo">
+              <img src="01.jpg" />
             </div>
-            {/* end heading */}
-            {/* input number */}
-            {showbtn == true ? (
-              <div></div>
-            ) : (
-              <div className="handle_login_number_container">
-                <div className="handle_login_number_content">
-                  <input
-                    placeholder="Enter your email"
-                    value={mobileNumber}
-                    onChange={handleMobileNumber}
-                    type="email"
-                  />
-                  <p>Edit</p>
-                </div>
+
+            <div className="handle_login_container">
+              {/* heading */}
+              <div className="handle_login_heading">
+                <p>Sign In</p>
               </div>
-            )}
-
-            {showbtn == true ? (
-              <div className="handle_login_otp_container">
-                <div className="handle_login_otp_content">
-                  <input
-                    placeholder="Enter OTP"
-                    onChange={sethandleOtp}
-                    // value={otp}
-                  />
-                  <p>Resend OTP</p>
-                </div>
-
-                <div className="email_verify">
-                  <p>
-                    One Time Password Send to <span>{store}</span>. Please enter
-                    to complete verification
-                  </p>
-                </div>
-              </div>
-            ) : null}
-
-            {/* input otp */}
-            {/* submit btn */}
-            {showbtn == false ? (
-              <div className="handle_login_btn_container">
-                <div
-                  className="handle_login_btn_content"
-                  onClick={handleLogin}
-                  disabled={btn}
-                  style={{
-                    backgroundColor: btn === true ? "#FF0040" : "#FF0040",
-                    opacity: btn === true ? 0.4 : 100,
-                    color: btn === true ? "white" : "white",
-                  }}
-                >
-                  <p>Continue</p>
-                </div>
-              </div>
-            ) : null}
-
-            {showbtn == true ? (
-              <>
-                <div className="handle_login_proceed_container">
-                  <div
-                    className="handle_login_proceed_content"
-                    onClick={handleOTP}
-                  >
-                    <p>Submit</p>
+              {/* end heading */}
+              {/* input number */}
+              {showbtn == true ? (
+                <div></div>
+              ) : (
+                <div className="handle_login_number_container">
+                  <div className="handle_login_number_content">
+                    <input
+                      placeholder="Enter your email"
+                      value={mobileNumber}
+                      onChange={handleMobileNumber}
+                      type="email"
+                    />
+                    <p>Edit</p>
                   </div>
                 </div>
-              </>
-            ) : null}
-            <div className="continue_or_container">
-              <div className="continue_or_content">
-                <img src="or.png" />
+              )}
+
+              {showbtn == true ? (
+                <div className="handle_login_otp_container">
+                  <div className="handle_login_otp_content">
+                    <input
+                      placeholder="Enter OTP"
+                      onChange={sethandleOtp}
+                      // value={otp}
+                    />
+                    <p>Resend OTP</p>
+                  </div>
+
+                  <div className="email_verify">
+                    <p>
+                      One Time Password Send to <span>{store}</span>. Please
+                      enter to complete verification
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+
+              {/* input otp */}
+              {/* submit btn */}
+              {showbtn == false ? (
+                <div className="handle_login_btn_container">
+                  <div
+                    className="handle_login_btn_content"
+                    onClick={handleLogin}
+                    disabled={btn}
+                    style={{
+                      backgroundColor: btn === true ? "#FF0040" : "#FF0040",
+                      opacity: btn === true ? 0.4 : 100,
+                      color: btn === true ? "white" : "white",
+                    }}
+                  >
+                    <p>Continue</p>
+                  </div>
+                </div>
+              ) : null}
+
+              {showbtn == true ? (
+                <>
+                  <div className="handle_login_proceed_container">
+                    <div
+                      className="handle_login_proceed_content"
+                      onClick={handleOTP}
+                    >
+                      <p>Submit</p>
+                    </div>
+                  </div>
+                </>
+              ) : null}
+              <div className="continue_or_container">
+                <div className="continue_or_content">
+                  <img src="or.png" />
+                </div>
+              </div>
+              <div className="continue_google_container">
+                <div className="continue_google_content">
+                  <img src="Google1.png" />
+                </div>
               </div>
             </div>
-            <div className="continue_google_container">
-              <div className="continue_google_content">
-                <img src="Google1.png" />
-              </div>
-            </div>
+          </div>
+          <div className="crossbtn" >
+           <img src="crossbtn.png"/>
           </div>
         </Box>
       </Modal>
