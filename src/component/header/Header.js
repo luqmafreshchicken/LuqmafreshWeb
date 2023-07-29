@@ -92,11 +92,12 @@ let navigate = useNavigate();
   }
 
   const handleclear = async (index) => {
-    // window.location.reload();
     if (index == 4) {
       await localStorage.clear();
       navigate("/");
       // localContent();
+    // window.location.reload();
+
 
     }
   };
