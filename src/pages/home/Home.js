@@ -48,6 +48,7 @@ import { Navigation, Autoplay, Parallax } from "swiper";
 import "swiper/css/navigation";
 import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
+import { GoogleLogin } from 'react-google-login';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -120,16 +121,18 @@ const Home = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    setCartPrice(cartPrice.price);
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
       setCartProduct(cart);
-      let total = 0;
-      cart?.map((item) => {
-        total = total + item.productId.price;
-      });
-      setCartPrice(total);
+      // let total = 0;
+      // cart?.map((item) => {
+      //   total = total + item.productId.price;
+      // });
+      // setCartPrice(total);
       setLoginStatus(false);
       if (items1) {
         setWhistlistOpen(false);
@@ -156,7 +159,7 @@ const Home = () => {
           const data = {
             userId: items?._id,
             productId: cartData[i]?.productId?._id,
-            quantity: "1",
+            quantity: cartData[i]?.productId?.quantity,
           };
           Add_to_cart(data).then((res) => {
             if (res?.data?.status) {
@@ -230,6 +233,21 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
+        // show total count in cart
+        // setCartPrice
+      // find product price * quantity
+      let total = 0;
+      newCart?.map((item) => {
+        // add price and quantity
+        total = total + item.productId.price * item.quantity;
+
+      });
+      setCartPrice(total);
+      console.log("total", total,cart[0]);
+      localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+
+
+
       } else {
         const newCart = [
           ...cart,
@@ -476,6 +494,7 @@ const Home = () => {
         setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
+        showcart();
         // window.location.reload();
       } else {
         console.log(res);
@@ -575,7 +594,6 @@ const Home = () => {
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
- 
   return (
     <>
       <Header
