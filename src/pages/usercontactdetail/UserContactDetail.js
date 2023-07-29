@@ -5,7 +5,13 @@ import Button from "../../customcomponent/button/Button";
 import Steps from "../../customcomponent/steps/Steps";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createAddress, getUserID } from "../../serverRequest/Index";
+import {
+  createAddress,
+  getUserID,
+  CountryDetail,
+  GetCountry,
+  Show_Cart,
+} from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
@@ -24,6 +30,16 @@ const UserContactDetail = () => {
   const [userId, setUserId] = useState("");
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
+  const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [btn, setBtn] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -40,6 +56,67 @@ const UserContactDetail = () => {
       console.error("Geolocation is not supported by your browser.");
     }
   }, []);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    localContent();
+    showcart();
+  }, []);
+  const localContent = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+      if (items1) {
+      } else {
+        setLoginStatus(false);
+      }
+    }
+  };
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      setCartProduct(res.data.cart);
+      setCartPrice(res.data.totalAmount);
+    } else {
+      setCartProduct([]);
+      setCartPrice("");
+    }
+  };
+
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
 
   useEffect(() => {
     getUserID().then((res) => {});
@@ -93,7 +170,24 @@ const UserContactDetail = () => {
 
   return (
     <>
-      <Header />
+      <Header
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        cartProductlength={cartProduct}
+        curr={countrycurrency}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        loginStatus={loginStatus}
+        // s
+        handleOpen={() => setOpen(true)}
+        handleClose={() => setOpen(false)}
+        open={open}
+        showbtn={btn}
+        totalAmount={cartPrice}
+      />
       <div className="main_usercontact">
         <div className="main_user_contact_location">
           {/* contact page */}
