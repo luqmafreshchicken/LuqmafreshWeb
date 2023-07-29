@@ -10,7 +10,7 @@ import {
 } from "../../serverRequest/Index";
 
 const ModalCart = ({
-  cartopen,
+  cartopen = false,
   carthandleClose,
   onclick,
   onclose,
