@@ -30,17 +30,17 @@
   /* background-color: green; */
 }
 .offer_singlecard h4 {
-  font-weight: 900;
-  font-family: bold;
-  padding-top: 39px;
-  font-size: 30px;
+  /* font-weight: 600; */
+  font-family: semibold;
+  padding-top: 2rem;
+  font-size: 1.6rem;
   color: #ff0040;
 }
 .icons_img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 15%;
+  width: 22%;
 }
 .fa_search{
   font-size: 18px;
