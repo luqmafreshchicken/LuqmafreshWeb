@@ -62,7 +62,6 @@ export default function CardFullDetail({ id }) {
   };
   React.useEffect(() => {
     window.scrollTo(0, 0);
-
     fullView();
     all_Image();
   }, []);
@@ -73,7 +72,6 @@ export default function CardFullDetail({ id }) {
     const requestData = {
       productId: id,
     };
-
     productDeatail(requestData).then((res) => {
       if (res.status == true) {
         setProduct(res.data);
@@ -196,7 +194,7 @@ export default function CardFullDetail({ id }) {
         setOpen(false);
         setLoad(false);
 
-        window.location.reload();
+        // window.location.reload();
       } else {
         console.log(res);
         toast.error(res.message, {
