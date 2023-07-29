@@ -237,6 +237,26 @@ const Home = () => {
     /* login api */
   }
   const handleLogin = () => {
+    // email validation 
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
     setLoad(true);
     let newEmail = mobileNumber;
     const requestData = { email: mobileNumber };
@@ -283,6 +303,27 @@ const Home = () => {
   };
 
   const handleOTP = () => {
+    // otp validation 
+    if (otp === "") {
+      toast.error("Please enter otp", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } 
+    else if (!otp.match(/^[0-9]{4}$/)) {
+      toast.error("Please enter 4 digit otp number", {
+        position: "top-right",
+        autoClose: 5000,  
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } 
     setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
@@ -302,7 +343,6 @@ const Home = () => {
         setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
-
         window.location.reload();
       } else {
         console.log(res);
@@ -324,6 +364,16 @@ const Home = () => {
   }
 
   const fullView = async (id) => {
+    if (id === undefined || id === null || id === "") {
+      toast.error("Please enter product id", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
     setLoad(true);
     const requestData = {
       productId: id,
