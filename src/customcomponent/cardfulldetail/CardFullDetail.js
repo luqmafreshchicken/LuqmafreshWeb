@@ -352,13 +352,6 @@ export default function CardFullDetail({ id }) {
               <p>{product.description3}</p>
 
               <div className="image_text_container">
-                <div className="image_text_content1">
-                  <div style={{ display: "flex" }}>
-                    <img src="usp.png" />
-                    <span>No. of Pieces 3-4</span>
-                  </div>
-                </div>
-
                 <div
                   style={{
                     height: "6vh",
