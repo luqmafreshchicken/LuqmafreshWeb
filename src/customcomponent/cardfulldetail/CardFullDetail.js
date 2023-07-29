@@ -369,9 +369,9 @@ export default function CardFullDetail({ id }) {
               </div>
               <div className="cardfull_detail_text">
                 <div className="cardfull_detail_container_text">
-                  <p style={{ color: "#d11243" }}>₹{product.price}</p>
+                  <p style={{ color: "#d11243" }}>{countrycurrency}{product.price}</p>
                   <p style={{ color: "grey", textDecoration: "line-through" }}>
-                    MRP: ₹{product.originalPrice}
+                    MRP: {countrycurrency}{product.originalPrice}
                   </p>
                   <p style={{ color: "green" }}>{product.discount}% OFF</p>
                 </div>
