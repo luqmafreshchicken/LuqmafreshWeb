@@ -65,12 +65,14 @@ const Card = ({
       <div className="icons_img">
         <FaSearch className="fa_search" onClick={onclick1} />
         <FaHeart className="fa_search" onClick={onclick2}/>
+        <FaShoppingBag className="fa_search" onClick={onclick2}/>
+
       </div>
       <div className="rating">
         <Rating
           name="size-small"
           defaultValue={rating}
-          style={{ fontSize: "20px", color: "#ff0040" }}
+          style={{ fontSize: "20px", color: "#ff0040", gap:"0.2rem" }}
         />
       </div>
       <div className="name_singlecard">
