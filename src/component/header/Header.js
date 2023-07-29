@@ -318,6 +318,8 @@ const Header = ({
                     value={mobileNumber}
                     onChange={handleMobileNumber}
                     type="email"
+                    enterKeyHint="next"
+                    maxLength={12}
                   />
                   <p>Edit</p>
                 </div>
@@ -330,7 +332,8 @@ const Header = ({
                   <input
                     placeholder="Enter OTP"
                     onChange={sethandleOtp}
-                    // value={otp}
+                    type="number"
+                    maxLength={4}
                   />
                   <p>Resend OTP</p>
                 </div>
