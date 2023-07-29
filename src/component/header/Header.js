@@ -19,7 +19,7 @@ const Header = ({
   cartProductlength,
   cartPrice,
   curr,
-  cartopen = () => {},
+  cartopen = false,
   carthandleClose = () => {},
   carthandleOpen = () => {},
   loginStatus,
