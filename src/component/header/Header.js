@@ -36,6 +36,7 @@ const Header = ({
   btn,
   totalAmount,
   store,
+  modalcurrency
 }) => {
   let navigate = useNavigate();
 
@@ -292,6 +293,7 @@ const Header = ({
         loginStatus={loginStatus}
         cartProduct={cartProductlength}
         totalAmount={totalAmount}
+        modalcurrency={modalcurrency}
       />
 
       <Modal
