@@ -15,6 +15,8 @@ import {
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const UserContactDetail = () => {
   let navigate = useNavigate();
@@ -125,6 +127,92 @@ const UserContactDetail = () => {
   const handleCreateAdd = async () => {
     const id = await getUserID();
     // console.log(id) ispe set h id isko use kar lo jha v jarurat padega
+    if (address === "") {
+      toast.error("Please enter Address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (address1 === "") {
+      toast.error("Please enter Address1", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (landmark === "") {
+      toast.error("Please enter landmark", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    if (city === "") {
+      toast.error("Please enter city", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    if (mobile === "") {
+      toast.error("Please enter Address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobile.match(phoneRegExp)) {
+      toast.error("Please enter valid mobile No", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    if (email === "") {
+      toast.error("Please enter Address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    if (fullName == "") {
+      toast.error("Please enter name", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
 
     const requestData = {
       userId: id,
