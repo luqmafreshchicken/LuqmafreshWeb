@@ -10,7 +10,7 @@ import {
 } from "../../serverRequest/Index";
 
 const ModalCart = ({
-  cartopen = false,
+  cartopen,
   carthandleClose,
   onclick,
   onclose,
@@ -63,12 +63,8 @@ const ModalCart = ({
                   <div className="order_summary">
                     <p>Order Summary</p>
                   </div>
-                  <div className="Cong_section">
-                    <p> Your delivery charge is waived off!!!</p>
-                  </div>
-                  <div className="save_section">
-                    <p>Congratulations! You've saved ₹24</p>
-                  </div>
+                  
+                  
                   {cartProduct.map((option, index) => (
                     <div className="product_card">
                       <div className="product_detail">
