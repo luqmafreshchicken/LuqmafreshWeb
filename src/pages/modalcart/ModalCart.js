@@ -17,6 +17,7 @@ const ModalCart = ({
   loginStatus,
   cartProduct,
   totalAmount,
+  modalcurrency
 }) => {
   const [data, setData] = useState([]);
 
@@ -91,10 +92,10 @@ const ModalCart = ({
                             <p>{option.productId.quantity}gms</p>
                           </div>
                           <div className="color_count">
-                            <p> ₹{option.productId.price}</p>
+                            <p>  {modalcurrency}{option.productId.price}</p>
                           </div>
                           <div className="cut_count">
-                            <p> ₹{option.productId.originalPrice}</p>
+                            <p> {modalcurrency}{option.productId.originalPrice}</p>
                           </div>
                         </div>
                       </div>
@@ -110,7 +111,7 @@ const ModalCart = ({
                         SubTotal
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                        ₹ {totalAmount}
+                      {modalcurrency} {totalAmount}
                       </p>
                     </div>
                     <div className="delivery_charge">
@@ -118,7 +119,7 @@ const ModalCart = ({
                         Delivery Charge
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "10px" }}>
-                        ₹ 0
+                      {modalcurrency} 0
                       </p>
                     </div>
                     <div className="cong_charge_section">
@@ -130,14 +131,14 @@ const ModalCart = ({
                     <div className="total_payments">
                       <p style={{ paddingTop: "10px" }}>Total</p>
                       <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                        ₹ {totalAmount}
+                      {modalcurrency} {totalAmount}
                       </p>
                     </div>
                   </div>
                   {cartProduct?.length >= 1 ? (
                     <div className="proceed_section">
                       <div className="proceed_payment">
-                        <p>Total : ₹{totalAmount}</p>
+                        <p>Total : {modalcurrency}{totalAmount}</p>
                       </div>
                       <div className="proceed_btn" onClick={onclick}>
                         <NavLink to="/addnewaddress" className="nav_list">
