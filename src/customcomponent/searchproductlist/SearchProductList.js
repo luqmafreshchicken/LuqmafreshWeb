@@ -10,7 +10,7 @@ const SearchProductList = ({
   img,
   onclick,
   to,
-  id
+  id,
 }) => {
   return (
     <div className="searchproductlist_component">
@@ -19,19 +19,14 @@ const SearchProductList = ({
       </div>
       <div className="searchproduct_content">
         <div className="searchproduct_weight_qty">
-          <p>
-            {name}-<span>{qty}</span>
-          </p>
+          <p>{name}-</p>
         </div>
         <div className="searchproduct_name_price">
           {/* product name price */}
           <div className="productnameprice">
             <p>
               {offername}
-              <span style={{ color: "black" }}>
-                {" "}
-                ₹{price}
-              </span>{" "}
+              <span style={{ color: "black" }}> ₹{price}</span>{" "}
               <span
                 style={{
                   textDecoration: "line-through",
@@ -39,15 +34,20 @@ const SearchProductList = ({
               >
                 ₹{originprice}
               </span>
+              <span> ₹200</span>
             </p>
           </div>
           {/* end product name price */}
           <div className="producticon">
-            <img src="Scooter.webp" height="25px" width="25px" />
-            <NavLink to={to} state={{id:id}} className='nav_list' style={{width:"100%"}}>
-            <div className="add_to_cart" onClick={onclick}>
-              <p>View</p>
-            </div>
+            <NavLink
+              to={to}
+              state={{ id: id }}
+              className="nav_list"
+              style={{ width: "100%" }}
+            >
+              <div className="add_to_cart" onClick={onclick}>
+                <p>View</p>
+              </div>
             </NavLink>
           </div>
         </div>
