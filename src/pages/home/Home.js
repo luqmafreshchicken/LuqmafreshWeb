@@ -119,10 +119,17 @@ const Home = () => {
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
+      setCartProduct(cart);
+      let total = 0;
+      cart?.map((item) => {
+        total = total + item.productId.price;
+      });
+      setCartPrice(total);
       setLoginStatus(false);
       if (items1) {
         setWhistlistOpen(false);
@@ -132,6 +139,132 @@ const Home = () => {
       }
     }
   };
+
+
+  // local cart data after login add in cart
+
+  const updatelocalcartindb = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (items) {
+      setWhistlistOpen(false);
+      setLoginStatus(true);
+      // bulk add to cart api
+      const cartData = cart;
+      if (cartData?.length > 0) {
+       for (let i = 0; i < cartData?.length; i++) {
+          const data = {
+            userId: items?._id,
+            productId: cartData[i]?.productId?._id,
+            quantity: "1",
+          };
+          Add_to_cart(data).then((res) => {
+            if (res?.data?.status) {
+              localStorage.removeItem("cart");
+            }
+          });
+        }
+
+      }
+    } else {
+      setCartProduct(cart);
+      let total = 0;
+      cart?.map((item) => {
+        total = total + item.productId.price;
+      });
+      setCartPrice(total);
+      setLoginStatus(false);
+    }
+  };
+
+   // local add to cart
+   const AddLocalCart = async (
+    id,
+    name,
+    price,
+    originalPrice,
+    discount,
+    quantity,
+    unit,
+    image
+  ) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart == null) {
+      const newCart = [
+        {
+          _id: id,
+          productId: {
+            _id: id,
+            quantity: 1,
+            name: name,
+            price: price,
+            originalPrice: originalPrice,
+          },
+        },
+      ];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      localContent();
+      toast.success("Product added to cart successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      const existItem = cart.find((x) => x._id === id);
+      if (existItem) {
+        const newCart = cart.map((x) =>
+          x._id === id ? { ...existItem, quantity: existItem.quantity + 1 } : x
+        );
+        localContent();
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        toast.success("Product already in cart", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        const newCart = [
+          ...cart,
+          {
+            _id: id,
+            productId: {
+              _id: id,
+              quantity: 1,
+              name: name,
+              price: price,
+              originalPrice: originalPrice,
+            },
+          },
+        ];
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        toast.success("Product added to cart successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        localContent();
+      }
+    }
+  };
+
+
+  
+  
+
+  
+  
 
   const localContent1 = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -237,7 +370,7 @@ const Home = () => {
     /* login api */
   }
   const handleLogin = () => {
-    // email validation 
+    // email validation
     if (mobileNumber === "") {
       toast.error("Please enter email", {
         position: "top-right",
@@ -303,7 +436,7 @@ const Home = () => {
   };
 
   const handleOTP = () => {
-    // otp validation 
+    // otp validation
     if (otp === "") {
       toast.error("Please enter otp", {
         position: "top-right",
@@ -313,17 +446,16 @@ const Home = () => {
         draggable: true,
       });
       return false;
-    } 
-    else if (!otp.match(/^[0-9]{4}$/)) {
+    } else if (!otp.match(/^[0-9]{4}$/)) {
       toast.error("Please enter 4 digit otp number", {
         position: "top-right",
-        autoClose: 5000,  
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
       });
       return false;
-    } 
+    }
     setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
@@ -338,12 +470,13 @@ const Home = () => {
           progress: undefined,
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
+        updatelocalcartindb();
         localContent();
         localContent1();
         setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
-        window.location.reload();
+        // window.location.reload();
       } else {
         console.log(res);
         toast.error(res.message, {
@@ -398,6 +531,8 @@ const Home = () => {
       userId: userId,
     };
     const res = await Show_Cart(data);
+    // localStorage.removeItem("cart");
+
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
@@ -439,6 +574,8 @@ const Home = () => {
   };
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
+
+ 
   return (
     <>
       <Header
@@ -538,7 +675,22 @@ const Home = () => {
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
                           to="/carddetail"
-                          onclick={() => AddToCart(detail._id)}
+                          // onclick={() => AddToCart(detail._id)}
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
@@ -561,7 +713,21 @@ const Home = () => {
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
                           to="/carddetail"
-                          onclick={() => AddToCart(detail._id)}
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
@@ -676,7 +842,21 @@ const Home = () => {
                         date={detail.deliveryTime}
                         totalpayment={detail.price}
                         to="/carddetail"
-                        onclick={() => AddToCart(detail._id)}
+                        onclick={() =>
+                          // AddToCart(detail._id)
+                          loginStatus == true
+                            ? AddToCart(detail._id)
+                            : AddLocalCart(
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
+                        }
                         id={{ id: detail._id }}
                         rating={detail.rating}
                         img={detail.image}
@@ -863,7 +1043,21 @@ const Home = () => {
                         date={detail.deliveryTime}
                         totalpayment={detail.price}
                         to="/carddetail"
-                        onclick={() => AddToCart(detail._id)}
+                        onclick={() =>
+                          // AddToCart(detail._id)
+                          loginStatus == true
+                            ? AddToCart(detail._id)
+                            : AddLocalCart(
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
+                        }
                         id={{ id: detail._id }}
                         rating={detail.rating}
                         img={detail.image}
