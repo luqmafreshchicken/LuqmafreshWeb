@@ -253,7 +253,7 @@ ul li {
   border: none;
   outline: none;
   font-family: regular;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 .handle_login_otp_content p {
   padding-top: 0.9rem;
@@ -283,7 +283,7 @@ ul li {
   padding-top: 0.6rem;
 }
 .handle_login_btn_content p:hover {
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 .handle_login_proceed_container {
   width: 100%;
@@ -298,7 +298,7 @@ ul li {
   height: 6vh;
   background-color: #ff0040;
   border-radius: 5px;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 .handle_login_proceed_content p {
   text-align: center;
@@ -356,7 +356,7 @@ ul li {
 .continue_google_content img {
   width: 100%;
   height: 6vh;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 /* Mobile devices (320px - 480px) */
