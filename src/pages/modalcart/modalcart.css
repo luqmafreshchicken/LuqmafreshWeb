@@ -35,38 +35,7 @@
   padding: 0px 0.5rem;
   color: #ff0040;
 }
-.Cong_section {
-  background-color: #ff0040;
-  height: 5vh;
-  width: 97%;
-  margin-left: 8px;
-  border-radius: 3px;
-}
-.Cong_section p {
-  font-size: 0.9rem;
-  font-family: light;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-  padding-top: 0.5rem;
-}
-.save_section {
-  border: 1px solid #ff0040;
-  height: 5vh;
-  width: 97%;
-  margin-left: 8px;
-  margin-top: 8px;
-  margin-bottom: 1rem;
-  border-radius: 3px;
-}
-.save_section p {
-  font-size: 14px;
-  font-family: light;
-  font-weight: 600;
-  text-align: center;
-  padding-top: 8px;
-  color: #ff0040;
-}
+
 .product_card {
   height: 14vh;
   width: 97%;
