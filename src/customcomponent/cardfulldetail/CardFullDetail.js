@@ -190,6 +190,7 @@ export default function CardFullDetail({ id }) {
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         localContent();
         localContent1();
+        showcart();
         // setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
