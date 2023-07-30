@@ -25,8 +25,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
+
 
 export default function CardFullDetail({ id }) {
+  let navigate = useNavigate();
+
   let location = useLocation();
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -289,6 +293,14 @@ export default function CardFullDetail({ id }) {
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
+
   return (
     <>
       <div className="fullview_search_mobile">
@@ -315,6 +327,7 @@ export default function CardFullDetail({ id }) {
           otp={otp}
           totalAmount={cartPrice}
           store={store}
+          handleclear={(index) => handleclear(index)}
         />
       </div>
       <div className="cardetail_container" state={{ productId: id }}>
@@ -369,9 +382,13 @@ export default function CardFullDetail({ id }) {
               </div>
               <div className="cardfull_detail_text">
                 <div className="cardfull_detail_container_text">
-                  <p style={{ color: "#d11243" }}>{countrycurrency}{product.price}</p>
+                  <p style={{ color: "#d11243" }}>
+                    {countrycurrency}
+                    {product.price}
+                  </p>
                   <p style={{ color: "grey", textDecoration: "line-through" }}>
-                    MRP: {countrycurrency}{product.originalPrice}
+                    MRP: {countrycurrency}
+                    {product.originalPrice}
                   </p>
                   <p style={{ color: "green" }}>{product.discount}% OFF</p>
                 </div>
