@@ -4,44 +4,42 @@
 .singlecard_container {
   width: 100%;
   height: auto;
-  /* background-color: aqua; */
 }
+
 .customtodaycard1 {
   margin-left: 10%;
   color: black;
 }
-.incre_decre_btn1_btn2 {
-  height: 4vh;
-  width: 30%;
-  margin-top: 10px;
-  border-radius: 3px;
-  border: 2px solid grey;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 17px;
-}
-.incre_decre_btn1_btn2 p {
-  font-size: 18px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: black;
-}
+
 .image_singlecard_detail{
-  height: 30vh;
-  width: 80%;
+  width: 100%;
   overflow: hidden;
   border-radius: 15px;
-  background-color: aqua;
 }
 .image_singlecard_detail img {
   border-radius: 10px;
+  width: 100%;
   height: 30vh;
   display: block;
   transition: 0.3s ease-in-out
 }
 .image_singlecard_detail:hover img {
   transform: scale(1.2);
+}
+.total_singlecard {
+  height: 15vh;
+}
+
+.total_singlecard button {
+  background-color: #FF0040;
+  width: 40%;
+  height: 5.5vh;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /* Mobile devices (320px - 480px) */
