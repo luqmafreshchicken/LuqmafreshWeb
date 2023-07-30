@@ -11,6 +11,7 @@ import {
   CountryDetail,
   GetCountry,
   Show_Cart,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
@@ -255,6 +256,47 @@ const UserContactDetail = () => {
       }
     });
   };
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
+
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
 
   return (
     <>
@@ -269,12 +311,14 @@ const UserContactDetail = () => {
         carthandleClose={carthandleClose}
         carthandleOpen={carthandleOpen}
         loginStatus={loginStatus}
-        // s
         handleOpen={() => setOpen(true)}
         handleClose={() => setOpen(false)}
         open={open}
         showbtn={btn}
         totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        handleclear={(index) => handleclear(index)}
+        removeProduct={(id) => removeCartProduct(id)}
       />
       <div className="main_usercontact">
         <div className="main_user_contact_location">
