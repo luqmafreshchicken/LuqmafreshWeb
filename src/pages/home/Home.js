@@ -14,6 +14,7 @@ import {
   GetCountry,
   productCategorie,
   productDeatail,
+  removeFromCart,
   whistUserIDproductId,
 } from "../../serverRequest/Index";
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
@@ -134,7 +135,10 @@ const Home = () => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
       setCartPrice(cartPrice?.price);
-      localStorage.setItem("cartPrice", JSON.stringify({ price: cartPrice?.price }));
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price })
+      );
       setLoginStatus(false);
       if (items1) {
         setWhistlistOpen(false);
@@ -181,7 +185,7 @@ const Home = () => {
   };
 
   // local add to cart
- const AddLocalCart = async (
+  const AddLocalCart = async (
     id,
     name,
     price,
@@ -217,10 +221,12 @@ const Home = () => {
         progress: undefined,
       });
       setCartPrice(newCart[0]?.productId?.price);
-      localStorage.setItem("cartPrice", JSON.stringify({ price: newCart[0]?.productId?.price }));
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: newCart[0]?.productId?.price })
+      );
       localContent();
-    } 
-    else {
+    } else {
       const existItem = cart.find((x) => x._id === id);
       if (existItem) {
         // const newCart = cart.map((x) =>
@@ -238,17 +244,17 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
-      // let total = 0;
-      // const updatedCart = JSON.parse(localStorage.getItem("cart"));
-      // updatedCart?.map((item) => {
-      //   total = total + item?.productId?.price * item?.quantity;
-      // });
-      // console.log(total, "==================update count product")
-      // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
-      // console.log(total, "==================update count product")
-      // setCartPrice(total);
-      
-      localContent();
+        // let total = 0;
+        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        // updatedCart?.map((item) => {
+        //   total = total + item?.productId?.price * item?.quantity;
+        // });
+        // console.log(total, "==================update count product")
+        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        // console.log(total, "==================update count product")
+        // setCartPrice(total);
+
+        localContent();
       } else {
         const newCart = [
           ...cart,
@@ -551,8 +557,6 @@ const Home = () => {
       userId: userId,
     };
     const res = await Show_Cart(data);
-    // localStorage.removeItem("cart");
-
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
@@ -602,6 +606,38 @@ const Home = () => {
     }
   };
 
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+
   return (
     <>
       <Header
@@ -629,6 +665,7 @@ const Home = () => {
         store={store}
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
+        removeProduct={(id) => removeCartProduct(id)}
       />
       <BannerCard />
       {/*<Twobanner />*/}
