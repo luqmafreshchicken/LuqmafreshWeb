@@ -8,6 +8,7 @@ import {
   getUserID,
   CountryDetail,
   GetCountry,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import * as moment from "moment";
 import Header from "../header/Header";
@@ -15,6 +16,8 @@ import Steps from "../../customcomponent/steps/Steps";
 import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../loder/Loader";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const SelectDeliveryslot = () => {
@@ -145,6 +148,40 @@ const SelectDeliveryslot = () => {
       window.location.reload();
     }
   };
+
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
   return (
     <>
       <div className="mobile_selectdeliveryslot_container">
@@ -164,7 +201,9 @@ const SelectDeliveryslot = () => {
           // open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
 
         />
       </div>
