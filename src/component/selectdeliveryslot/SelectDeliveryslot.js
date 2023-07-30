@@ -14,10 +14,15 @@ import Header from "../header/Header";
 import Steps from "../../customcomponent/steps/Steps";
 import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../loder/Loader";
+import { useNavigate } from "react-router-dom";
+
 
 const SelectDeliveryslot = () => {
+  let navigate = useNavigate();
+
   const location = useLocation();
-  const id = location.state.id;
+  const id = location?.state?.id;
+  console.log(id)
 
   const [time, setTime] = useState([]);
   const [daySlot, setDaySlot] = useState("");
@@ -132,6 +137,14 @@ const SelectDeliveryslot = () => {
 
   const handleOpen1 = () => setOpen1(true);
   const handleClose1 = () => setOpen1(false);
+
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
   return (
     <>
       <div className="mobile_selectdeliveryslot_container">
@@ -151,6 +164,8 @@ const SelectDeliveryslot = () => {
           // open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          handleclear={(index) => handleclear(index)}
+
         />
       </div>
       <div className="selectdeliveryslot_container">
