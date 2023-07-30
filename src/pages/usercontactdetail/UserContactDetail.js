@@ -12,6 +12,8 @@ import {
   GetCountry,
   Show_Cart,
   removeFromCart,
+  viewProfile,
+  currentLocation
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
@@ -44,12 +46,52 @@ const UserContactDetail = () => {
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
 
+
+  useEffect(() => {
+    userDetail();
+  }, []);
+
+  const userDetail = async () => {
+    const UserId = await getUserID();
+    viewProfile(UserId).then((res) => {
+      if (res.status == true) {
+        setEmail(res?.data?.email);
+        setMobile(res?.data?.mobile?.number);
+        setFullName(res?.data?.name);
+      } else {
+      }
+    });
+  };
+
+  // useEffect(() => {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(
+  //       (position) => {
+  //         setLatitude(position.coords.latitude);
+  //         setLongitude(position.coords.longitude);
+  //       },
+  //       (error) => {
+  //         console.error("Error retrieving location:", error);
+  //       }
+  //     );
+  //   } else {
+  //     console.error("Geolocation is not supported by your browser.");
+  //   }
+  // }, []);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setLatitude(position.coords.latitude);
           setLongitude(position.coords.longitude);
+          currentLocation(
+            position.coords.latitude,
+            position.coords.longitude
+          ).then((loc) => {
+            setAddress(loc.results[0]?.address_components?.[3]?.long_name);
+            setAddress1(loc.results[0]?.address_components?.[5]?.long_name);
+            setCity(loc.results[0].formatted_address);
+          });
         },
         (error) => {
           console.error("Error retrieving location:", error);
@@ -58,7 +100,7 @@ const UserContactDetail = () => {
     } else {
       console.error("Geolocation is not supported by your browser.");
     }
-  }, []);
+  });
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -70,7 +112,7 @@ const UserContactDetail = () => {
               position?.coords?.longitude
             ).then((res) => {
               if (res?.address?.country) {
-                CountryDetail(res?.address?.country).then((res) => {
+                  CountryDetail(res?.address?.country).then((res) => {
                   setCountry(res[0]?.name);
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
@@ -90,6 +132,9 @@ const UserContactDetail = () => {
     localContent();
     showcart();
   }, []);
+
+  console.error("Geolocation is not supported by your browser.");
+
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
@@ -326,12 +371,12 @@ const UserContactDetail = () => {
           <div className="user_contact_location">
             <div className="user_contact_detail">
               <Input
-                lable="Search for Area/Locality"
+                lable="Current Address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
               <Input
-                lable="Flat No/Building Name/Street Name"
+                lable="Adress"
                 value={address1}
                 onChange={(e) => setAddress1(e.target.value)}
               />
