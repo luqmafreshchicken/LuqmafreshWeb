@@ -123,7 +123,7 @@ const Home = () => {
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    setCartPrice(cartPrice.price);
+    setCartPrice(cartPrice?.price);
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
