@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./card.css";
 import SearchModal from "../searchmodal/SearchModal";
 import WhistList from "../whistlist/WhistList";
-import { FaSearch, FaHeart, FaShoppingBag } from "react-icons/fa";
+import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
 
 const Card = ({
   currency,
@@ -65,7 +65,7 @@ const Card = ({
       <div className="icons_img">
         <FaSearch className="fa_search" onClick={onclick1} />
         <FaHeart className="fa_search" onClick={onclick2}/>
-        <FaShoppingBag className="fa_search" onClick={onclick2}/>
+        <FaShareSquare className="fa_search" onClick={onclick2}/>
 
       </div>
       <div className="rating">
