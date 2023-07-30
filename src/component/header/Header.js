@@ -37,7 +37,8 @@ const Header = ({
   totalAmount,
   store,
   modalcurrency,
-  handleclear= () => {}
+  handleclear= () => {},
+  removeProduct = () => {},
 }) => {
   // let navigate = useNavigate();
 
@@ -295,6 +296,7 @@ const Header = ({
         cartProduct={cartProductlength}
         totalAmount={totalAmount}
         modalcurrency={modalcurrency}
+        removeProduct={removeProduct}
       />
 
       <Modal
