@@ -385,7 +385,7 @@ const Header = ({
                   </div>
                 </>
               ) : null}
-              <div className="continue_or_container">
+              {/* <div className="continue_or_container">
                 <div className="continue_or_content">
                   <img src="or.png" />
                 </div>
@@ -394,7 +394,7 @@ const Header = ({
                 <div className="continue_google_content">
                   <img src="Google1.png" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="crossbtn" >
