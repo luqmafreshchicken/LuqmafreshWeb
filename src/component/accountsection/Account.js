@@ -11,10 +11,13 @@ import {
   CountryDetail,
   GetCountry,
   Show_Cart,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import Notification from "../notification/Notification";
 import WhistListDetail from "../whistlistdetail/WhistListDetail";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const Account = () => {
@@ -133,6 +136,39 @@ const Account = () => {
   };
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
+   // remove cart
+   const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
   return (
     <>
       <div className="account_header">
@@ -152,7 +188,9 @@ const Account = () => {
           open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
       <div className="account_section">
