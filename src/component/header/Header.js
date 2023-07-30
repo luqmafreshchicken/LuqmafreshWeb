@@ -36,9 +36,10 @@ const Header = ({
   btn,
   totalAmount,
   store,
-  modalcurrency
+  modalcurrency,
+  handleclear= () => {}
 }) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   const [ishover, sethover] = useState(false);
   const [latitude, setLatitude] = useState(null);
@@ -91,15 +92,15 @@ const Header = ({
     sethover(false);
   }
 
-  const handleclear = async (index) => {
-    window.location.reload();
+  // const handleclear = async (index) => {
+  //   window.location.reload();
 
-    if (index == 4) {
-      await localStorage.clear();
-      navigate("/");
-      // localContent();
-    }
-  };
+  //   if (index == 4) {
+  //     await localStorage.clear();
+  //     navigate("/");
+  //     // localContent();
+  //   }
+  // };
 
   return (
     <>
@@ -236,7 +237,7 @@ const Header = ({
                                     marginBottom: "0.5rem",
                                     lineHeight: 0.1,
                                   }}
-                                  onClick={() => handleclear(index)}
+                                  onClick={()=>handleclear(index)}
                                 >
                                   <NavLink
                                     style={{
