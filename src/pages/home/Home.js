@@ -50,7 +50,6 @@ import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
 import { useNavigate } from "react-router-dom";
 
-
 const Home = () => {
   let navigate = useNavigate();
 
@@ -85,7 +84,7 @@ const Home = () => {
     let data = {
       modalCount: false,
     };
-    localStorage.setItem("modalCount", JSON.stringify({ data: data }));
+    sessionStorage.setItem("modalCount", JSON.stringify({ data: data }));
   };
   const handleSearchClose = () => setSearchOpen(false);
 
@@ -121,10 +120,10 @@ const Home = () => {
   }, []);
 
   const localContent = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    const items1 = JSON.parse(localStorage.getItem("modalCount"));
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const items = JSON.parse(sessionStorage.getItem("userDetail"));
+    const items1 = JSON.parse(sessionStorage.getItem("modalCount"));
+    const cart = JSON.parse(sessionStorage.getItem("cart"));
+    const cartPrice = JSON.parse(sessionStorage.getItem("cartPrice"));
     setCartPrice(cartPrice?.price);
     if (items) {
       setWhistlistOpen(false);
@@ -146,19 +145,18 @@ const Home = () => {
     }
   };
 
-
   // local cart data after login add in cart
 
   const updatelocalcartindb = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    const cart = JSON.parse(localStorage.getItem("cart"));
+    const items = JSON.parse(sessionStorage.getItem("userDetail"));
+    const cart = JSON.parse(sessionStorage.getItem("cart"));
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
       // bulk add to cart api
       const cartData = cart;
       if (cartData?.length > 0) {
-       for (let i = 0; i < cartData?.length; i++) {
+        for (let i = 0; i < cartData?.length; i++) {
           const data = {
             userId: items?._id,
             productId: cartData[i]?.productId?._id,
@@ -166,11 +164,10 @@ const Home = () => {
           };
           Add_to_cart(data).then((res) => {
             if (res?.data?.status) {
-              localStorage.removeItem("cart");
+              sessionStorage.removeItem("cart");
             }
           });
         }
-
       }
     } else {
       setCartProduct(cart);
@@ -183,8 +180,8 @@ const Home = () => {
     }
   };
 
-   // local add to cart
-   const AddLocalCart = async (
+  // local add to cart
+  const AddLocalCart = async (
     id,
     name,
     price,
@@ -194,7 +191,7 @@ const Home = () => {
     unit,
     image
   ) => {
-    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cart = JSON.parse(sessionStorage.getItem("cart"));
     if (cart == null) {
       const newCart = [
         {
@@ -208,7 +205,7 @@ const Home = () => {
           },
         },
       ];
-      localStorage.setItem("cart", JSON.stringify(newCart));
+      sessionStorage.setItem("cart", JSON.stringify(newCart));
       localContent();
       toast.success("Product added to cart successfully", {
         position: "top-right",
@@ -226,7 +223,7 @@ const Home = () => {
           x._id === id ? { ...existItem, quantity: existItem.quantity + 1 } : x
         );
         localContent();
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        sessionStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product already in cart", {
           position: "top-right",
           autoClose: 5000,
@@ -238,19 +235,15 @@ const Home = () => {
         });
         // show total count in cart
         // setCartPrice
-      // find product price * quantity
-      let total = 0;
-      newCart?.map((item) => {
-        // add price and quantity
-        total = total + item.productId.price * item.quantity;
-
-      });
-      setCartPrice(total);
-      console.log("total", total,cart[0]);
-      localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
-
-
-
+        // find product price * quantity
+        let total = 0;
+        newCart?.map((item) => {
+          // add price and quantity
+          total = total + item.productId.price * item.quantity;
+        });
+        setCartPrice(total);
+        console.log("total", total, cart[0]);
+        sessionStorage.setItem("cartPrice", JSON.stringify({ price: total }));
       } else {
         const newCart = [
           ...cart,
@@ -265,7 +258,7 @@ const Home = () => {
             },
           },
         ];
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        sessionStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product added to cart successfully", {
           position: "top-right",
           autoClose: 5000,
@@ -280,15 +273,8 @@ const Home = () => {
     }
   };
 
-
-  
-  
-
-  
-  
-
   const localContent1 = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items = JSON.parse(sessionStorage.getItem("userDetail"));
     if (items) {
       setLoginStatus(true);
     } else {
@@ -490,7 +476,7 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
-        localStorage.setItem("userDetail", JSON.stringify(res.data));
+        sessionStorage.setItem("userDetail", JSON.stringify(res.data));
         updatelocalcartindb();
         localContent();
         localContent1();
@@ -553,7 +539,7 @@ const Home = () => {
       userId: userId,
     };
     const res = await Show_Cart(data);
-    // localStorage.removeItem("cart");
+    // sessionStorage.removeItem("cart");
 
     if (res.status == true) {
       setCartProduct(res.data.cart);
@@ -596,14 +582,14 @@ const Home = () => {
   };
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
-const handleclear = async (index) => {
+  const handleclear = async (index) => {
     if (index == 4) {
-      await localStorage.clear();
+      await sessionStorage.clear();
       navigate("/");
       window.location.reload();
     }
   };
- 
+
   return (
     <>
       <Header
@@ -629,9 +615,8 @@ const handleclear = async (index) => {
         otp={otp}
         totalAmount={cartPrice}
         store={store}
-           modalcurrency={countrycurrency}
-        handleclear={(index) =>handleclear(index)}
-       
+        modalcurrency={countrycurrency}
+        handleclear={(index) => handleclear(index)}
       />
       <BannerCard />
       {/*<Twobanner />*/}
