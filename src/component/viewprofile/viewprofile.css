@@ -11,11 +11,11 @@
 .my_profile {
   width: 100%;
   height: 10vh;
-  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.1), 0 3px 19px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
 .my_profile h5 {
   font-family: regular;
-  font-weight: 800;
+  font-weight: 600;
   padding-top: 10px;
 }
 .my_profile span {
@@ -27,6 +27,8 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+.basic_information p{
 }
 .profile_picture {
   height: 25vh;
@@ -45,6 +47,7 @@
   font-size: 2.5rem;
   color: white;
   font-family: regular;
+  text-transform: uppercase;
 
 }
 .basic_information {
@@ -54,9 +57,9 @@
   border-bottom: 1px solid lightgrey;
 }
 .basic_information p {
-  font-family: "Poppins", sans-serif;
+  font-family: regular;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 1.2rem;
 }
 .first_name {
   width: 90.5%;
