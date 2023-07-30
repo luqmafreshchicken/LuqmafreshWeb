@@ -15,8 +15,11 @@ import {
   Show_Cart,
 } from "../../serverRequest/Index";
 import Header from "../header/Header";
+import { useNavigate } from "react-router-dom";
 
 const AddNewAddress = ({ id }) => {
+  let navigate = useNavigate();
+
   const [getData, setGetData] = useState([]);
   const [length, setLength] = useState("");
   const [addressid, setAddressId] = useState("");
@@ -113,8 +116,8 @@ const AddNewAddress = ({ id }) => {
     showcart();
   }, []);
   const localContent = () => {
-    const items = JSON.parse(sessionStorage.getItem("userDetail"));
-    const items1 = JSON.parse(sessionStorage.getItem("modalCount"));
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
     if (items) {
       setLoginStatus(true);
     } else {
@@ -146,6 +149,13 @@ const AddNewAddress = ({ id }) => {
   const handleEdit = async (id) => {
     console.log(id);
   };
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -160,12 +170,14 @@ const AddNewAddress = ({ id }) => {
           cartopen={cartOpen}
           carthandleClose={carthandleClose}
           carthandleOpen={carthandleOpen}
-          loginStatus={loginStatus}s
+          loginStatus={loginStatus}
+          s
           handleOpen={() => setOpen(true)}
           handleClose={() => setOpen(false)}
           open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          handleclear={(index) => handleclear(index)}
         />
       </div>
       <div className="main_addaddress_container">
