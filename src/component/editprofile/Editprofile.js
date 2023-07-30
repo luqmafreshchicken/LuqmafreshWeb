@@ -1,20 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Input from "../../customcomponent/input/Input";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import "./editprofile.css";
-import { EditprofileUser } from "../../serverRequest/Index";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  EditprofileUser,
+  getUserID,
+  viewProfile,
+} from "../../serverRequest/Index";
+import { useNavigate } from "react-router-dom";
+
 
 const Editprofile = ({ edit, edithandleClose }) => {
+  let navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
-  const [image, setImage] = useState("");
-  const InputRef = useRef(null);
 
   const handleUpdate = async () => {
     if (!name || name == "" || name == null) {
@@ -28,12 +35,54 @@ const Editprofile = ({ edit, edithandleClose }) => {
     if (!gender || gender == "" || gender == null) {
       console.log("No Gender");
     }
-    const user = await EditprofileUser(name, email, gender);
-    console.log(user);
+  
+    EditprofileUser(name,email,gender,mobile).then((res) => {
+      if (res.status === true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        navigate("/account");
+        window.location.reload();
+
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
   };
 
   const handleChange = (event) => {
     setGender(event.target.value);
+  };
+
+  useEffect(() => {
+    userDetail();
+  }, []);
+
+  const userDetail = async () => {
+    const UserId = await getUserID();
+    viewProfile(UserId).then((res) => {
+      if (res.status == true) {
+        setEmail(res.data.email);
+        setMobile(res.data.mobile.number);
+        setName(res.data.name);
+        setGender(res.data.gender);
+      } else {
+      }
+    });
   };
 
   return (
@@ -56,89 +105,67 @@ const Editprofile = ({ edit, edithandleClose }) => {
               <h5>Update Profile</h5>
             </div>
           </div>
-        {/*  <div className="edit_picture">
-            <img
-              src={image}
-              height="50%"
-              width="20%"
-              style={{ borderRadius: 50 }} 
-              onChange={(e) => setImage(e.target.value)}
-              value={image}
-              className="user_profile_img"
-            />
-            <img
-              src="camera.png"
-              className="camera_img"
-              onClick={handleImageClick}
-            />
-            <input
-              accept="image/*"
-              type="file"
-              ref={InputRef}
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-            />
-            </div>*/}
-          <div className="all_mandatory">
-            <p>* All the following details are mandatory</p>
-          </div>
-          <label className="input_lable">Name</label>
-          <div className="user_name_section">
-            <input
-              placeholder="Name..."
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-          </div>
-          <label className="input_lable">Mobile Number</label>
 
-          <div className="user_name_section">
-            <input
-              placeholder="Mobile Number..."
-              onChange={(e) => setMobile(e.target.value)}
-              value={mobile}
-            />
-          </div>
-          <label className="input_lable">Email Id</label>
-
-          <div className="user_name_section">
-            <input
-              placeholder="Email ID..."
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-            />
-          </div>
-          <div className="user_gender_section">
-            <p>Gender</p>
-            <div className="user_gender">
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-                value={gender}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value="male"
-                  control={<Radio />}
-                  label="Male"
-                />
-
-                <FormControlLabel
-                  value="female"
-                  control={<Radio />}
-                  label="Female"
-                />
-                <FormControlLabel
-                  value="other"
-                  control={<Radio />}
-                  label="Other"
-                />
-              </RadioGroup>
+          <div className="update_user_container">
+            <label className="input_lable">Name</label>
+            <div className="user_name_section">
+              <input
+                placeholder="Name..."
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
             </div>
-          </div>
-          <div className="user_submit_btn" onClick={() => handleUpdate()}>
-            <p>Submit</p>
+            <label className="input_lable">Mobile Number</label>
+
+            <div className="user_name_section">
+              <input
+                placeholder="Mobile Number..."
+                onChange={(e) => setMobile(e.target.value)}
+                value={mobile}
+              />
+            </div>
+            <label className="input_lable">Email Id</label>
+
+            <div className="user_name_section">
+              <input
+                placeholder="Email ID..."
+                // onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                disabled={true}
+              />
+            </div>
+            <div className="user_gender_section">
+              <p>Gender</p>
+              <div className="user_gender">
+                <RadioGroup
+                  aria-labelledby="demo-radio-buttons-group-label"
+                  defaultValue="female"
+                  name="radio-buttons-group"
+                  value={gender}
+                  onChange={handleChange}
+                >
+                  <FormControlLabel
+                    value="male"
+                    control={<Radio />}
+                    label="Male"
+                  />
+
+                  <FormControlLabel
+                    value="female"
+                    control={<Radio />}
+                    label="Female"
+                  />
+                  <FormControlLabel
+                    value="other"
+                    control={<Radio />}
+                    label="Other"
+                  />
+                </RadioGroup>
+              </div>
+            </div>
+            <div className="user_submit_btn" onClick={() => handleUpdate()}>
+              <p>Submit</p>
+            </div>
           </div>
         </Box>
       </Modal>
