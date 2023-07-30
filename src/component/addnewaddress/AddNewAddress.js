@@ -50,7 +50,6 @@ const AddNewAddress = ({ id }) => {
       if (res.status == true) {
         setGetData(res.data);
         setLoad(false);
-
         setLength(res.data.length);
       }
     });
@@ -206,7 +205,10 @@ const AddNewAddress = ({ id }) => {
                   <div className="input_radio">
                     <input
                       type="radio"
-                      onChange={() => setAddressId(add._id)}
+                      onChange={() => setAddressId(add?._id)}
+                      // onChange={() => console.log(add._id)}
+
+
                     />
                   </div>
 
@@ -217,17 +219,17 @@ const AddNewAddress = ({ id }) => {
                     {/*  saved Area */}
 
                     <div className="all_detail_text">
-                      <p>{add.address1}</p>
-                      <p>{add.landmark}</p>
-                      <p>{add.city}</p>
-                      <p>Mobile Number : {add.mobile}</p>
+                      <p>{add?.address1}</p>
+                      <p>{add?.landmark}</p>
+                      <p>{add?.city}</p>
+                      <p>Mobile Number : {add?.mobile}</p>
                     </div>
                     {/* end Area */}
 
                     <div className="edit_delete_btn">
                       <NavLink
                         to={"/editaddress"}
-                        state={{ id: add._id }}
+                        state={{ id: add?._id }}
                         className="nav_list"
                       >
                         {" "}
