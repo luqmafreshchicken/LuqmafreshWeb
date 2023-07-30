@@ -54,7 +54,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
           <div className="information_container">
             <div className="profile_picture">
               <div className="profile_picture_name">
-                 <p>K</p>
+                 <p>{viewUser?.name?.slice(0,1)}</p>
               </div>
             </div>
             <div className="basic_information">
@@ -64,7 +64,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
             <div className="first_name">
               <span>
                 Name <br />
-                <p>{viewUser.name}</p>
+                <p>{viewUser?.name}</p>
               </span>
             </div>
             {/* mobile_no */}
@@ -80,7 +80,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
             <div className="first_name">
               <span>
                 Email ID <br />
-                <p>{viewUser.email}</p>
+                <p>{viewUser?.email}</p>
               </span>
             </div>
             {/* gender */}
