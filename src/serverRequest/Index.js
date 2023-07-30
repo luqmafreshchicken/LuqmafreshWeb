@@ -247,13 +247,14 @@ export const viewProfile = async (UserId) => {
 
 /* viewProfile API */
 
-export const EditprofileUser = async (name, email, gender, image) => {
+export const EditprofileUser = async (name, email, gender,mobile) => {
   const userId = await getUserID();
   const formdata = new FormData();
   formdata.append("id", userId);
   formdata.append("name", name);
   formdata.append("email", email);
   formdata.append("gender", gender);
+  formdata.append("mobile", mobile);
   // formdata.append("image", image);
   const res = await axios.post(`${API_BASE_URL}updateUserById`, formdata);
   console.log(formdata, "=====gayrav===============");
