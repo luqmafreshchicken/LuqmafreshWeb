@@ -690,7 +690,7 @@ const Home = () => {
                 <>
                   {data.map((detail, index) => (
                     <SwiperSlide>
-                      {loginStatus == true ? (
+                      {loginStatus == false ? (
                         <Card
                           currency={countrycurrency}
                           offer={detail.discount}
