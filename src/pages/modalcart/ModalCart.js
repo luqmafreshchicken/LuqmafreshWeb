@@ -101,21 +101,21 @@ const ModalCart = ({
                     </div>
                     <div className="subbill_Detail">
                       <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
-                        SubTotal
+                        Amount {modalcurrency}
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                        {modalcurrency} {totalAmount}
+                        {totalAmount}
                       </p>
                     </div>
                     <div className="subbill_Detail">
                       <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
-                        Vat
+                        Vat {modalcurrency}
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                        {modalcurrency} {(totalAmount * 5) / 100}
+                        {(totalAmount * 5) / 100}
                       </p>
                     </div>
-                    <div className="delivery_charge">
+                    {/* <div className="delivery_charge">
                       <p style={{ paddingLeft: "15px", paddingTop: "10px" }}>
                         Delivery Charge
                       </p>
@@ -123,7 +123,7 @@ const ModalCart = ({
                         {modalcurrency}
                         {totalAmount > 200 ? 0 : 50}
                       </p>
-                    </div>
+                    </div> */}
                     <div className="cong_charge_section">
                       <p style={{ paddingLeft: "15px" }}>
                         Congratulations, Your delivery charge is waived off!!!
@@ -131,12 +131,13 @@ const ModalCart = ({
                     </div>
                     <div className="border_line"></div>
                     <div className="total_payments">
-                      <p style={{ paddingTop: "10px" }}>Total</p>
+                      <p style={{ paddingTop: "10px" }}>Total Amount {modalcurrency} </p>
                       <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                        {modalcurrency}
+                        {/* {modalcurrency}
                         {totalAmount > 200
                           ? totalAmount + (totalAmount * 5) / 100
-                          : totalAmount + 50 + (totalAmount * 5) / 100}
+                          : totalAmount + 50 + (totalAmount * 5) / 100} */}
+                        {totalAmount + (totalAmount * 5) / 100}
                       </p>
                     </div>
                   </div>
@@ -144,11 +145,12 @@ const ModalCart = ({
                     <div className="proceed_section">
                       <div className="proceed_payment">
                         <p>
-                          {" "}
+                          {/* {" "}
                           Total : {modalcurrency}
-                        {totalAmount > 200
-                          ? totalAmount + (totalAmount * 5) / 100
-                          : totalAmount + 50 + (totalAmount * 5) / 100}
+                          {totalAmount > 200
+                            ? totalAmount + (totalAmount * 5) / 100
+                            : totalAmount + 50 + (totalAmount * 5) / 100} */}
+                            {modalcurrency} {totalAmount + (totalAmount * 5) / 100}
                         </p>
                       </div>
                       <div className="proceed_btn" onClick={onclick}>
