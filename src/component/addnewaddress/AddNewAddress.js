@@ -113,8 +113,8 @@ const AddNewAddress = ({ id }) => {
     showcart();
   }, []);
   const localContent = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    const items = JSON.parse(sessionStorage.getItem("userDetail"));
+    const items1 = JSON.parse(sessionStorage.getItem("modalCount"));
     if (items) {
       setLoginStatus(true);
     } else {
