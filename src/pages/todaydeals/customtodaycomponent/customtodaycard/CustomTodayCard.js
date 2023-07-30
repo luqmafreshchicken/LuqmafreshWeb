@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Rating from "@mui/material/Rating";
 import { NavLink } from "react-router-dom";
 import "./customtodaycard.css";
+import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
 
 export default function CustomTodayCard({
   offer,
@@ -47,9 +48,9 @@ export default function CustomTodayCard({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <img src="sea.png" height="22px" width="22px" />
-        <img src="heart.png" height="17px" width="17px" />
-        <img src="bag.png" height="17px" width="17px" />
+      <FaSearch className="fa_search"  />
+      <FaHeart className="fa_search"/>
+      <FaShareSquare className="fa_search"/>
       </div>
       <div className="rating">
         <Rating
@@ -81,7 +82,7 @@ export default function CustomTodayCard({
       <div className="total_singlecard">
         {!showData && <button onClick={handleShow}>ADD</button>}
         {showData && (
-          <div className="incre_decre_btn1_btn2" onClick={onclick}>
+          <div className="incre_decre_btn" onClick={onclick}>
             <p onClick={() => decrement()}>-</p>
             <p>{incre}</p>
             <p onClick={() => increment()}>+</p>
