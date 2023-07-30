@@ -13,6 +13,7 @@ import {
   GetCountry,
   loginRegister,
   otpVerify,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
@@ -310,6 +311,39 @@ const TodayDeals = () => {
       window.location.reload();
     }
   };
+    // remove cart
+    const removeCartProduct = async (id) => {
+      const userId = await getUserID();
+      const data = {
+        userId: userId,
+        productId: id,
+      };
+      removeFromCart(data).then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          showcart();
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      });
+    };
+    // end remove cart
   return (
     <>
       <Header
@@ -336,6 +370,9 @@ const TodayDeals = () => {
       totalAmount={cartPrice}
       store={store}
       handleclear={(index) => handleclear(index)}
+      removeProduct={(id) => removeCartProduct(id)}
+      modalcurrency={countrycurrency}
+
       />
       <div>
         {subcategorie.length >= 1 ? (
