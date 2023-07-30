@@ -18,8 +18,8 @@ const TopHeader = () => {
           <div className="top_location">
             <img src="pin.png" />
             <p>
-              <span>Lucknow</span>
-              <br /> A Store Near Wazirgunj Aminabad, Lucknow
+              <span>Our Shop Location</span>
+              <br /> Lawnz Block 3, Al Warsan First, UAE
             </p>
           </div>
 
