@@ -74,7 +74,7 @@ const Header = ({
   });
 
   const localContent = () => {
-    const items = JSON.parse(sessionStorage.getItem("userDetail"));
+    const items = JSON.parse(localStorage.getItem("userDetail"));
     if (items) {
       // setLoginStatus(true);
       loginStatus = true;
@@ -96,7 +96,7 @@ const Header = ({
   //   window.location.reload();
 
   //   if (index == 4) {
-  //     await sessionStorage.clear();
+  //     await localStorage.clear();
   //     navigate("/");
   //     // localContent();
   //   }
