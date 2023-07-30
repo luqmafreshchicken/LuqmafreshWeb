@@ -27,7 +27,6 @@ import { Pagination, Autoplay } from "swiper";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 
-
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
 
@@ -49,7 +48,7 @@ export default function CardFullDetail({ id }) {
   const [countrytitle, setCountryTitle] = useState("");
   const [flag, setFlag] = useState("");
   const [cartProduct, setCartProduct] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
+  const [cartPrice, setCartPrice] = useState("");
   const [cartOpen, setCartOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
@@ -65,6 +64,7 @@ export default function CardFullDetail({ id }) {
     }
   };
   React.useEffect(() => {
+    console.log(loginStatus, "==============================");
     window.scrollTo(0, 0);
     fullView();
     all_Image();
@@ -192,6 +192,7 @@ export default function CardFullDetail({ id }) {
           progress: undefined,
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
+        updatelocalcartindb();
         localContent();
         localContent1();
         showcart();
@@ -267,16 +268,167 @@ export default function CardFullDetail({ id }) {
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    setCartPrice(cartPrice?.price);
     if (items) {
       // setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
+      setCartProduct(cart);
+      cart?.map((item) => {
+        setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
+      });
+      setCartPrice(cartPrice?.price);
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price })
+      );
       setLoginStatus(false);
       if (items1) {
         // setWhistlistOpen(false);
       } else {
         // setWhistlistOpen(true);
         setLoginStatus(false);
+      }
+    }
+  };
+  const updatelocalcartindb = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (items) {
+      setWhistlistOpen(false);
+      setLoginStatus(true);
+      // bulk add to cart api
+      const cartData = cart;
+      if (cartData?.length > 0) {
+        for (let i = 0; i < cartData?.length; i++) {
+          const data = {
+            userId: items?._id,
+            productId: cartData[i]?.productId?._id,
+            quantity: cartData[i]?.productId?.quantity,
+          };
+          Add_to_cart(data).then((res) => {
+            if (res?.data?.status) {
+              localStorage.removeItem("cart");
+            }
+          });
+        }
+      }
+    } else {
+      setCartProduct(cart);
+      let total = 0;
+      cart?.map((item) => {
+        total = total + item?.productId?.price;
+      });
+      setCartPrice(total);
+      setLoginStatus(false);
+    }
+  };
+
+  // local add to cart
+  const AddLocalCart = async (
+    id,
+    name,
+    price,
+    originalPrice,
+    discount,
+    quantity,
+    unit,
+    image
+  ) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart == null) {
+      const newCart = [
+        {
+          _id: id,
+          productId: {
+            _id: id,
+            quantity: 1,
+            name: name,
+            price: price,
+            originalPrice: originalPrice,
+          },
+        },
+      ];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      localContent();
+      toast.success("Product added to cart successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      setCartPrice(newCart[0]?.productId?.price);
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: newCart[0]?.productId?.price })
+      );
+      localContent();
+    } else {
+      const existItem = cart.find((x) => x._id === id);
+      if (existItem) {
+        // const newCart = cart.map((x) =>
+        //   x._id === id ? { ...existItem, quantity: existItem.quantity + quantity } : x
+        // );
+        // console.log(newCart, "==================update count product")
+        // // localContent();
+        // localStorage.setItem("cart", JSON.stringify(newCart));
+        toast.success("Product already in cart", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        // let total = 0;
+        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        // updatedCart?.map((item) => {
+        //   total = total + item?.productId?.price * item?.quantity;
+        // });
+        // console.log(total, "==================update count product")
+        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        // console.log(total, "==================update count product")
+        // setCartPrice(total);
+
+        localContent();
+      } else {
+        const newCart = [
+          ...cart,
+          {
+            _id: id,
+            productId: {
+              _id: id,
+              quantity: 1,
+              name: name,
+              price: price,
+              originalPrice: originalPrice,
+            },
+          },
+        ];
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        toast.success("Product added to cart successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        setCartPrice(total);
+        localContent();
       }
     }
   };
@@ -397,7 +549,18 @@ export default function CardFullDetail({ id }) {
                     <button
                       onClick={() => {
                         setShow(!show);
-                        AddToCart();
+                        loginStatus == true
+                          ? AddToCart()
+                          : AddLocalCart(
+                              product._id,
+                              product.name,
+                              product.price,
+                              product.originalPrice,
+                              product.discount,
+                              product.quantity,
+                              product.unit,
+                              product.image
+                            );
                       }}
                     >
                       ADD
@@ -406,7 +569,22 @@ export default function CardFullDetail({ id }) {
                 ) : (
                   <div
                     hidden={!show}
-                    onClick={() => AddToCart()}
+                    // onClick={() => AddToCart()}
+                    onclick={() =>
+                      // AddToCart(detail._id)
+                      loginStatus == true
+                        ? AddToCart()
+                        : AddLocalCart(
+                            product._id,
+                            product.name,
+                            product.price,
+                            product.originalPrice,
+                            product.discount,
+                            product.quantity,
+                            product.unit,
+                            product.image
+                          )
+                    }
                     className="full_view_incre_btn"
                   >
                     <p onClick={decrement}>-</p>
