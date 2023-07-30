@@ -48,7 +48,6 @@ import { Navigation, Autoplay, Parallax } from "swiper";
 import "swiper/css/navigation";
 import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
-import { GoogleLogin } from 'react-google-login';
 import { useNavigate } from "react-router-dom";
 
 
