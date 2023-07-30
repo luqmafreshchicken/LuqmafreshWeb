@@ -37,7 +37,7 @@ const Header = ({
   totalAmount,
   store,
   modalcurrency,
-  handleclear= () => {},
+  handleclear = () => {},
   removeProduct = () => {},
 }) => {
   // let navigate = useNavigate();
@@ -140,11 +140,14 @@ const Header = ({
             <div className="luqma_location">
               <div className="luqma_location_top">
                 <img src="pin.png" />
-                <p>{add1}</p>
+                <p>Your Loction</p>
                 <img src="down (2).png" />
               </div>
+
               <div className="luqma_location_bottom">
-                <p>{add3}</p>
+                <p>
+                  <span>{add1}</span>,{add3}
+                </p>
               </div>
             </div>
             <div className="luqma_input">
@@ -238,7 +241,7 @@ const Header = ({
                                     marginBottom: "0.5rem",
                                     lineHeight: 0.1,
                                   }}
-                                  onClick={()=>handleclear(index)}
+                                  onClick={() => handleclear(index)}
                                 >
                                   <NavLink
                                     style={{
@@ -397,8 +400,8 @@ const Header = ({
               </div> */}
             </div>
           </div>
-          <div className="crossbtn" >
-           <img src="crossbtn.png"/>
+          <div className="crossbtn">
+            <img src="crossbtn.png" />
           </div>
         </Box>
       </Modal>
