@@ -12,6 +12,7 @@ import {
   Show_Cart,
   CountryDetail,
   GetCountry,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -453,6 +454,40 @@ export default function CardFullDetail({ id }) {
     }
   };
 
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
+
   return (
     <>
       <div className="fullview_search_mobile">
@@ -479,7 +514,9 @@ export default function CardFullDetail({ id }) {
           otp={otp}
           totalAmount={cartPrice}
           store={store}
+          modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
       <div className="cardetail_container" state={{ productId: id }}>
