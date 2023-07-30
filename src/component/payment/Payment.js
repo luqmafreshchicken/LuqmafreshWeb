@@ -11,6 +11,8 @@ import {
   createOrder,
   getUserID,
   verifyPayment,
+  CountryDetail,
+  GetCountry,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -28,14 +30,105 @@ const Payment = () => {
   const Razorpay = useRazorpay();
 
   const location = useLocation();
-  const addressID = location.state.addressId;
-  const slotID = location.state.slotId;
+  const addressID = location?.state?.addressId;
+  const slotID = location?.state?.slotId;
 
-  const [open, setOpen] = useState(0);
+  const [open1, setOpen1] = useState(0);
   const [couponModal, setCouponModal] = React.useState(false);
   const [method, setMethod] = React.useState("cod");
   const [load, setLoad] = React.useState(false);
+  const [userId, setUserId] = useState("");
+  const [longitude, setLongitude] = useState(null);
+
+  const [latitude, setLatitude] = useState(null);
   const [cartProduct, setCartProduct] = useState([]);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
+  // const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [btn, setBtn] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    localContent();
+    showcart();
+  }, []);
+  const localContent = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+      if (items1) {
+      } else {
+        setLoginStatus(false);
+      }
+    }
+  };
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      setCartProduct(res.data.cart);
+      setCartPrice(res.data.totalAmount);
+    } else {
+      setCartProduct([]);
+      setCartPrice("");
+    }
+  };
+
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
 
   const handleOpen = () => setCouponModal(true);
   const handleClose = () => setCouponModal(false);
@@ -124,17 +217,17 @@ const Payment = () => {
     showcart();
   }, []);
 
-  const showcart = async () => {
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-    };
-    const res = await Show_Cart(data);
-    if (res.status == true) {
-      setCartProduct(res.data);
-    } else {
-    }
-  };
+  // const showcart = async () => {
+  //   const userId = await getUserID();
+  //   const data = {
+  //     userId: userId,
+  //   };
+  //   const res = await Show_Cart(data);
+  //   if (res.status == true) {
+  //     setCartProduct(res.data);
+  //   } else {
+  //   }
+  // };
 
   const calculateTotalBill = () => {
     const subtotal = cartProduct.totalAmount;
@@ -144,11 +237,36 @@ const Payment = () => {
 
     return subtotal + deliveryCharge - discount - luqmaFreshWallet;
   };
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
 
   return (
     <>
       <div className="mobile_payment">
-        <Header />
+        <Header
+          code={countrytitle}
+          currency={countrycurrency}
+          flag={flag}
+          cartPrice={cartPrice}
+          cartProductlength={cartProduct}
+          curr={countrycurrency}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          carthandleOpen={carthandleOpen}
+          loginStatus={loginStatus}
+          // s
+          handleOpen={() => setOpen(true)}
+          handleClose={() => setOpen(false)}
+          open={open}
+          showbtn={btn}
+          totalAmount={cartPrice}
+          handleclear={(index) => handleclear(index)}
+        />
       </div>
       <div className="payment_container">
         {/* main container */}
@@ -161,54 +279,54 @@ const Payment = () => {
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(0);
+                  setOpen1(0);
                   setMethod("cod");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>Cash On Delivery</p>
               </div>
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(1);
+                  setOpen1(1);
                   setMethod("online");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>Debit/Credit/UPI Card</p>
               </div>
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(2);
+                  setOpen1(2);
                   setMethod("online");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>Amazon Pay</p>
               </div>
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(3);
+                  setOpen1(3);
                   setMethod("online");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>Google Pay</p>
               </div>
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(4);
+                  setOpen1(4);
                   setMethod("online");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>Paytm</p>
               </div>
-             {/* <div
+              {/* <div
                 className="cash_on_delivery"
                 onClick={() => {
                   setOpen(6);
@@ -221,10 +339,10 @@ const Payment = () => {
               <div
                 className="cash_on_delivery"
                 onClick={() => {
-                  setOpen(7);
+                  setOpen1(7);
                   setMethod("online");
                 }}
-                value={open}
+                value={open1}
               >
                 <p>NetBanking</p>
               </div>
@@ -232,14 +350,16 @@ const Payment = () => {
             {/* end sidebar Container  */}
 
             <div className="online_payment_content">
-              {open == 0 && <CashDelivery onClick={() => paymentMethods()} />}
-              {open == 1 && <OnlineDelivery onClick={() => paymentMethods()} />}
-              {open == 2 && <AmazonPay onClick={() => paymentMethods()} />}
-              {open == 3 && <GooglePay onClick={() => paymentMethods()} />}
-              {open == 4 && <Paytm onClick={() => paymentMethods()} />}
-              {open == 5 && <PayUsingUPI onClick={() => paymentMethods()} />}
-              {/*open == 6 && <Credit onClick={() => paymentMethods()} />*/}
-              {open == 7 && <NetBanking onClick={() => paymentMethods()} />}
+              {open1 == 0 && <CashDelivery onClick={() => paymentMethods()} />}
+              {open1 == 1 && (
+                <OnlineDelivery onClick={() => paymentMethods()} />
+              )}
+              {open1 == 2 && <AmazonPay onClick={() => paymentMethods()} />}
+              {open1 == 3 && <GooglePay onClick={() => paymentMethods()} />}
+              {open1 == 4 && <Paytm onClick={() => paymentMethods()} />}
+              {open1 == 5 && <PayUsingUPI onClick={() => paymentMethods()} />}
+              {/*open1 == 6 && <Credit onClick={() => paymentMethods()} />*/}
+              {open1 == 7 && <NetBanking onClick={() => paymentMethods()} />}
             </div>
           </div>
           {/* end main container payment */}
@@ -292,7 +412,7 @@ const Payment = () => {
               </div>
               <div className="online_total_count">
                 <p>Total</p>
-                <p style={{color:"#FF0040"}}>₹ {calculateTotalBill()}</p>
+                <p style={{ color: "#FF0040" }}>₹ {calculateTotalBill()}</p>
               </div>
             </div>
           </div>
