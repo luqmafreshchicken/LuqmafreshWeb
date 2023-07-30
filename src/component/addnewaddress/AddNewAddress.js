@@ -13,6 +13,7 @@ import {
   CountryDetail,
   GetCountry,
   Show_Cart,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
@@ -156,6 +157,40 @@ const AddNewAddress = ({ id }) => {
     }
   };
 
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
+
   return (
     <>
       <div className="addaddress_mobile_header">
@@ -170,13 +205,14 @@ const AddNewAddress = ({ id }) => {
           carthandleClose={carthandleClose}
           carthandleOpen={carthandleOpen}
           loginStatus={loginStatus}
-          s
           handleOpen={() => setOpen(true)}
           handleClose={() => setOpen(false)}
           open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
       <div className="main_addaddress_container">
