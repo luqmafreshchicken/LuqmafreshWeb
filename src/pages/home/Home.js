@@ -130,11 +130,11 @@ const Home = () => {
       setLoginStatus(true);
     } else {
       setCartProduct(cart);
-      // let total = 0;
-      // cart?.map((item) => {
-      //   total = total + item.productId.price;
-      // });
-      // setCartPrice(total);
+      cart?.map((item) => {
+        setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
+      });
+      setCartPrice(cartPrice?.price);
+      localStorage.setItem("cartPrice", JSON.stringify({ price: cartPrice?.price }));
       setLoginStatus(false);
       if (items1) {
         setWhistlistOpen(false);
@@ -181,7 +181,7 @@ const Home = () => {
   };
 
   // local add to cart
-  const AddLocalCart = async (
+ const AddLocalCart = async (
     id,
     name,
     price,
@@ -216,14 +216,19 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
-    } else {
+      setCartPrice(newCart[0]?.productId?.price);
+      localStorage.setItem("cartPrice", JSON.stringify({ price: newCart[0]?.productId?.price }));
+      localContent();
+    } 
+    else {
       const existItem = cart.find((x) => x._id === id);
       if (existItem) {
-        const newCart = cart.map((x) =>
-          x._id === id ? { ...existItem, quantity: existItem.quantity + 1 } : x
-        );
-        localContent();
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        // const newCart = cart.map((x) =>
+        //   x._id === id ? { ...existItem, quantity: existItem.quantity + quantity } : x
+        // );
+        // console.log(newCart, "==================update count product")
+        // // localContent();
+        // localStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product already in cart", {
           position: "top-right",
           autoClose: 5000,
@@ -233,17 +238,17 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
-        // show total count in cart
-        // setCartPrice
-        // find product price * quantity
-        let total = 0;
-        newCart?.map((item) => {
-          // add price and quantity
-          total = total + item.productId.price * item.quantity;
-        });
-        setCartPrice(total);
-        console.log("total", total, cart[0]);
-        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+      // let total = 0;
+      // const updatedCart = JSON.parse(localStorage.getItem("cart"));
+      // updatedCart?.map((item) => {
+      //   total = total + item?.productId?.price * item?.quantity;
+      // });
+      // console.log(total, "==================update count product")
+      // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+      // console.log(total, "==================update count product")
+      // setCartPrice(total);
+      
+      localContent();
       } else {
         const newCart = [
           ...cart,
@@ -268,6 +273,13 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        setCartPrice(total);
         localContent();
       }
     }
