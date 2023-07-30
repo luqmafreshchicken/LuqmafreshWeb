@@ -29,7 +29,11 @@ const TopHeader = () => {
               <b>+971 56 655 1636</b>
             </p>
           </div>
+          <div className="halal_image">
+          <img src="halal.jpg" />
         </div>
+        </div>
+        
         {/* end left side */}
         {/* right side */}
 
