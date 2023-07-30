@@ -7,6 +7,7 @@ import {
   getUserID,
   removeFromCart,
   newArrival,
+  Show_Cart,
 } from "../../serverRequest/Index";
 
 const ModalCart = ({
@@ -17,7 +18,8 @@ const ModalCart = ({
   loginStatus,
   cartProduct,
   totalAmount,
-  modalcurrency
+  modalcurrency,
+  removeProduct = () => {},
 }) => {
   const [data, setData] = useState([]);
 
@@ -29,22 +31,6 @@ const ModalCart = ({
     getData();
   }, []);
 
-  const removeProduct = async (productId) => {
-    const userId = await getUserID();
-    if (!userId) {
-      return false;
-    }
-    if (!productId) {
-      return false;
-    }
-    const data = {
-      userId: userId,
-      productId: productId,
-    };
-    removeFromCart(data).then((res) => {
-      // showcart();
-    });
-  };
   return (
     <div>
       <Modal
@@ -64,8 +50,7 @@ const ModalCart = ({
                   <div className="order_summary">
                     <p>Order Summary</p>
                   </div>
-                  
-                  
+
                   {cartProduct.map((option, index) => (
                     <div className="product_card">
                       <div className="product_detail">
@@ -92,10 +77,18 @@ const ModalCart = ({
                             <p>{option.productId.quantity}gms</p>
                           </div>
                           <div className="color_count">
-                            <p>  {modalcurrency}{option.productId.price}</p>
+                            <p>
+                              {" "}
+                              {modalcurrency}
+                              {option.productId.price}
+                            </p>
                           </div>
                           <div className="cut_count">
-                            <p> {modalcurrency}{option.productId.originalPrice}</p>
+                            <p>
+                              {" "}
+                              {modalcurrency}
+                              {option.productId.originalPrice}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -111,7 +104,15 @@ const ModalCart = ({
                         SubTotal
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
-                      {modalcurrency} {totalAmount}
+                        {modalcurrency} {totalAmount}
+                      </p>
+                    </div>
+                    <div className="subbill_Detail">
+                      <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
+                        Vat
+                      </p>
+                      <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
+                        {modalcurrency} {(totalAmount * 5) / 100}
                       </p>
                     </div>
                     <div className="delivery_charge">
@@ -119,7 +120,8 @@ const ModalCart = ({
                         Delivery Charge
                       </p>
                       <p style={{ paddingRight: "15px", paddingTop: "10px" }}>
-                      {modalcurrency} 0
+                        {modalcurrency}
+                        {totalAmount > 200 ? 0 : 50}
                       </p>
                     </div>
                     <div className="cong_charge_section">
@@ -131,14 +133,23 @@ const ModalCart = ({
                     <div className="total_payments">
                       <p style={{ paddingTop: "10px" }}>Total</p>
                       <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                      {modalcurrency} {totalAmount}
+                        {modalcurrency}
+                        {totalAmount > 200
+                          ? totalAmount + (totalAmount * 5) / 100
+                          : totalAmount + 50 + (totalAmount * 5) / 100}
                       </p>
                     </div>
                   </div>
                   {cartProduct?.length >= 1 ? (
                     <div className="proceed_section">
                       <div className="proceed_payment">
-                        <p>Total : {modalcurrency}{totalAmount}</p>
+                        <p>
+                          {" "}
+                          Total : {modalcurrency}
+                        {totalAmount > 200
+                          ? totalAmount + (totalAmount * 5) / 100
+                          : totalAmount + 50 + (totalAmount * 5) / 100}
+                        </p>
                       </div>
                       <div className="proceed_btn" onClick={onclick}>
                         <NavLink to="/addnewaddress" className="nav_list">
