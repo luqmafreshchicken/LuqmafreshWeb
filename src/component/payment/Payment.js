@@ -13,6 +13,7 @@ import {
   verifyPayment,
   CountryDetail,
   GetCountry,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -24,6 +25,8 @@ import Paytm from "./paymentcomponent/paytm/Paytm";
 import PayUsingUPI from "./paymentcomponent/payusingupi/PayUsingUPI";
 import Credit from "./paymentcomponent/credit/Credit";
 import NetBanking from "./paymentcomponent/netbanking/NetBanking";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Payment = () => {
   let navigate = useNavigate();
@@ -245,6 +248,39 @@ const Payment = () => {
     }
   };
 
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
   return (
     <>
       <div className="mobile_payment">
@@ -265,7 +301,9 @@ const Payment = () => {
           open={open}
           showbtn={btn}
           totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
       <div className="payment_container">
