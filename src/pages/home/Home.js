@@ -48,9 +48,11 @@ import { Navigation, Autoplay, Parallax } from "swiper";
 import "swiper/css/navigation";
 import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+  let navigate = useNavigate();
 
   const [data, setData] = useState([]);
   const [data1, setData1] = useState([]);
@@ -594,7 +596,13 @@ const Home = () => {
   };
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
-
+const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
  
   return (
     <>
@@ -621,6 +629,8 @@ const Home = () => {
         otp={otp}
         totalAmount={cartPrice}
         store={store}
+           modalcurrency={countrycurrency}
+        handleclear={(index) =>handleclear(index)}
        
       />
       <BannerCard />
@@ -680,7 +690,7 @@ const Home = () => {
                 <>
                   {data.map((detail, index) => (
                     <SwiperSlide>
-                      {loginStatus == true ? (
+                      {loginStatus == false ? (
                         <Card
                           currency={countrycurrency}
                           offer={detail.discount}
