@@ -63,6 +63,9 @@
   align-items: center;
   margin-top: 8px;
 }
+.product_cross img{
+   cursor: pointer;
+}
 .product_count {
   width: 30%;
   height: 5vh;
