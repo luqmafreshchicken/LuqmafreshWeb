@@ -13,7 +13,7 @@ import {
   Show_Cart,
   removeFromCart,
   viewProfile,
-  currentLocation
+  currentLocation,
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +45,6 @@ const UserContactDetail = () => {
   const [btn, setBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
-
 
   useEffect(() => {
     userDetail();
@@ -112,7 +111,7 @@ const UserContactDetail = () => {
               position?.coords?.longitude
             ).then((res) => {
               if (res?.address?.country) {
-                  CountryDetail(res?.address?.country).then((res) => {
+                CountryDetail(res?.address?.country).then((res) => {
                   setCountry(res[0]?.name);
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
@@ -370,6 +369,11 @@ const UserContactDetail = () => {
           {/* contact page */}
           <div className="user_contact_location">
             <div className="user_contact_detail">
+              <h5>Delivery Address/Billing Information</h5>
+              <p>
+                Our dedicated delivery personnel ensure that your packages are
+                delivered to the exact address you provide.
+              </p>
               <Input
                 lable="Current Address"
                 value={address}
@@ -405,7 +409,11 @@ const UserContactDetail = () => {
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
-              <Button onclick={() => handleCreateAdd(userId)} />
+              <div className="usercontact_button">
+                <button onClick={() => handleCreateAdd(userId)}>
+                  <p>Save & Next</p>
+                </button>
+              </div>
             </div>
             <div className="user_contact_location_steps">
               <Steps img1="radio.png" img2="radio.png" img3="radio.png" />
