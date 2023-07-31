@@ -7,7 +7,7 @@ const Steps = ({img1, img2, img3}) => {
     <div className='steps_container'>
       <div className='choose_address'>
        <img src={img1} height='25px' width='25px'/>
-       <p>Billing Information</p>
+       <p>Delivery Address</p>
       </div>
       {/* line */}
       <div className='verticle_line'></div>
