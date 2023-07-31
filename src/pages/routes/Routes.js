@@ -28,6 +28,7 @@ import Franchies from "../franchies/Franchies";
 import Recipies from "../recipes/Recipies";
 import Track from "../track/Track";
 import CardDetail1 from "../carddetail1/CardDetail1";
+import YouMayLikeDetail from "../youmaylikedetail/YouMayLikeDetail";
 
 const Routes1 = () => {
   return (
@@ -59,14 +60,7 @@ const Routes1 = () => {
       <Route path="/franchies" element={<Franchies />} />
       <Route path="/recipies" element={<Recipies />} />
       <Route path="/track" element={<Track />} />
-
-
-
-
-
-
-
-
+      <Route path="/youmaylike" element={<YouMayLikeDetail />} />
     </Routes>
   );
 };
