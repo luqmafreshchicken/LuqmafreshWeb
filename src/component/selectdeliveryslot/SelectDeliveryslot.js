@@ -212,7 +212,7 @@ const SelectDeliveryslot = () => {
           {/* /************************************** */}
           <div className="selectime_container">
             <div className="select_text_container">
-              <h5>6 Items order</h5>
+              <h5>{cartProduct?.length} Items order</h5>
             </div>
 
             <div className="select_product_detail">
