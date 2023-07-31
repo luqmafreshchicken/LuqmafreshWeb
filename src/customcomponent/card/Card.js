@@ -5,6 +5,8 @@ import "./card.css";
 import SearchModal from "../searchmodal/SearchModal";
 import WhistList from "../whistlist/WhistList";
 import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
+import { RWebShare } from "react-web-share";
+
 
 const Card = ({
   currency,
@@ -23,16 +25,14 @@ const Card = ({
   to,
   rating,
   img,
-  onclick1 = ()=>{},
-  onclick2 = ()=>{}
+  onclick1 = () => {},
+  onclick2 = () => {},
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
 
-
-  
   const handleDre = () => {
     if (incre >= 1) {
       setIncre(incre - 1);
@@ -64,15 +64,22 @@ const Card = ({
       </div>
       <div className="icons_img">
         <FaSearch className="fa_search" onClick={onclick1} />
-        <FaHeart className="fa_search" onClick={onclick2}/>
-        <FaShareSquare className="fa_search" onClick={onclick2}/>
-
+        <FaHeart className="fa_search" onClick={onclick2} />
+        <RWebShare
+          data={{
+            text: "Luqmafresh",
+            url: "https://www.luqmafresh.com/",
+            title: "Luqmafresh",
+          }}
+        >
+          <FaShareSquare className="fa_search" onClick={onclick2} />
+        </RWebShare>
       </div>
       <div className="rating">
         <Rating
           name="size-small"
           defaultValue={rating}
-          style={{ fontSize: "20px", color: "#ff0040", gap:"0.2rem" }}
+          style={{ fontSize: "20px", color: "#ff0040", gap: "0.2rem" }}
         />
       </div>
       <div className="name_singlecard">
@@ -85,9 +92,13 @@ const Card = ({
         </p>
       </div>
       <div className="price_singlecard">
-        <p style={{ color: "black" }}>{currency}{total}</p>
+        <p style={{ color: "black" }}>
+          {currency}
+          {total}
+        </p>
         <p style={{ textDecoration: "line-through", color: "grey" }}>
-          {currency}{cutotal}
+          {currency}
+          {cutotal}
         </p>
         <p style={{ color: "green" }}>{offer1}%off</p>{" "}
       </div>
@@ -109,12 +120,14 @@ const Card = ({
 
         <div className="ammount_singlecard">
           <p>
-            Total <span>{currency}{totalpayment}</span>
+            Total{" "}
+            <span>
+              {currency}
+              {totalpayment}
+            </span>
           </p>
         </div>
       </div>
-     
-     
     </div>
   );
 };
