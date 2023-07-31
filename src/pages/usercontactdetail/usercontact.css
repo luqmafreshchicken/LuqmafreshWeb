@@ -8,27 +8,56 @@
 .main_user_contact_location {
   width: 96%;
   height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem 0rem;
+  padding: 3rem 0rem 4rem 0rem;
+}
+.main_user_contact_location h5{
+  padding-left: 3rem;
+  font-family: regular;
+  font-weight: 600;
+}
+.main_user_contact_location p{
+  padding-left: 3rem;
+  color: grey;
+  font-family: regular;
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding-bottom: 1rem;
 }
 .user_contact_location {
-  width: 70%;
+  width: 90%;
   height: auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .user_contact_location_steps {
   width: 30%;
   height: 84vh;
-  padding-left: 30px;
 }
 
 .user_contact_detail {
   width: 90%;
   height: auto;
+}
+.usercontact_button{
+  padding-left: 3rem;
+}
+.usercontact_button button{
+  width: 30%;
+  border: none;
+  background-color: #ff0040;
+  height: 7vh;
+  border-radius: 10px;
+  padding-right: 4rem;
+}
+.usercontact_button button p {
+  color: white;
+  font-size: 1.1rem;
+  font-family: regular;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 0.7rem;
+
+
 }
 
 @media screen and (max-width: 768px) {
