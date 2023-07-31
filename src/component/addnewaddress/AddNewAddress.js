@@ -71,6 +71,7 @@ const AddNewAddress = ({ id }) => {
           draggable: true,
           progress: undefined,
         });
+        getAllAddress()
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -218,36 +219,16 @@ const AddNewAddress = ({ id }) => {
       <div className="main_addaddress_container">
         <div className="addaddress_container">
           <div className="addaddress_content_text">
-            {/* add new Address */}
-            <div className="add_new_address_container">
-              <div className="add_new_address_text">
-                <NavLink to="/usercontactdetail" className="nav_list">
-                  <h5>+Add New Address</h5>
-                </NavLink>
-              </div>
-            </div>
-            {/* end new Address */}
-
             {/* saved Address */}
             <div className="saved_address">
-              <h5>Saved Address</h5>
-              <p>{length} Saved Address</p>
+              <h5>Your Saved Addresses</h5>
+              <p>Please select one of your saved delivery address</p>
             </div>
             {/* end saved Address */}
 
             <div className="select_saved_address_container">
               {getData.map((add) => (
                 <div className="select_saved_address">
-                  <div className="input_radio">
-                    <input
-                      type="radio"
-                      onChange={() => setAddressId(add?._id)}
-                      // onChange={() => console.log(add._id)}
-
-
-                    />
-                  </div>
-
                   <div className="saved_text_area">
                     <div className="local_area">
                       <h6>{add.address}</h6>
@@ -263,6 +244,14 @@ const AddNewAddress = ({ id }) => {
                     {/* end Area */}
 
                     <div className="edit_delete_btn">
+                      <div className="input_radio">
+                        <input
+                          type="radio"
+                          onChange={() => setAddressId(add?._id)}
+                          // onChange={() => console.log(add._id)}
+                        />
+                        <p>Select</p>
+                      </div>
                       <NavLink
                         to={"/editaddress"}
                         state={{ id: add?._id }}
@@ -290,6 +279,15 @@ const AddNewAddress = ({ id }) => {
                 </button>
               </NavLink>
             ) : null}
+            {/* add new Address */}
+            <div className="add_new_address_container">
+              <div className="add_new_address_text">
+                <NavLink to="/usercontactdetail" className="nav_list">
+                  <h5>Add New Address</h5>
+                </NavLink>
+              </div>
+            </div>
+            {/* end new Address */}
           </div>
           <div className="addaddress_steps">
             <Steps img1="mark.png" img2="radio.png" img3="radio.png" />
