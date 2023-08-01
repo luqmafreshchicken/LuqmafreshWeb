@@ -297,6 +297,8 @@ const CardDetail = () => {
         progress: undefined,
       });
       showcart();
+      window.location.reload();
+
       setLoad(false);
     } else {
       toast.error(res.message, {
@@ -503,7 +505,6 @@ const CardDetail = () => {
   return (
     <div>
       <CardFullDetail />
-      <ImagesCard />
       <div>
         <div className="next_prev_btn_container">
           <div className="next_prev_btn">
@@ -558,8 +559,7 @@ const CardDetail = () => {
                 <>
                   {data.map((detail, index) => (
                     <SwiperSlide>
-                      {loginStatus == false ? (
-                        <Card
+                      <Card
                         currency={countrycurrency}
                         offer={detail.discount}
                         productName={detail.name}
@@ -568,47 +568,7 @@ const CardDetail = () => {
                         total={detail.price}
                         cutotal={detail.originalPrice}
                         offer1={detail.discount}
-                        today={moment(detail.discountExpiryDate).format(
-                          "dddd"
-                        )}
-                        date={detail.deliveryTime}
-                        totalpayment={detail.price}
-                        to="/youmaylike"
-                        // onclick={() => AddToCart(detail._id)}
-                        onclick={() =>
-                          // AddToCart(detail._id)
-                          loginStatus == true
-                            ? AddToCart(detail._id)
-                            : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
-                        }
-                        id={{ id: detail._id }}
-                        rating={detail.rating}
-                        img={detail.image}
-                        onclick1={() => fullView(detail._id)}
-                        onclick2={() => setWhistlistOpen(true)}
-                        />
-                      ) : (
-                        <Card
-                        currency={countrycurrency}
-                        offer={detail.discount}
-                        productName={detail.name}
-                        weight={detail.quantity}
-                        unit={detail.unit}
-                        total={detail.price}
-                        cutotal={detail.originalPrice}
-                        offer1={detail.discount}
-                        today={moment(detail.discountExpiryDate).format(
-                          "dddd"
-                        )}
+                        today={moment(detail.discountExpiryDate).format("dddd")}
                         date={detail.deliveryTime}
                         totalpayment={detail.price}
                         to="/youmaylike"
@@ -632,28 +592,13 @@ const CardDetail = () => {
                         img={detail.image}
                         onclick1={() => fullView(detail._id)}
                         onclick2={() => handleWhistlist(detail._id)}
-                        />
-                      )}
+                      />
                     </SwiperSlide>
                   ))}
                 </>
               ) : null}
             </Swiper>
-            <WhistList
-              whistlistOpen={whistlistOpen}
-              handlewhistlistClose={handlewhistlistClose}
-              onclick={handlewhistlistClose}
-              proceedOTP="Proceed Via OTP"
-              proceedsubmit="Submit"
-              onChange={handleMobileNumber}
-              value={mobileNumber}
-              onChange1={(e) => setOtp(e.target.value)}
-              // value1={}
-              onclick1={() => handleLogin()}
-              onclick2={() => handleOTP()}
-              otpHide={hideOTP}
-              btnShow={btn}
-            />
+
             <SearchModal
               currency={countrycurrency}
               searchOpen={searchOpen}
