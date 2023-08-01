@@ -19,13 +19,39 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import {
+  MDBBadge,
+  MDBBtn,
+  MDBTable,
+  MDBTableHead,
+  MDBTableBody,
+} from "mdb-react-ui-kit";
+import { borderBottom } from "@mui/system";
+const user = [
+  {
+    name: "Gaurav",
+    email: "gauravjoshi@gmail.com",
+    mob: "9181146725",
+    dob: "13/03/2023",
+    loc: "Luckow",
+  },
+  {
+    name: "Gaurav",
+    email: "gauravjoshi@gmail.com",
+    mob: "9181146725",
+    dob: "13/03/2023",
+    loc: "Luckow",
+  },
+];
 
 const SelectDeliveryslot = () => {
   let navigate = useNavigate();
 
   const location = useLocation();
   const id = location?.state?.id;
-  console.log(id)
+  console.log(id);
 
   const [time, setTime] = useState([]);
   const [daySlot, setDaySlot] = useState("");
@@ -204,7 +230,6 @@ const SelectDeliveryslot = () => {
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
           removeProduct={(id) => removeCartProduct(id)}
-
         />
       </div>
       <div className="selectdeliveryslot_container">
@@ -212,41 +237,61 @@ const SelectDeliveryslot = () => {
           {/* /************************************** */}
           <div className="selectime_container">
             <div className="select_text_container">
-              <h5>{cartProduct?.length} Items order</h5>
+              <h5>Your Order List</h5>
+              <p>
+                Kindly review the list of orders and choose your preferred time
+                slot for completing the payment.
+              </p>
+              <h6>{cartProduct?.length} Items order</h6>
             </div>
 
-            <div className="select_product_detail">
-              {/* card 01 */}
-              {cartProduct.map((item) => (
-                <div className="product_detail_01">
-                  <img src={item.productId.image} height="65px" width="90px" />
+            <div>
+              <Card style={{ boxShadow: "none", border: "none" }}>
+                <MDBTable align="middle" className="bor_bottom">
+                  <MDBTableHead className="slots_heading">
+                    <tr>
+                      <th scope="col" style={{ textAlign: "left" }}>
+                        Delete
+                      </th>
+                      <th scope="col">Product</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col" style={{ textAlign: "right" }}>
+                        SubTotal
+                      </th>
+                    </tr>
+                  </MDBTableHead>
 
-                  <div className="product_selectdeliveryslot_text">
-                    <p>{item.productId.name}</p>
-
-                    <div
-                      style={{ display: "flex", gap: "18px" }}
-                      className="product_selectdeliveryslot_text"
-                    >
-                      <span style={{ color: "grey" }}>
-                        {item.productId.quantity + "" + item.productId.unit}
-                      </span>
-                      <span style={{ color: "#C42118" }}>
-                        ₹ {item.productId.price}
-                      </span>
-                      <span style={{ textDecoration: "line-through" }}>
-                        ₹ {item.productId.originalPrice}
-                      </span>
-                      <span style={{ color: "grey" }}>
-                        Qty: {item.quantity}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              {/* card 02 */}
+                  {cartProduct.map((item) => {
+                    return (
+                      <MDBTableBody key={item} className="stot_content">
+                        <tr>
+                          <td>
+                            <img src="cross.png" onClick={() => removeCartProduct(item?._id)} />
+                          </td>
+                          <td>
+                            <div className="d-flex align-items-center">
+                              <img
+                                src={item?.productId?.image}
+                              />
+                              <div className="ms-3">
+                                <p className="fw-bold mb-1">
+                                  {item?.productId?.name}
+                                </p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>{countrycurrency} {item?.productId?.price}</td>
+                          <td> {item?.productId?.quantity + " " + item?.productId?.unit}</td>
+                          <td>{countrycurrency} {(item?.productId?.quantity * item?.productId?.price)}</td>
+                        </tr>
+                      </MDBTableBody>
+                    );
+                  })}
+                </MDBTable>
+              </Card>
             </div>
+
             <div className="select_delivery_time" onClick={handleOpen1}>
               <p>
                 {slotId != ""
@@ -254,7 +299,6 @@ const SelectDeliveryslot = () => {
                   : "Click to view your Delivery time Slot"}
               </p>
             </div>
-            {/* button */}
             <NavLink
               to="/payment"
               className="nav_list"
