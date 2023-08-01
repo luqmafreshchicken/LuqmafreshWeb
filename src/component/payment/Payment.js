@@ -124,6 +124,10 @@ const Payment = () => {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
+      console.log(
+        res.data.totalAmount,
+        "==============================================="
+      );
     } else {
       setCartProduct([]);
       setCartPrice("");
@@ -233,12 +237,10 @@ const Payment = () => {
   // };
 
   const calculateTotalBill = () => {
-    const subtotal = cartProduct.totalAmount;
-    const deliveryCharge = cartProduct.totalAmount > 199 ? 0 : 40;
-    const discount = 0;
-    const luqmaFreshWallet = 0;
+    const amount = cartPrice;
+    const vat = (cartPrice * 5) / 100;
 
-    return subtotal + deliveryCharge - discount - luqmaFreshWallet;
+    return amount + vat;
   };
   const handleclear = async (index) => {
     if (index == 4) {
@@ -436,21 +438,28 @@ const Payment = () => {
               </div>
               <div className="payment_online_total">
                 <div className="online_subtotal">
-                  <p>Subtotal</p>
-                  <p>₹{cartProduct.totalAmount}</p>
+                  <p>Amount</p>
+                  <p>
+                    {countrycurrency}
+                    {cartPrice}
+                  </p>
                 </div>
-                <div className="online_subtotal">
+                {/* <div className="online_subtotal">
                   <p>Delivery Charge</p>
                   <p>₹ {cartProduct?.totalAmount > 199 ? 0 : 40}</p>
-                </div>
+              </div>*/}
                 <div className="online_subtotal">
-                  <p>Discount</p>
-                  <p>₹ 0</p>
+                  <p>Vat</p>
+                  <p>
+                    {countrycurrency} {(cartPrice * 5) / 100}
+                  </p>
                 </div>
               </div>
               <div className="online_total_count">
-                <p>Total</p>
-                <p style={{ color: "#FF0040" }}>₹ {calculateTotalBill()}</p>
+                <p>Total Amount</p>
+                <p style={{ color: "#FF0040" }}>
+                  {countrycurrency} {calculateTotalBill()}
+                </p>
               </div>
             </div>
           </div>
