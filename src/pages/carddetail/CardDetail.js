@@ -78,14 +78,6 @@ const CardDetail = () => {
     }
   };
 
-  const handlewhistlistClose = () => {
-    setWhistlistOpen(false);
-    let data = {
-      modalCount: false,
-    };
-    localStorage.setItem("modalCount", JSON.stringify({ data: data }));
-  };
-
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
@@ -116,39 +108,6 @@ const CardDetail = () => {
   };
 
   // local cart data after login add in cart
-
-  const updatelocalcartindb = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    if (items) {
-      setWhistlistOpen(false);
-      setLoginStatus(true);
-      // bulk add to cart api
-      const cartData = cart;
-      if (cartData?.length > 0) {
-        for (let i = 0; i < cartData?.length; i++) {
-          const data = {
-            userId: items?._id,
-            productId: cartData[i]?.productId?._id,
-            quantity: cartData[i]?.productId?.quantity,
-          };
-          Add_to_cart(data).then((res) => {
-            if (res?.data?.status) {
-              localStorage.removeItem("cart");
-            }
-          });
-        }
-      }
-    } else {
-      setCartProduct(cart);
-      let total = 0;
-      cart?.map((item) => {
-        total = total + item.productId.price;
-      });
-      setCartPrice(total);
-      setLoginStatus(false);
-    }
-  };
 
   // local add to cart
   const AddLocalCart = async (
@@ -257,15 +216,6 @@ const CardDetail = () => {
     }
   };
 
-  const localContent1 = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    if (items) {
-      setLoginStatus(true);
-    } else {
-      setLoginStatus(false);
-    }
-  };
-
   // new arrial section
 
   useEffect(() => {
@@ -313,137 +263,6 @@ const CardDetail = () => {
     }
   };
   // end new arrival
-
-  {
-    /* login api */
-  }
-  const handleLogin = () => {
-    // email validation
-    if (mobileNumber === "") {
-      toast.error("Please enter email", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-      });
-      return false;
-    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-      toast.error("Please enter valid email address", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-      });
-      return false;
-    }
-    setLoad(true);
-    let newEmail = mobileNumber;
-    const requestData = { email: mobileNumber };
-    loginRegister(requestData).then((res) => {
-      if (res.status === true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        setShowInput(!showInput);
-        setHideOTP(true);
-        setBtn(true);
-        setStore(newEmail);
-        setLoad(false);
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    });
-  };
-
-  const handleMobileNumber = (e) => {
-    setMobileNumber(e.target.value);
-    if (e.target.value.length <= 40) {
-      setBtn(false);
-    } else {
-      setBtn(true);
-    }
-  };
-  const sethandleOtp = (e) => {
-    setOtp(e.target.value);
-  };
-
-  const handleOTP = () => {
-    // otp validation
-    if (otp === "") {
-      toast.error("Please enter otp", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-      });
-      return false;
-    } else if (!otp.match(/^[0-9]{4}$/)) {
-      toast.error("Please enter 4 digit otp number", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-      });
-      return false;
-    }
-    setLoad(true);
-    const requestData = { email: mobileNumber, otp: otp };
-    otpVerify(requestData).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        localStorage.setItem("userDetail", JSON.stringify(res.data));
-        updatelocalcartindb();
-        localContent();
-        localContent1();
-        setWhistlistOpen(false);
-        setOpen(false);
-        setLoad(false);
-        showcart();
-        // window.location.reload();
-      } else {
-        console.log(res);
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    });
-  };
-
-  {
-    /* end login api */
-  }
 
   const fullView = async (id) => {
     if (id === undefined || id === null || id === "") {
