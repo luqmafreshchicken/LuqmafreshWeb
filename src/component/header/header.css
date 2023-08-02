@@ -377,6 +377,11 @@ ul li {
 .crossbtn img{
   height: 30px;
   width: 30px;
+  transition: 0.3s linear;
+
+}
+.crossbtn img:hover{
+  transform: rotateZ(90deg);
 }
 
 /* Mobile devices (320px - 480px) */
