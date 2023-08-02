@@ -21,6 +21,7 @@ const SearchModal = ({
   price,
   ogp,
   discount,
+  handleViewCart = () =>{},
 }) => {
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -72,7 +73,7 @@ const SearchModal = ({
                 {qty} {unit}
               </span>
             </p>
-            <di className="cardfull_detail_text">
+            <div className="cardfull_detail_text">
               <div className="cardfull_detail_container_text">
                 <p style={{ color: "#d11243" }}>{currency}{price}</p>
                 <p style={{ color: "grey", textDecoration: "line-through" }}>
@@ -81,7 +82,7 @@ const SearchModal = ({
                 <p style={{ color: "green" }}>{discount}% OFF</p>
               </div>
               {show === false ? (
-                <div className="Add_to_cart_btn">
+                <div className="Add_to_cart_btn"  onClick={handleViewCart}>
                   <button
                     onClick={() => {
                       setShow(!show);
@@ -95,6 +96,7 @@ const SearchModal = ({
                 <div
                   hidden={!show}
                   // onClick={() => AddToCart()}
+                  onClick={handleViewCart}
                   className="full_view_incre_btn"
                 >
                   <p onClick={decrement}>-</p>
@@ -102,7 +104,7 @@ const SearchModal = ({
                   <p onClick={increment}>+</p>
                 </div>
               )}
-            </di>
+            </div>
           </div>
         </Box>
       </Modal>
