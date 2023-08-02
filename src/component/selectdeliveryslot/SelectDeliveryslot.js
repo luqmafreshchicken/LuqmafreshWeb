@@ -28,23 +28,7 @@ import {
   MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
-import { borderBottom } from "@mui/system";
-const user = [
-  {
-    name: "Gaurav",
-    email: "gauravjoshi@gmail.com",
-    mob: "9181146725",
-    dob: "13/03/2023",
-    loc: "Luckow",
-  },
-  {
-    name: "Gaurav",
-    email: "gauravjoshi@gmail.com",
-    mob: "9181146725",
-    dob: "13/03/2023",
-    loc: "Luckow",
-  },
-];
+import { FaEdit } from "react-icons/fa";
 
 const SelectDeliveryslot = () => {
   let navigate = useNavigate();
@@ -70,6 +54,7 @@ const SelectDeliveryslot = () => {
   const [btn, setBtn] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [incre, setIncre] = useState(1);
 
   useEffect(() => {
     setLoad(true);
@@ -148,6 +133,7 @@ const SelectDeliveryslot = () => {
   };
   const showcart = async () => {
     const userId = await getUserID();
+    console.log(userId, "gaurav user Id");
     const data = {
       userId: userId,
     };
@@ -177,7 +163,7 @@ const SelectDeliveryslot = () => {
 
   // remove cart
   const removeCartProduct = async (id) => {
-    setLoad(true)
+    setLoad(true);
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -195,8 +181,7 @@ const SelectDeliveryslot = () => {
           progress: undefined,
         });
         showcart();
-        setLoad(false)
-
+        setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -211,6 +196,17 @@ const SelectDeliveryslot = () => {
     });
   };
   // end remove cart
+
+  const handleIncre = () => {
+    setIncre(incre + 1);
+  };
+  const handleDecre = () => {
+    if (incre > 1) {
+      setIncre(incre - 1);
+    } else {
+      setIncre(1);
+    }
+  };
   return (
     <>
       <div className="mobile_selectdeliveryslot_container">
@@ -259,6 +255,7 @@ const SelectDeliveryslot = () => {
                       <th scope="col">Product</th>
                       <th scope="col">Price</th>
                       <th scope="col">Quantity</th>
+                      <th scope="col">Add to Cart</th>
                       <th scope="col" style={{ textAlign: "right" }}>
                         SubTotal
                       </th>
@@ -295,6 +292,20 @@ const SelectDeliveryslot = () => {
                               item?.productId?.unit}
                           </td>
                           <td>
+                            <div className="table_addtocart">
+                              <div className="table_dre" onClick={handleDecre}>
+                                -
+                              </div>
+                              <div className="table_count">{incre}</div>
+                              <div
+                                className="table_incre"
+                                onClick={handleIncre}
+                              >
+                                +
+                              </div>
+                            </div>
+                          </td>
+                          <td>
                             {countrycurrency}{" "}
                             {item?.productId?.quantity * item?.productId?.price}
                           </td>
@@ -306,19 +317,27 @@ const SelectDeliveryslot = () => {
                 <div className="stot_content_total">
                   <p>
                     {" "}
-                    Total : {countrycurrency} {cartPrice}
+                    <span>Total :</span> {countrycurrency} {cartPrice}
                   </p>
                 </div>
               </Card>
             </div>
-            
-            <div className="select_delivery_time" onClick={handleOpen1}>
-              <p>
-                {slotId != ""
-                  ? select
-                  : "Select Delivery time Slot"}
-              </p>
-            </div>
+
+            {slotId == false ? (
+              <div className="select_delivery_time" onClick={handleOpen1}>
+                <p>Select Delivery time Slot</p>
+              </div>
+            ) : (
+              <div className="primary_select_slots">
+                <div className="selectslots_delivery_time">
+                  <p>{select}</p>
+                </div>
+                <div className="select_slots_edit_para">
+                  <FaEdit className="slots_edit_icon" onClick={handleOpen1} />
+                </div>
+              </div>
+            )}
+
             <NavLink
               to="/payment"
               className="nav_list"
@@ -344,9 +363,17 @@ const SelectDeliveryslot = () => {
           aria-describedby="modal-modal-description"
         >
           <Box className="selectdeliveryslot_modal">
-            <div className="select_slot_shipment">
-              <h5>Select slot for Shipment 1 of 1</h5>
-            </div>
+            <img src="cross.png" onClick={handleClose1} />
+            {slotId == false ? (
+              <div className="select_slot_shipment">
+                <h5>Select slot for Shipment 1 of 1</h5>
+              </div>
+            ) : (
+              <div className="select_slot_shipment">
+                <h5>Edit Your Time Slot</h5>
+              </div>
+            )}
+
             <div className="selectdeliveryslot_day">
               <p>Today {daySlot}</p>
             </div>
@@ -361,24 +388,20 @@ const SelectDeliveryslot = () => {
                     setOpen1(false);
                   }}
                   style={{
-                    borderColor: slotId != "" ? "#ff0040" : "lightgray",
+                    backgroundColor: slotId != "" ? "" : "",
                   }}
                 >
-                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>
-                    {slots.time1}AM
-                  </p>
-                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>-</p>
-                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>
-                    {slots.time2}PM
+                  <p style={{ color: slotId != "" ? "" : "" }}>
+                    {slots.time1} AM - {slots.time2} PM
                   </p>
                 </div>
               ))}
             </div>
-            <div className="select_proceed">
+            {/* <div className="select_proceed">
               <div className="selectdeliveryslot_btn1" onClick={handleClose1}>
                 <p>Select & Proceed</p>
               </div>
-            </div>
+                </div>*/}
           </Box>
         </Modal>
         <Loader loading={load} />
