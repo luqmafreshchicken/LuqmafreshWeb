@@ -20,6 +20,7 @@ const ModalCart = ({
   totalAmount,
   modalcurrency,
   removeProduct = () => {},
+  handleCartLogin = () =>{}
 }) => {
   const [data, setData] = useState([]);
 
@@ -103,7 +104,7 @@ const ModalCart = ({
                         </p>
                         <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
                           {totalAmount}
-                        </p>
+                        </p>     
                       </div>
                       <div className="subbill_Detail">
                         <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
@@ -192,6 +193,8 @@ const ModalCart = ({
                     to log in and explore our premium categories, as well as add
                     items to your cart.
                   </p>
+                  <button onClick={handleCartLogin}>Login</button>
+
                 </div>
               </>
             ) : null}
