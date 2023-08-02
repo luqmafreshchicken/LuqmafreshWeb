@@ -27,6 +27,7 @@ import "swiper/css";
 import { Pagination, Autoplay } from "swiper";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
+import ImagesCard from "../imagescard/ImagesCard";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
@@ -42,7 +43,6 @@ export default function CardFullDetail({ id }) {
   const [mobileNumber, setMobileNumber] = useState("");
   const [btn, setBtn] = useState(false);
   const [otp, setOtp] = useState("");
-  const [whistlistOpen, setWhistlistOpen] = useState(false);
   const [hideOTP, setHideOTP] = useState(false);
   const [country, setCountry] = useState("");
   const [countrycurrency, setCountryCurrency] = useState("");
@@ -53,6 +53,8 @@ export default function CardFullDetail({ id }) {
   const [cartOpen, setCartOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
+  const [whistlistOpen, setWhistlistOpen] = useState(false);
+
 
   const increment = () => {
     setIncre(incre + 1);
@@ -65,7 +67,6 @@ export default function CardFullDetail({ id }) {
     }
   };
   React.useEffect(() => {
-    console.log(loginStatus, "==============================");
     window.scrollTo(0, 0);
     fullView();
     all_Image();
@@ -607,7 +608,7 @@ export default function CardFullDetail({ id }) {
                   <div
                     hidden={!show}
                     // onClick={() => AddToCart()}
-                    onclick={() =>
+                    onClick={() =>
                       // AddToCart(detail._id)
                       loginStatus == true
                         ? AddToCart()
@@ -634,6 +635,8 @@ export default function CardFullDetail({ id }) {
             </div>
           </div>
         </div>
+        <ImagesCard/>
+         
         <ToastContainer
           position="top-right"
           autoClose={5000}
