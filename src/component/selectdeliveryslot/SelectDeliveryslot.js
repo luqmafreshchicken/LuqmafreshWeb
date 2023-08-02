@@ -83,7 +83,7 @@ const SelectDeliveryslot = () => {
       );
       const month = myDate.toLocaleString("default", { month: "long" });
       const day = myDate.getDate();
-      setDaySlot(`${month} ${day}`);
+      setDaySlot(` ${day} ${month}`);
     }
     timeSlot();
     showcart();
@@ -177,6 +177,7 @@ const SelectDeliveryslot = () => {
 
   // remove cart
   const removeCartProduct = async (id) => {
+    setLoad(true)
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -194,6 +195,8 @@ const SelectDeliveryslot = () => {
           progress: undefined,
         });
         showcart();
+        setLoad(false)
+
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -267,13 +270,14 @@ const SelectDeliveryslot = () => {
                       <MDBTableBody key={item} className="stot_content">
                         <tr>
                           <td>
-                            <img src="cross.png" onClick={() => removeCartProduct(item?._id)} />
+                            <img
+                              src="cross.png"
+                              onClick={() => removeCartProduct(item?._id)}
+                            />
                           </td>
                           <td>
                             <div className="d-flex align-items-center">
-                              <img
-                                src={item?.productId?.image}
-                              />
+                              <img src={item?.productId?.image} />
                               <div className="ms-3">
                                 <p className="fw-bold mb-1">
                                   {item?.productId?.name}
@@ -281,22 +285,38 @@ const SelectDeliveryslot = () => {
                               </div>
                             </div>
                           </td>
-                          <td>{countrycurrency} {item?.productId?.price}</td>
-                          <td> {item?.productId?.quantity + " " + item?.productId?.unit}</td>
-                          <td>{countrycurrency} {(item?.productId?.quantity * item?.productId?.price)}</td>
+                          <td>
+                            {countrycurrency} {item?.productId?.price}
+                          </td>
+                          <td>
+                            {" "}
+                            {item?.productId?.quantity +
+                              " " +
+                              item?.productId?.unit}
+                          </td>
+                          <td>
+                            {countrycurrency}{" "}
+                            {item?.productId?.quantity * item?.productId?.price}
+                          </td>
                         </tr>
                       </MDBTableBody>
                     );
                   })}
                 </MDBTable>
+                <div className="stot_content_total">
+                  <p>
+                    {" "}
+                    Total : {countrycurrency} {cartPrice}
+                  </p>
+                </div>
               </Card>
             </div>
-
+            
             <div className="select_delivery_time" onClick={handleOpen1}>
               <p>
                 {slotId != ""
                   ? select
-                  : "Click to view your Delivery time Slot"}
+                  : "Select Delivery time Slot"}
               </p>
             </div>
             <NavLink
@@ -328,7 +348,7 @@ const SelectDeliveryslot = () => {
               <h5>Select slot for Shipment 1 of 1</h5>
             </div>
             <div className="selectdeliveryslot_day">
-              <p>Today({daySlot})</p>
+              <p>Today {daySlot}</p>
             </div>
 
             <div className="selectdeliveryslot_timer">
@@ -341,14 +361,14 @@ const SelectDeliveryslot = () => {
                     setOpen1(false);
                   }}
                   style={{
-                    borderColor: slotId != "" ? "#C42118" : "lightgray",
+                    borderColor: slotId != "" ? "#ff0040" : "lightgray",
                   }}
                 >
-                  <p style={{ color: slotId != "" ? "#C42118" : "black" }}>
+                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>
                     {slots.time1}AM
                   </p>
-                  <p style={{ color: slotId != "" ? "#C42118" : "black" }}>-</p>
-                  <p style={{ color: slotId != "" ? "#C42118" : "black" }}>
+                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>-</p>
+                  <p style={{ color: slotId != "" ? "#ff0040" : "black" }}>
                     {slots.time2}PM
                   </p>
                 </div>
