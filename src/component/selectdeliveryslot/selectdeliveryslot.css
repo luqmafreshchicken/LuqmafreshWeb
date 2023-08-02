@@ -74,6 +74,53 @@
   font-size: 1rem;
   font-family: regular;
 }
+.table_addtocart{
+  /* background-color: aqua; */
+  width: 87%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+.table_dre,.table_incre{
+  width: 30px;
+  /* background-color: #ff0040; */
+  height: 5vh;
+  display: block;
+  display: grid;
+  place-items: center;
+  padding-top: 0.1rem;
+  cursor: pointer;
+  transition: 0.3s linear;
+  font-family: regular;
+  font-weight: 600;
+
+
+}
+.table_incre:hover{
+   color: white;
+   background-color: #ff0040;
+   transform: scale(0.2s);
+}
+.table_dre:hover{
+  color: white;
+  background-color: #ff0040;
+  transform: scale(0.2s);
+}
+.table_count{
+  /* background-color: yellowgreen; */
+  width: 40px;
+  height: 5vh;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  display: grid;
+  place-items: center;
+  padding-top: 0.1rem;
+  cursor: pointer;
+  font-family: regular;
+
+
+}
 .stot_content_total{
   float: right;
 }
@@ -81,12 +128,20 @@
   font-size: 1.1rem;
   font-family: regular;
 }
+.stot_content_total p span{
+  font-family: regular;
+  font-weight: 600;
+}
+.primary_select_slots{
+  display: flex;
+  gap: 1rem;
+}
 
 .select_delivery_time {
   height: 7vh;
   width: 30%;
   border: 1px solid #ff0040;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-top: 0.8rem;
   cursor: pointer;
   /* margin-top: 2rem; */
@@ -104,6 +159,26 @@
   color: #ff0040;
   font-family: regular;
   font-weight: 600;
+}
+.selectslots_delivery_time{
+  height: 7vh;
+  width: 30%;
+  background-color: lightgray;
+  border-radius: 10px;
+  padding-top: 0.9rem;
+}
+.selectslots_delivery_time p{
+  text-align: center;
+  color: white;
+  font-family: regular;
+  font-weight: 600;
+}
+.slots_edit_icon {
+  margin-top: 1rem;
+  height: 20px;
+  width: 20px;
+  color: #ff0040;
+  cursor: pointer;
 }
 .select_product_detail {
   height: auto;
@@ -153,7 +228,7 @@
   height: 10vh;
   /* padding-left: 30px; */
   width: 100%;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 .selectdeliveryslot_btn_proceed {
   width: 30%;
@@ -194,7 +269,7 @@
   height: auto;
   display: flex;
   gap: 20px;
-  padding: 0rem 0rem 0rem 2rem ;
+  padding: 0rem 0rem 2rem 2rem ;
 
 }
 .selectdeliveryslot_time_slot {
@@ -203,15 +278,26 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #ff0040;
+  cursor: pointer;
+  transition: 0.2s linear;
 }
+.selectdeliveryslot_time_slot:hover{
+  background-color: #ff0040;
+  transform: scale(0.2s);
+  color: white;
+}
+
 .selectdeliveryslot_time_slot p {
   font-family: light;
   font-weight: 600;
   font-size: 14px;
   color: #ff0040;
   padding-top: 18px;
+}
+.selectdeliveryslot_time_slot p:hover{
+  color: white;
 }
 .select_proceed {
   height: auto;
@@ -233,10 +319,23 @@
 
 .selectdeliveryslot_btn1 p {
   font-family: regular;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 1rem;
   color: white;
   padding-top: 15px;
-  font-family: 600;
+}
+
+.selectdeliveryslot_modal img{
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  height: 25px;
+  width: 25px;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+.selectdeliveryslot_modal img:hover{
+  transform: rotateZ(90deg);
 }
 
 /* Mobile devices (320px - 480px) */
