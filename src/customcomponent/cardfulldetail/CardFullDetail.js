@@ -55,7 +55,6 @@ export default function CardFullDetail({ id }) {
   const [store, setStore] = useState(false);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
 
-
   const increment = () => {
     setIncre(incre + 1);
   };
@@ -489,6 +488,11 @@ export default function CardFullDetail({ id }) {
   };
   // end remove cart
 
+  const handleCartLogin = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
+  
   return (
     <>
       <div className="fullview_search_mobile">
@@ -518,6 +522,7 @@ export default function CardFullDetail({ id }) {
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
           removeProduct={(id) => removeCartProduct(id)}
+          handleCartLogin={() => handleCartLogin()}
         />
       </div>
       <div className="cardetail_container" state={{ productId: id }}>
@@ -635,8 +640,8 @@ export default function CardFullDetail({ id }) {
             </div>
           </div>
         </div>
-        <ImagesCard/>
-         
+        <ImagesCard />
+
         <ToastContainer
           position="top-right"
           autoClose={5000}
