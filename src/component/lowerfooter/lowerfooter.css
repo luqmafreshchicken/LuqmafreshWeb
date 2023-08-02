@@ -12,12 +12,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1rem;
 }
 .lowerfooter p {
   font-family: light;
-  text-align: center;
-  font-size: 1rem;
+  font-size: 0.7rem;
+
+}
+.lower1{
+  width: 67%;
+  padding-top: 1rem;
+}
+.lower2{
+  width: 33%;
+  padding-top: 1rem;
 
 }
 
