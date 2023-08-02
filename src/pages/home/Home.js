@@ -15,6 +15,7 @@ import {
   productCategorie,
   productDeatail,
   removeFromCart,
+  resendOTP,
   whistUserIDproductId,
 } from "../../serverRequest/Index";
 import TopSeverWeek from "../../component/topseverweek/TopSeverWeek";
@@ -170,6 +171,7 @@ const Home = () => {
             if (res?.data?.status) {
               localStorage.removeItem("cart");
             }
+            showcart()
           });
         }
       }
@@ -302,10 +304,11 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // setLoad(true);
+    setLoad(true);
     async function getData(res) {
       const newData = await productCategorie();
       setData1(newData.data);
+      setLoad(false);
     }
     getData();
   }, []);
@@ -325,6 +328,7 @@ const Home = () => {
   }, []);
 
   const AddToCart = async (id) => {
+    console.log('kwbdkiwbgdkbekjbgfkihvkefviefv')
     setLoad(true);
     const UserId = await getUserID();
     const data = {
@@ -332,6 +336,7 @@ const Home = () => {
       productId: id,
       quantity: "1",
     };
+
     const res = await Add_to_cart(data);
     if (res.status == true) {
       toast.success(res.message, {
@@ -363,8 +368,10 @@ const Home = () => {
 
   useEffect(() => {
     async function getData() {
+      setLoad(true);
       const newData = await topSeverweek();
       setData2(newData.data);
+      setLoad(false);
     }
     getData();
   }, []);
@@ -374,8 +381,10 @@ const Home = () => {
   // bestSeller api
   useEffect(() => {
     async function getData() {
+      setLoad(true);
       const newData = await bestSeller();
       setData3(newData.data);
+      setLoad(false);
     }
     window.scrollTo(0, 0);
     getData();
@@ -385,8 +394,10 @@ const Home = () => {
   // todeal deals Api
   useEffect(() => {
     async function today() {
+      setLoad(true);
       const newData = await todayDeals();
       setToday(newData.data);
+      setLoad(false);
     }
     today();
   }, []);
@@ -552,6 +563,8 @@ const Home = () => {
   const swiperNavNextRef = useRef(null);
 
   const showcart = async () => {
+    setLoad(true);
+
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -560,6 +573,7 @@ const Home = () => {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
+      setLoad(false);
     } else {
       setCartProduct([]);
       setCartPrice("");
@@ -598,6 +612,7 @@ const Home = () => {
   };
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
+
   const handleclear = async (index) => {
     if (index == 4) {
       await localStorage.clear();
@@ -607,7 +622,7 @@ const Home = () => {
   };
 
   const removeCartProduct = async (id) => {
-        setLoad(true)
+    setLoad(true);
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -625,7 +640,7 @@ const Home = () => {
           progress: undefined,
         });
         showcart();
-        setLoad(false)
+        setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -638,6 +653,62 @@ const Home = () => {
         });
       }
     });
+  };
+
+  const handleResendOTP = () => {
+    // email validation
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    setLoad(true);
+    const requestData = { email: mobileNumber };
+    resendOTP(requestData).then((res) => {
+      if (res.status === true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      }
+    });
+  };
+
+  const handleCartLogin = () => {
+    setCartOpen(false);
+    setOpen(true);
   };
 
   return (
@@ -668,6 +739,8 @@ const Home = () => {
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
         removeProduct={(id) => removeCartProduct(id)}
+        handleResendOTP={() => handleResendOTP()}
+        handleCartLogin={() => handleCartLogin()}
       />
       <BannerCard />
       {/*<Twobanner />*/}
@@ -840,6 +913,22 @@ const Home = () => {
             price={product.price}
             ogp={product.originalPrice}
             discount={product.discount}
+            // onclick1={() => AddToCart(product?._id)}
+            handleViewCart={()=>console.log("===============keghfiuehrfuige================")
+              // AddToCart(detail._id)
+              // // loginStatus == true
+              // //   ? AddToCart(product._id)
+              // //   : AddLocalCart(
+              // //       product._id,
+              // //       product.name,
+              // //       product.price,
+              // //       product.originalPrice,
+              // //       product.discount,
+              // //       product.quantity,
+              // //       product.unit,
+              // //       product.image
+              //     )
+            }
           />
         </div>
       </div>
@@ -896,40 +985,81 @@ const Home = () => {
                 <>
                   {data2.map((detail, index) => (
                     <SwiperSlide>
-                      <Card
-                        currency={countrycurrency}
-                        offer={detail.discount}
-                        productName={detail.name}
-                        weight={detail.quantity}
-                        unit={detail.unit}
-                        total={detail.price}
-                        cutotal={detail.originalPrice}
-                        offer1={detail.discount}
-                        today={moment(detail.discountExpiryDate).format("dddd")}
-                        date={detail.deliveryTime}
-                        totalpayment={detail.price}
-                        to="/carddetail"
-                        onclick={() =>
-                          // AddToCart(detail._id)
-                          loginStatus == true
-                            ? AddToCart(detail._id)
-                            : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
-                        }
-                        id={{ id: detail._id }}
-                        rating={detail.rating}
-                        img={detail.image}
-                        onclick1={() => fullView(detail._id)}
-                        onclick2={() => setWhistlistOpen(true)}
-                      />
+                      {loginStatus == false ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                        />
+                      )}
                     </SwiperSlide>
                   ))}
                 </>
@@ -1097,40 +1227,81 @@ const Home = () => {
                 <>
                   {data3.map((detail, index) => (
                     <SwiperSlide>
-                      <Card
-                        currency={countrycurrency}
-                        offer={detail.discount}
-                        productName={detail.name}
-                        weight={detail.quantity}
-                        unit={detail.unit}
-                        total={detail.price}
-                        cutotal={detail.originalPrice}
-                        offer1={detail.discount}
-                        today={moment(detail.discountExpiryDate).format("dddd")}
-                        date={detail.deliveryTime}
-                        totalpayment={detail.price}
-                        to="/carddetail"
-                        onclick={() =>
-                          // AddToCart(detail._id)
-                          loginStatus == true
-                            ? AddToCart(detail._id)
-                            : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
-                        }
-                        id={{ id: detail._id }}
-                        rating={detail.rating}
-                        img={detail.image}
-                        onclick1={() => fullView(detail._id)}
-                        onclick2={() => setWhistlistOpen(true)}
-                      />
+                      {loginStatus == false ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                        />
+                      )}
                     </SwiperSlide>
                   ))}
                 </>
