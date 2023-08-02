@@ -57,6 +57,13 @@ export const loginRegister = async (requestData) => {
   );
   return response.data;
 };
+export const resendOTP = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}resendOtp`,
+    requestData
+  );
+  return response.data;
+};
 
 export const otpVerify = async (requestData) => {
   const response = await axios.post(`${API_BASE_URL}verifyOtp`, requestData);
