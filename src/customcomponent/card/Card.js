@@ -6,7 +6,7 @@ import SearchModal from "../searchmodal/SearchModal";
 import WhistList from "../whistlist/WhistList";
 import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
 import { RWebShare } from "react-web-share";
-
+import Tooltip from "@material-ui/core/Tooltip";
 
 const Card = ({
   currency,
@@ -20,7 +20,7 @@ const Card = ({
   today,
   date,
   totalpayment,
-  onclick,
+  onclick = () =>{},
   id,
   to,
   rating,
@@ -63,8 +63,10 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <FaSearch className="fa_search" onClick={onclick1} />
-        <FaHeart className="fa_search" onClick={onclick2} />
+        <Tooltip title="Quick View">
+          <FaSearch className="fa_search" onClick={onclick1} />
+        </Tooltip>
+        <FaHeart className="fa_search" onClick={onclick2}/>
         <RWebShare
           data={{
             text: "Luqmafresh",
@@ -108,15 +110,16 @@ const Card = ({
       <div className="time_singlecard">
         <p>{date}</p>
       </div>
-      <div onClick={onclick} className="total_singlecard">
-        {!showData && <button onClick={handleShow}>ADD</button>}
+      <div className="total_singlecard">
+        {!showData && <button onClick={()=>{handleShow(); onclick()}}>ADD</button>}
         {showData && (
-          <div className="incre_decre_btn" onClick={onclick}>
+          <div className="incre_decre_btn" onClick={()=>onclick()}>
             <p onClick={() => handleDre()}>-</p>
             <p>{incre}</p>
             <p onClick={() => handleIncre()}>+</p>
           </div>
         )}
+
 
         <div className="ammount_singlecard">
           <p>
