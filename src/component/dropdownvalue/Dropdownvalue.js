@@ -1,7 +1,7 @@
 const Options = [
     {
         routeName: "Account",
-        route: "account"
+        // route: "account"
     },
     {
         routeName: "My Rewards",
