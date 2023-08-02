@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Offer.css";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -7,12 +7,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css/navigation";
-import Font from "../../utils/Font";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
 
 const Offer = () => {
   const [open, setOpen] = useState(false);
   const [coupon, setCoupon] = useState([]);
   // const [couponModal, setCouponModal] = useState([]);
+
+  const swiperNavPrevRef1 = useRef(null);
+  const swiperNavNextRef1 = useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,8 +36,17 @@ const Offer = () => {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={10}
           slidesPerView={1}
-          navigation
           className="mySwiper"
+          navigation={{
+            prevEl: "swiperNavPrevRef1.current",
+            nextEl: "swiperNavNextRef1.current",
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = swiperNavPrevRef1.current;
+            swiper.params.navigation.nextEl = swiperNavNextRef1.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
         >
           {coupon.map((data) => (
             <SwiperSlide className="coupon_container">
@@ -96,9 +109,16 @@ const Offer = () => {
             <div className="discription_01">
               <p> {modal.description5}.</p>
             </div>
+      
           </Box>
         </Modal>
       ))}
+      <div className="swiperNavPrev1" ref={swiperNavPrevRef1}>
+      <FaArrowLeft className="FaArrowLeftoffer" />
+      </div>
+      <div className="swiperNavNext1" ref={swiperNavNextRef1}>
+      <FaArrowRight className="FaArrowRightoffer" />
+      </div>
     </div>
   );
 };
