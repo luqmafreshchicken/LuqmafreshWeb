@@ -18,7 +18,8 @@ export default function CustomTodayCard({
   rating,
   id,
   to,
-  onclick,
+  onclick = () =>{},
+
 }) {
   const [incre, setIncre] = useState(1);
   const [showData, setShowData] = useState(false);
@@ -80,9 +81,9 @@ export default function CustomTodayCard({
         <p>{date}</p>
       </div>
       <div className="total_singlecard">
-        {!showData && <button onClick={handleShow}>ADD</button>}
+        {!showData && <button onClick={()=>{handleShow(); onclick()}}>ADD</button>}
         {showData && (
-          <div className="incre_decre_btn" onClick={onclick}>
+          <div className="incre_decre_btn" onClick={()=>onclick()}>
             <p onClick={() => decrement()}>-</p>
             <p>{incre}</p>
             <p onClick={() => increment()}>+</p>
