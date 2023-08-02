@@ -39,6 +39,8 @@ const Header = ({
   modalcurrency,
   handleclear = () => {},
   removeProduct = () => {},
+  handleResendOTP = () => {},
+  handleCartLogin = () =>{}
 }) => {
   // let navigate = useNavigate();
 
@@ -251,7 +253,7 @@ const Header = ({
                                       listStyle: "none",
                                       fontSize: "0.7rem",
                                     }}
-                                    to={option.route}
+                                    to="/account"
                                   >
                                     {option.routeName}
                                   </NavLink>
@@ -300,6 +302,7 @@ const Header = ({
         totalAmount={totalAmount}
         modalcurrency={modalcurrency}
         removeProduct={removeProduct}
+        handleCartLogin={handleCartLogin}
       />
 
       <Modal
@@ -332,7 +335,7 @@ const Header = ({
                       onChange={handleMobileNumber}
                       type="email"
                     />
-                    <p>Edit</p>
+                   
                   </div>
                 </div>
               )}
@@ -345,7 +348,7 @@ const Header = ({
                       onChange={sethandleOtp}
                       // value={otp}
                     />
-                    <p>Resend OTP</p>
+                    <p onClick={handleResendOTP}>Resend OTP</p>
                   </div>
 
                   <div className="email_verify">
