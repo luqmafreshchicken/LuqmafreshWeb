@@ -193,7 +193,7 @@ const ModalCart = ({
                     to log in and explore our premium categories, as well as add
                     items to your cart.
                   </p>
-                  <button onClick={handleCartLogin}>Login</button>
+                  <button onClick={handleCartLogin}>Continue Shopping</button>
 
                 </div>
               </>
