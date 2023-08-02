@@ -403,7 +403,7 @@ const Header = ({
               </div> */}
             </div>
           </div>
-          <div className="crossbtn">
+          <div className="crossbtn" onClick={handleClose}>
             <img src="crossbtn.png" />
           </div>
         </Box>
