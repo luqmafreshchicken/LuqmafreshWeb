@@ -607,6 +607,7 @@ const Home = () => {
   };
 
   const removeCartProduct = async (id) => {
+        setLoad(true)
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -624,6 +625,7 @@ const Home = () => {
           progress: undefined,
         });
         showcart();
+        setLoad(false)
       } else {
         toast.error(res.message, {
           position: "top-right",
