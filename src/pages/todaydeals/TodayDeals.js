@@ -96,7 +96,6 @@ const TodayDeals = () => {
     const requestData = {
       categoryId: categoryId,
     };
-    console.log(requestData, "=============1234567============");
 
     productbyCategorie(requestData).then((res) => {
       if (res.status == true) {
@@ -108,6 +107,7 @@ const TodayDeals = () => {
     });
   };
   const handleCart = async (id) => {
+    setLoad(true);
     const UserId = await getUserID();
     const data = {
       userId: UserId,
@@ -127,6 +127,8 @@ const TodayDeals = () => {
         draggable: true,
         progress: undefined,
       });
+      showcart();
+      setLoad(false);
     } else {
       toast.error(res.message, {
         position: "top-right",
@@ -137,6 +139,7 @@ const TodayDeals = () => {
         draggable: true,
         progress: undefined,
       });
+      setLoad(false);
     }
   };
   {
@@ -311,68 +314,67 @@ const TodayDeals = () => {
       window.location.reload();
     }
   };
-    // remove cart
-    const removeCartProduct = async (id) => {
-      const userId = await getUserID();
-      const data = {
-        userId: userId,
-        productId: id,
-      };
-      removeFromCart(data).then((res) => {
-        if (res.status == true) {
-          toast.success(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          showcart();
-        } else {
-          toast.error(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-      });
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
     };
-    // end remove cart
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
   return (
     <>
       <Header
-      code={countrytitle}
-      currency={countrycurrency}
-      flag={flag}
-      cartPrice={cartPrice}
-      cartProductlength={cartProduct}
-      curr={countrycurrency}
-      cartopen={cartOpen}
-      carthandleClose={carthandleClose}
-      carthandleOpen={carthandleOpen}
-      loginStatus={loginStatus}
-      handleOpen={() => setOpen(true)}
-      handleClose={() => setOpen(false)}
-      open={open}
-      showbtn={btn}
-      handleLogin={() => handleLogin()}
-      handleOTP={() => handleOTP()}
-      mobileNumber={mobileNumber}
-      handleMobileNumber={(e) => handleMobileNumber(e)}
-      sethandleOtp={(e) => sethandleOtp(e)}
-      otp={otp}
-      totalAmount={cartPrice}
-      store={store}
-      handleclear={(index) => handleclear(index)}
-      removeProduct={(id) => removeCartProduct(id)}
-      modalcurrency={countrycurrency}
-
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        cartProductlength={cartProduct}
+        curr={countrycurrency}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        loginStatus={loginStatus}
+        handleOpen={() => setOpen(true)}
+        handleClose={() => setOpen(false)}
+        open={open}
+        showbtn={btn}
+        handleLogin={() => handleLogin()}
+        handleOTP={() => handleOTP()}
+        mobileNumber={mobileNumber}
+        handleMobileNumber={(e) => handleMobileNumber(e)}
+        sethandleOtp={(e) => sethandleOtp(e)}
+        otp={otp}
+        totalAmount={cartPrice}
+        store={store}
+        handleclear={(index) => handleclear(index)}
+        removeProduct={(id) => removeCartProduct(id)}
+        modalcurrency={countrycurrency}
       />
       <div>
         {subcategorie.length >= 1 ? (
