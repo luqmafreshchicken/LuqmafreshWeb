@@ -3,20 +3,30 @@ import "./viewdetail.css";
 import Header from "../../header/Header";
 import { useLocation } from "react-router-dom";
 import {
+  CountryDetail,
+  GetCountry,
   cancleOrder,
   getOrderById,
   getUserID,
 } from "../../../serverRequest/Index";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { useNavigate } from "react-router-dom";
 
 const ViewDetail = () => {
+  let navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [order, setOrder] = useState([]);
   const [address, setaddress] = useState([]);
   const [orderId, setorderId] = useState("");
   const [cancle, setCancle] = useState([]);
-
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
   const [open, setOpen] = useState(false);
   const [gender, setGender] = useState("");
 
@@ -26,10 +36,11 @@ const ViewDetail = () => {
   useEffect(() => {
     orderDetails();
   }, []);
-  const orderDetails = async () => {
+  const orderDetails = async (id) => {
     const requestData = {
-      id: location.state.orderId,
+      id: location?.state?.orderId,
     };
+
     getOrderById(requestData).then((res) => {
       if (res.status == true) {
         setData(res?.data?.orders[0]?.productId);
@@ -67,10 +78,90 @@ const ViewDetail = () => {
       }
     });
   };
+
+  const handleCartLogin = () => {
+    setCartOpen(false);
+  };
+
+  const handleHome = () =>{
+    setCartOpen(false)
+    setOpen(true)
+  }
+
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
+
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    // localContent();
+    // showcart();
+  }, []);
   return (
     <>
       <div className="view_detail_header">
-        <Header />
+        <Header
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        // cartProductlength={cartProduct}
+        curr={countrycurrency}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        // loginStatus={loginStatus}
+        // handleOpen={() => setOpen(true)}
+        // handleClose={() => setOpen(false)}
+        // open={open}
+        // showbtn={btn}
+        // handleLogin={() => handleLogin()}
+        // handleOTP={() => handleOTP()}
+        // mobileNumber={mobileNumber}
+        // handleMobileNumber={(e) => handleMobileNumber(e)}
+        // sethandleOtp={(e) => sethandleOtp(e)}
+        // otp={otp}
+        totalAmount={cartPrice}
+        // store={store}
+        // modalcurrency={countrycurrency}
+        handleclear={(index) => handleclear(index)}
+        // removeProduct={(id) => removeCartProduct(id)}
+        // handleResendOTP={() => handleResendOTP()}
+        handleCartLogin={() => handleCartLogin()}
+        handleHome ={() => handleHome()}
+        />
       </div>
       <div className="order_view_detail">
         <div className="order_view_detail_container">
