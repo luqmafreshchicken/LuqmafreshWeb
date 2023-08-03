@@ -30,7 +30,7 @@ const TopHeader = () => {
             </p>
           </div>
           <div className="halal_image">
-          <img src="halal.jpg" />
+          <img src="halal.png" />
         </div>
         </div>
         
