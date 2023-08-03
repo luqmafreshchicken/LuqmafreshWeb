@@ -2,17 +2,23 @@ import React, { useEffect, useState, useRef } from "react";
 import "./Offer.css";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { getAllCoupon } from "../../serverRequest/Index";
+import { CountryDetail, GetCountry, getAllCoupon } from "../../serverRequest/Index";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css/navigation";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import * as moment from "moment";
+
 
 
 const Offer = () => {
   const [open, setOpen] = useState(false);
   const [coupon, setCoupon] = useState([]);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
   // const [couponModal, setCouponModal] = useState([]);
 
   const swiperNavPrevRef1 = useRef(null);
@@ -29,6 +35,36 @@ const Offer = () => {
     getData();
   }, []);
 
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    
+  }, []);
   return (
     <div className="main_offer">
       <div className="submain_offer">
@@ -52,8 +88,9 @@ const Offer = () => {
             <SwiperSlide className="coupon_container">
               <h1>
                 {data.discount}% CASHBACK
+                
                 <span>
-                  Above ₹{data.applyAmount} | NEW 50 {data.couponCode}{" "}
+                  Above {countrycurrency }{data.applyAmount} | NEW 50 {data.couponCode}{" "}
                 </span>
               </h1>
               <span onClick={handleOpen}>
@@ -71,12 +108,13 @@ const Offer = () => {
           aria-describedby="modal-modal-description"
         >
           <Box className="new_more_modal">
+          <img src="cross.png" onClick={handleClose}/>
             <div className="coupon_code">
               <h6>{modal.couponCode}</h6>
             </div>
             <div className="coupon_apply_amount">
               <p>
-                Apply Amount <span>₹{modal.applyAmount}</span>
+                Apply Amount <span>{countrycurrency} {modal.applyAmount}</span>
               </p>
             </div>
             <div className="coupon_apply_amount">
