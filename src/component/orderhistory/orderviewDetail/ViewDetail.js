@@ -12,6 +12,9 @@ import {
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../loder/Loader";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ViewDetail = () => {
   let navigate = useNavigate();
@@ -29,6 +32,8 @@ const ViewDetail = () => {
   const [flag, setFlag] = useState("");
   const [open, setOpen] = useState(false);
   const [gender, setGender] = useState("");
+  const [load, setLoad] = useState(false);
+  const [cancelStatus, setCancelStatus] = useState("");
 
   let location = useLocation();
   const id = location.state.orderId;
@@ -37,18 +42,22 @@ const ViewDetail = () => {
     orderDetails();
   }, []);
   const orderDetails = async (id) => {
+    setLoad(true);
     const requestData = {
       id: location?.state?.orderId,
     };
-
     getOrderById(requestData).then((res) => {
+      console.log(res?.data?.orders[0], "============================");
       if (res.status == true) {
+        setCancelStatus(res?.data?.orders[0]?.orderStatus);
         setData(res?.data?.orders[0]?.productId);
         setOrder(res?.data?.orders[0]);
         // console.log(res?.data?.orders[0].subtotal);
         setaddress(res?.data?.address[0]);
         setorderId(res?.data?.orders[0]?.orderId);
+        setLoad(false);
       } else {
+        setLoad(false);
       }
     });
   };
@@ -62,19 +71,43 @@ const ViewDetail = () => {
 
   const calculateTotalBill = () => {
     const subtotal = order.subtotal;
-    const deliveryCharge = order.subtotal > 199 ? 0 : 40;
-    return subtotal + deliveryCharge;
+    const vat = (order.subtotal * 5) / 100
+    return subtotal + vat;
   };
   const handleCancle = async () => {
+    setLoad(true);
     const id = await getUserID();
     const requestData = {
       userId: id,
-      id: location.state.orderId,
+      orderId: location.state.orderId,
+      remark: gender,
     };
     cancleOrder(requestData).then((res) => {
       if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         setCancle(res.data);
+        setLoad(false);
+        setOpen(false);
+        orderDetails();
       } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
       }
     });
   };
@@ -83,10 +116,10 @@ const ViewDetail = () => {
     setCartOpen(false);
   };
 
-  const handleHome = () =>{
-    setCartOpen(false)
-    setOpen(true)
-  }
+  const handleHome = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
 
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
@@ -133,34 +166,34 @@ const ViewDetail = () => {
     <>
       <div className="view_detail_header">
         <Header
-        code={countrytitle}
-        currency={countrycurrency}
-        flag={flag}
-        cartPrice={cartPrice}
-        // cartProductlength={cartProduct}
-        curr={countrycurrency}
-        cartopen={cartOpen}
-        carthandleClose={carthandleClose}
-        carthandleOpen={carthandleOpen}
-        // loginStatus={loginStatus}
-        // handleOpen={() => setOpen(true)}
-        // handleClose={() => setOpen(false)}
-        // open={open}
-        // showbtn={btn}
-        // handleLogin={() => handleLogin()}
-        // handleOTP={() => handleOTP()}
-        // mobileNumber={mobileNumber}
-        // handleMobileNumber={(e) => handleMobileNumber(e)}
-        // sethandleOtp={(e) => sethandleOtp(e)}
-        // otp={otp}
-        totalAmount={cartPrice}
-        // store={store}
-        // modalcurrency={countrycurrency}
-        handleclear={(index) => handleclear(index)}
-        // removeProduct={(id) => removeCartProduct(id)}
-        // handleResendOTP={() => handleResendOTP()}
-        handleCartLogin={() => handleCartLogin()}
-        handleHome ={() => handleHome()}
+          code={countrytitle}
+          currency={countrycurrency}
+          flag={flag}
+          cartPrice={cartPrice}
+          // cartProductlength={cartProduct}
+          curr={countrycurrency}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          carthandleOpen={carthandleOpen}
+          // loginStatus={loginStatus}
+          // handleOpen={() => setOpen(true)}
+          // handleClose={() => setOpen(false)}
+          // open={open}
+          // showbtn={btn}
+          // handleLogin={() => handleLogin()}
+          // handleOTP={() => handleOTP()}
+          // mobileNumber={mobileNumber}
+          // handleMobileNumber={(e) => handleMobileNumber(e)}
+          // sethandleOtp={(e) => sethandleOtp(e)}
+          // otp={otp}
+          totalAmount={cartPrice}
+          // store={store}
+          // modalcurrency={countrycurrency}
+          handleclear={(index) => handleclear(index)}
+          // removeProduct={(id) => removeCartProduct(id)}
+          // handleResendOTP={() => handleResendOTP()}
+          handleCartLogin={() => handleCartLogin()}
+          handleHome={() => handleHome()}
         />
       </div>
       <div className="order_view_detail">
@@ -181,24 +214,20 @@ const ViewDetail = () => {
 
           {/* end order location */}
           {/* order_cancelled */}
-          <div className="order_cancelled">
-            <div className="order_cancelled_container">
-              <div className="order_cancelled_img_text">
-                <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
-                <p>
-                  Your order was successfully cancelled! We would love to see
-                  you back
-                </p>
+          {cancelStatus === "cancelled" ? (
+            <div className="order_cancelled">
+              <div className="order_cancelled_container">
+                <div className="order_cancelled_img_text">
+                  <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
+                  <p>
+                    Your order was successfully cancelled! We would love to see
+                    you back
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
 
-          {/* end order_cancelled */}
-          {/* items order */}
-          <div className="items_ordered">
-            <p>Order cancelled on May 19, 01:22 PM</p>
-          </div>
-          {/* end items order */}
           {/* shipmenet cancle */}
           <div className="shipmenet_cancle">
             <div className="shipmenet_cancle_address">
@@ -236,31 +265,42 @@ const ViewDetail = () => {
               <h5>Bill Details</h5>
               <div className="bill_detail_price">
                 <p>Subtotal</p>
-                <p>₹{order.subtotal}</p>
+                <p>
+                  {countrycurrency} {order.subtotal}
+                </p>
               </div>
               <div className="bill_detail_price">
-                <p>Delivery charge</p>
-                <p>₹{order.subtotal > 199 ? 0 : 40}</p>
+                <p>Vat</p>
+                <p>
+                  {countrycurrency} {(order.subtotal * 5) / 100}
+                </p>
               </div>
               <div className="bill_detail_total">
                 <p>Total</p>
-                <p>₹{calculateTotalBill()}</p>
+                <p>
+                  {countrycurrency} {calculateTotalBill()}
+                </p>
               </div>
             </div>
           </div>
           {/* end bill detail */}
 
           {/* btn */}
-          <div className="bill_detail_container">
-            <div className="bill_detail_button">
-              <div className="bill_detail_button1">
-                <p>Rating</p>
+          {cancelStatus != "cancelled" ? (
+            <>
+              <div className="bill_detail_container">
+                <div className="bill_detail_button">
+                  <div className="bill_detail_button1">
+                    Rating
+                  </div>
+                  <div className="bill_detail_button2" onClick={handleOpen}>
+                    Order cancelled
+                  </div>
+                </div>
               </div>
-              <div className="bill_detail_button2" onClick={handleOpen}>
-                <p>Order cancelled</p>
-              </div>
-            </div>
-          </div>
+            </>
+          ) : null}
+
           {/* end btn */}
         </div>
       </div>
@@ -341,18 +381,6 @@ const ViewDetail = () => {
                 </div>
                 <p>Item/items from order are no longer in stock</p>
               </div>
-
-              <div className="select_cancle_option">
-                <div className="select_input_radio">
-                  <input
-                    type="radio"
-                    checked={gender === "Other (please specify)"}
-                    value="Other (please specify)"
-                    onChange={handleGender}
-                  />
-                </div>
-                <p>Other (please specify)</p>
-              </div>
             </div>
             {/* **************** */}
             <div className="conform_order_content">
@@ -360,11 +388,11 @@ const ViewDetail = () => {
 
               <div className="conform_order_button">
                 <div className="do_not_cancle">
-                  <p>DO NOT CANCEL</p>
+                  DO NOT CANCEL
                 </div>
 
                 <div className="do_not_cancle1" onClick={() => handleCancle()}>
-                  <p>CANCEL ORDER</p>
+                  CANCEL ORDER
                 </div>
               </div>
               {/* **************** */}
@@ -372,6 +400,7 @@ const ViewDetail = () => {
             {/* **************** */}
           </Box>
         </Modal>
+        <Loader loading={load} />
       </div>
     </>
   );
