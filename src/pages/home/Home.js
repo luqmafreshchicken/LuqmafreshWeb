@@ -80,7 +80,7 @@ const Home = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
-  
+
 
   const handlewhistlistClose = () => {
     setWhistlistOpen(false);
@@ -92,6 +92,7 @@ const Home = () => {
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
+    // localStorage.clear();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -132,14 +133,14 @@ const Home = () => {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      setCartProduct(cart);
+      setCartProduct(cart ? cart : []);
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
-      setCartPrice(cartPrice?.price);
+      setCartPrice(cart.length > 0 ? cartPrice?.price : 0);
       localStorage.setItem(
         "cartPrice",
-        JSON.stringify({ price: cartPrice?.price })
+        JSON.stringify({ price: cart.length > 0 ? cartPrice?.price : 0 })
       );
       setLoginStatus(false);
       if (items1) {
@@ -149,6 +150,40 @@ const Home = () => {
         setLoginStatus(false);
       }
     }
+  };
+
+  // Remove local cart data throught id 
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart.length >= 1 && (
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      )
+    )
+    cart.length < 1 && (
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: 0 })
+      )
+    )
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
   };
 
   // local cart data after login add in cart
@@ -232,13 +267,36 @@ const Home = () => {
     } else {
       const existItem = cart.find((x) => x._id === id);
       if (existItem) {
-        // const newCart = cart.map((x) =>
-        //   x._id === id ? { ...existItem, quantity: existItem.quantity + quantity } : x
-        // );
-        // console.log(newCart, "==================update count product")
-        // // localContent();
-        // localStorage.setItem("cart", JSON.stringify(newCart));
-        toast.success("Product already in cart", {
+        // update quantity in cart local storage 
+        const newCart = cart.map((x) =>
+          x._id === id
+            ? {
+              _id: id,
+              productId: {
+                _id: id,
+                quantity: x?.productId?.quantity + 1,
+                name: name,
+                price: price,
+                originalPrice: originalPrice,
+              },
+            }
+            : x
+        );
+        localStorage.setItem("cart", JSON.stringify(newCart));
+
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        console.log(total, "==================update count product")
+        localStorage.setItem(
+          "cartPrice",
+          JSON.stringify({ price: total })
+        );
+        setCartPrice(total);
+        toast.success("Product quantity update in cart", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -292,31 +350,6 @@ const Home = () => {
         localContent();
       }
     }
-  };
-
-  // Remove local cart data throught id 
-  const removeLocalCart = (id) => {
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    const cartData = cart?.filter((item) => item?.productId?._id !== id);
-    const product = cart?.find((item) => item?.productId?._id === id);
-    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-    localStorage.setItem(
-      "cartPrice",
-      JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
-    );
-    localStorage.setItem("cart", JSON.stringify(cartData));
-    setCartProduct(removeProduct);
-    setCartPrice(cartPrice?.price - product?.productId?.price);
-    toast.success("Product remove from cart", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-    });
   };
 
   const localContent1 = () => {
@@ -736,7 +769,7 @@ const Home = () => {
     setCartOpen(false);
   };
 
-  const handleHome = () =>{
+  const handleHome = () => {
     setCartOpen(false)
     setOpen(true)
   }
@@ -768,10 +801,11 @@ const Home = () => {
         store={store}
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
+        // removeProduct={(id) => removeCartProduct(id)} removeLocalCart
         removeProduct={(id) => loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)}
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
-        handleHome ={() => handleHome()}
+        handleHome={() => handleHome()}
       />
       <BannerCard />
       {/*<Twobanner />*/}
@@ -852,15 +886,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -889,15 +923,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -945,7 +979,7 @@ const Home = () => {
             ogp={product.originalPrice}
             discount={product.discount}
             // onclick1={() => AddToCart(product?._id)}
-            handleViewCart={()=>console.log("===============keghfiuehrfuige================")
+            handleViewCart={() => console.log("===============keghfiuehrfuige================")
               // AddToCart(detail._id)
               // // loginStatus == true
               // //   ? AddToCart(product._id)
@@ -1037,15 +1071,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1074,15 +1108,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1279,15 +1313,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1316,15 +1350,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                  detail._id,
-                                  detail.name,
-                                  detail.price,
-                                  detail.originalPrice,
-                                  detail.discount,
-                                  detail.quantity,
-                                  detail.unit,
-                                  detail.image
-                                )
+                                detail._id,
+                                detail.name,
+                                detail.price,
+                                detail.originalPrice,
+                                detail.discount,
+                                detail.quantity,
+                                detail.unit,
+                                detail.image
+                              )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
