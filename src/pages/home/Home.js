@@ -80,6 +80,7 @@ const Home = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
+  
 
   const handlewhistlistClose = () => {
     setWhistlistOpen(false);
@@ -708,8 +709,12 @@ const Home = () => {
 
   const handleCartLogin = () => {
     setCartOpen(false);
-    setOpen(true);
   };
+
+  const handleHome = () =>{
+    setCartOpen(false)
+    setOpen(true)
+  }
 
   return (
     <>
@@ -741,6 +746,7 @@ const Home = () => {
         removeProduct={(id) => removeCartProduct(id)}
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
+        handleHome ={() => handleHome()}
       />
       <BannerCard />
       {/*<Twobanner />*/}
