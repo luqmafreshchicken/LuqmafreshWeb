@@ -254,7 +254,7 @@ const SelectDeliveryslot = () => {
                       </th>
                       <th scope="col">Product</th>
                       <th scope="col">Price</th>
-                      <th scope="col">Quantity</th>
+                      <th scope="col">Items</th>
                       <th scope="col">Add to Cart</th>
                       <th scope="col" style={{ textAlign: "right" }}>
                         SubTotal
@@ -279,18 +279,14 @@ const SelectDeliveryslot = () => {
                                 <p className="fw-bold mb-1">
                                   {item?.productId?.name}
                                 </p>
+                                <p>{item?.productId?.quantity} {item?.productId?.unit} </p>
                               </div>
                             </div>
                           </td>
                           <td>
                             {countrycurrency} {item?.productId?.price}
                           </td>
-                          <td>
-                            {" "}
-                            {item?.productId?.quantity +
-                              " " +
-                              item?.productId?.unit}
-                          </td>
+                          <td> {item?.quantity}</td>
                           <td>
                             <div className="table_addtocart">
                               <div className="table_dre" onClick={handleDecre}>
@@ -307,7 +303,7 @@ const SelectDeliveryslot = () => {
                           </td>
                           <td>
                             {countrycurrency}{" "}
-                            {item?.productId?.quantity * item?.productId?.price}
+                            {item?.quantity * item?.productId?.price}
                           </td>
                         </tr>
                       </MDBTableBody>
