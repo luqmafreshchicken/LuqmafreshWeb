@@ -137,10 +137,10 @@ const Home = () => {
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
-      setCartPrice(cart.length > 0 ? cartPrice?.price : 0);
+      setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
       localStorage.setItem(
         "cartPrice",
-        JSON.stringify({ price: cart.length > 0 ? cartPrice?.price : 0 })
+        JSON.stringify({ price: cart?.length > 0 ? cartPrice?.price : 0 })
       );
       setLoginStatus(false);
       if (items1) {
@@ -159,13 +159,13 @@ const Home = () => {
     const cartData = cart?.filter((item) => item?.productId?._id !== id);
     const product = cart?.find((item) => item?.productId?._id === id);
     const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-    cart.length >= 1 && (
+    cart?.length >= 1 && (
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
       )
     )
-    cart.length < 1 && (
+    cart?.length < 1 && (
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: 0 })
@@ -520,7 +520,7 @@ const Home = () => {
 
   const handleMobileNumber = (e) => {
     setMobileNumber(e.target.value);
-    if (e.target.value.length <= 40) {
+    if (e?.target?.value?.length <= 40) {
       setBtn(false);
     } else {
       setBtn(true);
@@ -860,7 +860,7 @@ const Home = () => {
               }}
               modules={[Navigation, Parallax]}
             >
-              {data.length >= 1 ? (
+              {data?.length >= 1 ? (
                 <>
                   {data.map((detail, index) => (
                     <SwiperSlide>
@@ -1046,7 +1046,7 @@ const Home = () => {
               }}
               modules={[Navigation, Parallax]}
             >
-              {data.length >= 1 ? (
+              {data?.length >= 1 ? (
                 <>
                   {data2.map((detail, index) => (
                     <SwiperSlide>
@@ -1288,7 +1288,7 @@ const Home = () => {
               }}
               modules={[Navigation, Parallax]}
             >
-              {data.length >= 1 ? (
+              {data?.length >= 1 ? (
                 <>
                   {data3.map((detail, index) => (
                     <SwiperSlide>
