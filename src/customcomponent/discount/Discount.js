@@ -24,7 +24,7 @@ const Discount = ({
             borderRadius: br,
           }}
           className="main_discount2"
-          onClick={onclick}
+          // onClick={onclick}
         >
           <div className="upto_text_center">
             <h1>
