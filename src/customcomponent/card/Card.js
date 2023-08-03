@@ -20,13 +20,14 @@ const Card = ({
   today,
   date,
   totalpayment,
-  onclick = () =>{},
+  onclick = () => {},
   id,
   to,
   rating,
   img,
   onclick1 = () => {},
   onclick2 = () => {},
+  quantity,
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -66,7 +67,7 @@ const Card = ({
         <Tooltip title="Quick View">
           <FaSearch className="fa_search" onClick={onclick1} />
         </Tooltip>
-        <FaHeart className="fa_search" onClick={onclick2}/>
+        <FaHeart className="fa_search" onClick={onclick2} />
         <RWebShare
           data={{
             text: "Luqmafresh",
@@ -111,25 +112,33 @@ const Card = ({
         <p>{date}</p>
       </div>
       <div className="total_singlecard">
-        {!showData && <button onClick={()=>{handleShow(); onclick()}}>ADD</button>}
+        {!showData && (
+          <button
+            onClick={() => {
+              handleShow();
+              onclick();
+            }}
+          >
+            ADD
+          </button>
+        )}
         {showData && (
-          <div className="incre_decre_btn" onClick={()=>onclick()}>
+          <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => handleDre()}>-</p>
             <p>{incre}</p>
             <p onClick={() => handleIncre()}>+</p>
           </div>
         )}
 
-
-        <div className="ammount_singlecard">
+        {/* <div className="ammount_singlecard">
           <p>
             Total{" "}
             <span>
               {currency}
-              {totalpayment}
+              {totalpayment * quantity}
             </span>
           </p>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
