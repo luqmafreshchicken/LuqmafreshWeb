@@ -16,10 +16,7 @@ const TopHeader = () => {
         {/* left side */}
         <div className="topheader_location">
           <div className="top_location">
-            <img
-            // https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png
-              src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png"
-            />
+            <img src="pin.png" />
             <p>
               <span>Our Shop Location</span>
               <br /> Lawnz Block 3, Al Warsan First, UAE
@@ -33,7 +30,7 @@ const TopHeader = () => {
             </p>
           </div>
           <div className="halal_image">
-          <img src="halal.png" />
+          <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png" />
         </div>
         </div>
         
