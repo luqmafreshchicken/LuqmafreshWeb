@@ -47,8 +47,10 @@ const SearchProduct = () => {
 
   useEffect(() => {
     async function getData() {
+      setLoad(true);
       const newData = await productCategorie();
       setData(newData.data);
+      setLoad(false);
     }
     window.scrollTo(0, 0);
     getData();
@@ -56,6 +58,8 @@ const SearchProduct = () => {
 
   // search api
   const handleSearch = async (e) => {
+    setLoad(true);
+
     setSearchItem(e);
     if (e.length >= 3) {
       const requestData = { search: e };
@@ -63,7 +67,10 @@ const SearchProduct = () => {
         if (res.status == true) {
           setData1(res.data);
           setShow(true);
+          setLoad(false);
         } else {
+          setLoad(false);
+
           setShow(false);
         }
       });
