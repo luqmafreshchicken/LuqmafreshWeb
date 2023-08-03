@@ -49,6 +49,8 @@
   height: 26vh;
   width: 100%;
   cursor: pointer;
+  filter: brightness(100%);
+  transition: 0.5s ease;
 }
 .discount_image {
   display: flex;
@@ -56,6 +58,10 @@
   align-items: center;
   position: relative;
   bottom: 28%;
+}
+.discount_image img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0%);
 }
 
 /* Mobile devices (320px - 480px) */
