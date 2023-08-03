@@ -6,7 +6,7 @@ import SearchModal from "../searchmodal/SearchModal";
 import WhistList from "../whistlist/WhistList";
 import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
 import { RWebShare } from "react-web-share";
-import Tooltip from "@material-ui/core/Tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const Card = ({
   currency,
@@ -64,10 +64,16 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <Tooltip title="Quick View">
-          <FaSearch className="fa_search" onClick={onclick1} />
-        </Tooltip>
-        <FaHeart className="fa_search" onClick={onclick2} />
+        <FaSearch
+          className="fa_search"
+          onClick={onclick1}
+          data-tooltip-id="my-tooltip-1"
+        />
+        <FaHeart
+          className="fa_search"
+          onClick={onclick2}
+          data-tooltip-id="my-tooltip-2"
+        />
         <RWebShare
           data={{
             text: "Luqmafresh",
@@ -75,8 +81,19 @@ const Card = ({
             title: "Luqmafresh",
           }}
         >
-          <FaShareSquare className="fa_search" onClick={onclick2} />
+          <FaShareSquare
+            className="fa_search"
+            onClick={onclick2}
+            data-tooltip-id="my-tooltip-3"
+          />
         </RWebShare>
+        <ReactTooltip id="my-tooltip-1" place="bottom" content="Quick View" />
+        <ReactTooltip
+          id="my-tooltip-2"
+          place="bottom"
+          content="Add Whistlist"
+        />
+        <ReactTooltip id="my-tooltip-3" place="bottom" content="Share Link" />
       </div>
       <div className="rating">
         <Rating
