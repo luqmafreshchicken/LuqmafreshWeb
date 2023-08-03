@@ -294,6 +294,31 @@ const Home = () => {
     }
   };
 
+  // Remove local cart data throught id 
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    localStorage.setItem(
+      "cartPrice",
+      JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+    );
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(cartPrice?.price - product?.productId?.price);
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const localContent1 = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     if (items) {
@@ -743,7 +768,7 @@ const Home = () => {
         store={store}
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
-        removeProduct={(id) => removeCartProduct(id)}
+        removeProduct={(id) => loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)}
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
         handleHome ={() => handleHome()}
