@@ -47,8 +47,11 @@ export const CountryDetail = async (Cname) => {
 
 export const getUserID = async () => {
   const items = JSON.parse(localStorage.getItem("userDetail"));
+console.log(items,"8i3t6r832yriuh2fohwogy98y4893498")
+
   return items._id;
 };
+
 
 export const loginRegister = async (requestData) => {
   const response = await axios.post(
@@ -374,3 +377,14 @@ export const deleteVistList = async (requestData) => {
   );
   return response.data;
 };
+
+// /* cancle order API */
+export const increaseQuantity = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}product/UpdateCartQuantity`,
+    requestData
+  );
+  return response.data;
+};
+
+
