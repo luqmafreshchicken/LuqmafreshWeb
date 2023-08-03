@@ -98,6 +98,7 @@ const TodayDeals = () => {
     };
 
     productbyCategorie(requestData).then((res) => {
+
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
@@ -403,9 +404,9 @@ const TodayDeals = () => {
                   total={item?.price}
                   cutotal={item?.originalPrice}
                   offer1={item?.discount}
-                  today={moment(item.discountExpiryDate).format("dddd")}
+                  today={moment(item?.discountExpiryDate).format("dddd")}
                   date={item?.deliveryTime}
-                  totalpayment={item.price}
+                  totalpayment={item?.price}
                   img={item?.image}
                   rating={item?.rating}
                   id={{ id: item._id }}
