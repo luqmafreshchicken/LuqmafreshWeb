@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./cardfulldetail.css";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   productDeatail,
   Add_to_cart,
@@ -13,6 +13,7 @@ import {
   CountryDetail,
   GetCountry,
   removeFromCart,
+  newArrival,
 } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,11 +29,18 @@ import { Pagination, Autoplay } from "swiper";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 import ImagesCard from "../imagescard/ImagesCard";
+import Text from "../../component/text/Text";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import * as moment from "moment";
+import { Navigation, Parallax } from "swiper";
+import Card from "../card/Card";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
 
   let location = useLocation();
+  const [data, setData] = useState([]);
+
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
@@ -54,7 +62,21 @@ export default function CardFullDetail({ id }) {
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
+  const handleSearchClose = () => setSearchOpen(false);
+
+  useEffect(() => {
+    async function getData(res) {
+      const newData = await newArrival();
+      setData(newData.data);
+    }
+    window.scrollTo(0, 0);
+    getData();
+  }, []);
+
+  const swiperNavPrevRef = useRef(null);
+  const swiperNavNextRef = useRef(null);
   const increment = () => {
     setIncre(incre + 1);
   };
@@ -492,7 +514,7 @@ export default function CardFullDetail({ id }) {
     setCartOpen(false);
     setOpen(true);
   };
-  
+
   return (
     <>
       <div className="fullview_search_mobile">
@@ -641,20 +663,21 @@ export default function CardFullDetail({ id }) {
           </div>
         </div>
         <ImagesCard />
-
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <Loader loading={load} />
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+      <Loader loading={load} />
     </>
   );
 }
