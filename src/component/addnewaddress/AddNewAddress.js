@@ -71,7 +71,7 @@ const AddNewAddress = ({ id }) => {
           draggable: true,
           progress: undefined,
         });
-        getAllAddress()
+        getAllAddress();
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -252,14 +252,13 @@ const AddNewAddress = ({ id }) => {
                         />
                         <p>Select</p>
                       </div>
-                      <NavLink
+                      {/*<NavLink
                         to={"/editaddress"}
                         state={{ id: add?._id }}
                         className="nav_list"
                       >
-                        {" "}
                         <p onClick={() => setAddressId(add._id)}>Edit</p>
-                      </NavLink>
+                        </NavLink>*/}
                       <p onClick={() => handleDelete(add._id)}>Delete</p>
                     </div>
                   </div>
