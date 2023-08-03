@@ -18,8 +18,7 @@ export default function CustomTodayCard({
   rating,
   id,
   to,
-  onclick = () =>{},
-
+  onclick = () => {},
 }) {
   const [incre, setIncre] = useState(1);
   const [showData, setShowData] = useState(false);
@@ -40,18 +39,18 @@ export default function CustomTodayCard({
   }
   return (
     <div className="singlecard_container">
-      <NavLink to={to} state={{ id: id }} className="nav_list">
-        <div className="image_singlecard_detail">
+      <div className="image_singlecard_detail">
+        <NavLink to={to} state={{ id: id }} className="nav_list">
           <img src={img} />
-        </div>
-      </NavLink>
+        </NavLink>
+      </div>
       <div className="offer_singlecard">
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-      <FaSearch className="fa_search"  />
-      <FaHeart className="fa_search"/>
-      <FaShareSquare className="fa_search"/>
+        <FaSearch className="fa_search" />
+        <FaHeart className="fa_search" />
+        <FaShareSquare className="fa_search" />
       </div>
       <div className="rating">
         <Rating
@@ -81,19 +80,28 @@ export default function CustomTodayCard({
         <p>{date}</p>
       </div>
       <div className="total_singlecard">
-        {!showData && <button onClick={()=>{handleShow(); onclick()}}>ADD</button>}
+        {!showData && (
+          <button
+            onClick={() => {
+              handleShow();
+              onclick();
+            }}
+          >
+            ADD
+          </button>
+        )}
         {showData && (
-          <div className="incre_decre_btn" onClick={()=>onclick()}>
+          <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => decrement()}>-</p>
             <p>{incre}</p>
             <p onClick={() => increment()}>+</p>
           </div>
         )}
-        <div className="ammount_singlecard">
+       {/* <div className="ammount_singlecard">
           <p>
             Total <span>₹{totalpayment}</span>
           </p>
-        </div>
+        </div>*/}
       </div>
     </div>
   );
