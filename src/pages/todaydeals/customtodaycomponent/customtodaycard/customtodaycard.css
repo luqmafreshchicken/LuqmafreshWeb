@@ -1,14 +1,14 @@
-.customtodaycard {
-  width: 90%;
-}
+
 .singlecard_container {
-  width: 100%;
+  width: auto;
   height: auto;
+  height: 75vh;
 }
 
 .customtodaycard1 {
-  margin-left: 10%;
+  /* margin-left: 10%; */
   color: black;
+  /* background-color: aqua; */
 }
 
 .image_singlecard_detail{
