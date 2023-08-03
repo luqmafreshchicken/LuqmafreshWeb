@@ -46,7 +46,7 @@ const ModalCart = ({
             {loginStatus == true ? (
               <>
                 {cartProduct?.length >= 1 ? (
-                  <d className="modalcart_scroll_bar_container">
+                  <div className="modalcart_scroll_bar_container">
                     <div className="order_summary">
                       <p>Your Order List</p>
                     </div>
