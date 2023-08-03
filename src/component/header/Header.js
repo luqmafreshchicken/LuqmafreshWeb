@@ -40,7 +40,8 @@ const Header = ({
   handleclear = () => {},
   removeProduct = () => {},
   handleResendOTP = () => {},
-  handleCartLogin = () =>{}
+  handleCartLogin = () =>{},
+  handleHome = () =>{}
 }) => {
   // let navigate = useNavigate();
 
@@ -303,6 +304,7 @@ const Header = ({
         modalcurrency={modalcurrency}
         removeProduct={removeProduct}
         handleCartLogin={handleCartLogin}
+        handleHome = {handleHome}
       />
 
       <Modal
