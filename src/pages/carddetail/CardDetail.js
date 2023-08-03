@@ -28,7 +28,7 @@ import Loader from "../../component/loder/Loader";
 import SearchModal from "../../customcomponent/searchmodal/SearchModal";
 import WhistList from "../../customcomponent/whistlist/WhistList";
 
-const CardDetail = () => {
+const CardDetail = ({id}) => {
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
@@ -41,11 +41,11 @@ const CardDetail = () => {
   const [whistList, setWhistList] = useState([]);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
-  const [showInput, setShowInput] = useState(false);
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [btn, setBtn] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [hideOTP, setHideOTP] = useState(false);
+  // const [showInput, setShowInput] = useState(false);
+  // const [mobileNumber, setMobileNumber] = useState("");
+  // const [btn, setBtn] = useState(false);
+  // const [otp, setOtp] = useState("");
+  // const [hideOTP, setHideOTP] = useState(false);
 
   useEffect(() => {
     async function getData(res) {
@@ -154,12 +154,6 @@ const CardDetail = () => {
     } else {
       const existItem = cart.find((x) => x._id === id);
       if (existItem) {
-        // const newCart = cart.map((x) =>
-        //   x._id === id ? { ...existItem, quantity: existItem.quantity + quantity } : x
-        // );
-        // console.log(newCart, "==================update count product")
-        // // localContent();
-        // localStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product already in cart", {
           position: "top-right",
           autoClose: 5000,
@@ -169,15 +163,7 @@ const CardDetail = () => {
           draggable: true,
           progress: undefined,
         });
-        // let total = 0;
-        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
-        // updatedCart?.map((item) => {
-        //   total = total + item?.productId?.price * item?.quantity;
-        // });
-        // console.log(total, "==================update count product")
-        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
-        // console.log(total, "==================update count product")
-        // setCartPrice(total);
+     
 
         localContent();
       } else {
@@ -324,7 +310,7 @@ const CardDetail = () => {
   return (
     <div>
       <CardFullDetail />
-      <div>
+      {/*<div>
         <div className="next_prev_btn_container">
           <div className="next_prev_btn">
             <div className="head_box">
@@ -343,7 +329,7 @@ const CardDetail = () => {
             </div>
           </div>
         </div>
-        <div className="carouselitem">
+        <d className="carouselitem">
           <div className="cardswrapper">
             <Swiper
               slidesPerView={1}
@@ -390,7 +376,7 @@ const CardDetail = () => {
                         today={moment(detail.discountExpiryDate).format("dddd")}
                         date={detail.deliveryTime}
                         totalpayment={detail.price}
-                        to="/youmaylike"
+                        // to="/youmaylike"
                         onclick={() =>
                           // AddToCart(detail._id)
                           loginStatus == true
@@ -437,8 +423,8 @@ const CardDetail = () => {
             />
           </div>
           <Loader loading={load} />
-        </div>
-      </div>
+        </d>
+       </div>*/}
     </div>
   );
 };
