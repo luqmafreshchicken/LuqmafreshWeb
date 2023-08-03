@@ -27,6 +27,7 @@ import Credit from "./paymentcomponent/credit/Credit";
 import NetBanking from "./paymentcomponent/netbanking/NetBanking";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const Payment = () => {
   let navigate = useNavigate();
@@ -124,10 +125,6 @@ const Payment = () => {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
-      console.log(
-        res.data.totalAmount,
-        "==============================================="
-      );
     } else {
       setCartProduct([]);
       setCartPrice("");
@@ -153,20 +150,22 @@ const Payment = () => {
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
-          setLoad(false);
           handlePayment(res.data.data);
+          setLoad(false);
         } else {
+          Swal.fire("Your Order Confirm Successfully", "", "success");
           setLoad(false);
           navigate("/account");
         }
       } else {
+        Swal.fire("Something went Wrong", "", "error");
+
         console.log("Error in create order");
       }
     });
   };
   const handlePayment = async (params) => {
     // const order = await createOrder(params); //  Create order on your backend
-
     const options = {
       key: "rzp_test_tOH1E84QsR3LSK",
       amount: params.amount,
