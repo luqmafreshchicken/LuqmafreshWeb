@@ -163,7 +163,7 @@ const ModalCart = ({
                         </div>
                       </div>
                     ) : null}
-                  </d>
+                  </div>
                 ) : (
                   <>
                     <div className="mobile_cart_nologin">
