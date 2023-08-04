@@ -3,7 +3,7 @@
   top: 50%;
   left: 87%;
   transform: translate(-50%, -50%);
-  width: 26%;
+  width: 28%;
   height: 100%;
   box-shadow: 24;
   background-color: white;
@@ -19,13 +19,17 @@
     margin-left: 20px;
     height: 20px;
     width: 20px;
+    transition: 0.3s linear;
+}
+.apply_coupon img:hover{
+  transform: rotateZ(90deg);
 }
 .apply_coupon h5 {
-  font-family: semibold;
-  font-weight: 600;
+  font-family: regular;
   text-align: center;
-  padding-top: 20px;
-  padding-left: 50px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  font-size: 1.4rem;
 }
 /* end apply coupon heading */
 
@@ -35,60 +39,30 @@
   display: grid;
   place-items: center;
 }
-.coupon_apply_here {
-  background-color: #f8f8f8;
-  height: 7vh;
-  width: 90%;
-  border-radius: 10px;
-  border: 1px solid gray;
-  display: flex;
-  justify-content: space-between;
-}
-.coupon_apply_here input {
-  height: 5vh;
-  width: 80%;
-  margin-left: 15px;
-  margin-top: 7px;
-  border: none;
-  outline: none;
-  background-color: #f8f8f8;
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-}
-.coupon_apply_here p {
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  color: #c42118;
-  font-weight: 600;
-  padding-right: 20px;
-  padding-top: 15px;
-  opacity: 0.4;
-}
 /* end coupon_apply_here */
 
 /* avialable_coupon */
 .avialable_coupon {
   padding-left: 20px;
-  padding-top: 25px;
+  padding-top: 1rem;
 }
 .avialable_coupon h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: regular;
   font-weight: 600;
 }
 /* end avialable_coupon */
 
 /* coupon_container_box */
 .coupon_container_box {
-  /* background-color: #C42118; */
   height: auto;
   display: grid;
   place-items: center;
   margin-top: 20px;
+  padding-right: 1rem;
 }
 .coupon_content_box {
-  /* background-color: aqua; */
   height: auto;
-  width: 90%;
+  width: 92%;
   border-radius: 20px;
   border: 1px solid #e7e7e7;
 }
@@ -104,7 +78,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 25%;
+  width: 28%;
   height: 5vh;
   margin-left: 20px;
   border-radius: 5px;
@@ -118,10 +92,11 @@
 .coupon_apply_text p {
   font-family: regular;
   font-size: 13px;
-  color: #c42118;
+  color: #ff0040;
   font-weight: 600;
   padding-right: 20px;
   padding-top: 20px;
+  cursor: pointer;
 }
 
 .coupon_cashback {
