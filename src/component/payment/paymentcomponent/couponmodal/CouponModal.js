@@ -3,11 +3,23 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Scrollbars } from "react-custom-scrollbars";
 import "./couponmodal.css";
-import { getAllCoupon } from "../../../../serverRequest/Index";
+import {
+  Show_Cart,
+  applyCoupon,
+  getAllCoupon,
+  getUserID,
+} from "../../../../serverRequest/Index";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 
-export default function CouponModal({ open, handleClose }) {
+export default function CouponModal({
+  open,
+  handleClose,
+  handleApplyCoupon = () => {},
+}) {
   const [showText, setShowText] = React.useState(false);
-  const [coupon, setCoupon] = React.useState([]);
+  const [coupon, setCoupon] = useState([])
 
   React.useEffect(() => {
     async function getData() {
@@ -20,6 +32,7 @@ export default function CouponModal({ open, handleClose }) {
   const handleShow = () => {
     setShowText(!showText);
   };
+
   return (
     <div>
       <Modal
@@ -31,7 +44,6 @@ export default function CouponModal({ open, handleClose }) {
         <Box className="coupon_modal">
           {/* apply coupon heading */}
           <div className="apply_coupon">
-
             <h5>Apply Coupon</h5>
           </div>
           {/* end apply coupon heading */}
@@ -57,13 +69,12 @@ export default function CouponModal({ open, handleClose }) {
 
                     {/* coupon_apply_text */}
                     <div className="coupon_apply_text">
-                      <p>Apply</p>
+                      <p onClick={() => handleApplyCoupon(list)}>Apply</p>
                     </div>
                     {/* end coupon_apply_text */}
                   </div>
                   {/* ************************ */}
                   {/* coupon_cashback */}
-
                   <div className="coupon_cashback">
                     <p>{list.description1}</p>
                   </div>
@@ -73,7 +84,6 @@ export default function CouponModal({ open, handleClose }) {
                     <p>{list.description2}</p>
                   </div>
                   {/* end coupon_orders */}
-
                   {/* term & condition */}
                   <div hidden={!showText}>
                     <div className="term_condition_heading">
@@ -92,13 +102,11 @@ export default function CouponModal({ open, handleClose }) {
                     </div>
                   </div>
                   {/* end term & condition */}
-
                   {showText == false ? (
                     <div className="view_details_button">
                       <p onClick={handleShow}>View Details</p>
                     </div>
                   ) : null}
-
                   {showText == true ? (
                     <div className="view_details_button">
                       <p onClick={handleShow}>Hide Details</p>
@@ -108,9 +116,9 @@ export default function CouponModal({ open, handleClose }) {
               </div>
             ))}
           </Scrollbars>
-          <div className="crossbtn" onClick={handleClose} >
-          <img src="crossbtn.png" />
-        </div>
+          <div className="crossbtn" onClick={handleClose}>
+            <img src="crossbtn.png" />
+          </div>
         </Box>
       </Modal>
     </div>
