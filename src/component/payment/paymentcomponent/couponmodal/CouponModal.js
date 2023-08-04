@@ -31,25 +31,14 @@ export default function CouponModal({ open, handleClose }) {
         <Box className="coupon_modal">
           {/* apply coupon heading */}
           <div className="apply_coupon">
-          <img src="close.png" onClick={handleClose}/>
 
             <h5>Apply Coupon</h5>
           </div>
           {/* end apply coupon heading */}
-
-          {/* coupon_apply_here */}
-          <div className="coupon_box">
-            <div className="coupon_apply_here">
-              <input placeholder="have a coupon code?. apply here" />
-              <p>Apply</p>
-            </div>
-          </div>
-          {/* end coupon_apply_here */}
-
           {/* avialable_coupon */}
 
           <div className="avialable_coupon">
-            <h6>Available coupons (2)</h6>
+            <h6> {coupon.length} coupons</h6>
           </div>
           {/* end avialable_coupon */}
 
@@ -119,6 +108,9 @@ export default function CouponModal({ open, handleClose }) {
               </div>
             ))}
           </Scrollbars>
+          <div className="crossbtn" onClick={handleClose} >
+          <img src="crossbtn.png" />
+        </div>
         </Box>
       </Modal>
     </div>
