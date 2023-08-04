@@ -3,28 +3,33 @@
   height: 16vh;
   display: flex;
   border-bottom: 1px solid #d5d5d7;
+  gap: 0.6rem;
 }
 .searchproduct_img {
-  width: 20%;
-  height: 12vh;
+  width: 50%;
+  height: 13vh;
 }
 .searchproduct_img img {
   width: 100%;
-  height: 12vh;
+  height: 13vh;
   border-radius: 10px;
 }
 
 .searchproduct_content {
-  width: 80%;
+  width: 70%;
   height: 12vh;
 }
 .searchproduct_weight_qty {
   height: 8vh;
+  width: 340px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .searchproduct_weight_qty p {
-  font-family: "Poppins", sans-serif;
-  color: grey;
-  line-height: 1.2;
+  font-family: medium;
+  color: black;
+  line-height: 1;
   padding-left: 10px;
 }
 .searchproduct_name_price {
@@ -35,12 +40,13 @@
 }
 .searchproduct_name_price p {
   padding-left: 10px;
+  padding-top: 1rem;
   color: grey;
-  font-family: "Poppins", sans-serif;
+  font-family: light
 }
 .productnameprice {
   width: 60%;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 .productnameprice{
   gap: 1rem;
@@ -56,20 +62,21 @@
 .add_to_cart {
   width: 60%;
   height: 5vh;
-  border: 1px solid #c42118;
+  border: 1px solid #ff0040;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ text-align: center;
   padding-top: 6px;
   float: right;
+  font-family: medium;
+  color: #ff0040;
+  transition: 0.3s linear;
 }
-.add_to_cart p {
-  font-size: 10px;
-  color: #c42118;
-  padding-top: 11px;
-  padding-right: 7px;
+.add_to_cart:hover{
+  transform: scale(0.2s);
+  background-color: #ff0040;
+  color: white;
 }
+
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
