@@ -387,4 +387,12 @@ export const increaseQuantity = async (requestData) => {
   return response.data;
 };
 
+// /* cancle order API */
+export const applyCoupon = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}coupon/applyCoupon`,
+    requestData
+  );
+  return response.data;
+};
 
