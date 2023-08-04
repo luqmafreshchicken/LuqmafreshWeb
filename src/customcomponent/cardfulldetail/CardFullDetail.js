@@ -14,6 +14,7 @@ import {
   GetCountry,
   removeFromCart,
   newArrival,
+  resendOTP,
 } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -350,7 +351,8 @@ export default function CardFullDetail({ id }) {
   };
 
   // local add to cart
-  const AddLocalCart = async (
+   // local add to cart
+   const AddLocalCart = async (
     id,
     name,
     price,
@@ -394,13 +396,36 @@ export default function CardFullDetail({ id }) {
     } else {
       const existItem = cart.find((x) => x._id === id);
       if (existItem) {
-        // const newCart = cart.map((x) =>
-        //   x._id === id ? { ...existItem, quantity: existItem.quantity + quantity } : x
-        // );
-        // console.log(newCart, "==================update count product")
-        // // localContent();
-        // localStorage.setItem("cart", JSON.stringify(newCart));
-        toast.success("Product already in cart", {
+        // update quantity in cart local storage 
+        const newCart = cart.map((x) =>
+          x._id === id
+            ? {
+              _id: id,
+              productId: {
+                _id: id,
+                quantity: x?.productId?.quantity + 1,
+                name: name,
+                price: price,
+                originalPrice: originalPrice,
+              },
+            }
+            : x
+        );
+        localStorage.setItem("cart", JSON.stringify(newCart));
+
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        console.log(total, "==================update count product")
+        localStorage.setItem(
+          "cartPrice",
+          JSON.stringify({ price: total })
+        );
+        setCartPrice(total);
+        toast.success("Product quantity update in cart", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -475,6 +500,38 @@ export default function CardFullDetail({ id }) {
       window.location.reload();
     }
   };
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart?.length >= 1 && (
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      )
+    )
+    cart?.length < 1 && (
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: 0 })
+      )
+    )
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
+  };
 
   // remove cart
   const removeCartProduct = async (id) => {
@@ -510,6 +567,56 @@ export default function CardFullDetail({ id }) {
   };
   // end remove cart
 
+  const handleResendOTP = () => {
+    // email validation
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    setLoad(true);
+    const requestData = { email: mobileNumber };
+    resendOTP(requestData).then((res) => {
+      if (res.status === true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      }
+    });
+  };
   const handleCartLogin = () => {
     setCartOpen(false);
     setOpen(true);
@@ -543,8 +650,13 @@ export default function CardFullDetail({ id }) {
           store={store}
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
-          removeProduct={(id) => removeCartProduct(id)}
+          // removeProduct={(id) => removeCartProduct(id)}
+          removeProduct={(id) =>
+            loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+          }
           handleCartLogin={() => handleCartLogin()}
+        handleResendOTP={() => handleResendOTP()}
+
         />
       </div>
       <div className="cardetail_container" state={{ productId: id }}>
