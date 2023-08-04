@@ -183,56 +183,120 @@ const SelectDeliveryslot = () => {
     });
   };
   // end remove cart
-  const handleIncre = async (id) => {
+  const handleIncre = async (id, quantity) => {
     setLoad(true);
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-      productId: id,
-      quantity: incre,
+    let qty = quantity + 1;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      cartProductId: id,
+      quantity: qty,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
     };
 
-    // increaseQuantity(data).then((res) => {
-    //   console.log(res.data, "----------------------");
-
-    //   if (res.status == true) {
-    //     toast.success(res.message, {
-    //       position: "top-right",
-    //       autoClose: 5000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //     });
-    //     // setIncre()
-    //     showcart();
-    //     setLoad(false);
-    //   } else {
-    //     toast.error(res.message, {
-    //       position: "top-right",
-    //       autoClose: 5000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,
-    //       progress: undefined,
-    //     });
-    //     setLoad(false);
-    //   }
-    // });
+    fetch(
+      "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          // setIncre()
+          showcart();
+          setLoad(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
+      })
+      .catch((error) => console.log("error", error));
   };
   // end remove cart
 
   // const handleIncre = () => {
   //   setIncre(incre + 1);
   // };
-  const handleDecre = () => {
-    if (incre > 1) {
-      setIncre(incre - 1);
+  const handleDecre = (id, quantity) => {
+    if (quantity > 1) {
+      setLoad(true);
+    let qty = quantity - 1;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      cartProductId: id,
+      quantity: qty,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          // setIncre()
+          showcart();
+          setLoad(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
+      })
+      .catch((error) => console.log("error", error));
+      setIncre(quantity - 1);
     } else {
       setIncre(1);
     }
+    
   };
   return (
     <>
@@ -319,7 +383,12 @@ const SelectDeliveryslot = () => {
                           <td> {item?.quantity}</td>
                           <td>
                             <div className="table_addtocart">
-                              <div className="table_dre" onClick={handleDecre}>
+                              <div
+                                className="table_dre"
+                                onClick={() =>
+                                  handleDecre(item?._id, item?.quantity)
+                                }
+                              >
                                 -
                               </div>
                               <div className="table_count">
@@ -327,7 +396,9 @@ const SelectDeliveryslot = () => {
                               </div>
                               <div
                                 className="table_incre"
-                                onClick={() => handleIncre(item?._id)}
+                                onClick={() =>
+                                  handleIncre(item?._id, item.quantity)
+                                }
                               >
                                 +
                               </div>
