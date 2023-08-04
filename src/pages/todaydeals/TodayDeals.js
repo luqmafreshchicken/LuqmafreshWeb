@@ -14,6 +14,8 @@ import {
   loginRegister,
   otpVerify,
   removeFromCart,
+  productDeatail,
+  whistUserIDproductId,
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
@@ -24,7 +26,8 @@ import Card from "../../customcomponent/card/Card";
 import ProductNotFound from "../../customcomponent/productnotfound/ProductNotFound";
 import { useNavigate } from "react-router-dom";
 import CustomTodayCard from "./customtodaycomponent/customtodaycard/CustomTodayCard";
-
+import SearchModal from "../../customcomponent/searchmodal/SearchModal";
+import WhistList from "../../customcomponent/whistlist/WhistList"
 const TodayDeals = () => {
   let navigate = useNavigate();
 
@@ -37,7 +40,7 @@ const TodayDeals = () => {
   const [countrytitle, setCountryTitle] = useState("");
   const [flag, setFlag] = useState("");
   const [cartProduct, setCartProduct] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
+  const [cartPrice, setCartPrice] = useState("");
   const [cartOpen, setCartOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [showInput, setShowInput] = useState(false);
@@ -48,6 +51,10 @@ const TodayDeals = () => {
   const [hideOTP, setHideOTP] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
+  const [whistList, setWhistList] = useState([]);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [todayView, setTodayView] = useState([]);
+  const [whistlistOpen, setWhistlistOpen] = useState(false);
 
   useEffect(() => {
     setLoad(true);
@@ -98,7 +105,6 @@ const TodayDeals = () => {
     };
 
     productbyCategorie(requestData).then((res) => {
-
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
@@ -207,6 +213,7 @@ const TodayDeals = () => {
           progress: undefined,
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
+        updatelocalcartindb();
         localContent();
         localContent1();
         showcart();
@@ -282,15 +289,27 @@ const TodayDeals = () => {
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    setCartPrice(cartPrice?.price);
     if (items) {
       // setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
+      setCartProduct(cart);
+      cart?.map((item) => {
+        setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
+      });
+      setCartPrice(cartPrice?.price);
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price })
+      );
       setLoginStatus(false);
       if (items1) {
-        // setWhistlistOpen(false);
+        setWhistlistOpen(false);
       } else {
-        // setWhistlistOpen(true);
+        setWhistlistOpen(true);
         setLoginStatus(false);
       }
     }
@@ -348,6 +367,267 @@ const TodayDeals = () => {
     });
   };
   // end remove cart
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart?.length >= 1 &&
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      );
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
+  };
+
+  const AddLocalCart = async (
+    id,
+    name,
+    price,
+    originalPrice,
+    discount,
+    quantity,
+    unit,
+    image
+  ) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (cart == null) {
+      const newCart = [
+        {
+          _id: id,
+          productId: {
+            _id: id,
+            quantity: 1,
+            name: name,
+            price: price,
+            originalPrice: originalPrice,
+          },
+        },
+      ];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      localContent();
+      toast.success("Product added to cart successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      setCartPrice(newCart[0]?.productId?.price);
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: newCart[0]?.productId?.price })
+      );
+      localContent();
+    } else {
+      const existItem = cart.find((x) => x._id === id);
+      if (existItem) {
+        // update quantity in cart local storage
+        const newCart = cart.map((x) =>
+          x._id === id
+            ? {
+                _id: id,
+                productId: {
+                  _id: id,
+                  quantity: x?.productId?.quantity + 1,
+                  name: name,
+                  price: price,
+                  originalPrice: originalPrice,
+                },
+              }
+            : x
+        );
+        localStorage.setItem("cart", JSON.stringify(newCart));
+
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        console.log(total, "==================update count product");
+        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        setCartPrice(total);
+        toast.success("Product quantity update in cart", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        // let total = 0;
+        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        // updatedCart?.map((item) => {
+        //   total = total + item?.productId?.price * item?.quantity;
+        // });
+        // console.log(total, "==================update count product")
+        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        // console.log(total, "==================update count product")
+        // setCartPrice(total);
+
+        localContent();
+      } else {
+        const newCart = [
+          ...cart,
+          {
+            _id: id,
+            productId: {
+              _id: id,
+              quantity: 1,
+              name: name,
+              price: price,
+              originalPrice: originalPrice,
+            },
+          },
+        ];
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        toast.success("Product added to cart successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        const updatedCart = JSON.parse(localStorage.getItem("cart"));
+        let total = 0;
+        updatedCart?.map((item) => {
+          total = total + item?.productId?.price * item?.productId?.quantity;
+        });
+        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
+        setCartPrice(total);
+        localContent();
+      }
+    }
+  };
+
+  // local cart data after login add in cart
+
+  const updatelocalcartindb = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    if (items) {
+      setWhistlistOpen(false);
+      setLoginStatus(true);
+      // bulk add to cart api
+      const cartData = cart;
+      if (cartData?.length > 0) {
+        for (let i = 0; i < cartData?.length; i++) {
+          const data = {
+            userId: items?._id,
+            productId: cartData[i]?.productId?._id,
+            quantity: cartData[i]?.productId?.quantity,
+          };
+          Add_to_cart(data).then((res) => {
+            if (res?.data?.status) {
+              localStorage.removeItem("cart");
+            }
+            showcart();
+          });
+        }
+      }
+    } else {
+      setCartProduct(cart);
+      let total = 0;
+      cart?.map((item) => {
+        total = total + item.productId.price;
+      });
+      setCartPrice(total);
+      setLoginStatus(false);
+    }
+  };
+
+  const fullView = async (id) => {
+    setLoad(true);
+    if (id === undefined || id === null || id === "") {
+      toast.error("Please enter product id", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    setLoad(true);
+    const requestData = {
+      productId: id,
+    };
+    productDeatail(requestData).then((res) => {
+      console.log(res.data, "======================");
+      if (res.status == true) {
+        setSearchOpen(true);
+        setTodayView(res.data);
+        setLoad(false);
+      } else {
+        setLoad(false);
+      }
+    });
+  };
+
+  const handleSearchClose = () => setSearchOpen(false);
+
+  const handleWhistlist = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    const res = await whistUserIDproductId(data);
+    if (res.status == true) {
+      toast.success(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setWhistList(res.data);
+    } else {
+      toast.error(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  const handlewhistlistClose = () => {
+    setWhistlistOpen(false);
+    let data = {
+      modalCount: false,
+    };
+    localStorage.setItem("modalCount", JSON.stringify({ data: data }));
+  };
   return (
     <>
       <Header
@@ -374,8 +654,11 @@ const TodayDeals = () => {
         totalAmount={cartPrice}
         store={store}
         handleclear={(index) => handleclear(index)}
-        removeProduct={(id) => removeCartProduct(id)}
+        // removeProduct={(id) => removeCartProduct(id)}
         modalcurrency={countrycurrency}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
       />
       <div>
         {subcategorie.length >= 1 ? (
@@ -397,23 +680,112 @@ const TodayDeals = () => {
           <div className="main_today_card">
             <div className="today_card">
               {product.map((item) => (
-                <CustomTodayCard
-                  offer={item?.discount}
-                  productName={item?.name}
-                  weight={item?.quantity + "  " + item.unit}
-                  total={item?.price}
-                  cutotal={item?.originalPrice}
-                  offer1={item?.discount}
-                  today={moment(item?.discountExpiryDate).format("dddd")}
-                  date={item?.deliveryTime}
-                  totalpayment={item?.price}
-                  img={item?.image}
-                  rating={item?.rating}
-                  id={{ id: item._id }}
-                  to="/carddetail"
-                  onclick={() => handleCart(item._id)}
-                />
+                <>
+                  {loginStatus == false ? (
+                    <CustomTodayCard
+                      offer={item?.discount}
+                      productName={item?.name}
+                      weight={item?.quantity + "  " + item?.unit}
+                      total={item?.price}
+                      cutotal={item?.originalPrice}
+                      offer1={item?.discount}
+                      today={moment(item?.discountExpiryDate).format("dddd")}
+                      date={item?.deliveryTime}
+                      totalpayment={item?.price}
+                      img={item?.image}
+                      rating={item?.rating}
+                      id={{ id: item._id }}
+                      to="/carddetail"
+                      onclick={() => {
+                        // setShow(!show);
+                        loginStatus == true
+                          ? handleCart( item?._id)
+                          : AddLocalCart(
+                              item._id,
+                              item.name,
+                              item.price,
+                              item.originalPrice,
+                              item.discount,
+                              item.quantity,
+                              item.unit,
+                              item.image
+                            );
+                      }}
+                      onclick1={() => fullView(item?._id)}
+                      onclick2={() => setWhistlistOpen(true)}
+                      // onclick={() => handleCart(item._id)}/
+                    />
+                  ) : (
+                    <CustomTodayCard
+                      offer={item?.discount}
+                      productName={item?.name}
+                      weight={item?.quantity + "  " + item?.unit}
+                      total={item?.price}
+                      cutotal={item?.originalPrice}
+                      offer1={item?.discount}
+                      today={moment(item?.discountExpiryDate).format("dddd")}
+                      date={item?.deliveryTime}
+                      totalpayment={item?.price}
+                      img={item?.image}
+                      rating={item?.rating}
+                      id={{ id: item._id }}
+                      to="/carddetail"
+                      onclick={() => {
+                        // setShow(!show);
+                        loginStatus == true
+                          ? handleCart( item?._id)
+                          : AddLocalCart(
+                              item._id,
+                              item.name,
+                              item.price,
+                              item.originalPrice,
+                              item.discount,
+                              item.quantity,
+                              item.unit,
+                              item.image
+                            );
+                      }}
+                      onclick1={() => fullView(item?._id)}
+                      onclick2={() => handleWhistlist(item?._id)}
+                      // onclick={() => handleCart(item._id)}/
+                    />
+                  )}
+                </>
               ))}
+              <WhistList
+              whistlistOpen={whistlistOpen}
+              handlewhistlistClose={handlewhistlistClose}
+              onclick={handlewhistlistClose}
+              proceedOTP="Proceed Via OTP"
+              proceedsubmit="Submit"
+              onChange={handleMobileNumber}
+              value={mobileNumber}
+              onChange1={(e) => setOtp(e.target.value)}
+              // value1={}
+              onclick1={() => handleLogin()}
+              onclick2={() => handleOTP()}
+              otpHide={hideOTP}
+              btnShow={btn}
+            />
+            
+  
+              <SearchModal
+                currency={countrycurrency}
+                searchOpen={searchOpen}
+                handleSearchClose={handleSearchClose}
+                onclick={handleSearchClose}
+                image={todayView?.image}
+                name={todayView?.name}
+                description={todayView?.description}
+                description1={todayView?.description1}
+                description2={todayView?.description2}
+                description3={todayView?.description3}
+                qty={todayView?.quantity}
+                unit={todayView?.unit}
+                price={todayView?.price}
+                ogp={todayView?.originalPrice}
+                discount={todayView?.discount}
+              />
               <Loader loading={load} />
             </div>
           </div>
