@@ -14,6 +14,7 @@ import {
   CountryDetail,
   GetCountry,
   removeFromCart,
+  applyCoupon
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -56,6 +57,9 @@ const Payment = () => {
   const [btn, setBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [coupon, setCoupon] = React.useState("");
+  const [amount, setAmount] = React.useState("");
+  const [vatAmount, setVatAmount] = React.useState(0);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -145,8 +149,9 @@ const Payment = () => {
       addressId: addressID,
       timeSlotId: slotID,
       method: method,
-      couponCode: "",
+      couponCode: "coupon",
     };
+    console.log(requestData,"==================================")
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
@@ -238,9 +243,10 @@ const Payment = () => {
   const calculateTotalBill = () => {
     const amount = cartPrice;
     const vat = (cartPrice * 5) / 100;
-
+    // setVatAmount(amount + vat)
     return amount + vat;
   };
+
   const handleclear = async (index) => {
     if (index == 4) {
       await localStorage.clear();
@@ -282,6 +288,59 @@ const Payment = () => {
     });
   };
   // end remove cart
+  // const showcart = async () => {
+  //   const userId = await getUserID();
+  //   const data = {
+  //     userId: userId,
+  //   };
+  //   const res = await Show_Cart(data);
+  //   if (res.status == true) {
+  //     setAmount(res.data.totalAmount)
+  //   } else {
+  //   }
+  // };
+  const handleApplyCoupon = async (couponCode, discount) => {
+    setLoad(true)
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      couponCode: couponCode,
+      discount: discount,
+      amount: cartPrice,
+    };
+    applyCoupon(data).then((res) => {
+      console.log(res.data, "===========================");
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+        setCouponModal(false);
+        setLoad(false)
+        setCoupon(couponCode)
+        setAmount(discount)
+
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false)
+
+      }
+    });
+  };
   return (
     <>
       <div className="mobile_payment">
@@ -423,7 +482,7 @@ const Payment = () => {
               <div className="coupon_avilable">
                 <img src="coupon.svg" height="28px" width="28px" />
                 <div className="coupon_avilable_text">
-                  <p>6 Coupon Available</p>
+                  <p>1 Coupon Available</p>
                 </div>
               </div>
               <div className="bank_offer">
@@ -447,17 +506,24 @@ const Payment = () => {
                   <p>Delivery Charge</p>
                   <p>₹ {cartProduct?.totalAmount > 199 ? 0 : 40}</p>
               </div>*/}
+              
                 <div className="online_subtotal">
                   <p>Vat</p>
                   <p>
                     {countrycurrency} {(cartPrice * 5) / 100}
                   </p>
                 </div>
+                <div className="online_subtotal">
+                <p>Coupon Discount</p>
+                <p>
+                  {countrycurrency} {amount == "" ? 0 : amount}
+                </p>
+              </div>
               </div>
               <div className="online_total_count">
                 <p>Total Amount</p>
                 <p style={{ color: "#FF0040" }}>
-                  {countrycurrency} {calculateTotalBill()}
+                  {countrycurrency} {calculateTotalBill() - amount}
                 </p>
               </div>
             </div>
@@ -466,7 +532,14 @@ const Payment = () => {
         </div>
         {/* end main container */}
       </div>
-      <CouponModal open={couponModal} handleClose={handleClose} />
+
+      <CouponModal
+        open={couponModal}
+        handleClose={handleClose}
+        handleApplyCoupon={(list) =>
+          handleApplyCoupon(list?.couponCode, list?.discount)
+        }
+      />
       <Loader loading={load} />
     </>
   );
