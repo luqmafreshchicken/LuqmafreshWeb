@@ -9,6 +9,7 @@ import {
   CountryDetail,
   GetCountry,
   removeFromCart,
+  increaseQuantity,
 } from "../../serverRequest/Index";
 import * as moment from "moment";
 import Header from "../header/Header";
@@ -74,20 +75,6 @@ const SelectDeliveryslot = () => {
     showcart();
   }, []);
 
-  // const showcart = async () => {
-  //   setLoad(true);
-
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     setCartProduct(res.data.cart);
-  //     setLoad(false);
-  //   } else {
-  //   }
-  // };
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -196,10 +183,50 @@ const SelectDeliveryslot = () => {
     });
   };
   // end remove cart
+  const handleIncre = async (id) => {
+    setLoad(true);
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+      quantity: incre,
+    };
 
-  const handleIncre = () => {
-    setIncre(incre + 1);
+    // increaseQuantity(data).then((res) => {
+    //   console.log(res.data, "----------------------");
+
+    //   if (res.status == true) {
+    //     toast.success(res.message, {
+    //       position: "top-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //     });
+    //     // setIncre()
+    //     showcart();
+    //     setLoad(false);
+    //   } else {
+    //     toast.error(res.message, {
+    //       position: "top-right",
+    //       autoClose: 5000,
+    //       hideProgressBar: false,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true,
+    //       progress: undefined,
+    //     });
+    //     setLoad(false);
+    //   }
+    // });
   };
+  // end remove cart
+
+  // const handleIncre = () => {
+  //   setIncre(incre + 1);
+  // };
   const handleDecre = () => {
     if (incre > 1) {
       setIncre(incre - 1);
@@ -279,7 +306,10 @@ const SelectDeliveryslot = () => {
                                 <p className="fw-bold mb-1">
                                   {item?.productId?.name}
                                 </p>
-                                <p>{item?.productId?.quantity} {item?.productId?.unit} </p>
+                                <p>
+                                  {item?.productId?.quantity}{" "}
+                                  {item?.productId?.unit}{" "}
+                                </p>
                               </div>
                             </div>
                           </td>
@@ -292,10 +322,12 @@ const SelectDeliveryslot = () => {
                               <div className="table_dre" onClick={handleDecre}>
                                 -
                               </div>
-                              <div className="table_count">{incre}</div>
+                              <div className="table_count">
+                                {item?.quantity}
+                              </div>
                               <div
                                 className="table_incre"
-                                onClick={handleIncre}
+                                onClick={() => handleIncre(item?._id)}
                               >
                                 +
                               </div>
@@ -321,7 +353,7 @@ const SelectDeliveryslot = () => {
 
             {slotId == false ? (
               <div className="select_delivery_time" onClick={handleOpen1}>
-                <p>Select Delivery time Slot</p>
+                Select Delivery time Slot
               </div>
             ) : (
               <div className="primary_select_slots">
@@ -383,13 +415,8 @@ const SelectDeliveryslot = () => {
                     setSelect(slots.time1 + " - " + slots.time2);
                     setOpen1(false);
                   }}
-                  style={{
-                    backgroundColor: slotId != "" ? "" : "",
-                  }}
                 >
-                  <p style={{ color: slotId != "" ? "" : "" }}>
-                    {slots.time1} AM - {slots.time2} PM
-                  </p>
+                  {slots.time1} AM - {slots.time2} PM
                 </div>
               ))}
             </div>
