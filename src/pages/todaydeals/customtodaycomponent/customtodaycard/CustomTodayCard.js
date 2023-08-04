@@ -3,7 +3,8 @@ import Rating from "@mui/material/Rating";
 import { NavLink } from "react-router-dom";
 import "./customtodaycard.css";
 import { FaSearch, FaHeart, FaShareSquare } from "react-icons/fa";
-
+import { RWebShare } from "react-web-share";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 export default function CustomTodayCard({
   offer,
   productName,
@@ -19,6 +20,9 @@ export default function CustomTodayCard({
   id,
   to,
   onclick = () => {},
+  onclick1 = () => {},
+  onclick2 = () => {},
+  
 }) {
   const [incre, setIncre] = useState(1);
   const [showData, setShowData] = useState(false);
@@ -48,9 +52,24 @@ export default function CustomTodayCard({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <FaSearch className="fa_search" />
-        <FaHeart className="fa_search" />
-        <FaShareSquare className="fa_search" />
+        <FaSearch className="fa_search" data-tooltip-id="my-tooltip-1"  onClick={onclick1}/>
+        <FaHeart className="fa_search" data-tooltip-id="my-tooltip-2"   onClick={onclick2}/>
+        <RWebShare
+          data={{
+            text: "Luqmafresh",
+            url: "https://www.luqmafresh.com/",
+            title: "Luqmafresh",
+          }}
+        >
+          <FaShareSquare className="fa_search" data-tooltip-id="my-tooltip-3" />
+        </RWebShare>
+        <ReactTooltip id="my-tooltip-1" place="bottom" content="Quick View" />
+        <ReactTooltip
+          id="my-tooltip-2"
+          place="bottom"
+          content="Add Whistlist"
+        />
+        <ReactTooltip id="my-tooltip-3" place="bottom" content="Share Link" />
       </div>
       <div className="rating">
         <Rating
@@ -97,7 +116,7 @@ export default function CustomTodayCard({
             <p onClick={() => increment()}>+</p>
           </div>
         )}
-       {/* <div className="ammount_singlecard">
+        {/* <div className="ammount_singlecard">
           <p>
             Total <span>₹{totalpayment}</span>
           </p>
