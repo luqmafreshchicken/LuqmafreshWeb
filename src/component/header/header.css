@@ -114,10 +114,12 @@ ul li {
 .currency_container img {
   height: 18px;
   width: 18px;
+  cursor: none;
 }
 .currency_container p {
   font-size: 0.8rem;
   padding-top: 1.1rem;
+  cursor: none;
 }
 .cart_border_container {
   border: 1px solid #ff0040;
@@ -321,11 +323,6 @@ ul li {
 .currency_container p {
   color: black;
 }
-.currency_container p:hover {
-  color: #ff0040;
-  transition: 0.2s ease-in-out;
-}
-
 /* google login */
 .continue_or_container {
   width: 100%;
@@ -378,6 +375,7 @@ ul li {
   height: 30px;
   width: 30px;
   transition: 0.3s linear;
+
 
 }
 .crossbtn img:hover{
