@@ -11,6 +11,8 @@ const SearchProductList = ({
   onclick,
   to,
   id,
+  discount,
+  currency
 }) => {
   return (
     <div className="searchproductlist_component">
@@ -19,22 +21,22 @@ const SearchProductList = ({
       </div>
       <div className="searchproduct_content">
         <div className="searchproduct_weight_qty">
-          <p>{name}-</p>
+          <p>{name}</p>
         </div>
         <div className="searchproduct_name_price">
           {/* product name price */}
           <div className="productnameprice">
             <p>
-              {offername}
-              <span style={{ color: "black" }}> ₹{price}</span>{" "}
+              <span style={{ color: "black" }}> {currency}{price}</span>{" "}
               <span
                 style={{
                   textDecoration: "line-through",
+                  padding:"0rem 0.6rem"
                 }}
               >
-                ₹{originprice}
+                {currency}{originprice}
               </span>
-              <span> ₹200</span>
+              <span style={{color:"green"}}>{discount}% off</span>
             </p>
           </div>
           {/* end product name price */}
@@ -46,7 +48,7 @@ const SearchProductList = ({
               style={{ width: "100%" }}
             >
               <div className="add_to_cart" onClick={onclick}>
-                <p>View</p>
+                View
               </div>
             </NavLink>
           </div>
