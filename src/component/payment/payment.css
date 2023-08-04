@@ -75,6 +75,7 @@
 .apply_coupon_btn img{
   cursor: pointer;
 }
+
 .apply_coupon_btn h6 {
   padding-left: 20px;
   padding-top: 1rem;
@@ -84,6 +85,11 @@
 .apply_coupon_btn img {
   padding-top: 1rem;
   padding-right: 25px;
+  display: inline-block;
+  transition: 0.3s ease-in;
+}
+.apply_coupon_btn img:hover{
+  transform: translateX(20%);
 }
 .coupon_avilable {
   display: flex;
