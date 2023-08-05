@@ -243,60 +243,71 @@ const SelectDeliveryslot = () => {
   const handleDecre = (id, quantity) => {
     if (quantity > 1) {
       setLoad(true);
-    let qty = quantity - 1;
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+      let qty = quantity - 1;
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({
-      cartProductId: id,
-      quantity: qty,
-    });
+      var raw = JSON.stringify({
+        cartProductId: id,
+        quantity: qty,
+      });
 
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
 
-    fetch(
-      "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((res) => {
-        if (res.status == true) {
-          toast.success(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          // setIncre()
-          showcart();
-          setLoad(false);
-        } else {
-          toast.error(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          setLoad(false);
-        }
-      })
-      .catch((error) => console.log("error", error));
+      fetch(
+        "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((res) => {
+          if (res.status == true) {
+            toast.success(res.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            // setIncre()
+            showcart();
+            setLoad(false);
+          } else {
+            toast.error(res.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            setLoad(false);
+          }
+        })
+        .catch((error) => console.log("error", error));
       setIncre(quantity - 1);
     } else {
       setIncre(1);
     }
-    
+
+  };
+  const handleSelTImeslot = () => {
+    toast.error('Please select time slot', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
   return (
     <>
@@ -437,17 +448,31 @@ const SelectDeliveryslot = () => {
               </div>
             )}
 
-            <NavLink
-              to="/payment"
-              className="nav_list"
-              state={{ addressId: id, slotId: slotId }}
-            >
-              <div className="selectdeliveryslot_btn">
-                <div className="selectdeliveryslot_btn_proceed">
-                  Proceed to Payment
+            {slotId === '' ? (
+              // <NavLink
+              //   to="/payment"
+              //   className="nav_list"
+              //   state={{ addressId: id, slotId: slotId }}
+              // >
+                <div onClick={()=>handleSelTImeslot()} className="selectdeliveryslot_btn">
+                  <div className="selectdeliveryslot_btn_proceed">
+                    Proceed to Payment
+                  </div>
                 </div>
-              </div>
-            </NavLink>
+              // </NavLink>
+            ) : (
+              <NavLink
+                to="/payment"
+                className="nav_list"
+                state={{ addressId: id, slotId: slotId }}
+              >
+                <div className="selectdeliveryslot_btn">
+                  <div className="selectdeliveryslot_btn_proceed">
+                    Proceed to Payment
+                  </div>
+                </div>
+              </NavLink>
+            )}
           </div>
           {/***************************end******************************* */}
           <div className="selectime_steps">
