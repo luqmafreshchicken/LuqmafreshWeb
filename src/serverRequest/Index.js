@@ -130,8 +130,16 @@ export const getTimeslot = async () => {
 
 /* newArrival API */
 
-export const newArrival = async () => {
-  const response = await axios.get(`${API_BASE_URL}product/NewArrivals`);
+// export const newArrival = async () => {
+//   const response = await axios.get(`${API_BASE_URL}product/NewArrivals` );
+//   return response.data;
+// };
+export const newArrival = async (requestData) => {
+  console.log(requestData)
+  const response = await axios.post(
+    `${API_BASE_URL}product/NewArrivals`,
+    requestData
+  );
   return response.data;
 };
 
