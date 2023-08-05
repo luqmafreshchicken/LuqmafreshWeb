@@ -125,7 +125,8 @@ const Offer = () => {
             </div>
             <div className="coupon_apply_amount">
               <p>
-                ExpiryDate: <span>{modal.expiryDate}</span>
+                ExpiryDate:{" "}
+               <span>{moment(modal.expiryDate).format("DD/MM/YYYY")}</span>
               </p>
             </div>
             <div className="coupon_discription">
