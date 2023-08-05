@@ -1,4 +1,4 @@
-const base_url = 'http://65.0.16.155:8000/aaoochale/UserAuth/';
+const base_url = 'https://luqmafresh-beckend.onrender.com/';
 const searchlocation_url1 = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
 const searchlocation_url2 = '&radius=500&key=AIzaSyA2ZqLmyX22bQKPEsrVQrQRuAPBJxpYcSQ';
 const currentlocation = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
