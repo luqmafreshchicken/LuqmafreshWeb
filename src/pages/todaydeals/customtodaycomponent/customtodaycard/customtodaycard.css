@@ -1,9 +1,16 @@
 
 .singlecard_container {
-  width: auto;
-  height: auto;
+  width: 300px;
   height: 75vh;
+  /* background-color: red; */
+
 }
+/* .singlecard_container:hover{
+  box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 1rem 1rem;
+  transform: matrix3d();
+
+} */
 
 .customtodaycard1 {
   /* margin-left: 10%; */
