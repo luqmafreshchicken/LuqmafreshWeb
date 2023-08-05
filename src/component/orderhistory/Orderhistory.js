@@ -4,7 +4,7 @@ import { getOrderByUserId, getUserID } from "../../serverRequest/Index";
 import * as moment from "moment";
 import { NavLink } from "react-router-dom";
 
-const Orderhistory = ({id}) => {
+const Orderhistory = ({id,countyCurrency}) => {
   const [getData, setGetData] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ const Orderhistory = ({id}) => {
       userId: id,
     };
     getOrderByUserId(requestData).then((res) => {
-      // console.log(res.data.productId.id, "=================================");
       if (res.status == true) {
         setGetData(res.data);
       } else {
@@ -58,23 +57,23 @@ const Orderhistory = ({id}) => {
                 </div>
 
                 <div className="orderlist_detail_text">
-                  <h5>Chicken Boneless-Mini Bites</h5>
+                  <h5>{item1?.name}</h5>
                   <div className="orderlist_detail_weight_price">
                     <p>
                       {item1.quantity}
                       {item1.unit}
                     </p>
                     <p style={{ color: "black", fontWeight: "580" }}>
-                      ₹{item1.price}
+                      {countyCurrency} {item1.price}
                     </p>
                     <p
                       style={{
-                        color: "black",
+                        color: "green",
                         fontWeight: "580",
                         textDecoration: "line-through",
                       }}
                     >
-                      ₹{item1.originalPrice}
+                    {countyCurrency} {item1.originalPrice}
                     </p>
                   </div>
                 </div>
