@@ -52,6 +52,8 @@ const SearchModal = ({
                   placeholder="Enter Email..."
                   value={value}
                   onChange={onChange}
+                  type="email"
+                  name="email"
                 />
                 {otpHide === true && (
                   <input
