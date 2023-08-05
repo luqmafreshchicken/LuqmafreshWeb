@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "./input.css";
 
-const Input = ({ lable, onChange, value , id , name}) => {
+const Input = ({ lable, onChange, value , id , name, disabled}) => {
   return (
     <Box
       component="form"
@@ -28,6 +28,7 @@ const Input = ({ lable, onChange, value , id , name}) => {
         className="input_text"
         onChange={onChange}
         value={value}
+        disabled={disabled}
       />
     </Box>
   );
