@@ -39,7 +39,7 @@ const Account = () => {
 
   const handleOpen = () => {
     if (open2 === 0) {
-      return <Orderhistory />;
+      return <Orderhistory countyCurrency={countrycurrency}/>;
     }
     if (open2 === 1) {
       return <Notification />;
@@ -205,7 +205,7 @@ const Account = () => {
             </div>
           </div>
           <div className="account_banner">
-            <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691238019/BANNERS_d5n4g0.jpg" />
+            <img src="BANNERS.JPEG" />
           </div>
           {/* show data */}
           <div className="account_list_section">
