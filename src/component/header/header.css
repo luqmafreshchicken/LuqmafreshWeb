@@ -119,7 +119,7 @@ ul li {
 .currency_container p {
   font-size: 0.8rem;
   padding-top: 1.1rem;
-  cursor: none;
+/*   cursor: none; */
 }
 .cart_border_container {
   border: 1px solid #ff0040;
