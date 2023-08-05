@@ -21,7 +21,7 @@ const ViewDetail = () => {
 
   const [data, setData] = useState([]);
   const [order, setOrder] = useState([]);
-  const [address, setaddress] = useState([]);
+  const [address, setAddress] = useState([]);
   const [orderId, setorderId] = useState("");
   const [cancle, setCancle] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -47,13 +47,13 @@ const ViewDetail = () => {
       id: location?.state?.orderId,
     };
     getOrderById(requestData).then((res) => {
-      console.log(res?.data?.orders[0], "============================");
       if (res.status == true) {
         setCancelStatus(res?.data?.orders[0]?.orderStatus);
         setData(res?.data?.orders[0]?.productId);
         setOrder(res?.data?.orders[0]);
         // console.log(res?.data?.orders[0].subtotal);
-        setaddress(res?.data?.address[0]);
+        setAddress(res?.data?.address[0]);
+
         setorderId(res?.data?.orders[0]?.orderId);
         setLoad(false);
       } else {
@@ -231,7 +231,7 @@ const ViewDetail = () => {
           {/* shipmenet cancle */}
           <div className="shipmenet_cancle">
             <div className="shipmenet_cancle_address">
-              <p>Rajaji puram, alamnagar saripura kanakcity, Lucknow </p>
+              <p>{address.city}</p>
             </div>
           </div>
           {/* end shipmenet cancle */}
@@ -248,7 +248,7 @@ const ViewDetail = () => {
                     <img src={item.image} />
                   </div>
                   <div className="order_name_container_box_name">
-                    <p>Chicken Breast Boneless</p>
+                    <p>{item?.name}</p>
                     <span>
                       {item.quantity}
                       {item.unit} x 1 qty
@@ -294,7 +294,7 @@ const ViewDetail = () => {
                     Rating
                   </div>
                   <div className="bill_detail_button2" onClick={handleOpen}>
-                    Order cancelled
+                    Order cancel
                   </div>
                 </div>
               </div>
