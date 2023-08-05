@@ -60,7 +60,7 @@ const Payment = () => {
   const [coupon, setCoupon] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [vatAmount, setVatAmount] = React.useState(0);
-
+console.log(coupon,"coupon")
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -149,7 +149,7 @@ const Payment = () => {
       addressId: addressID,
       timeSlotId: slotID,
       method: method,
-      couponCode: "coupon",
+      couponCode: coupon === "" ? "" : coupon,
     };
     console.log(requestData,"==================================")
     createOrder(requestData).then((res) => {
@@ -170,7 +170,6 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
-    // const order = await createOrder(params); //  Create order on your backend
     const options = {
       key: "rzp_test_tOH1E84QsR3LSK",
       amount: params.amount,
@@ -287,18 +286,7 @@ const Payment = () => {
       }
     });
   };
-  // end remove cart
-  // const showcart = async () => {
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     setAmount(res.data.totalAmount)
-  //   } else {
-  //   }
-  // };
+ 
   const handleApplyCoupon = async (couponCode, discount) => {
     setLoad(true)
     const userId = await getUserID();
@@ -308,9 +296,17 @@ const Payment = () => {
       discount: discount,
       amount: cartPrice,
     };
-    applyCoupon(data).then((res) => {
-      console.log(res.data, "===========================");
-      if (res.status == true) {
+    fetch("https://luqmafresh-beckend.onrender.com/coupon/applyCoupon", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      // body: data,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+            if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
           autoClose: 5000,
@@ -339,7 +335,10 @@ const Payment = () => {
         setLoad(false)
 
       }
-    });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <>
