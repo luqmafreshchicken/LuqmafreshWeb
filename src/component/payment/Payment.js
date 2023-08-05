@@ -1,81 +1,67 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import "./account.css";
+import List from "./Accountlist";
+import ViewProfile from "../viewprofile/ViewProfile";
+import { useState } from "react";
+import Orderhistory from "../orderhistory/Orderhistory";
 import Header from "../header/Header";
-import "./payment.css";
-import Steps from "../../customcomponent/steps/Steps";
-import CashDelivery from "./paymentcomponent/CashDelivery";
-import OnlineDelivery from "./paymentcomponent/OnlineDelivery";
-import CouponModal from "./paymentcomponent/couponmodal/CouponModal";
-import { NavLink, useLocation } from "react-router-dom";
 import {
-  Show_Cart,
-  createOrder,
+  viewProfile,
   getUserID,
-  verifyPayment,
   CountryDetail,
   GetCountry,
+  Show_Cart,
   removeFromCart,
-  applyCoupon
 } from "../../serverRequest/Index";
-import Account from "../accountsection/Account";
-import useRazorpay from "react-razorpay";
+import Notification from "../notification/Notification";
+import WhistListDetail from "../whistlistdetail/WhistListDetail";
 import { useNavigate } from "react-router-dom";
-import Loader from "../loder/Loader";
-import AmazonPay from "./paymentcomponent/amazonpay/AmazonPay";
-import GooglePay from "./paymentcomponent/googlepay/GooglePay";
-import Paytm from "./paymentcomponent/paytm/Paytm";
-import PayUsingUPI from "./paymentcomponent/payusingupi/PayUsingUPI";
-import Credit from "./paymentcomponent/credit/Credit";
-import NetBanking from "./paymentcomponent/netbanking/NetBanking";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Swal from "sweetalert2";
 
-const Payment = () => {
+
+const Account = () => {
   let navigate = useNavigate();
-  const Razorpay = useRazorpay();
 
-  const location = useLocation();
-  const addressID = location?.state?.addressId;
-  const slotID = location?.state?.slotId;
-
-  const [open1, setOpen1] = useState(0);
-  const [couponModal, setCouponModal] = React.useState(false);
-  const [method, setMethod] = React.useState("cod");
-  const [load, setLoad] = React.useState(false);
-  const [userId, setUserId] = useState("");
-  const [longitude, setLongitude] = useState(null);
-
-  const [latitude, setLatitude] = useState(null);
-  const [cartProduct, setCartProduct] = useState([]);
+  const [profile, setProfile] = useState(false);
+  const [open2, setOpen2] = useState(0);
+  const [viewUser, setViewUser] = useState([]);
   const [country, setCountry] = useState("");
   const [countrycurrency, setCountryCurrency] = useState("");
   const [countrytitle, setCountryTitle] = useState("");
   const [flag, setFlag] = useState("");
-  // const [cartProduct, setCartProduct] = useState([]);
+  const [cartProduct, setCartProduct] = useState([]);
   const [cartPrice, setCartPrice] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [btn, setBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
-  const [coupon, setCoupon] = React.useState("");
-  const [amount, setAmount] = React.useState("");
-  const [vatAmount, setVatAmount] = React.useState(0);
-console.log(coupon,"coupon")
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        },
-        (error) => {
-          console.error("Error retrieving location:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by your browser.");
+
+  const handleOpen = () => {
+    if (open2 === 0) {
+      return <Orderhistory />;
     }
+    if (open2 === 1) {
+      return <Notification />;
+    }
+    if (open2 === 2) {
+      return <WhistListDetail />;
+    }
+  };
+  useEffect(() => {
+    userDetail();
   }, []);
+
+  const userDetail = async () => {
+    const UserId = await getUserID();
+    viewProfile(UserId).then((res) => {
+      console.log(res.data);
+      if (res.status == true) {
+        setViewUser(res.data);
+      } else {
+      }
+    });
+  };
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -138,114 +124,9 @@ console.log(coupon,"coupon")
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
-  const handleOpen = () => setCouponModal(true);
-  const handleClose = () => setCouponModal(false);
-
-  const paymentMethods = async () => {
-    setLoad(true);
-    const id = await getUserID();
-    const requestData = {
-      userId: id,
-      addressId: addressID,
-      timeSlotId: slotID,
-      method: method,
-      couponCode: coupon === "" ? "" : coupon,
-    };
-    console.log(requestData,"==================================")
-    createOrder(requestData).then((res) => {
-      if (res.status == true) {
-        if (method === "online") {
-          handlePayment(res.data.data);
-          setLoad(false);
-        } else {
-          Swal.fire("Your Order Confirm Successfully", "", "success");
-          setLoad(false);
-          navigate("/account");
-        }
-      } else {
-        Swal.fire("Something went Wrong", "", "error");
-
-        console.log("Error in create order");
-      }
-    });
+  const handleEdit = async (id) => {
+    console.log(id);
   };
-  const handlePayment = async (params) => {
-    const options = {
-      key: "rzp_test_tOH1E84QsR3LSK",
-      amount: params.amount,
-      currency: "INR",
-      name: "Luqmafresh Private Limited",
-      description: "Luqmafresh Online",
-      image: "https://example.com/your_logo",
-      order_id: params.id,
-      handler: function (response) {
-        if (response != "") {
-          setLoad(true);
-          const requestData = {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          };
-          verifyPayment(requestData).then((res) => {
-            if (res.status == true) {
-              setLoad(false);
-              navigate("/account");
-            } else {
-              setLoad(false);
-              console.log("Payment Error");
-            }
-          });
-        }
-      },
-      prefill: {
-        name: "Gaurav Joshi",
-        email: "gauravjoshi@example.com",
-        contact: "8565002333",
-      },
-      notes: {
-        address: "Lucknow Uttar Pradesh",
-      },
-      theme: {
-        color: "#C42118",
-      },
-    };
-    const rzp1 = new Razorpay(options);
-    rzp1.on("payment.failed", function (response) {
-      setLoad(false);
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
-    });
-    rzp1.open();
-  };
-
-  useEffect(() => {
-    showcart();
-  }, []);
-
-  // const showcart = async () => {
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     setCartProduct(res.data);
-  //   } else {
-  //   }
-  // };
-
-  const calculateTotalBill = () => {
-    const amount = cartPrice;
-    const vat = (cartPrice * 5) / 100;
-    // setVatAmount(amount + vat)
-    return amount + vat;
-  };
-
   const handleclear = async (index) => {
     if (index == 4) {
       await localStorage.clear();
@@ -253,9 +134,10 @@ console.log(coupon,"coupon")
       window.location.reload();
     }
   };
-
-  // remove cart
-  const removeCartProduct = async (id) => {
+  const viewhandleOpen = () => setProfile(true);
+  const viewhandleClose = () => setProfile(false);
+   // remove cart
+   const removeCartProduct = async (id) => {
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -286,63 +168,10 @@ console.log(coupon,"coupon")
       }
     });
   };
- 
-  const handleApplyCoupon = async (couponCode, discount) => {
-    setLoad(true)
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-      couponCode: couponCode,
-      discount: discount,
-      amount: cartPrice,
-    };
-    fetch("https://luqmafresh-beckend.onrender.com/coupon/applyCoupon", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-      // body: data,
-    })
-      .then((res) => res.json())
-      .then((res) => {
-            if (res.status === true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        showcart();
-        setCouponModal(false);
-        setLoad(false)
-        setCoupon(couponCode)
-        setAmount(discount)
-
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        setLoad(false)
-
-      }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // end remove cart
   return (
     <>
-      <div className="mobile_payment">
+      <div className="account_header">
         <Header
           code={countrytitle}
           currency={countrycurrency}
@@ -354,7 +183,6 @@ console.log(coupon,"coupon")
           carthandleClose={carthandleClose}
           carthandleOpen={carthandleOpen}
           loginStatus={loginStatus}
-          // s
           handleOpen={() => setOpen(true)}
           handleClose={() => setOpen(false)}
           open={open}
@@ -365,183 +193,57 @@ console.log(coupon,"coupon")
           removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
-      <div className="payment_container">
-        {/* main container */}
-        <div className="payment_section">
-          {/* main container payment */}
-
-          <div className="online_payment">
-            {/* sidebar Container */}
-            <div className="online_payment_sidebar">
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(0);
-                  setMethod("cod");
-                }}
-                value={open1}
-              >
-                <p>Cash On Delivery</p>
-              </div>
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(1);
-                  setMethod("online");
-                }}
-                value={open1}
-              >
-                <p>Debit/Credit/UPI Card</p>
-              </div>
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(2);
-                  setMethod("online");
-                }}
-                value={open1}
-              >
-                <p>Amazon Pay</p>
-              </div>
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(3);
-                  setMethod("online");
-                }}
-                value={open1}
-              >
-                <p>Google Pay</p>
-              </div>
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(4);
-                  setMethod("online");
-                }}
-                value={open1}
-              >
-                <p>Paytm</p>
-              </div>
-              {/* <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen(6);
-                  setMethod("online");
-                }}
-                value={open}
-              >
-                <p>Debit/Credit/UPI Card</p>
-              </div>*/}
-              <div
-                className="cash_on_delivery"
-                onClick={() => {
-                  setOpen1(7);
-                  setMethod("online");
-                }}
-                value={open1}
-              >
-                <p>NetBanking</p>
-              </div>
-            </div>
-            {/* end sidebar Container  */}
-
-            <div className="online_payment_content">
-              {open1 == 0 && <CashDelivery onClick={() => paymentMethods()} />}
-              {open1 == 1 && (
-                <OnlineDelivery onClick={() => paymentMethods()} />
-              )}
-              {open1 == 2 && <AmazonPay onClick={() => paymentMethods()} />}
-              {open1 == 3 && <GooglePay onClick={() => paymentMethods()} />}
-              {open1 == 4 && <Paytm onClick={() => paymentMethods()} />}
-              {open1 == 5 && <PayUsingUPI onClick={() => paymentMethods()} />}
-              {/*open1 == 6 && <Credit onClick={() => paymentMethods()} />*/}
-              {open1 == 7 && <NetBanking onClick={() => paymentMethods()} />}
+      <div className="account_section">
+        <div className="account_content">
+          <div className="account_text">
+            <h3>{viewUser.name}</h3>
+            <div className="account_profile">
+              <p>
+                +91 {viewUser?.mobile?.number} | {viewUser.email}
+              </p>
+              <span onClick={viewhandleOpen}>View profile</span>
             </div>
           </div>
-          {/* end main container payment */}
-          {/* main payment steps */}
-
-          <div className="online_payment_steps">
-            <div className="mobile_steps">
-              <Steps img1="mark.png" img2="mark.png" img3="radio.png" />
-            </div>
-            {/* online_coupon payment */}
-
-            <div className="online_coupon">
-              <div className="apply_coupon_btn">
-                <h6>Apply Coupon</h6>
-                <img
-                  src="next.png"
-                  height="40px"
-                  width="50px"
-                  onClick={handleOpen}
-                />
-              </div>
-              <div className="coupon_avilable">
-                <img src="coupon.svg" height="28px" width="28px" />
-                <div className="coupon_avilable_text">
-                  <p>1 Coupon Available</p>
-                </div>
-              </div>
-              <div className="bank_offer">
-                <p>Bank offers are now part of coupons. Apply now!</p>
-              </div>
-            </div>
-            {/* end online_coupon payment */}
-            <div className="mobile_dashed_border">
-              <div className="online_bill_payment">
-                <h5>Bill Details</h5>
-              </div>
-              <div className="payment_online_total">
-                <div className="online_subtotal">
-                  <p>Amount</p>
-                  <p>
-                    {countrycurrency}
-                    {cartPrice}
-                  </p>
-                </div>
-                {/* <div className="online_subtotal">
-                  <p>Delivery Charge</p>
-                  <p>₹ {cartProduct?.totalAmount > 199 ? 0 : 40}</p>
-              </div>*/}
-              
-                <div className="online_subtotal">
-                  <p>Vat</p>
-                  <p>
-                    {countrycurrency} {(cartPrice * 5) / 100}
-                  </p>
-                </div>
-                <div className="online_subtotal">
-                <p>Coupon Discount</p>
-                <p>
-                  {countrycurrency} {amount == "" ? 0 : amount}
-                </p>
-              </div>
-              </div>
-              <div className="online_total_count">
-                <p>Total Amount</p>
-                <p style={{ color: "#FF0040" }}>
-                  {countrycurrency} {calculateTotalBill() - amount}
-                </p>
-              </div>
-            </div>
+          <div className="account_banner">
+            <img src="BANNERS.JPEG" />
           </div>
-          {/* end main payment steps */}
+          {/* show data */}
+          <div className="account_list_section">
+            <div className="account_list_show">
+              <ul
+                style={{
+                  margin: 0,
+                  padding: 0,
+                }}
+              >
+                {List.map((list, index) => (
+                  <l1
+                    style={{
+                      listStyle: "none",
+                      color: "black",
+                      fontWeight: 600,
+                      fontSize: "17px",
+                      paddingTop: "10px",
+                    }}
+                  >
+                    <div
+                      className="hover_bottom"
+                      onClick={() => setOpen2(index)}
+                    >
+                      {list.routeName}
+                    </div>
+                  </l1>
+                ))}
+              </ul>
+            </div>
+            <div className="show_data">{handleOpen(open2)}</div>
+          </div>
+          {/* end show data */}
         </div>
-        {/* end main container */}
+        <ViewProfile profile={profile} viewhandleClose={viewhandleClose} />
       </div>
-
-      <CouponModal
-        open={couponModal}
-        handleClose={handleClose}
-        handleApplyCoupon={(list) =>
-          handleApplyCoupon(list?.couponCode, list?.discount)
-        }
-      />
-      <Loader loading={load} />
     </>
   );
 };
 
-export default Payment;
+export default Account;
