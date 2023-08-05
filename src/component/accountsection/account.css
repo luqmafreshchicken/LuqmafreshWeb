@@ -32,9 +32,10 @@
   font-family: "Poppins", sans-serif;
 }
 .account_profile span {
-  font-family: "Poppins", sans-serif;
+  font-family: medium;
   font-weight: 700;
-  color: #c42118;
+  color: #ff0040;
+  cursor: pointer;
 }
 .account_banner {
   height: 40vh;
