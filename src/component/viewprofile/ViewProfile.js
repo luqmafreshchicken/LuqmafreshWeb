@@ -16,7 +16,6 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
-
       if (res.status == true) {
         setViewUser(res.data);
       } else {
@@ -44,6 +43,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
                 alignItems: "center",
                 marginLeft: "3%",
                 paddingTop: "22px",
+                cursor: "pointer",
               }}
             >
               <h5>My Profile</h5>
@@ -54,7 +54,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
           <div className="information_container">
             <div className="profile_picture">
               <div className="profile_picture_name">
-                 <p>{viewUser?.name?.slice(0,1)}</p>
+                <p>{viewUser?.name?.slice(0, 1)}</p>
               </div>
             </div>
             <div className="basic_information">
