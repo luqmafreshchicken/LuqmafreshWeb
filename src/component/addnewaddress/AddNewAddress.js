@@ -243,11 +243,12 @@ const AddNewAddress = ({ id }) => {
                     </div>
                     {/* end Area */}
 
-                    <div className="edit_delete_btn">
+                    <div className="edit_delete_btn"  key={add._id}>
                       <div className="input_radio">
                         <input
                           type="radio"
                           onChange={() => setAddressId(add?._id)}
+                          checked={addressid === add._id}
                           // onChange={() => console.log(add._id)}
                         />
                         <p>Select</p>
