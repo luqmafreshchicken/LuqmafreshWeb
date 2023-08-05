@@ -7,9 +7,36 @@ import "react-toastify/dist/ReactToastify.css";
 const NewsFooter = () => {
   const [email, setEmail] = useState("");
 
-  const handleSubscribe = async () => {
-    if (email == "") {
-      toast.error("please enter your email", {
+ const handleSubscribe = async () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (email.trim() === "") {
+    toast.error("Please enter your email", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } else if (!emailRegex.test(email)) {
+    toast.error("Invalid email format", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  } else {
+    const data = {
+      email: email,
+    };
+    const res = await emailRegister(data);
+    if (res.status == true) {
+      toast.success(res.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -19,33 +46,19 @@ const NewsFooter = () => {
         progress: undefined,
       });
     } else {
-      const data = {
-        email: email,
-      };
-      const res = await emailRegister(data);
-      if (res.status == true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
+      toast.error(res.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
-  };
+  }
+};
+
   return (
     <div className="main_newsfooter">
       <div className="submain_newsfooter">
