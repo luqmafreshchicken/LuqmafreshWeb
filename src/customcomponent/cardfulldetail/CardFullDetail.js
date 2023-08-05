@@ -134,10 +134,10 @@ export default function CardFullDetail({ id }) {
     if (res.status == true) {
       toast.success(res.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -146,10 +146,10 @@ export default function CardFullDetail({ id }) {
     } else {
       toast.error(res.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -166,12 +166,12 @@ export default function CardFullDetail({ id }) {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         setShowInput(!showInput);
         setHideOTP(true);
@@ -181,12 +181,12 @@ export default function CardFullDetail({ id }) {
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
       }
     });
@@ -211,12 +211,12 @@ export default function CardFullDetail({ id }) {
       if (res.status == true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         updatelocalcartindb();
@@ -232,12 +232,12 @@ export default function CardFullDetail({ id }) {
         console.log(res);
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
       }
     });
@@ -380,7 +380,7 @@ export default function CardFullDetail({ id }) {
       localContent();
       toast.success("Product added to cart successfully", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
@@ -424,12 +424,12 @@ export default function CardFullDetail({ id }) {
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         // let total = 0;
         // const updatedCart = JSON.parse(localStorage.getItem("cart"));
@@ -459,12 +459,12 @@ export default function CardFullDetail({ id }) {
         localStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product added to cart successfully", {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         const updatedCart = JSON.parse(localStorage.getItem("cart"));
         let total = 0;
@@ -523,12 +523,12 @@ export default function CardFullDetail({ id }) {
     setShow(false);
     toast.success("Product remove from cart", {
       position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
     });
     localContent();
   };
@@ -543,26 +543,26 @@ export default function CardFullDetail({ id }) {
     removeFromCart(data).then((res) => {
       if (res.status == true) {
         toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+           position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         showcart();
         setCount(0);
         setShow(false);
       } else {
         toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+           position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
       }
     });
@@ -574,19 +574,23 @@ export default function CardFullDetail({ id }) {
     if (mobileNumber === "") {
       toast.error("Please enter email", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
+        pauseOnHover: false,
         draggable: true,
+        progress: undefined,
       });
       return false;
     } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       toast.error("Please enter valid email address", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
+        pauseOnHover: false,
         draggable: true,
+        progress: undefined,
       });
       return false;
     }
@@ -596,24 +600,24 @@ export default function CardFullDetail({ id }) {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
 
         setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
         });
         setLoad(false);
       }
@@ -673,11 +677,11 @@ export default function CardFullDetail({ id }) {
       setCartPrice(cartPrice?.price - product?.productId?.price);
       setCartProduct(updateQuantity);
       toast.success('Product quantity updated', {
-        position: "top-right",
-        autoClose: 5000,
+         position: "top-right",
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         draggable: true,
         progress: undefined,
       });
@@ -711,25 +715,25 @@ export default function CardFullDetail({ id }) {
         if (res.status == true) {
           toast.success(res.message, {
             position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
           });
           // setIncre()
           showcart();
           setLoad(false);
         } else {
           toast.error(res.message, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+             position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
           });
           setLoad(false);
         }
