@@ -336,6 +336,7 @@ const Header = ({
                       value={mobileNumber}
                       onChange={handleMobileNumber}
                       type="email"
+                      name="email"
                     />
                    
                   </div>
