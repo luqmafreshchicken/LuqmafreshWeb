@@ -1,0 +1,14 @@
+.Add_to_cart_btn {
+    width: 17%;
+  }
+  .Add_to_cart_btn button {
+    background-color: #ff0040;
+    border: none;
+    height: 5.5vh;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    font-family: semibold;
+  }
