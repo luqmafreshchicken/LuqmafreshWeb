@@ -35,6 +35,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import * as moment from "moment";
 import { Navigation, Parallax } from "swiper";
 import Card from "../card/Card";
+import CustomAddToCartButton from "../../component/AddToCart";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
@@ -64,10 +65,12 @@ export default function CardFullDetail({ id }) {
   const [store, setStore] = useState(false);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [count, setCount] = useState(0);
 
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
+    // localStorage.clear();
     async function getData(res) {
       const newData = await newArrival();
       setData(newData.data);
@@ -119,7 +122,7 @@ export default function CardFullDetail({ id }) {
       }
     });
   };
-  const AddToCart = async () => {
+  const AddToCart = async (count) => {
     setLoad(true);
     const UserId = await getUserID();
     const data = {
@@ -296,23 +299,23 @@ export default function CardFullDetail({ id }) {
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
     setCartPrice(cartPrice?.price);
     if (items) {
-      // setWhistlistOpen(false);
+      setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      setCartProduct(cart);
+      setCartProduct(cart ? cart : []);
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
-      setCartPrice(cartPrice?.price);
+      setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
       localStorage.setItem(
         "cartPrice",
-        JSON.stringify({ price: cartPrice?.price })
+        JSON.stringify({ price: cart?.length > 0 ? cartPrice?.price : 0 })
       );
       setLoginStatus(false);
       if (items1) {
-        // setWhistlistOpen(false);
+        setWhistlistOpen(false);
       } else {
-        // setWhistlistOpen(true);
+        setWhistlistOpen(true);
         setLoginStatus(false);
       }
     }
@@ -323,7 +326,6 @@ export default function CardFullDetail({ id }) {
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
-      // bulk add to cart api
       const cartData = cart;
       if (cartData?.length > 0) {
         for (let i = 0; i < cartData?.length; i++) {
@@ -350,8 +352,6 @@ export default function CardFullDetail({ id }) {
     }
   };
 
-  // local add to cart
-  // local add to cart
   const AddLocalCart = async (
     id,
     name,
@@ -400,15 +400,15 @@ export default function CardFullDetail({ id }) {
         const newCart = cart.map((x) =>
           x._id === id
             ? {
+              _id: id,
+              productId: {
                 _id: id,
-                productId: {
-                  _id: id,
-                  quantity: x?.productId?.quantity + 1,
-                  name: name,
-                  price: price,
-                  originalPrice: originalPrice,
-                },
-              }
+                quantity: x?.productId?.quantity + 1,
+                name: name,
+                price: price,
+                originalPrice: originalPrice,
+              },
+            }
             : x
         );
         localStorage.setItem("cart", JSON.stringify(newCart));
@@ -503,19 +503,24 @@ export default function CardFullDetail({ id }) {
     const cartData = cart?.filter((item) => item?.productId?._id !== id);
     const product = cart?.find((item) => item?.productId?._id === id);
     const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-    cart?.length >= 1 &&
+    cart?.length >= 1 && (
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
-      );
-    cart?.length < 1 &&
-      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+      )
+    )
+    cart?.length < 1 && (
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: 0 })
+      )
+    )
     localStorage.setItem("cart", JSON.stringify(cartData));
     setCartProduct(removeProduct);
-    setCartPrice(
-      cartPrice?.price -
-        product?.productId?.price * product?.productId?.quantity
-    );
+    setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
+    // setShowCartBtn(false);
+    setCount(0);
+    setShow(false);
     toast.success("Product remove from cart", {
       position: "top-right",
       autoClose: 3000,
@@ -547,6 +552,8 @@ export default function CardFullDetail({ id }) {
           progress: undefined,
         });
         showcart();
+        setCount(0);
+        setShow(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -619,6 +626,115 @@ export default function CardFullDetail({ id }) {
   const handleHome = () => {
     setCartOpen(false);
     setOpen(true);
+  };
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+    loginStatus == true
+      ? AddToCart()
+      : AddLocalCart(
+        product._id,
+        product.name,
+        product.price,
+        product.originalPrice,
+        product.discount,
+        product.quantity,
+        product.unit,
+        product.image
+      );
+  };
+  const handleDecrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+      // handleLocalCartQuantity(product._id, count - 1);
+      // handleDecre(count - 1);
+      loginStatus == true ? handleDecre(count - 1) : handleLocalCartQuantity(product._id, count - 1);
+    }
+
+  };
+  const handleLocalCartQuantity = (id, quantity) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const product = cart?.find((item) => item?.productId?._id === id);
+    console.log(product);
+    console.log(cartPrice);
+    if (quantity < product?.productId?.quantity) {
+      const updateQuantity = cart?.map((item) => {
+        if (item?.productId?._id === id) {
+          item.productId.quantity = quantity;
+        }
+        return item;
+      });
+      localStorage.setItem("cart", JSON.stringify(updateQuantity));
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      );
+      setCartPrice(cartPrice?.price - product?.productId?.price);
+      setCartProduct(updateQuantity);
+      toast.success('Product quantity updated', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      localContent();
+    }
+  }
+  const handleDecre = async (quantity) => {
+    setLoad(true);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      "userId": "64bd9be498ea90fdf20f819f",
+      "ProductId": product._id,
+      "quantity": quantity
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantityByid",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          // setIncre()
+          showcart();
+          setLoad(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
+      })
+      .catch((error) => console.log("error", error));
   };
 
   return (
@@ -720,7 +836,14 @@ export default function CardFullDetail({ id }) {
                   </p>
                   <p style={{ color: "green" }}>{product.discount}% OFF</p>
                 </div>
-                {show === false ? (
+                <CustomAddToCartButton
+                  show={show}
+                  onShow={() => setShow(true)}
+                  quantity={count}
+                  onIncrement={() => handleIncrement()}
+                  onDecrement={() => handleDecrement()}
+                />
+                {/* {show === false ? (
                   <div className="Add_to_cart_btn">
                     <button
                       onClick={() => {
@@ -767,7 +890,7 @@ export default function CardFullDetail({ id }) {
                     <p>{incre}</p>
                     <p onClick={increment}>+</p>
                   </div>
-                )}
+                )} */}
               </div>
               <hr style={{ height: "1px" }} />
             </div>
