@@ -378,13 +378,20 @@ const Home = () => {
   // new arrial section
 
   useEffect(() => {
-    async function getData(res) {
-      const newData = await newArrival();
-      setData(newData.data);
-    }
-    window.scrollTo(0, 0);
-    getData();
+   
+    arrivalProduct();
   }, []);
+
+  const arrivalProduct = async () => {
+    const UserId = await getUserID();
+    console.log(UserId)
+    const data = {
+      id: UserId ? UserId : "",
+    };
+    const newData = await newArrival(data);
+    setData(newData.data);
+  }
+
 
   const AddToCart = async (id) => {
     console.log('kwbdkiwbgdkbekjbgfkihvkefviefv')
@@ -409,6 +416,7 @@ const Home = () => {
       });
       showcart();
       setLoad(false);
+      arrivalProduct();
     } else {
       toast.error(res.message, {
         position: "top-right",
@@ -774,6 +782,7 @@ const Home = () => {
     setOpen(true)
   }
 
+
   return (
     <>
       <Header
@@ -901,6 +910,8 @@ const Home = () => {
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => setWhistlistOpen(true)}
+                          cartStatus={detail?.isAddedToCart}
+                          qty={detail?.qty}
                         />
                       ) : (
                         <Card
@@ -938,6 +949,8 @@ const Home = () => {
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => handleWhistlist(detail._id)}
+                          cartStatus={detail?.isAddedToCart}
+                          qty={detail?.qty}
                         />
                       )}
                     </SwiperSlide>
