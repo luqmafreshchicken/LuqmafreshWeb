@@ -378,11 +378,13 @@ const UserContactDetail = () => {
                 lable="Current Address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
+                disabled={true}
               />
               <Input
                 lable="Adress"
                 value={address1}
                 onChange={(e) => setAddress1(e.target.value)}
+                disabled={true}
               />
               <Input
                 lable="Landmark"
@@ -393,6 +395,7 @@ const UserContactDetail = () => {
                 lable="City"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
+                disabled={true}
               />
               <Input
                 lable="Mobile No"
