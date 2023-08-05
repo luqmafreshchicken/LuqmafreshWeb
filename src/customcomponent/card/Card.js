@@ -28,6 +28,8 @@ const Card = ({
   onclick1 = () => {},
   onclick2 = () => {},
   quantity,
+  cartStatus = false,
+  qty
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -129,7 +131,7 @@ const Card = ({
         <p>{date}</p>
       </div>
       <div className="total_singlecard">
-        {!showData && (
+          {cartStatus === false ? (
           <button
             onClick={() => {
               handleShow();
@@ -138,14 +140,21 @@ const Card = ({
           >
             ADD
           </button>
-        )}
-        {showData && (
+          ):null}
+          {cartStatus === true ? (
+            <div className="incre_decre_btn" onClick={() => onclick()}>
+            <p onClick={() => handleDre()}>-</p>
+            <p>{qty}</p>
+            <p onClick={() => handleIncre()}>+</p>
+          </div>
+            ):null}
+        {/*showData && (
           <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => handleDre()}>-</p>
             <p>{incre}</p>
             <p onClick={() => handleIncre()}>+</p>
           </div>
-        )}
+        )*/}
 
         {/* <div className="ammount_singlecard">
           <p>
