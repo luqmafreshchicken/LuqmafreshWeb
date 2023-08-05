@@ -16,6 +16,7 @@ import {
   removeFromCart,
   productDeatail,
   whistUserIDproductId,
+  resendOTP,
 } from "../../serverRequest/Index";
 import Header from "../../component/header/Header";
 import Loader from "../../component/loder/Loader";
@@ -628,11 +629,74 @@ const TodayDeals = () => {
     };
     localStorage.setItem("modalCount", JSON.stringify({ data: data }));
   };
+
+  const handleResendOTP = () => {
+    // email validation
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    setLoad(true);
+    const requestData = { email: mobileNumber };
+    resendOTP(requestData).then((res) => {
+      if (res.status === true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      }
+    });
+  };
+
+ 
+  const handleCartLogin = () => {
+    setCartOpen(false);
+    setOpen(true)
+  };
+
+  const handleHome = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
+
   return (
     <>
       <Header
         code={countrytitle}
-        currency={countrycurrency}
+        currency={countrycurrency} 
         flag={flag}
         cartPrice={cartPrice}
         cartProductlength={cartProduct}
@@ -659,6 +723,9 @@ const TodayDeals = () => {
         removeProduct={(id) =>
           loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
         }
+        handleResendOTP={() => handleResendOTP()}
+        handleCartLogin={() => handleCartLogin()}
+        handleHome={() => handleHome()}
       />
       <div>
         {subcategorie.length >= 1 ? (
