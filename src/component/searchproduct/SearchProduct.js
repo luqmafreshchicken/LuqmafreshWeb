@@ -208,8 +208,7 @@ const SearchProduct = () => {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
     } else {
-      setCartProduct([]);
-      setCartPrice("");
+      localContent();
     }
   };
    const localContent = () => {
