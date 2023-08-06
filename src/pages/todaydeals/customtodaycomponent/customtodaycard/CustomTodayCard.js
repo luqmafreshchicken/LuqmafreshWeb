@@ -31,10 +31,10 @@ export default function CustomTodayCard({
     setIncre(incre + 1);
   };
   const decrement = () => {
-    if (incre > 0) {
+    if (incre > 1) {
       setIncre(incre - 1);
     } else {
-      setIncre(0);
+      setIncre(1);
     }
   };
 
