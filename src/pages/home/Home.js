@@ -93,6 +93,7 @@ const Home = () => {
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
+    localContent();
     window.scrollTo(0, 0);
     setLoad(true);
     if (navigator.geolocation) {
