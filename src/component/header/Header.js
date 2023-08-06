@@ -350,6 +350,8 @@ const Header = ({
                       placeholder="Enter OTP"
                       onChange={sethandleOtp}
                       // value={otp}
+                      type="number"
+                      name="number"
                     />
                     <p onClick={handleResendOTP}>Resend OTP</p>
                   </div>
