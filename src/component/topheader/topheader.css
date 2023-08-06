@@ -18,16 +18,17 @@
   display: flex;
 }
 .topheader_icon {
-  width: 18%;
+  width: auto;
   height: 8vh;
+  gap: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .topheader_icon p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding-top: 1.2rem;
-  font-family: medium;
+  font-family: regular;
   transition: 0.2s linear;
 }
 .topheader_icon p:hover {
