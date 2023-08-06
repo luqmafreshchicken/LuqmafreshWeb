@@ -17,6 +17,7 @@ import {
 } from "../../serverRequest/Index";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
+import TopHeader from "../topheader/TopHeader";
 
 const AddNewAddress = ({ id }) => {
   let navigate = useNavigate();
@@ -194,6 +195,8 @@ const AddNewAddress = ({ id }) => {
 
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <div className="addaddress_mobile_header">
         <Header
           code={countrytitle}
@@ -243,7 +246,7 @@ const AddNewAddress = ({ id }) => {
                     </div>
                     {/* end Area */}
 
-                    <div className="edit_delete_btn"  key={add._id}>
+                    <div className="edit_delete_btn" key={add._id}>
                       <div className="input_radio">
                         <input
                           type="radio"
