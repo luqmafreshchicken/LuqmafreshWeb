@@ -174,64 +174,12 @@ const Home = () => {
     const res = await todayDeals();
       if (res?.status === true) {
         setToday(res?.data);
+        localContent();
         setLoad(false);
       } else {
         setLoad(false);
       }
   }
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   setLoad(true);
-  //   async function getData(res) {
-  //     const newData = await productCategorie();
-  //     setData1(newData.data);
-  //     setLoad(false);
-  //   }
-  //   getData();
-  // }, []);
-
-  // useEffect(() => {
-   
-  //   arrivalProduct();
-  // }, []);
-
-  
-  // useEffect(() => {
-  //   async function getData() {
-  //     setLoad(true);
-  //     const newData = await topSeverweek();
-  //     setData2(newData.data);
-  //     setLoad(false);
-  //   }
-  //   getData();
-  // }, []);
-
-  // end topseverweek
-
-  // bestSeller api
-  // useEffect(() => {
-  //   async function getData() {
-  //     setLoad(true);
-  //     const newData = await bestSeller();
-  //     setData3(newData.data);
-  //     setLoad(false);
-  //   }
-  //   window.scrollTo(0, 0);
-  //   getData();
-  // }, []);
-  // end bestSeller api
-
-  // todeal deals Api
-  // useEffect(() => {
-  //   async function today() {
-  //     setLoad(true);
-  //     const newData = await todayDeals();
-  //     setToday(newData.data);
-  //     setLoad(false);
-  //   }
-  //   today();
-  // }, []);
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -243,11 +191,13 @@ const Home = () => {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      setCartProduct(cart ? cart : []);
+      console.log("cart", cart)
+      setCartProduct(cart ? cart : []); 
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
       setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
+      
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cart?.length > 0 ? cartPrice?.price : 0 })
@@ -286,7 +236,7 @@ const Home = () => {
     setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
     toast.success("Product remove from cart", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
@@ -361,7 +311,7 @@ const Home = () => {
       localContent();
       toast.success("Product added to cart successfully", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: false,
@@ -408,7 +358,7 @@ const Home = () => {
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -443,7 +393,7 @@ const Home = () => {
         localStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product added to cart successfully", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -484,7 +434,7 @@ const Home = () => {
     if (res.status == true) {
       toast.success(res.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -497,7 +447,7 @@ const Home = () => {
     } else {
       toast.error(res.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -519,7 +469,7 @@ const Home = () => {
     if (mobileNumber === "") {
       toast.error("Please enter email", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -528,7 +478,7 @@ const Home = () => {
     } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       toast.error("Please enter valid email address", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -542,7 +492,7 @@ const Home = () => {
       if (res.status === true) {
         toast.success(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -557,7 +507,7 @@ const Home = () => {
       } else {
         toast.error(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -586,7 +536,7 @@ const Home = () => {
     if (otp === "") {
       toast.error("Please enter otp", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -595,7 +545,7 @@ const Home = () => {
     } else if (!otp.match(/^[0-9]{4}$/)) {
       toast.error("Please enter 4 digit otp number", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -608,7 +558,7 @@ const Home = () => {
       if (res?.status == true) {
         toast.success(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -628,7 +578,7 @@ const Home = () => {
         setLoad(false);
         toast.error('Invalid OTP', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -647,7 +597,7 @@ const Home = () => {
     if (id === undefined || id === null || id === "") {
       toast.error("Please enter product id", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -700,7 +650,7 @@ const Home = () => {
     if (res.status == true) {
       toast.success(res?.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -711,7 +661,7 @@ const Home = () => {
     } else {
       toast.error(res?.message, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -742,7 +692,7 @@ const Home = () => {
       if (res?.status == true) {
         toast.success(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -755,7 +705,7 @@ const Home = () => {
       } else {
         toast.error(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -771,7 +721,7 @@ const Home = () => {
     if (mobileNumber === "") {
       toast.error("Please enter email", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -780,7 +730,7 @@ const Home = () => {
     } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       toast.error("Please enter valid email address", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         draggable: true,
@@ -793,7 +743,7 @@ const Home = () => {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -805,7 +755,7 @@ const Home = () => {
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -952,10 +902,10 @@ const Home = () => {
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
-                          onclick1={() => fullView(detail._id)}
+                          // onclick1={() => fullView(detail._id)}
                           onclick2={() => setWhistlistOpen(true)}
-                          cartStatus={detail?.isAddedToCart}
-                          qty={detail?.qty}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
                         />
                       ) : (
                         <Card
@@ -993,8 +943,8 @@ const Home = () => {
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => handleWhistlist(detail._id)}
-                          cartStatus={detail?.isAddedToCart}
-                          qty={detail?.qty}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
                         />
                       )}
                     </SwiperSlide>
@@ -1035,22 +985,20 @@ const Home = () => {
             price={product.price}
             ogp={product.originalPrice}
             discount={product.discount}
-            // onclick1={() => AddToCart(product?._id)}
-            handleViewCart={() => console.log("===============keghfiuehrfuige================")
-              // AddToCart(detail._id)
-              // // loginStatus == true
-              // //   ? AddToCart(product._id)
-              // //   : AddLocalCart(
-              // //       product._id,
-              // //       product.name,
-              // //       product.price,
-              // //       product.originalPrice,
-              // //       product.discount,
-              // //       product.quantity,
-              // //       product.unit,
-              // //       product.image
-              //     )
-            }
+            // handleViewCart={() => console.log("view cart")
+              // loginStatus == true
+              //   ? AddToCart(product._id)
+              //   : AddLocalCart(
+              //     product._id,
+              //     product.name,
+              //     product.price,
+              //     product.originalPrice,
+              //     product.discount,
+              //     product.quantity,
+              //     product.unit,
+              //     product.image
+              //   )
+            // }
           />
         </div>
       </div>
