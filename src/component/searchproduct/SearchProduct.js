@@ -19,8 +19,12 @@ import Header from "../header/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
+import TopHeader from "../topheader/TopHeader";
+import { useNavigate } from "react-router-dom";
 
 const SearchProduct = () => {
+  let navigate = useNavigate();
+
   const [data, setData] = useState([]);
   const [data1, setData1] = useState([]);
   const [searchItem, setSearchItem] = useState("");
@@ -211,17 +215,17 @@ const SearchProduct = () => {
       localContent();
     }
   };
-   const localContent = () => {
+  const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    
+
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      setCartProduct(cart ? cart : []); 
+      setCartProduct(cart ? cart : []);
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
@@ -257,8 +261,18 @@ const SearchProduct = () => {
     setCartOpen(false);
   };
   const handleView = (id) => {};
+
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <Header
         onchange={(e) => handleSearch(e.target.value)}
         value={searchItem}
@@ -284,7 +298,7 @@ const SearchProduct = () => {
         otp={otp}
         totalAmount={cartPrice}
         store={store}
-        handleCartLogin={()=>handleCartLogin()}
+        handleCartLogin={() => handleCartLogin()}
       />
       <div className="search_container">
         <div className="search_content">
