@@ -751,7 +751,7 @@ const Home = () => {
         });
         showcart();
         setLoad(false);
-        arrivalProduct();
+        arrivalProductList();
       } else {
         toast.error(res?.message, {
           position: "top-right",
@@ -1240,7 +1240,7 @@ const Home = () => {
               height="160px"
               width="160px"
               id={{ id: cat._id }}
-              onclick={() => handleNav(cat._id)}
+              // onclick={() => handleNav(cat._id)}
             />
           ))}
         </div>
