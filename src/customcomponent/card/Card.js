@@ -27,9 +27,6 @@ const Card = ({
   img,
   onclick1 = () => {},
   onclick2 = () => {},
-  quantity,
-  cartStatus = false,
-  qty
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -66,11 +63,11 @@ const Card = ({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <FaSearch
+        {/* <FaSearch
           className="fa_search"
           onClick={onclick1}
           data-tooltip-id="my-tooltip-1"
-        />
+        /> */}
         <FaHeart
           className="fa_search"
           onClick={onclick2}
@@ -130,24 +127,17 @@ const Card = ({
       <div className="time_singlecard">
         <p>{date}</p>
       </div>
+      <NavLink to={to} state={{ id: id }} className="nav_list">
       <div className="total_singlecard">
-          {cartStatus === false ? (
+          
           <button
             onClick={() => {
               handleShow();
               onclick();
             }}
           >
-            ADD
+            SHOP NOW
           </button>
-          ):null}
-          {cartStatus === true ? (
-            <div className="incre_decre_btn" onClick={() => onclick()}>
-            <p onClick={() => handleDre()}>-</p>
-            <p>{qty}</p>
-            <p onClick={() => handleIncre()}>+</p>
-          </div>
-            ):null}
         {/*showData && (
           <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => handleDre()}>-</p>
@@ -166,6 +156,7 @@ const Card = ({
           </p>
         </div>*/}
       </div>
+      </NavLink>
     </div>
   );
 };
