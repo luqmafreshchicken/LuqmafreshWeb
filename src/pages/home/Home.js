@@ -51,6 +51,7 @@ import "swiper/css/navigation";
 import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
 import { useNavigate } from "react-router-dom";
+import TopHeader from "../../component/topheader/TopHeader";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -783,6 +784,8 @@ const Home = () => {
 
   return (
     <>
+    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <Header
         code={countrytitle}
         currency={countrycurrency}
