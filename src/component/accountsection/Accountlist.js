@@ -3,10 +3,10 @@ const List = [
     routeName: "My Order ",
   },
   {
-    routeName: "WhistList",
+    routeName: "My WhistList",
   },
   {
-    routeName: "Notification",
+    routeName: "My Notification",
   },
   {
     routeName: "Logout",
