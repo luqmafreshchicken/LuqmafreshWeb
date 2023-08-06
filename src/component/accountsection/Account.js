@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MyAccount from "../myaccount/MyAccount";
+import TopHeader from "../topheader/TopHeader";
 
 const Account = () => {
   let navigate = useNavigate();
@@ -179,6 +180,7 @@ const Account = () => {
   // end remove cart
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
       <div className="account_header">
         <Header
           code={countrytitle}
