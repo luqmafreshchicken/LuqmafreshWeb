@@ -29,6 +29,7 @@ import { useNavigate } from "react-router-dom";
 import CustomTodayCard from "./customtodaycomponent/customtodaycard/CustomTodayCard";
 import SearchModal from "../../customcomponent/searchmodal/SearchModal";
 import WhistList from "../../customcomponent/whistlist/WhistList";
+import TopHeader from "../../component/topheader/TopHeader";
 const TodayDeals = () => {
   let navigate = useNavigate();
 
@@ -75,7 +76,6 @@ const TodayDeals = () => {
                   setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
                 });
-
               }
             });
           }
@@ -136,7 +136,7 @@ const TodayDeals = () => {
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
-    showcart();
+        showcart();
         localContent();
       } else {
         setLoad(false);
@@ -271,8 +271,6 @@ const TodayDeals = () => {
     /* end login api */
   }
 
-
-
   const showcart = async () => {
     const userId = await getUserID();
     const data = {
@@ -283,7 +281,7 @@ const TodayDeals = () => {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
     } else {
-     setLoad(false);
+      setLoad(false);
     }
   };
   const localContent = () => {
@@ -690,6 +688,8 @@ const TodayDeals = () => {
 
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <Header
         code={countrytitle}
         currency={countrycurrency}
