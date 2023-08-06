@@ -128,7 +128,7 @@ const Card = ({
         <p>{date}</p>
       </div>
       <NavLink to={to} state={{ id: id }} className="nav_list">
-      <div className="total_singlecard">
+      
           
           <button
             // onClick={() => {
@@ -155,8 +155,8 @@ const Card = ({
             </span>
           </p>
         </div>*/}
-      </div>
       </NavLink>
+
     </div>
   );
 };
