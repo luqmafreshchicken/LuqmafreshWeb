@@ -109,7 +109,7 @@ const ModalCart = ({
                       </div>
                       <div className="subbill_Detail">
                         <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
-                          Vat {modalcurrency} :
+                          Vat {modalcurrency} 5% :
                         </p>
                         <p style={{ paddingRight: "15px", paddingTop: "15px" }}>
                           {(totalAmount * 5) / 100}
