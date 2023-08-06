@@ -19,10 +19,10 @@ export default function CustomTodayCard({
   rating,
   id,
   to,
-  onclick = () => {},
-  onclick1 = () => {},
-  onclick2 = () => {},
-  
+  onclick = () => { },
+  onclick1 = () => { },
+  onclick2 = () => { },
+
 }) {
   const [incre, setIncre] = useState(1);
   const [showData, setShowData] = useState(false);
@@ -53,7 +53,7 @@ export default function CustomTodayCard({
       </div>
       <div className="icons_img">
         {/* <FaSearch className="fa_search" data-tooltip-id="my-tooltip-1"  onClick={onclick1}/> */}
-        <FaHeart className="fa_search" data-tooltip-id="my-tooltip-2"   onClick={onclick2}/>
+        <FaHeart className="fa_search" data-tooltip-id="my-tooltip-2" onClick={onclick2} />
         <RWebShare
           data={{
             text: "Luqmafresh",
@@ -99,31 +99,30 @@ export default function CustomTodayCard({
         <p>{date}</p>
       </div>
       <NavLink to={to} state={{ id: id }} className="nav_list">
-      <div className="total_singlecard">
-       
-          <button
-            // onClick={() => {
-            //   handleShow();
-            //   onclick();
-            // }}
-          >
-            SHOP NOW
-          </button>
-        
-        {/* {showData && (
+
+        <button
+        // onClick={() => {
+        //   handleShow();
+        //   onclick();
+        // }}
+        >
+          SHOP NOW
+        </button>
+      </NavLink>
+
+
+      {/* {showData && (
           <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => decrement()}>-</p>
             <p>{incre}</p>
             <p onClick={() => increment()}>+</p>
           </div>
         )} */}
-        {/* <div className="ammount_singlecard">
+      {/* <div className="ammount_singlecard">
           <p>
             Total <span>₹{totalpayment}</span>
           </p>
         </div>*/}
-      </div>
-      </NavLink>
     </div>
   );
 }
