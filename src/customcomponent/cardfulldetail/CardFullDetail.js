@@ -96,7 +96,7 @@ export default function CardFullDetail({ id }) {
   }, []);
 
   const fullView = async () => {
-    // setLoad(true);
+    setLoad(true);
     const id = location.state.id.id;
     const requestData = {
       productId: id,
@@ -105,8 +105,10 @@ export default function CardFullDetail({ id }) {
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
+        showcart();
       } else {
         setLoad(false);
+        showcart();
       }
     });
   };
@@ -282,13 +284,13 @@ export default function CardFullDetail({ id }) {
       userId: userId,
     };
     const res = await Show_Cart(data);
+    setCartPrice(res?.data?.totalAmount);
     if (res.status == true) {
-      setCartProduct(res.data.cart);
-      setCartPrice(res.data.totalAmount);
+      console.log(res.data?.totalAmount,"cart")
+      setCartProduct(res?.data?.cart);
+      setCartPrice(res?.data?.totalAmount);
       localContent();
     } else {
-      setCartProduct([]);
-      setCartPrice("");
       localContent();
     }
   };
@@ -297,7 +299,6 @@ export default function CardFullDetail({ id }) {
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    setCartPrice(cartPrice?.price);
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
