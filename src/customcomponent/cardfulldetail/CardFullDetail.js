@@ -97,13 +97,14 @@ export default function CardFullDetail({ id }) {
 
   const fullView = async () => {
     setLoad(true);
-    const id = location.state.id.id;
+    const id = location?.state?.id?.id;
+    findProductCount(id);
     const requestData = {
       productId: id,
     };
     productDeatail(requestData).then((res) => {
-      if (res.status == true) {
-        setProduct(res.data);
+      if (res?.status == true) {
+        setProduct(res?.data);
         setLoad(false);
         showcart();
       } else {
@@ -111,6 +112,29 @@ export default function CardFullDetail({ id }) {
         showcart();
       }
     });
+  };
+
+  const findProductCount = async (id) => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    if (items) {
+      const userId = await getUserID();
+      const data = {
+        userId: userId,
+      };
+      const res = await Show_Cart(data);
+      if (res?.status == true) {
+        const findProduct = res?.data?.cart.find((item) => item?.productId?._id === id);
+        setCount(findProduct?.quantity || 0);
+        let qty = findProduct?.quantity;
+        qty > 0 ? setShow(true) : setShow(false);
+      }
+    } else {
+      const localCArt = JSON.parse(localStorage.getItem("cart"));
+      const findProduct = localCArt?.find((item) => item?._id === id);
+      setCount(findProduct?.productId?.quantity || 0);
+      let qty = findProduct?.productId?.quantity;
+      qty > 0 ? setShow(true) : setShow(false);
+    }
   };
 
   const all_Image = async () => {
@@ -166,12 +190,12 @@ export default function CardFullDetail({ id }) {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
         setShowInput(!showInput);
         setHideOTP(true);
@@ -181,12 +205,12 @@ export default function CardFullDetail({ id }) {
       } else {
         toast.error(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
       }
     });
@@ -211,33 +235,32 @@ export default function CardFullDetail({ id }) {
       if (res.status == true) {
         toast.success(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         updatelocalcartindb();
         localContent();
         localContent1();
         showcart();
+        fullView();
         // setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
-
-        // window.location.reload();
       } else {
         console.log(res);
         toast.error(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
       }
     });
@@ -286,7 +309,6 @@ export default function CardFullDetail({ id }) {
     const res = await Show_Cart(data);
     setCartPrice(res?.data?.totalAmount);
     if (res.status == true) {
-      console.log(res.data?.totalAmount,"cart")
       setCartProduct(res?.data?.cart);
       setCartPrice(res?.data?.totalAmount);
       localContent();
@@ -425,23 +447,13 @@ export default function CardFullDetail({ id }) {
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
-        // let total = 0;
-        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
-        // updatedCart?.map((item) => {
-        //   total = total + item?.productId?.price * item?.quantity;
-        // });
-        // console.log(total, "==================update count product")
-        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
-        // console.log(total, "==================update count product")
-        // setCartPrice(total);
-
         localContent();
       } else {
         const newCart = [
@@ -460,12 +472,12 @@ export default function CardFullDetail({ id }) {
         localStorage.setItem("cart", JSON.stringify(newCart));
         toast.success("Product added to cart successfully", {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
         const updatedCart = JSON.parse(localStorage.getItem("cart"));
         let total = 0;
@@ -524,12 +536,12 @@ export default function CardFullDetail({ id }) {
     setShow(false);
     toast.success("Product remove from cart", {
       position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
     });
     localContent();
   };
@@ -544,26 +556,26 @@ export default function CardFullDetail({ id }) {
     removeFromCart(data).then((res) => {
       if (res.status == true) {
         toast.success(res.message, {
-           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
         showcart();
         setCount(0);
         setShow(false);
       } else {
         toast.error(res.message, {
-           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
       }
     });
@@ -601,24 +613,24 @@ export default function CardFullDetail({ id }) {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
 
         setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
         });
         setLoad(false);
       }
@@ -634,6 +646,7 @@ export default function CardFullDetail({ id }) {
   };
 
   const handleIncrement = () => {
+    setShow(true);
     setCount(count + 1);
     loginStatus == true
       ? AddToCart()
@@ -651,11 +664,8 @@ export default function CardFullDetail({ id }) {
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
-      // handleLocalCartQuantity(product._id, count - 1);
-      // handleDecre(count - 1);
       loginStatus == true ? handleDecre(count - 1) : handleLocalCartQuantity(product._id, count - 1);
     }
-
   };
   const handleLocalCartQuantity = (id, quantity) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
@@ -678,7 +688,7 @@ export default function CardFullDetail({ id }) {
       setCartPrice(cartPrice?.price - product?.productId?.price);
       setCartProduct(updateQuantity);
       toast.success('Product quantity updated', {
-         position: "top-right",
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -691,11 +701,12 @@ export default function CardFullDetail({ id }) {
   }
   const handleDecre = async (quantity) => {
     setLoad(true);
+    const userId = await getUserID();
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      "userId": "64bd9be498ea90fdf20f819f",
+      "userId": userId,
       "ProductId": product._id,
       "quantity": quantity
     });
@@ -716,25 +727,25 @@ export default function CardFullDetail({ id }) {
         if (res.status == true) {
           toast.success(res.message, {
             position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
           });
           // setIncre()
           showcart();
           setLoad(false);
         } else {
           toast.error(res.message, {
-             position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
           });
           setLoad(false);
         }
@@ -842,6 +853,7 @@ export default function CardFullDetail({ id }) {
                   <p style={{ color: "green" }}>{product.discount}% OFF</p>
                 </div>
                 <CustomAddToCartButton
+                  // show={show}
                   show={show}
                   onShow={() => setShow(true)}
                   quantity={count}
