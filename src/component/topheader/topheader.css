@@ -28,12 +28,12 @@
   font-size: 0.9rem;
   padding-top: 1.2rem;
   font-family: medium;
-  color: #ff0040;
+  transition: 0.2s linear;
 }
 .topheader_icon p:hover {
   color: #ff0040;
-  transition: 0.2s ease-in-out;
   cursor: pointer;
+  transform: scale(0.3s);
 }
 .top_location {
   height: 8vh;
