@@ -52,7 +52,7 @@ export default function CustomTodayCard({
         <h4>{offer}%</h4>
       </div>
       <div className="icons_img">
-        <FaSearch className="fa_search" data-tooltip-id="my-tooltip-1"  onClick={onclick1}/>
+        {/* <FaSearch className="fa_search" data-tooltip-id="my-tooltip-1"  onClick={onclick1}/> */}
         <FaHeart className="fa_search" data-tooltip-id="my-tooltip-2"   onClick={onclick2}/>
         <RWebShare
           data={{
@@ -98,30 +98,32 @@ export default function CustomTodayCard({
       <div className="time_singlecard">
         <p>{date}</p>
       </div>
+      <NavLink to={to} state={{ id: id }} className="nav_list">
       <div className="total_singlecard">
-        {!showData && (
+       
           <button
             onClick={() => {
               handleShow();
               onclick();
             }}
           >
-            ADD
+            SHOP NOW
           </button>
-        )}
-        {showData && (
+        
+        {/* {showData && (
           <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => decrement()}>-</p>
             <p>{incre}</p>
             <p onClick={() => increment()}>+</p>
           </div>
-        )}
+        )} */}
         {/* <div className="ammount_singlecard">
           <p>
             Total <span>₹{totalpayment}</span>
           </p>
         </div>*/}
       </div>
+      </NavLink>
     </div>
   );
 }
