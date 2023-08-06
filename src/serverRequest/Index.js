@@ -47,9 +47,8 @@ export const CountryDetail = async (Cname) => {
 
 export const getUserID = async () => {
   const items = JSON.parse(localStorage.getItem("userDetail"));
-console.log(items,"8i3t6r832yriuh2fohwogy98y4893498")
 
-  return items._id;
+  return items?._id;
 };
 
 
@@ -135,7 +134,7 @@ export const getTimeslot = async () => {
 //   return response.data;
 // };
 export const newArrival = async (requestData) => {
-  console.log(requestData)
+  console.log(requestData,'Kishnaaaaaaaaaaaaaaaaa')
   const response = await axios.post(
     `${API_BASE_URL}product/NewArrivals`,
     requestData
