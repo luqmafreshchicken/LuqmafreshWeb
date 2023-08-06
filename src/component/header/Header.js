@@ -40,8 +40,8 @@ const Header = ({
   handleclear = () => {},
   removeProduct = () => {},
   handleResendOTP = () => {},
-  handleCartLogin = () =>{},
-  handleHome = () =>{}
+  handleCartLogin = () => {},
+  handleHome = () => {},
 }) => {
   // let navigate = useNavigate();
 
@@ -125,6 +125,7 @@ const Header = ({
               disabled={false}
               onChange={onchange}
               value={value}
+              type="text"
             />
             <img src="search.png" height="17px" width="17px" />
           </div>
@@ -194,75 +195,27 @@ const Header = ({
                       onMouseOut={(e) => MouseOut(e)}
                     >
                       <div className="header_currency">
-                        <img src="user1.png" height="17px" width="17px" />
-                        <span
+                        <NavLink
                           style={{
-                            fontSize: "13px",
-                            paddingLeft: "5px",
-                            paddingTop: "15px",
+                            color: "black",
+                            fontWeight: "400",
+                            textDecoration: "none",
+                            listStyle: "none",
+                            fontSize: "0.7rem",
                           }}
+                          to="/account"
                         >
-                          Profile
-                          {ishover ? (
-                            <ul
-                              style={{
-                                flexDirection: "column",
-                                // gap: "15px",
-                                position: "absolute",
-                                backgroundColor: "white",
-                                padding: "4px",
-                                paddingLeft: "0px",
-                                textDecoration: "none",
-                                width: "13%",
-                                height: "auto",
-                                borderRadius: "10px",
-                                zIndex: 4,
-                                border: "1px solid lightgray",
-                              }}
-                            >
-                              <li
-                                style={{
-                                  listStyle: "none",
-                                  color: "#ee1d23",
-                                  fontWeight: 900,
-                                  fontSize: "17px",
-                                  paddingTop: "10px",
-                                  width: "100%",
-                                  paddingLeft: "20px",
-                                  paddingBottom: "25px",
-                                }}
-                              >
-                                LUQMA FRESH
-                              </li>
-                              {Options.map((option, index) => (
-                                <li
-                                  style={{
-                                    listStyle: "none",
-                                    width: "100%",
-                                    paddingLeft: "20px",
-                                    height: "20px",
-                                    marginBottom: "0.5rem",
-                                    lineHeight: 0.1,
-                                  }}
-                                  onClick={() => handleclear(index)}
-                                >
-                                  <NavLink
-                                    style={{
-                                      color: "black",
-                                      fontWeight: "400",
-                                      textDecoration: "none",
-                                      listStyle: "none",
-                                      fontSize: "0.7rem",
-                                    }}
-                                    to="/account"
-                                  >
-                                    {option.routeName}
-                                  </NavLink>
-                                </li>
-                              ))}
-                            </ul>
-                          ) : null}
-                        </span>
+                          <img src="user1.png" height="17px" width="17px" />
+                          <span
+                            style={{
+                              fontSize: "13px",
+                              paddingLeft: "5px",
+                              paddingTop: "15px",
+                            }}
+                          >
+                            My Account
+                          </span>
+                        </NavLink>
                       </div>
                     </li>
                   </div>
@@ -304,7 +257,7 @@ const Header = ({
         modalcurrency={modalcurrency}
         removeProduct={removeProduct}
         handleCartLogin={handleCartLogin}
-        handleHome = {handleHome}
+        handleHome={handleHome}
       />
 
       <Modal
@@ -338,7 +291,6 @@ const Header = ({
                       type="email"
                       name="email"
                     />
-                   
                   </div>
                 </div>
               )}
@@ -350,8 +302,8 @@ const Header = ({
                       placeholder="Enter OTP"
                       onChange={sethandleOtp}
                       // value={otp}
-                      type="number"
-                      name="number"
+                      type="otp"
+                      name="otp"
                     />
                     <p onClick={handleResendOTP}>Resend OTP</p>
                   </div>
