@@ -242,6 +242,12 @@ const Home = () => {
       draggable: true,
       progress: undefined,
     });
+    if (cart?.length === 1) {
+      localStorage.removeItem("cart");
+      localStorage.removeItem("cartPrice");
+      setCartProduct([]);
+      setCartPrice(0);
+    }
     localContent();
   };
 
