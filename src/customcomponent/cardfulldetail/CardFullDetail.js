@@ -39,10 +39,8 @@ import CustomAddToCartButton from "../../component/AddToCart";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
-
   let location = useLocation();
   const [data, setData] = useState([]);
-
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
   const [product, setProduct] = useState([]);
@@ -287,9 +285,11 @@ export default function CardFullDetail({ id }) {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
+      localContent();
     } else {
       setCartProduct([]);
       setCartPrice("");
+      localContent();
     }
   };
   const localContent = () => {
