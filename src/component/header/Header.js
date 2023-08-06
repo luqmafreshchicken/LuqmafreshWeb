@@ -157,7 +157,7 @@ const Header = ({
               <NavLink to="/search" className="nav_list">
                 <input
                   placeholder="Search for any delecious product"
-                  type="search"
+                  // type="search"
                   onChange={onchange}
                   value={value}
                 />
