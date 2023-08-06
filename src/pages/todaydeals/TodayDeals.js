@@ -58,11 +58,6 @@ const TodayDeals = () => {
   const [whistlistOpen, setWhistlistOpen] = useState(false);
 
   useEffect(() => {
-   
-    
-  }, []);
-
-  useEffect(() => {
     setLoad(true);
     window.scrollTo(0, 0);
     if (navigator.geolocation) {
@@ -92,8 +87,6 @@ const TodayDeals = () => {
     } else {
       console.error("Geolocation is not supported by your browser.");
     }
-    
-    showcart();
     subCategorie();
     productAll();
   }, []);
@@ -143,6 +136,7 @@ const TodayDeals = () => {
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
+    showcart();
         localContent();
       } else {
         setLoad(false);
@@ -289,8 +283,7 @@ const TodayDeals = () => {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
     } else {
-      setCartProduct([]);
-      setCartPrice("");
+     setLoad(false);
     }
   };
   const localContent = () => {
@@ -298,9 +291,7 @@ const TodayDeals = () => {
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    setCartPrice(cartPrice?.price);
     if (items) {
-      // setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
       setCartProduct(cart);
