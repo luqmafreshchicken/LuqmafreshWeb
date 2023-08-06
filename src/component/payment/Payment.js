@@ -29,6 +29,7 @@ import NetBanking from "./paymentcomponent/netbanking/NetBanking";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import TopHeader from "../topheader/TopHeader";
 
 const Payment = () => {
   let navigate = useNavigate();
@@ -347,6 +348,8 @@ console.log(coupon,"coupon")
   };
   return (
     <>
+    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <div className="mobile_payment">
         <Header
           code={countrytitle}
