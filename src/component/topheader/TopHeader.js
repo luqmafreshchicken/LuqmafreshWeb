@@ -31,7 +31,7 @@ const TopHeader = ({ handleclear, loginStatus }) => {
             </p>
           </div>
           <div className="halal_image">
-            <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png" />
+            <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691354629/Halal_zcvxji.jpg" />
           </div>
         </div>
 
