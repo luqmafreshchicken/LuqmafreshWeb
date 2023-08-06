@@ -1,18 +1,18 @@
 const Options = [
     {
-        routeName: "Account",
+        routeName: "My Account",
         // route: "account"
     },
     {
-        routeName: "My Rewards",
+        routeName: "My Order",
         // route: "team"
     },
     {
-        routeName: "My Order",
+        routeName: "My Points",
         // route: "solutions"
     },
     {
-        routeName: "Refer & friend",
+        routeName: "My Whistlist",
         // route: "career"
     },
     
