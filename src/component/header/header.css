@@ -264,7 +264,9 @@ ul li {
 .handle_login_otp_content p {
   padding-top: 0.9rem;
   font-family: regular;
-  color: #c42118;
+   color: #ff0040;
+    cursor: pointer;
+
 }
 .handle_login_btn_container {
   width: 100%;
