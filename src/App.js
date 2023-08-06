@@ -11,10 +11,19 @@ import GoToTop from "./customcomponent/gototop/GoToTop";
 import MobileBottomtab from "./mobilecomponent/mobilebottomtab/MobileBottomtab";
 import Routes from "./pages/routes/Routes";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
+
 function App() {
+  let navigate = useNavigate();
+
+  const handleClear = async () => {
+    await localStorage.clear();
+    navigate("/");
+    window.location.reload();
+  };
   return (
     <div>
-      <TopHeader />
+      <TopHeader handleClear={() => handleClear()} />
       <Routes />
       <div className="mobile_news_footer">
         <NewsFooter />
