@@ -92,7 +92,8 @@ const Home = () => {
   const handleSearchClose = () => setSearchOpen(false);
 
   useEffect(() => {
-    // localStorage.clear();
+    window.scrollTo(0, 0);
+    setLoad(true);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -120,8 +121,117 @@ const Home = () => {
       console.error("Geolocation is not supported by your browser.");
     }
     localContent();
-    showcart();
+    arrivalProductList();
   }, []);
+
+  const categoryList = async () => {
+    const newData = await productCategorie();
+    if (newData?.status === true) {
+      setData1(newData?.data);
+      topSaverWeekList();
+    showcart();
+    } else {
+      setLoad(false);
+    }
+  };
+  
+  const arrivalProductList = async () => {
+    const UserId = await getUserID();
+      const data = {
+        id: UserId ? UserId : "",
+      };
+      const res = await newArrival(data);
+      if (res?.status === true) {
+        setData(res?.data);
+        categoryList();
+      } else {
+        setLoad(false);
+        categoryList();
+      }
+  }
+
+  const topSaverWeekList = async () => {
+    const res = await topSeverweek();
+      if (res?.status === true) {
+        setData2(res.data);
+        bestSellerList();
+      } else {
+        setLoad(false);
+      }
+  }
+
+  const bestSellerList = async () => {
+    const res = await bestSeller();
+      if (res?.status === true) {
+        setData3(res?.data);
+        todayDealList();
+      } else {
+        setLoad(false);
+      }
+  }
+
+  const todayDealList = async () => {
+    const res = await todayDeals();
+      if (res?.status === true) {
+        setToday(res?.data);
+        setLoad(false);
+      } else {
+        setLoad(false);
+      }
+  }
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   setLoad(true);
+  //   async function getData(res) {
+  //     const newData = await productCategorie();
+  //     setData1(newData.data);
+  //     setLoad(false);
+  //   }
+  //   getData();
+  // }, []);
+
+  // useEffect(() => {
+   
+  //   arrivalProduct();
+  // }, []);
+
+  
+  // useEffect(() => {
+  //   async function getData() {
+  //     setLoad(true);
+  //     const newData = await topSeverweek();
+  //     setData2(newData.data);
+  //     setLoad(false);
+  //   }
+  //   getData();
+  // }, []);
+
+  // end topseverweek
+
+  // bestSeller api
+  // useEffect(() => {
+  //   async function getData() {
+  //     setLoad(true);
+  //     const newData = await bestSeller();
+  //     setData3(newData.data);
+  //     setLoad(false);
+  //   }
+  //   window.scrollTo(0, 0);
+  //   getData();
+  // }, []);
+  // end bestSeller api
+
+  // todeal deals Api
+  // useEffect(() => {
+  //   async function today() {
+  //     setLoad(true);
+  //     const newData = await todayDeals();
+  //     setToday(newData.data);
+  //     setLoad(false);
+  //   }
+  //   today();
+  // }, []);
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -215,7 +325,7 @@ const Home = () => {
       setCartProduct(cart);
       let total = 0;
       cart?.map((item) => {
-        total = total + item.productId.price;
+        total = total + item?.productId?.price;
       });
       setCartPrice(total);
       setLoginStatus(false);
@@ -265,10 +375,10 @@ const Home = () => {
       );
       localContent();
     } else {
-      const existItem = cart.find((x) => x._id === id);
+      const existItem = cart?.find((x) => x._id === id);
       if (existItem) {
         // update quantity in cart local storage 
-        const newCart = cart.map((x) =>
+        const newCart = cart?.map((x) =>
           x._id === id
             ? {
               _id: id,
@@ -360,39 +470,6 @@ const Home = () => {
       setLoginStatus(false);
     }
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setLoad(true);
-    async function getData(res) {
-      const newData = await productCategorie();
-      setData1(newData.data);
-      setLoad(false);
-    }
-    getData();
-  }, []);
-  const handleNav = (id) => {
-    //  console.log(id);
-  };
-
-  // new arrial section
-
-  useEffect(() => {
-   
-    arrivalProduct();
-  }, []);
-
-  const arrivalProduct = async () => {
-    const UserId = await getUserID();
-    console.log(UserId)
-    const data = {
-      id: UserId ? UserId : "",
-    };
-    const newData = await newArrival(data);
-    setData(newData.data);
-  }
-
-
   const AddToCart = async (id) => {
     console.log('kwbdkiwbgdkbekjbgfkihvkefviefv')
     setLoad(true);
@@ -416,9 +493,8 @@ const Home = () => {
       });
       showcart();
       setLoad(false);
-      arrivalProduct();
+      arrivalProductList();
     } else {
-      setLoad(false);
       toast.error(res.message, {
         position: "top-right",
         autoClose: 5000,
@@ -434,41 +510,6 @@ const Home = () => {
 
   // topsever week
 
-  useEffect(() => {
-    async function getData() {
-      setLoad(true);
-      const newData = await topSeverweek();
-      setData2(newData.data);
-      setLoad(false);
-    }
-    getData();
-  }, []);
-
-  // end topseverweek
-
-  // bestSeller api
-  useEffect(() => {
-    async function getData() {
-      setLoad(true);
-      const newData = await bestSeller();
-      setData3(newData.data);
-      setLoad(false);
-    }
-    window.scrollTo(0, 0);
-    getData();
-  }, []);
-  // end bestSeller api
-
-  // todeal deals Api
-  useEffect(() => {
-    async function today() {
-      setLoad(true);
-      const newData = await todayDeals();
-      setToday(newData.data);
-      setLoad(false);
-    }
-    today();
-  }, []);
   // end today deals Api
   {
     /* login api */
@@ -499,7 +540,7 @@ const Home = () => {
     const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
       if (res.status === true) {
-        toast.success(res.message, {
+        toast.success(res?.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -514,8 +555,7 @@ const Home = () => {
         setStore(newEmail);
         setLoad(false);
       } else {
-        setLoad(false);
-        toast.error(res.message, {
+        toast.error(res?.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -524,6 +564,7 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
+        setLoad(false);
       }
     });
   };
@@ -564,8 +605,8 @@ const Home = () => {
     setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
+      if (res?.status == true) {
+        toast.success(res?.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -585,7 +626,7 @@ const Home = () => {
         // window.location.reload();
       } else {
         setLoad(false);
-        toast.error(res.message, {
+        toast.error('Invalid OTP', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -620,7 +661,7 @@ const Home = () => {
     productDeatail(requestData).then((res) => {
       if (res.status == true) {
         setSearchOpen(true);
-        setProduct(res.data);
+        setProduct(res?.data);
         setLoad(false);
       } else {
         setLoad(false);
@@ -640,13 +681,12 @@ const Home = () => {
     };
     const res = await Show_Cart(data);
     if (res.status == true) {
-      setCartProduct(res.data.cart);
-      setCartPrice(res.data.totalAmount);
+      setCartProduct(res?.data?.cart);
+      setCartPrice(res?.data?.totalAmount);
       setLoad(false);
     } else {
       setCartProduct([]);
       setCartPrice("");
-      setLoad(false);
     }
   };
 
@@ -658,7 +698,7 @@ const Home = () => {
     };
     const res = await whistUserIDproductId(data);
     if (res.status == true) {
-      toast.success(res.message, {
+      toast.success(res?.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -668,9 +708,8 @@ const Home = () => {
         progress: undefined,
       });
       setWhistList(res.data);
-      setLoad(false);
     } else {
-      toast.error(res.message, {
+      toast.error(res?.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -679,7 +718,6 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
-      setLoad(false);
     }
   };
   const carthandleOpen = () => setCartOpen(true);
@@ -701,8 +739,8 @@ const Home = () => {
       productId: id,
     };
     removeFromCart(data).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
+      if (res?.status == true) {
+        toast.success(res?.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -715,7 +753,7 @@ const Home = () => {
         setLoad(false);
         arrivalProduct();
       } else {
-        toast.error(res.message, {
+        toast.error(res?.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -724,7 +762,6 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
-        setLoad(false);
       }
     });
   };
