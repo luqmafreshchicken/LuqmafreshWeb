@@ -252,6 +252,7 @@ export default function CardFullDetail({ id }) {
         setOpen(false);
         setLoad(false);
       } else {
+        setLoad(false);
         console.log(res);
         toast.error(res.message, {
           position: "top-right",
