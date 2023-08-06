@@ -32,6 +32,7 @@ const ModalCart = ({
     }
     getData();
   }, []);
+  console.log("data", cartProduct);
 
   return (
     <div>
@@ -60,7 +61,7 @@ const ModalCart = ({
                             </div>
 
                             <div className="product_name">
-                              <p>{option.productId.name}</p>
+                              <p>{option?.productId?.name} - {option?.quantity} Qty</p>
                             </div>
                           </div>
 
@@ -73,9 +74,9 @@ const ModalCart = ({
                         </div>
                         <div className="peices_content">
                           <div className="peices_price">
-                            <div className="border_peices">
+                            {/* <div className="border_peices">
                               <p>{option.productId.quantity}gms</p>
-                            </div>
+                            </div> */}
                             <div className="color_count">
                               <p>
                                 {" "}
@@ -89,6 +90,7 @@ const ModalCart = ({
                                 {modalcurrency}
                                 {option.productId.originalPrice}
                               </p>
+                              
                             </div>
                           </div>
                         </div>
@@ -198,7 +200,7 @@ const ModalCart = ({
                         </div>
 
                         <div className="product_name">
-                          <p>{option.productId.name}</p>
+                          <p>{option.productId.name} - {option.productId.quantity} Qty</p>
                         </div>
                       </div>
 
@@ -211,9 +213,9 @@ const ModalCart = ({
                     </div>
                     <div className="peices_content">
                       <div className="peices_price">
-                        <div className="border_peices">
+                        {/* <div className="border_peices">
                           <p>{option.productId.quantity}gms</p>
-                        </div>
+                        </div> */}
                         <div className="color_count">
                           <p>
                             {" "}
@@ -227,6 +229,7 @@ const ModalCart = ({
                             {modalcurrency}
                             {option.productId.originalPrice}
                           </p>
+                          
                         </div>
                       </div>
                     </div>
