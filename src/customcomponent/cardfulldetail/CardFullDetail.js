@@ -36,6 +36,7 @@ import * as moment from "moment";
 import { Navigation, Parallax } from "swiper";
 import Card from "../card/Card";
 import CustomAddToCartButton from "../../component/AddToCart";
+import TopHeader from "../../component/topheader/TopHeader";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
@@ -124,7 +125,9 @@ export default function CardFullDetail({ id }) {
       };
       const res = await Show_Cart(data);
       if (res?.status == true) {
-        const findProduct = res?.data?.cart.find((item) => item?.productId?._id === id);
+        const findProduct = res?.data?.cart.find(
+          (item) => item?.productId?._id === id
+        );
         setCount(findProduct?.quantity || 0);
         let qty = findProduct?.quantity;
         qty > 0 ? setShow(true) : setShow(false);
@@ -425,15 +428,15 @@ export default function CardFullDetail({ id }) {
         const newCart = cart.map((x) =>
           x._id === id
             ? {
-              _id: id,
-              productId: {
                 _id: id,
-                quantity: x?.productId?.quantity + 1,
-                name: name,
-                price: price,
-                originalPrice: originalPrice,
-              },
-            }
+                productId: {
+                  _id: id,
+                  quantity: x?.productId?.quantity + 1,
+                  name: name,
+                  price: price,
+                  originalPrice: originalPrice,
+                },
+              }
             : x
         );
         localStorage.setItem("cart", JSON.stringify(newCart));
@@ -518,21 +521,19 @@ export default function CardFullDetail({ id }) {
     const cartData = cart?.filter((item) => item?.productId?._id !== id);
     const product = cart?.find((item) => item?.productId?._id === id);
     const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-    cart?.length >= 1 && (
+    cart?.length >= 1 &&
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
-      )
-    )
-    cart?.length < 1 && (
-      localStorage.setItem(
-        "cartPrice",
-        JSON.stringify({ price: 0 })
-      )
-    )
+      );
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
     localStorage.setItem("cart", JSON.stringify(cartData));
     setCartProduct(removeProduct);
-    setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
     // setShowCartBtn(false);
     setCount(0);
     setShow(false);
@@ -653,20 +654,22 @@ export default function CardFullDetail({ id }) {
     loginStatus == true
       ? AddToCart()
       : AddLocalCart(
-        product._id,
-        product.name,
-        product.price,
-        product.originalPrice,
-        product.discount,
-        product.quantity,
-        product.unit,
-        product.image
-      );
+          product._id,
+          product.name,
+          product.price,
+          product.originalPrice,
+          product.discount,
+          product.quantity,
+          product.unit,
+          product.image
+        );
   };
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
-      loginStatus == true ? handleDecre(count - 1) : handleLocalCartQuantity(product._id, count - 1);
+      loginStatus == true
+        ? handleDecre(count - 1)
+        : handleLocalCartQuantity(product._id, count - 1);
     }
   };
   const handleLocalCartQuantity = (id, quantity) => {
@@ -689,7 +692,7 @@ export default function CardFullDetail({ id }) {
       );
       setCartPrice(cartPrice?.price - product?.productId?.price);
       setCartProduct(updateQuantity);
-      toast.success('Product quantity updated', {
+      toast.success("Product quantity updated", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -700,7 +703,7 @@ export default function CardFullDetail({ id }) {
       });
       localContent();
     }
-  }
+  };
   const handleDecre = async (quantity) => {
     setLoad(true);
     const userId = await getUserID();
@@ -708,9 +711,9 @@ export default function CardFullDetail({ id }) {
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      "userId": userId,
-      "ProductId": product._id,
-      "quantity": quantity
+      userId: userId,
+      ProductId: product._id,
+      quantity: quantity,
     });
 
     var requestOptions = {
@@ -757,6 +760,8 @@ export default function CardFullDetail({ id }) {
 
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <div className="fullview_search_mobile">
         <Header
           code={countrytitle}
