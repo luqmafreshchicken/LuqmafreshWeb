@@ -8,20 +8,9 @@ import {
   FaFacebookF,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { useState } from "react";
 
-const TopHeader = ({ handleClear }) => {
-  const [loginStatus, setLoginStatus] = useState(false);
-
-  useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    if (items) {
-      setLoginStatus(true);
-    } else {
-      setLoginStatus(false);
-    }
-  });
-
+const TopHeader = ({ handleclear, loginStatus }) => {
+ 
   return (
     <div className="topheader_container">
       <div className="topheader_content">
@@ -50,7 +39,7 @@ const TopHeader = ({ handleClear }) => {
         {/* right side */}
 
         <div className="topheader_icon">
-          {loginStatus == true ? <p onClick={handleClear}>Logout</p> : null}
+          {loginStatus == true ? <p onClick={handleclear}>Logout</p> : null}
 
           <a href="https://www.facebook.com/" target="_blank" rel="">
             <FaFacebookF className="icon facebook" />
