@@ -212,18 +212,31 @@ const SearchProduct = () => {
       setCartPrice("");
     }
   };
-  const localContent = () => {
+   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    
     if (items) {
-      // setWhistlistOpen(false);
+      setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
+      setCartProduct(cart ? cart : []); 
+      cart?.map((item) => {
+        setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
+      });
+      setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
+      setCartPrice(cartPrice?.price);
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cart?.length > 0 ? cartPrice?.price : 0 })
+      );
       setLoginStatus(false);
       if (items1) {
-        // setWhistlistOpen(false);
+        setWhistlistOpen(false);
       } else {
-        // setWhistlistOpen(true);
+        setWhistlistOpen(true);
         setLoginStatus(false);
       }
     }
