@@ -145,7 +145,6 @@ const Header = ({
               <div className="luqma_location_top">
                 <img src="pin.png" />
                 <p>Your Loction</p>
-                <img src="down (2).png" />
               </div>
 
               <div className="luqma_location_bottom">
