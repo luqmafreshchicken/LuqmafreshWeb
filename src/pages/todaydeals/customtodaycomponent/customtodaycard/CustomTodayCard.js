@@ -102,10 +102,10 @@ export default function CustomTodayCard({
       <div className="total_singlecard">
        
           <button
-            onClick={() => {
-              handleShow();
-              onclick();
-            }}
+            // onClick={() => {
+            //   handleShow();
+            //   onclick();
+            // }}
           >
             SHOP NOW
           </button>
