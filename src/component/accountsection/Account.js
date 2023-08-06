@@ -18,6 +18,7 @@ import WhistListDetail from "../whistlistdetail/WhistListDetail";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MyAccount from "../myaccount/MyAccount";
 
 const Account = () => {
   let navigate = useNavigate();
@@ -38,15 +39,18 @@ const Account = () => {
 
   const handleOpen = () => {
     if (open2 === 0) {
-      return <Orderhistory countyCurrency={countrycurrency} />;
+      return <MyAccount />;
     }
     if (open2 === 1) {
-      return <WhistListDetail />;
+      return <Orderhistory countyCurrency={countrycurrency} />;
     }
     if (open2 === 2) {
-      return <Notification />;
+      return <WhistListDetail />;
     }
     if (open2 === 3) {
+      return <Notification />;
+    }
+    if (open2 === 4) {
       localStorage.clear();
       navigate("/");
       window.location.reload();
