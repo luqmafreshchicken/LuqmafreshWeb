@@ -241,6 +241,9 @@ const SearchProduct = () => {
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
+  const handleCartLogin = () => {
+    setCartOpen(false);
+  };
   const handleView = (id) => {};
   return (
     <>
@@ -269,6 +272,7 @@ const SearchProduct = () => {
         otp={otp}
         totalAmount={cartPrice}
         store={store}
+        handleCartLogin={()=>handleCartLogin()}
       />
       <div className="search_container">
         <div className="search_content">
