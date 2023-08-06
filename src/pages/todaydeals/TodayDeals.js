@@ -28,7 +28,7 @@ import ProductNotFound from "../../customcomponent/productnotfound/ProductNotFou
 import { useNavigate } from "react-router-dom";
 import CustomTodayCard from "./customtodaycomponent/customtodaycard/CustomTodayCard";
 import SearchModal from "../../customcomponent/searchmodal/SearchModal";
-import WhistList from "../../customcomponent/whistlist/WhistList"
+import WhistList from "../../customcomponent/whistlist/WhistList";
 const TodayDeals = () => {
   let navigate = useNavigate();
 
@@ -681,10 +681,9 @@ const TodayDeals = () => {
     });
   };
 
- 
   const handleCartLogin = () => {
     setCartOpen(false);
-    setOpen(true)
+    setOpen(true);
   };
 
   const handleHome = () => {
@@ -696,7 +695,7 @@ const TodayDeals = () => {
     <>
       <Header
         code={countrytitle}
-        currency={countrycurrency} 
+        currency={countrycurrency}
         flag={flag}
         cartPrice={cartPrice}
         cartProductlength={cartProduct}
@@ -731,12 +730,19 @@ const TodayDeals = () => {
         {subcategorie.length >= 1 ? (
           <div className="subcategorie_contaner">
             <div className="subcategorie_content">
+              <SubCategorieList
+                // img={category.subcategoryImage}
+                name="All"
+                onclick={() => productAll()}
+              />
               {subcategorie.map((category) => (
-                <SubCategorieList
-                  // img={category.subcategoryImage}
-                  name={category.subcategoryName}
-                  onclick={() => categoryProduct(category._id)}
-                />
+                <>
+                  <SubCategorieList
+                    // img={category.subcategoryImage}
+                    name={category.subcategoryName}
+                    onclick={() => categoryProduct(category._id)}
+                  />
+                </>
               ))}
             </div>
             <Loader loading={load} />
@@ -766,7 +772,7 @@ const TodayDeals = () => {
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
-                          ? handleCart( item?._id)
+                          ? handleCart(item?._id)
                           : AddLocalCart(
                               item._id,
                               item.name,
@@ -800,7 +806,7 @@ const TodayDeals = () => {
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
-                          ? handleCart( item?._id)
+                          ? handleCart(item?._id)
                           : AddLocalCart(
                               item._id,
                               item.name,
@@ -820,22 +826,21 @@ const TodayDeals = () => {
                 </>
               ))}
               <WhistList
-              whistlistOpen={whistlistOpen}
-              handlewhistlistClose={handlewhistlistClose}
-              onclick={handlewhistlistClose}
-              proceedOTP="Proceed Via OTP"
-              proceedsubmit="Submit"
-              onChange={handleMobileNumber}
-              value={mobileNumber}
-              onChange1={(e) => setOtp(e.target.value)}
-              // value1={}
-              onclick1={() => handleLogin()}
-              onclick2={() => handleOTP()}
-              otpHide={hideOTP}
-              btnShow={btn}
-            />
-            
-  
+                whistlistOpen={whistlistOpen}
+                handlewhistlistClose={handlewhistlistClose}
+                onclick={handlewhistlistClose}
+                proceedOTP="Proceed Via OTP"
+                proceedsubmit="Submit"
+                onChange={handleMobileNumber}
+                value={mobileNumber}
+                onChange1={(e) => setOtp(e.target.value)}
+                // value1={}
+                onclick1={() => handleLogin()}
+                onclick2={() => handleOTP()}
+                otpHide={hideOTP}
+                btnShow={btn}
+              />
+
               <SearchModal
                 currency={countrycurrency}
                 searchOpen={searchOpen}
