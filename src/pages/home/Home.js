@@ -418,6 +418,7 @@ const Home = () => {
       setLoad(false);
       arrivalProduct();
     } else {
+      setLoad(false);
       toast.error(res.message, {
         position: "top-right",
         autoClose: 5000,
@@ -513,6 +514,7 @@ const Home = () => {
         setStore(newEmail);
         setLoad(false);
       } else {
+        setLoad(false);
         toast.error(res.message, {
           position: "top-right",
           autoClose: 5000,
@@ -582,7 +584,7 @@ const Home = () => {
         showcart();
         // window.location.reload();
       } else {
-        console.log(res);
+        setLoad(false);
         toast.error(res.message, {
           position: "top-right",
           autoClose: 5000,
@@ -644,6 +646,7 @@ const Home = () => {
     } else {
       setCartProduct([]);
       setCartPrice("");
+      setLoad(false);
     }
   };
 
@@ -665,6 +668,7 @@ const Home = () => {
         progress: undefined,
       });
       setWhistList(res.data);
+      setLoad(false);
     } else {
       toast.error(res.message, {
         position: "top-right",
@@ -675,6 +679,7 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
+      setLoad(false);
     }
   };
   const carthandleOpen = () => setCartOpen(true);
@@ -719,6 +724,7 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
+        setLoad(false);
       }
     });
   };
