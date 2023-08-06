@@ -708,6 +708,7 @@ const Home = () => {
         });
         showcart();
         setLoad(false);
+        arrivalProduct();
       } else {
         toast.error(res.message, {
           position: "top-right",
