@@ -30,6 +30,7 @@ import {
   MDBTableBody,
 } from "mdb-react-ui-kit";
 import { FaEdit } from "react-icons/fa";
+import TopHeader from "../topheader/TopHeader";
 
 const SelectDeliveryslot = () => {
   let navigate = useNavigate();
@@ -311,6 +312,8 @@ const SelectDeliveryslot = () => {
   };
   return (
     <>
+    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <div className="mobile_selectdeliveryslot_container">
         <Header
           code={countrytitle}
