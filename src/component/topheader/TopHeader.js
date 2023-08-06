@@ -9,7 +9,10 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
-const TopHeader = () => {
+const TopHeader = ({handleClear}) => {
+  // const [loginStatus, setLoginStatus] = useState(false);
+
+  
   return (
     <div className="topheader_container">
       <div className="topheader_content">
@@ -30,17 +33,15 @@ const TopHeader = () => {
             </p>
           </div>
           <div className="halal_image">
-          <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png" />
+            <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691077449/Halal_kry37w.png" />
+          </div>
         </div>
-        </div>
-        
+
         {/* end left side */}
         {/* right side */}
 
         <div className="topheader_icon">
-          {/*<p>Login</p>
-        <p>|</p>
-  <p>Sign in</p>*/}
+          <p onClick={handleClear}>Logout</p>
 
           <a href="https://www.facebook.com/" target="_blank" rel="">
             <FaFacebookF className="icon facebook" />
@@ -48,7 +49,10 @@ const TopHeader = () => {
           <a href="https://www.instagram.com/" target="_blank">
             <FaInstagram className="icon insta" />
           </a>
-          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F" target="_blank">
+          <a
+            href="https://twitter.com/i/flow/login?redirect_after_login=%2F"
+            target="_blank"
+          >
             <FaTwitter className="icon twitter" />
           </a>
           <a href="https://www.youtube.com/" target="_blank">
