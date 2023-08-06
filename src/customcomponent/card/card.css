@@ -163,9 +163,10 @@
 }
 .total_singlecard {
   height: 15vh;
+  width: 40%;
 }
 
-.nav_list.total_singlecard button {
+.nav_list button {
   background-color: red;
   width: 40%;
   height: 5.5vh;
