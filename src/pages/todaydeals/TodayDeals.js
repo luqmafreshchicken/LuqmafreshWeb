@@ -58,10 +58,44 @@ const TodayDeals = () => {
   const [whistlistOpen, setWhistlistOpen] = useState(false);
 
   useEffect(() => {
+   
+    
+  }, []);
+
+  useEffect(() => {
     setLoad(true);
+    window.scrollTo(0, 0);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    
+    showcart();
     subCategorie();
     productAll();
-    window.scrollTo(0, 0);
   }, []);
 
   const subCategorie = () => {
@@ -109,6 +143,7 @@ const TodayDeals = () => {
       if (res.status == true) {
         setProduct(res.data);
         setLoad(false);
+        localContent();
       } else {
         setLoad(false);
       }
@@ -242,36 +277,7 @@ const TodayDeals = () => {
     /* end login api */
   }
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          if (position?.coords?.latitude) {
-            GetCountry(
-              position?.coords?.latitude,
-              position?.coords?.longitude
-            ).then((res) => {
-              if (res?.address?.country) {
-                CountryDetail(res?.address?.country).then((res) => {
-                  setCountry(res[0]?.name);
-                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
-                  setCountryTitle(res[0]?.currencies[0]?.code);
-                  setFlag(res[0]?.flags?.png);
-                });
-              }
-            });
-          }
-        },
-        (error) => {
-          console.error("Error retrieving location:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by your browser.");
-    }
-    localContent();
-    showcart();
-  }, []);
+
 
   const showcart = async () => {
     const userId = await getUserID();
