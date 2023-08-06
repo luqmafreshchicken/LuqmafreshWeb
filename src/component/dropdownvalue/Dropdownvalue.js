@@ -13,7 +13,7 @@ const Options = [
     // route: "career"
   },
   {
-    routeName: "My Points",
+    routeName: "My Notification",
     // route: "solutions"
   },
 
