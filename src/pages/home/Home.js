@@ -120,7 +120,8 @@ const Home = () => {
     } else {
       console.error("Geolocation is not supported by your browser.");
     }
-    localContent();
+    // localContent();
+    showcart();
     arrivalProductList();
   }, []);
 
@@ -129,7 +130,6 @@ const Home = () => {
     if (newData?.status === true) {
       setData1(newData?.data);
       topSaverWeekList();
-    showcart();
     } else {
       setLoad(false);
     }
@@ -186,18 +186,17 @@ const Home = () => {
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    setCartPrice(cartPrice?.price);
+    
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      console.log("cart", cart)
       setCartProduct(cart ? cart : []); 
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
       setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
-      
+      setCartPrice(cartPrice?.price);
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cart?.length > 0 ? cartPrice?.price : 0 })
@@ -635,8 +634,7 @@ const Home = () => {
       setCartPrice(res?.data?.totalAmount);
       setLoad(false);
     } else {
-      setCartProduct([]);
-      setCartPrice("");
+      setLoad(false);
     }
   };
 
