@@ -96,6 +96,7 @@ export default function CardFullDetail({ id }) {
   }, []);
 
   const fullView = async () => {
+    showcart();
     setLoad(true);
     const id = location?.state?.id?.id;
     findProductCount(id);
