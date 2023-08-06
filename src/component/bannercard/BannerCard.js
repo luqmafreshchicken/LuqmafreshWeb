@@ -183,11 +183,11 @@ export default function BannerCard1({ productId, to }) {
             >
               <h1>{"Fresh Boneless Chicken"}</h1>
               <h2>{"Upto 5"}% OFF</h2>
-              <h5>{"Use code C50"}</h5>
+              {/*<h5>{"Use code C50"}</h5>*/}
               <div className="ban_discription">
-                <h6>
-                  {"Enjoy complimentary shipping for orders above AED 1000."}
-                </h6>
+              <h6>
+                  {"Use Our Copons Codes."}
+            </h6>
               </div>
               <NavLink
                 to="/carddetail"
