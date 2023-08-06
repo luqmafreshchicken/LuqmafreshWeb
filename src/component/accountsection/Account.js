@@ -19,7 +19,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const Account = () => {
   let navigate = useNavigate();
 
@@ -39,13 +38,18 @@ const Account = () => {
 
   const handleOpen = () => {
     if (open2 === 0) {
-      return <Orderhistory countyCurrency={countrycurrency}/>;
+      return <Orderhistory countyCurrency={countrycurrency} />;
     }
     if (open2 === 1) {
-      return <Notification />;
+      return <WhistListDetail />;
     }
     if (open2 === 2) {
-      return <WhistListDetail />;
+      return <Notification />;
+    }
+    if (open2 === 3) {
+      localStorage.clear();
+      navigate("/");
+      window.location.reload();
     }
   };
   useEffect(() => {
@@ -136,8 +140,8 @@ const Account = () => {
   };
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
-   // remove cart
-   const removeCartProduct = async (id) => {
+  // remove cart
+  const removeCartProduct = async (id) => {
     const userId = await getUserID();
     const data = {
       userId: userId,
