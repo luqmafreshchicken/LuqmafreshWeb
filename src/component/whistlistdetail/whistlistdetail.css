@@ -1,5 +1,6 @@
-.whist_list_heading_container h1 {
-  font-family: semibold;
-  padding-bottom: 3rem;
+.whist_list_heading_container {
+   padding-bottom: 2rem;
 }
-
+.whist_list_heading_container h5{
+  font-family: medium;
+}
