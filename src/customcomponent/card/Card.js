@@ -128,16 +128,11 @@ const Card = ({
         <p>{date}</p>
       </div>
       <NavLink to={to} state={{ id: id }} className="nav_list">
-      
-          
-          <button
-            // onClick={() => {
-            //   handleShow();
-            //   onclick();
-            // }}
-          >
-            SHOP NOW
-          </button>
+        {/*// onClick={() => {
+        //   handleShow();
+        //   onclick();
+        // }}*/}
+        <div className="shop_now_btn">SHOP NOW</div>
         {/*showData && (
           <div className="incre_decre_btn" onClick={() => onclick()}>
             <p onClick={() => handleDre()}>-</p>
@@ -145,7 +140,6 @@ const Card = ({
             <p onClick={() => handleIncre()}>+</p>
           </div>
         )*/}
-
         {/* <div className="ammount_singlecard">
           <p>
             Total{" "}
@@ -156,7 +150,6 @@ const Card = ({
           </p>
         </div>*/}
       </NavLink>
-
     </div>
   );
 };
