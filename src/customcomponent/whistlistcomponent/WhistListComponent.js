@@ -1,7 +1,19 @@
 import React from "react";
 import "./whistlistcomponent.css";
+import { NavLink } from "react-router-dom";
 
-const WhistListComponent = ({ name, qty, price, ogp, dis, unit, img, onclick }) => {
+const WhistListComponent = ({
+  name,
+  qty,
+  price,
+  ogp,
+  dis,
+  unit,
+  img,
+  onclick,
+  id,
+  to
+}) => {
   return (
     <div>
       {/* order list */}
@@ -14,21 +26,24 @@ const WhistListComponent = ({ name, qty, price, ogp, dis, unit, img, onclick }) 
             <p>{name}</p>
           </div>
           <div className="whist_list_text_qty">
-            <p>{qty}{unit}</p>
+            <p>
+              {qty}
+              {unit}
+            </p>
             <p>{price}₹</p>
             <p style={{ textDecoration: "line-through", color: "grey" }}>
               {ogp}₹
             </p>
-            <p style={{ color: "lightgreen" }}>{dis}%</p>
+            <p style={{ color: "green" }}>{dis}%</p>
           </div>
         </div>
         <div className="whist_list_addtocart">
           <div className="remove_whist_list">
-          <p onClick={onclick}>Delete</p>
+            <img src="cross.png" onClick={onclick} />
           </div>
-          <div className="addto_cart">
-            <button>Add</button>
-          </div>
+          <NavLink to={to} state={{ id: id }} className="nav_list" >
+          <div className="addto_cart">SHOP NOW</div>
+          </NavLink>
         </div>
       </div>
       {/* end end list */}
