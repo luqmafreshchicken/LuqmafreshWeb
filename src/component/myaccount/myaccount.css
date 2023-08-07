@@ -1,0 +1,18 @@
+.myaccount_username_container{
+    /* background-color: aqua; */
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    gap: 1rem;
+}
+.myaccount_username_container p{
+    font-size: 1rem;
+    text-align: justify;
+    font-family: regular;
+}
+.myaccount_username_container p:first-child{
+    font-family: regular;
+    font-weight: 600;
+
+   
+}
