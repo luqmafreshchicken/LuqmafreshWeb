@@ -159,15 +159,13 @@
 }
 .color_count p {
   padding-top: 20px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size:1rem;
   color: #ff0040;
   font-family: regular;
 }
 .cut_count p {
   padding-top: 20px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 1rem;
   color: green;
   font-family: regular;
   text-decoration: line-through;
@@ -198,6 +196,11 @@
   font-family: regular;
   font-weight: 600;
   color: grey;
+}
+.total_cart_amount p{
+  padding-top: 20px;
+  font-size: 1rem;
+  font-family: regular;
 }
 .biil_payment {
   height: 26vh;
