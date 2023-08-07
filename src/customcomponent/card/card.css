@@ -3,7 +3,10 @@
   width: 100%;
   margin-right: 50px;
   /* background-color: #ff0040; */
+  /* padding: 1rem 1rem; */
+  /* border-radius: 15px; */
 }
+
 .image_singlecard {
   height: 30vh;
   width: 100%;
@@ -166,16 +169,18 @@
   width: 40%;
 }
 
-.nav_list button {
-  background-color: red;
+.shop_now_btn  {
+  background-color: #ff0040;
   width: 40%;
   height: 5.5vh;
   margin-top: 10px;
   border: none;
   border-radius: 10px;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
+  display: grid;
+  place-items: center;
 }
 
 /* Mobile devices (320px - 480px) */
@@ -574,7 +579,7 @@
     font-weight: 900;
     font-family: semibold;
     font-size: 1.5rem;
-    color: #ee1d23;
+    color: #ff0040;
   }
   .offer_singlecard {
     height: 8vh;
