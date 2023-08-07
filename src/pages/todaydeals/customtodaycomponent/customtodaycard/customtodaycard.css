@@ -37,8 +37,8 @@
   height: 15vh;
 }
 
-.total_singlecard button {
-  background-color: #FF0040;
+/* .total_singlecard button {
+  background-color: #ff0040;
   width: 40%;
   height: 5.5vh;
   margin-top: 10px;
@@ -47,7 +47,7 @@
   color: white;
   font-size: 18px;
   font-weight: 600;
-}
+} */
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
