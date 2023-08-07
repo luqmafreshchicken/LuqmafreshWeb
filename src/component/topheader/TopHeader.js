@@ -33,6 +33,9 @@ const TopHeader = ({ handleclear, loginStatus }) => {
           <div className="halal_image">
             <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691354629/Halal_zcvxji.jpg" />
           </div>
+          <div className="toplemail_mob">
+          <p>Beta Version</p>
+        </div>
         </div>
 
         {/* end left side */}
