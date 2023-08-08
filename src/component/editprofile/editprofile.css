@@ -12,7 +12,6 @@
   width: 100%;
   height: 10vh;
   box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-
 }
 .update_profile h5 {
   font-family: regular;
@@ -24,10 +23,9 @@
   display: grid;
   place-items: center;
 }
-.update_user_container{
+.update_user_container {
   padding-top: 3rem;
 }
-
 
 .input_lable {
   padding-left: 20px;
@@ -36,6 +34,7 @@
   padding-bottom: 10px;
   font-size: 13px;
 }
+
 .user_name_section {
   padding-left: 20px;
   height: 8vh;
@@ -51,15 +50,45 @@
 }
 
 .user_mobile_section {
-  height: 10vh;
-  width: 92%;
-  margin-top: 10px;
+  height: 6vh;
+  width: 90%;
+  /* margin-top: 10px; */
+  /* background-color: #ff0040; */
+  display: grid;
+  place-items: center;
+  padding-left: 0.5rem;
+}
+.user_mobile_content {
+  width: 94%;
+  height: 5.5vh;
+  /* background-color: aqua; */
+  display: flex;
+  gap: 0.5rem;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+}
+.user_mobile_content input {
+  border: none;
+  outline: none;
+}
+.user_mobile_content p {
+   font-size: 1rem;
+  margin: 0.5rem 0rem 0rem 1rem;
+
+}
+.user_mobile_content p img {
+  height: 15px;
+  width: 20px;
+  border-radius: 2px;
+  margin-bottom: 0.2rem;
+
 }
 
 .user_email_section {
   height: 10vh;
   width: 92%;
   margin-top: 10px;
+  background-color: blue;
 }
 
 .user_gender_section {
@@ -83,7 +112,7 @@
 }
 .user_submit_btn {
   width: 82%;
-  background-color: #FF0040;
+  background-color: #ff0040;
   height: 6vh;
   margin-left: 5%;
   border-radius: 5px;
