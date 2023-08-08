@@ -97,7 +97,7 @@ const ModalCart = ({
                             <div className="total_cart_amount">
                               <p>
                                 {modalcurrency}
-                                {option.productId.quantity * option.productId.price} 
+                                {option?.quantity * option.productId.price}
                               </p>
                             </div>
                           </div>
@@ -244,14 +244,13 @@ const ModalCart = ({
                             </div>
 
                             <div className="total_cart_amount">
-                            <p>
-                             -
-                            </p>
-                          </div>
+                              <p>-</p>
+                            </div>
                             <div className="total_cart_amount">
                               <p>
                                 {modalcurrency}
-                                {option.productId.quantity * option.productId.price} 
+                                {option.productId.quantity *
+                                  option.productId.price}
                               </p>
                             </div>
                           </div>
