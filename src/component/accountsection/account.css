@@ -29,7 +29,13 @@
   padding-top: 3rem;
 }
 .account_profile p {
-  font-family: "Poppins", sans-serif;
+  font-family: regular
+}
+.account_profile p img {
+  height: 15px;
+  width: 20px;
+  border-radius: 2px;
+  margin-bottom: 0.2rem;
 }
 .account_profile span {
   font-family: medium;
