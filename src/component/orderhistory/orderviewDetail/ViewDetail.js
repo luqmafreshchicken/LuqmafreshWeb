@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "../../loder/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TopHeader from "../../topheader/TopHeader";
 
 const ViewDetail = () => {
   let navigate = useNavigate();
@@ -22,6 +23,7 @@ const ViewDetail = () => {
   const [data, setData] = useState([]);
   const [order, setOrder] = useState([]);
   const [address, setAddress] = useState([]);
+  const [user, setUser] = useState([]);
   const [orderId, setorderId] = useState("");
   const [cancle, setCancle] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -48,12 +50,14 @@ const ViewDetail = () => {
     };
     getOrderById(requestData).then((res) => {
       if (res.status == true) {
+        console.log(res.data, "==============================");
         setCancelStatus(res?.data?.orders[0]?.orderStatus);
+        setUser(res?.data?.user[0]);
+
         setData(res?.data?.orders[0]?.productId);
         setOrder(res?.data?.orders[0]);
         // console.log(res?.data?.orders[0].subtotal);
         setAddress(res?.data?.address[0]);
-
         setorderId(res?.data?.orders[0]?.orderId);
         setLoad(false);
       } else {
@@ -71,7 +75,7 @@ const ViewDetail = () => {
 
   const calculateTotalBill = () => {
     const subtotal = order.subtotal;
-    const vat = (order.subtotal * 5) / 100
+    const vat = (order.subtotal * 5) / 100;
     return subtotal + vat;
   };
   const handleCancle = async () => {
@@ -164,6 +168,8 @@ const ViewDetail = () => {
   }, []);
   return (
     <>
+    <TopHeader handleclear={() => handleclear(4)} />
+
       <div className="view_detail_header">
         <Header
           code={countrytitle}
@@ -200,59 +206,54 @@ const ViewDetail = () => {
         <div className="order_view_detail_container">
           {/* order heading */}
           <div className="order_heading ">
-            <h5>Order Details</h5>
+            <h5>
+              Thanks for your order,
+              <br /> <span>{user?.name}</span>
+            </h5>
           </div>
           {/* end order heading */}
           {/* order id para */}
           <div className="order_id_para ">
             <p>
-              Order ID: <span>{orderId}</span>
+              Here your conformation for Order number <span>{orderId}</span>
             </p>
           </div>
           {/* end order para */}
           {/* order location */}
 
-          {/* end order location */}
-          {/* order_cancelled */}
-          {cancelStatus === "cancelled" ? (
-            <div className="order_cancelled">
-              <div className="order_cancelled_container">
-                <div className="order_cancelled_img_text">
-                  <img src="https://static.vecteezy.com/system/resources/previews/001/251/976/original/stocked-shelves-and-empty-shopping-cart-vector.jpg" />
-                  <p>
-                    Your order was successfully cancelled! We would love to see
-                    you back
-                  </p>
-                </div>
-              </div>
-            </div>
-          ) : null}
+        
 
           {/* shipmenet cancle */}
-          <div className="shipmenet_cancle">
-            <div className="shipmenet_cancle_address">
-              <p>{address.city}</p>
-            </div>
+          <div className="shipmenet_cancle_address">
+            <p>
+              <span>Delivery Address : </span>
+              {address.city}
+            </p>
           </div>
           {/* end shipmenet cancle */}
           {/* order name */}
           <div className="order_name">
-            {data.map((item) => (
+            {data.map((item, index) => (
               <div className="order_name_container">
-                <h5>
-                  Items Ordered<span> (1 items)</span>
-                </h5>
-
-                <div className="order_name_container_box">
-                  <div className="order_name_container_box_image">
-                    <img src={item.image} />
+                <span>{index + 1}</span>
+                <div>
+                  <div className="order_name_container_box">
+                    <p>{item?.name}</p>
                   </div>
                   <div className="order_name_container_box_name">
-                    <p>{item?.name}</p>
-                    <span>
-                      {item.quantity}
-                      {item.unit} x 1 qty
-                    </span>
+                    <p>
+                      {item?.quantity} {item?.unit}
+                    </p>
+                    <p>
+                      {countrycurrency} {item?.price}
+                    </p>
+                    <p style={{textDecoration:"line-through", color:"gray"}}>
+                      {countrycurrency} {item?.originalPrice}
+                    </p>
+                    <p style={{color:"green"}}>
+                   {item?.discount} %off
+                  </p>
+                    <p>{item?.quantity} Qty</p>
                   </div>
                 </div>
               </div>
@@ -290,9 +291,7 @@ const ViewDetail = () => {
             <>
               <div className="bill_detail_container">
                 <div className="bill_detail_button">
-                  <div className="bill_detail_button1">
-                    Rating
-                  </div>
+                  <div className="bill_detail_button1">Rating</div>
                   <div className="bill_detail_button2" onClick={handleOpen}>
                     Order cancel
                   </div>
@@ -387,9 +386,7 @@ const ViewDetail = () => {
               {/* **************** */}
 
               <div className="conform_order_button">
-                <div className="do_not_cancle">
-                  DO NOT CANCEL
-                </div>
+                <div className="do_not_cancle">DO NOT CANCEL</div>
 
                 <div className="do_not_cancle1" onClick={() => handleCancle()}>
                   CANCEL ORDER
