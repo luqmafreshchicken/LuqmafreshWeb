@@ -36,6 +36,7 @@ const ViewDetail = () => {
   const [gender, setGender] = useState("");
   const [load, setLoad] = useState(false);
   const [cancelStatus, setCancelStatus] = useState("");
+  const [orderStatus, setOrderStatus] = useState(false);
 
   let location = useLocation();
   const id = location.state.orderId;
@@ -101,6 +102,7 @@ const ViewDetail = () => {
         setLoad(false);
         setOpen(false);
         orderDetails();
+        setOrderStatus(true);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -168,7 +170,7 @@ const ViewDetail = () => {
   }, []);
   return (
     <>
-    <TopHeader handleclear={() => handleclear(4)} />
+      <TopHeader handleclear={() => handleclear(4)} />
 
       <div className="view_detail_header">
         <Header
@@ -206,10 +208,17 @@ const ViewDetail = () => {
         <div className="order_view_detail_container">
           {/* order heading */}
           <div className="order_heading ">
-            <h5>
-              Thanks for your order,
-              <br /> <span>{user?.name}</span>
-            </h5>
+            {orderStatus == false ? (
+              <h5>
+                Thanks for your order,
+                <br /> <span>{user?.name}</span>
+              </h5>
+            ) : (
+              <h5>
+                Your order has been cancelled!
+                <br /> <span>{user?.name}</span>
+              </h5>
+            )}
           </div>
           {/* end order heading */}
           {/* order id para */}
@@ -220,8 +229,6 @@ const ViewDetail = () => {
           </div>
           {/* end order para */}
           {/* order location */}
-
-        
 
           {/* shipmenet cancle */}
           <div className="shipmenet_cancle_address">
@@ -247,12 +254,12 @@ const ViewDetail = () => {
                     <p>
                       {countrycurrency} {item?.price}
                     </p>
-                    <p style={{textDecoration:"line-through", color:"gray"}}>
+                    <p
+                      style={{ textDecoration: "line-through", color: "gray" }}
+                    >
                       {countrycurrency} {item?.originalPrice}
                     </p>
-                    <p style={{color:"green"}}>
-                   {item?.discount} %off
-                  </p>
+                    <p style={{ color: "green" }}>{item?.discount} %off</p>
                     <p>{item?.quantity} Qty</p>
                   </div>
                 </div>
