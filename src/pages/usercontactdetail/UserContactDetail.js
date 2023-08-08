@@ -18,6 +18,7 @@ import {
 import Header from "../../component/header/Header";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
+import TopHeader from "../../component/topheader/TopHeader";
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
@@ -344,6 +345,8 @@ const UserContactDetail = () => {
 
   return (
     <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
       <Header
         code={countrytitle}
         currency={countrycurrency}
@@ -397,11 +400,19 @@ const UserContactDetail = () => {
                 onChange={(e) => setCity(e.target.value)}
                 disabled={true}
               />
-              <Input
-                lable="Mobile No"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-              />
+              <div className="usercontact_mobile">
+                <div className="usercontact_flag">
+                  <img src={flag} />
+                  +971
+                </div>
+                <div style={{ width: "89%" }}>
+                  <Input
+                    lable="Mobile No"
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                  />
+                </div>
+              </div>
               <Input
                 lable="Enter Email"
                 value={email}
