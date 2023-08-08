@@ -56,9 +56,28 @@
   font-weight: 600;
   text-align: center;
   padding-top: 0.7rem;
-
-
 }
+.usercontact_mobile{
+  display: flex;
+  width: 100%;
+  padding-left: 3rem;
+}
+.usercontact_flag{
+  width: 10%;
+  height: 7.2vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.4rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 3px;
+}
+.usercontact_flag img{
+  height: 15px;
+  width: 20px;
+  border-radius: 2px;
+}
+
 
 @media screen and (max-width: 768px) {
   .main_usercontact {
