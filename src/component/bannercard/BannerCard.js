@@ -182,7 +182,7 @@ export default function BannerCard1({ productId, to }) {
               }
             >
               <h1>{"Fresh Boneless Chicken"}</h1>
-              <h2>{"Upto 5"}% OFF</h2>
+              <h2>{"Upto 15"}% OFF</h2>
               <h5>{"use our copons codes"}</h5>
               <div className="ban_discription">
               <h6>
