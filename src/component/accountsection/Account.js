@@ -209,7 +209,7 @@ const Account = () => {
             <h3>{viewUser.name}</h3>
             <div className="account_profile">
               <p>
-                +91 {viewUser?.mobile?.number} | {viewUser.email}
+               <img src={flag}/> +971 {viewUser?.mobile?.number} | {viewUser.email}
               </p>
               <span onClick={viewhandleOpen}>View profile</span>
             </div>
