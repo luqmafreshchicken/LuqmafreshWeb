@@ -13,6 +13,11 @@
 .myaccount_username_container p:first-child{
     font-family: regular;
     font-weight: 600;
-
    
+}
+.myaccount_username_container p img{
+    height: 15px;
+    width: 20px;
+    border-radius: 2px;
+    margin-bottom: 0.2rem;
 }
