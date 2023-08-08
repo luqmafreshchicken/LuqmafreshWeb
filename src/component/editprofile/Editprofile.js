@@ -8,12 +8,13 @@ import "./editprofile.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
+  CountryDetail,
   EditprofileUser,
+  GetCountry,
   getUserID,
   viewProfile,
 } from "../../serverRequest/Index";
 import { useNavigate } from "react-router-dom";
-
 
 const Editprofile = ({ edit, edithandleClose }) => {
   let navigate = useNavigate();
@@ -22,6 +23,43 @@ const Editprofile = ({ edit, edithandleClose }) => {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
+  const [flag, setFlag] = useState("");
+
+  useEffect(() => {
+    // localContent();
+    // window.scrollTo(0, 0);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  // setCountry(res[0]?.name);
+                  // setCountryCode(res[0]?.countryCode[0].code)
+                  // setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  // setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    // localContent();
+    // showcart();
+    // arrivalProductList();
+    userDetail();
+  }, []);
 
   const handleUpdate = async () => {
     if (!name || name == "" || name == null) {
@@ -35,8 +73,8 @@ const Editprofile = ({ edit, edithandleClose }) => {
     if (!gender || gender == "" || gender == null) {
       console.log("No Gender");
     }
-  
-    EditprofileUser(name,email,gender,mobile).then((res) => {
+
+    EditprofileUser(name, email, gender, mobile).then((res) => {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
@@ -49,7 +87,6 @@ const Editprofile = ({ edit, edithandleClose }) => {
         });
         navigate("/account");
         window.location.reload();
-
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -117,16 +154,22 @@ const Editprofile = ({ edit, edithandleClose }) => {
             </div>
             <label className="input_lable">Mobile Number</label>
 
-            <div className="user_name_section">
-              <input
-                placeholder="Mobile Number..."
-                onChange={(e) => setMobile(e.target.value)}
-                value={mobile}
-              />
+            <div className="user_mobile_section">
+              <div className="user_mobile_content">
+                <p>
+                  {" "}
+                  <img src={flag} /> + 971
+                </p>
+                <input
+                  placeholder="Mobile Number..."
+                  onChange={(e) => setMobile(e.target.value)}
+                  value={mobile}
+                />
+              </div>
             </div>
-            <label className="input_lable">Email Id</label>
+            <label className="input_lable" style={{marginTop:"1rem"}}>Email Id</label>
 
-            <div className="user_name_section">
+            <div className="user_name_section" >
               <input
                 placeholder="Email ID..."
                 // onChange={(e) => setEmail(e.target.value)}
