@@ -1,9 +1,6 @@
-
 .singlecard_container {
   width: 300px;
-  height: 75vh;
-  /* background-color: red; */
-
+  height: 72vh;
 }
 /* .singlecard_container:hover{
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
@@ -18,7 +15,7 @@
   /* background-color: aqua; */
 }
 
-.image_singlecard_detail{
+.image_singlecard_detail {
   width: 100%;
   overflow: hidden;
   border-radius: 15px;
@@ -28,7 +25,7 @@
   width: 100%;
   height: 30vh;
   display: block;
-  transition: 0.3s ease-in-out
+  transition: 0.3s ease-in-out;
 }
 .image_singlecard_detail:hover img {
   transform: scale(1.2);
@@ -55,7 +52,6 @@
   .singlecard_container {
     width: 100%;
     height: 70vh;
-
   }
   .image_singlecard_detail img {
     border-radius: 10px;
@@ -70,7 +66,6 @@
   .singlecard_container {
     width: 100%;
     height: 65vh;
-
   }
   .image_singlecard_detail img {
     border-radius: 10px;
@@ -91,5 +86,4 @@
 /* Extra large screens, TV (1201px and above) */
 
 @media screen and (min-width: 1280px) {
-
 }
