@@ -44,7 +44,7 @@
   .whist_list_input_container input{
      width: 100%;
      height: 6vh;
-     margin: 1rem 0rem;
+     margin: 1rem 0rem 0rem 0rem;
      outline: none;
      border: 1px solid lightgray;
      border-radius: 5px;
@@ -88,6 +88,17 @@
     text-align: center;
   } */
   
-  
-  
+  .whist_list_input_container p{
+     /* float: right; */
+     color: #ff0040;
+     font-size: 0.8rem;
+     font-family: medium;
+     padding-top: 1rem;
+     cursor: pointer;
+  }
+  .whist_list_input_container span{
+     font-size: 0.6rem;
+     line-height: 0.1;
+     font-family: regular;
+  }
   
