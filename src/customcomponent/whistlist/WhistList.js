@@ -13,13 +13,14 @@ const SearchModal = ({
   proceedsubmit,
   onclick1,
   onclick2,
-
   onChange,
   onChange1,
   value,
   value1,
   otpHide = false,
   btnShow = true,
+  email,
+  handleResendOTP = () =>{}
 }) => {
   return (
     <div>
@@ -56,11 +57,18 @@ const SearchModal = ({
                   name="email"
                 />
                 {otpHide === true && (
-                  <input
-                    placeholder="Enter OTP..."
-                    value={value1}
-                    onChange={onChange1}
-                  />
+                  <>
+                    <input
+                      placeholder="Enter OTP..."
+                      value={value1}
+                      onChange={onChange1}
+                    />
+                    <span>
+                      One Time Password Send to <b>{email}</b>
+                      .com. Please enter to complete verification
+                    </span>
+                    <p onClick={handleResendOTP}>Resend OTP</p>
+                  </>
                 )}
                 {btnShow == false ? (
                   <button onClick={onclick1}>{proceedOTP}</button>
