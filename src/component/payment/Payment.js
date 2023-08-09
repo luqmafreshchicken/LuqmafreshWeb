@@ -152,7 +152,6 @@ console.log(coupon,"coupon")
       method: method,
       couponCode: coupon === "" ? "" : coupon,
     };
-    console.log(requestData,"==================================")
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
@@ -165,7 +164,7 @@ console.log(coupon,"coupon")
         }
       } else {
         Swal.fire("Something went Wrong", "", "error");
-
+        setLoad(false);
         console.log("Error in create order");
       }
     });
