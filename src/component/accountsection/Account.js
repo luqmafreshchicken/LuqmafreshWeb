@@ -215,7 +215,7 @@ const Account = () => {
             </div>
           </div>
           <div className="account_banner">
-            <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1691238019/BANNERS_d5n4g0.jpg" />
+            <img src="about-new.jpg" />
           </div>
           {/* show data */}
           <div className="account_list_section">
