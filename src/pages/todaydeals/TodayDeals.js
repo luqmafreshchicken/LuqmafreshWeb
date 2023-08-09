@@ -228,14 +228,34 @@ const TodayDeals = () => {
     setOtp(e.target.value);
   };
 
-  const handleOTP = () => {
+   const handleOTP = () => {
+    // otp validation
+    if (otp === "") {
+      toast.error("Please enter otp", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!otp.match(/^[0-9]{4}$/)) {
+      toast.error("Please enter 4 digit otp number", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
     setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
+      if (res?.status == true) {
+        toast.success(res?.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -246,17 +266,16 @@ const TodayDeals = () => {
         updatelocalcartindb();
         localContent();
         localContent1();
-        showcart();
-        // setWhistlistOpen(false);
+        setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
-
+        showcart();
         // window.location.reload();
       } else {
-        console.log(res);
-        toast.error(res.message, {
+        setLoad(false);
+        toast.error("Invalid OTP", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -266,7 +285,6 @@ const TodayDeals = () => {
       }
     });
   };
-
   {
     /* end login api */
   }
