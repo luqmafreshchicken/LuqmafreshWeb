@@ -319,7 +319,7 @@ const ModalCart = ({
                             {totalAmount + (totalAmount * 5) / 100}
                           </p>
                         </div>
-                        <div className="proceed_btn" onClick={handleHome}>
+                        <div className="proceed_btn" onClick={handleHome}  style={{cursor:"pointer"}}>
                           <p> Checkout</p>
                         </div>
                       </div>
