@@ -232,17 +232,37 @@ export default function CardFullDetail({ id }) {
     setOtp(e.target.value);
   };
 
-  const handleOTP = () => {
+   const handleOTP = () => {
+    // otp validation
+    if (otp === "") {
+      toast.error("Please enter otp", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!otp.match(/^[0-9]{4}$/)) {
+      toast.error("Please enter 4 digit otp number", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
     setLoad(true);
     const requestData = { email: mobileNumber, otp: otp };
     otpVerify(requestData).then((res) => {
-      if (res.status == true) {
-        toast.success(res.message, {
+      if (res?.status == true) {
+        toast.success(res?.message, {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: false,
+          pauseOnHover: true,
           draggable: true,
           progress: undefined,
         });
@@ -250,27 +270,25 @@ export default function CardFullDetail({ id }) {
         updatelocalcartindb();
         localContent();
         localContent1();
-        showcart();
-        fullView();
-        // setWhistlistOpen(false);
+        setWhistlistOpen(false);
         setOpen(false);
         setLoad(false);
+        showcart();
+        // window.location.reload();
       } else {
         setLoad(false);
-        console.log(res);
-        toast.error(res.message, {
+        toast.error("Invalid OTP", {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: false,
+          pauseOnHover: true,
           draggable: true,
           progress: undefined,
         });
       }
     });
   };
-
   {
     /* end login api */
   }
