@@ -115,7 +115,7 @@ export default function ContactFooter() {
 
         <Grid item className="contact4">
           <h6>Customer Care</h6>
-          <p>Call: +971 56 655 1636</p>
+           <p>Call: +971</p>
           <p>talktous@luqmafresh.com</p>
           <p>REGISTERED OFFICE ADDRESS</p>
           <p>House of Luqmafresh, UAE</p>
