@@ -27,7 +27,7 @@ const TopHeader = ({ handleclear, loginStatus }) => {
           <div className="toplemail_mob">
             <img src="smartphone.png" />
             <p>
-              <b>+971 56 655 1636</b>
+              <b> Customer Care : +971</b>
             </p>
           </div>
          
