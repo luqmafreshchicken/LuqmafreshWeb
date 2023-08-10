@@ -161,7 +161,7 @@ const SelectDeliveryslot = () => {
       if (res.status == true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -173,7 +173,7 @@ const SelectDeliveryslot = () => {
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -211,7 +211,7 @@ const SelectDeliveryslot = () => {
         if (res.status == true) {
           toast.success(res.message, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -224,7 +224,7 @@ const SelectDeliveryslot = () => {
         } else {
           toast.error(res.message, {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -269,7 +269,7 @@ const SelectDeliveryslot = () => {
           if (res.status == true) {
             toast.success(res.message, {
               position: "top-right",
-              autoClose: 5000,
+              autoClose: 1000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -282,7 +282,7 @@ const SelectDeliveryslot = () => {
           } else {
             toast.error(res.message, {
               position: "top-right",
-              autoClose: 5000,
+              autoClose: 1000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -297,12 +297,23 @@ const SelectDeliveryslot = () => {
     } else {
       setIncre(1);
     }
-
   };
   const handleSelTImeslot = () => {
-    toast.error('Please select time slot', {
+    toast.error("Please select time slot", {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const handleCartEmpty = () => {
+    toast.error("Your cart is empty", {
+      position: "top-right",
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -312,7 +323,7 @@ const SelectDeliveryslot = () => {
   };
   return (
     <>
-    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
 
       <div className="mobile_selectdeliveryslot_container">
         <Header
@@ -451,30 +462,51 @@ const SelectDeliveryslot = () => {
               </div>
             )}
 
-            {slotId === '' ? (
+            {slotId === "" ? (
               // <NavLink
               //   to="/payment"
               //   className="nav_list"
               //   state={{ addressId: id, slotId: slotId }}
               // >
-                <div onClick={()=>handleSelTImeslot()} className="selectdeliveryslot_btn">
-                  <div className="selectdeliveryslot_btn_proceed">
-                    Proceed to Payment
-                  </div>
-                </div>
-              // </NavLink>
-            ) : (
-              <NavLink
-                to="/payment"
-                className="nav_list"
-                state={{ addressId: id, slotId: slotId }}
+              <div
+                onClick={() => handleSelTImeslot()}
+                className="selectdeliveryslot_btn"
               >
-                <div className="selectdeliveryslot_btn">
-                  <div className="selectdeliveryslot_btn_proceed">
-                    Proceed to Payment
-                  </div>
+                <div className="selectdeliveryslot_btn_proceed">
+                  Proceed to Payment
                 </div>
-              </NavLink>
+              </div>
+            ) : (
+              // </NavLink>
+              <>
+                {cartProduct.length >= 1 ? (
+                  <NavLink
+                    to="/payment"
+                    className="nav_list"
+                    state={{ addressId: id, slotId: slotId }}
+                  >
+                    <div className="selectdeliveryslot_btn">
+                      <div className="selectdeliveryslot_btn_proceed">
+                        Proceed to Payment
+                      </div>
+                    </div>
+                  </NavLink>
+                ) : (
+                  // <NavLink
+                  //   to="/payment"
+                  //   className="nav_list"
+                  //   state={{ addressId: id, slotId: slotId }}
+                  // >
+                  <div
+                    className="selectdeliveryslot_btn"
+                    onClick={() => handleCartEmpty()}
+                  >
+                    <div className="selectdeliveryslot_btn_proceed">
+                      Proceed to Payment
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </div>
           {/***************************end******************************* */}
