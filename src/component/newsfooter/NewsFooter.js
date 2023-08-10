@@ -95,7 +95,7 @@ const NewsFooter = () => {
             }}
           >
             <p>Call us 24/7</p>
-            <h6>91 9695854347</h6>
+            <h6>+971</h6>
           </div>
         </div>
       </div>
