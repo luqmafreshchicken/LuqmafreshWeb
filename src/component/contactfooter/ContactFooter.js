@@ -115,16 +115,16 @@ export default function ContactFooter() {
 
         <Grid item className="contact4">
           <h6>Customer Care</h6>
-           <p>Call: +971</p>
-          <p>talktous@luqmafresh.com</p>
+          <p>Call: +971</p>
+          <p>info@luqmafresh.com</p>
           <p>REGISTERED OFFICE ADDRESS</p>
           <p>House of Luqmafresh, UAE</p>
-          <p>Dubai - 226018</p>
+          <p>Dubai.</p>
           <h5>PAYMENT OPTIONS</h5>
           <img src="payment1.png" />
           <h6>HAVE ANY CONCERN?</h6>
 
-          <p>mail : contact@luqmafresh.com</p>
+          <p>mail : info@luqmafresh.com</p>
         </Grid>
       </Grid>
       <Android
