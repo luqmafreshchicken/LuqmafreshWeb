@@ -27,6 +27,7 @@ const Card = ({
   img,
   onclick1 = () => {},
   onclick2 = () => {},
+  whist
 }) => {
   const [showData, setShowData] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -50,7 +51,7 @@ const Card = ({
   function handleMouseLeave() {
     setIsHovered(false);
   }
-
+ console.log(whist,"================")
   return (
     <div className="singlecard">
       <NavLink to={to} state={{ id: id }} className="nav_list">
@@ -68,11 +69,21 @@ const Card = ({
           onClick={onclick1}
           data-tooltip-id="my-tooltip-1"
         /> */}
-        <FaHeart
-          className="fa_search"
-          onClick={onclick2}
-          data-tooltip-id="my-tooltip-2"
-        />
+        {whist == false ? (
+          <FaHeart
+            className="fa_search"
+            onClick={onclick2}
+            data-tooltip-id="my-tooltip-2"
+          />
+        ) : (
+          <FaHeart
+            className="fa_search"
+            onClick={onclick2}
+            data-tooltip-id="my-tooltip-2"
+            style={{color:"#ff0040"}}
+          />
+        )}
+
         <RWebShare
           data={{
             text: "Luqmafresh",
