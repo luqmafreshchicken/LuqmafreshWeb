@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import TodayDeals from "../todaydeals/TodayDeals";
 import Home from "../home/Home";
-import CardDetail from "../carddetail/CardDetail";
+// import CardDetail from "../carddetail/CardDetail";
 import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 import TermsConditions from "../termscondition/TermsCondition";
 import FAQ from "../faq/FAQ";
