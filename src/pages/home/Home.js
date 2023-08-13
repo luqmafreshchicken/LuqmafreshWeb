@@ -81,7 +81,7 @@ const Home = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState(false);
-
+  const [emailStore, setEmailStore] = useState(false);
 
   const handlewhistlistClose = () => {
     setWhistlistOpen(false);
@@ -136,64 +136,72 @@ const Home = () => {
       setLoad(false);
     }
   };
-  
+
   const arrivalProductList = async () => {
     const UserId = await getUserID();
-      const data = {
-        id: UserId ? UserId : "",
-      };
-      const res = await newArrival(data);
-      if (res?.status === true) {
-        setData(res?.data);
-        categoryList();
-      } else {
-        setLoad(false);
-        categoryList();
-      }
-  }
+    const data = {
+      id: UserId ? UserId : "",
+    };
+    const res = await newArrival(data);
+    if (res?.status === true) {
+      setData(res?.data);
+      categoryList();
+    } else {
+      setLoad(false);
+      categoryList();
+    }
+  };
 
   const topSaverWeekList = async () => {
-    const res = await topSeverweek();
-      if (res?.status === true) {
-        setData2(res.data);
-        bestSellerList();
-      } else {
-        setLoad(false);
-      }
-  }
+    const UserId = await getUserID();
+    const data = {
+      id: UserId ? UserId : "",
+    };
+    const res = await topSeverweek(data);
+    if (res?.status === true) {
+      setData2(res.data);
+      bestSellerList();
+    } else {
+      setLoad(false);
+    }
+  };
 
   const bestSellerList = async () => {
-    const res = await bestSeller();
-      if (res?.status === true) {
-        setData3(res?.data);
-        todayDealList();
-      } else {
-        setLoad(false);
-      }
-  }
+    const UserId = await getUserID();
+    const data = {
+      id: UserId ? UserId : "",
+    };
+    const res = await bestSeller(data);
+    if (res?.status === true) {
+      setData3(res?.data);
+      todayDealList();
+    } else {
+      setLoad(false);
+    }
+  };
 
   const todayDealList = async () => {
     const res = await todayDeals();
-      if (res?.status === true) {
-        setToday(res?.data);
-        localContent();
-        setLoad(false);
-      } else {
-        setLoad(false);
-      }
-  }
+    if (res?.status === true) {
+      setToday(res?.data);
+      localContent();
+      setLoad(false);
+    } else {
+      setLoad(false);
+    }
+  };
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
     const items1 = JSON.parse(localStorage.getItem("modalCount"));
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-    
+
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
     } else {
-      setCartProduct(cart ? cart : []); 
+      setCartProduct(cart ? cart : []);
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
       });
@@ -213,28 +221,26 @@ const Home = () => {
     }
   };
 
-  // Remove local cart data throught id 
+  // Remove local cart data throught id
   const removeLocalCart = (id) => {
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
     const cartData = cart?.filter((item) => item?.productId?._id !== id);
     const product = cart?.find((item) => item?.productId?._id === id);
     const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-    cart?.length >= 1 && (
+    cart?.length >= 1 &&
       localStorage.setItem(
         "cartPrice",
         JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
-      )
-    )
-    cart?.length < 1 && (
-      localStorage.setItem(
-        "cartPrice",
-        JSON.stringify({ price: 0 })
-      )
-    )
+      );
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
     localStorage.setItem("cart", JSON.stringify(cartData));
     setCartProduct(removeProduct);
-    setCartPrice(cartPrice?.price - product?.productId?.price * product?.productId?.quantity);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
     toast.success("Product remove from cart", {
       position: "top-right",
       autoClose: 1000,
@@ -274,7 +280,7 @@ const Home = () => {
             if (res?.data?.status) {
               localStorage.removeItem("cart");
             }
-            showcart()
+            showcart();
           });
         }
       }
@@ -334,19 +340,19 @@ const Home = () => {
     } else {
       const existItem = cart?.find((x) => x._id === id);
       if (existItem) {
-        // update quantity in cart local storage 
+        // update quantity in cart local storage
         const newCart = cart?.map((x) =>
           x._id === id
             ? {
-              _id: id,
-              productId: {
                 _id: id,
-                quantity: x?.productId?.quantity + 1,
-                name: name,
-                price: price,
-                originalPrice: originalPrice,
-              },
-            }
+                productId: {
+                  _id: id,
+                  quantity: x?.productId?.quantity + 1,
+                  name: name,
+                  price: price,
+                  originalPrice: originalPrice,
+                },
+              }
             : x
         );
         localStorage.setItem("cart", JSON.stringify(newCart));
@@ -357,11 +363,8 @@ const Home = () => {
         updatedCart?.map((item) => {
           total = total + item?.productId?.price * item?.productId?.quantity;
         });
-        console.log(total, "==================update count product")
-        localStorage.setItem(
-          "cartPrice",
-          JSON.stringify({ price: total })
-        );
+        console.log(total, "==================update count product");
+        localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
           position: "top-right",
@@ -428,7 +431,7 @@ const Home = () => {
     }
   };
   const AddToCart = async (id) => {
-    console.log('kwbdkiwbgdkbekjbgfkihvkefviefv')
+    console.log("kwbdkiwbgdkbekjbgfkihvkefviefv");
     setLoad(true);
     const UserId = await getUserID();
     const data = {
@@ -494,6 +497,7 @@ const Home = () => {
     }
     setLoad(true);
     let newEmail = mobileNumber;
+
     const requestData = { email: mobileNumber };
     loginRegister(requestData).then((res) => {
       if (res.status === true) {
@@ -525,6 +529,8 @@ const Home = () => {
       }
     });
   };
+
+  console.log(store, "======email.com==========");
 
   const handleMobileNumber = (e) => {
     setMobileNumber(e.target.value);
@@ -583,7 +589,7 @@ const Home = () => {
         // window.location.reload();
       } else {
         setLoad(false);
-        toast.error('Invalid OTP', {
+        toast.error("Invalid OTP", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -647,6 +653,7 @@ const Home = () => {
   };
 
   const handleWhistlist = async (id) => {
+    setLoad(true);
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -663,7 +670,11 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
-      setWhistList(res.data);
+      // setWhistList(res.data);
+      arrivalProductList();
+      topSaverWeekList();
+      bestSellerList();
+      setLoad(false);
     } else {
       toast.error(res?.message, {
         position: "top-right",
@@ -674,6 +685,7 @@ const Home = () => {
         draggable: true,
         progress: undefined,
       });
+      setLoad(false);
     }
   };
   const carthandleOpen = () => setCartOpen(true);
@@ -778,14 +790,13 @@ const Home = () => {
   };
 
   const handleHome = () => {
-    setCartOpen(false)
-    setOpen(true)
-  }
-
+    setCartOpen(false);
+    setOpen(true);
+  };
 
   return (
     <>
-    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
 
       <Header
         code={countrytitle}
@@ -813,7 +824,9 @@ const Home = () => {
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
         // removeProduct={(id) => removeCartProduct(id)} removeLocalCart
-        removeProduct={(id) => loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
         handleHome={() => handleHome()}
@@ -897,15 +910,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -914,6 +927,7 @@ const Home = () => {
                           onclick2={() => setWhistlistOpen(true)}
                           // cartStatus={detail?.isAddedToCart}
                           // qty={detail?.qty}
+                          whist={detail?.inWishlist}
                         />
                       ) : (
                         <Card
@@ -936,15 +950,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -953,6 +967,7 @@ const Home = () => {
                           onclick2={() => handleWhistlist(detail._id)}
                           // cartStatus={detail?.isAddedToCart}
                           // qty={detail?.qty}
+                          whist={detail?.inWishlist}
                         />
                       )}
                     </SwiperSlide>
@@ -971,11 +986,12 @@ const Home = () => {
             onChange={handleMobileNumber}
             value={mobileNumber}
             onChange1={(e) => setOtp(e.target.value)}
-            // value1={}
             onclick1={() => handleLogin()}
             onclick2={() => handleOTP()}
             otpHide={hideOTP}
             btnShow={btn}
+            email={store}
+            handleResendOTP={() => handleResendOTP()}
           />
 
           <SearchModal
@@ -994,18 +1010,18 @@ const Home = () => {
             ogp={product.originalPrice}
             discount={product.discount}
             // handleViewCart={() => console.log("view cart")
-              // loginStatus == true
-              //   ? AddToCart(product._id)
-              //   : AddLocalCart(
-              //     product._id,
-              //     product.name,
-              //     product.price,
-              //     product.originalPrice,
-              //     product.discount,
-              //     product.quantity,
-              //     product.unit,
-              //     product.image
-              //   )
+            // loginStatus == true
+            //   ? AddToCart(product._id)
+            //   : AddLocalCart(
+            //     product._id,
+            //     product.name,
+            //     product.price,
+            //     product.originalPrice,
+            //     product.discount,
+            //     product.quantity,
+            //     product.unit,
+            //     product.image
+            //   )
             // }
           />
         </div>
@@ -1084,21 +1100,22 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => setWhistlistOpen(true)}
+                          whist={detail?.inWishlist}
                         />
                       ) : (
                         <Card
@@ -1121,21 +1138,22 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => handleWhistlist(detail._id)}
+                          whist={detail?.inWishlist}
                         />
                       )}
                     </SwiperSlide>
@@ -1326,21 +1344,23 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => setWhistlistOpen(true)}
+                          whist={detail?.inWishlist}
+
                         />
                       ) : (
                         <Card
@@ -1363,21 +1383,23 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
                           img={detail.image}
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => handleWhistlist(detail._id)}
+                          whist={detail?.inWishlist}
+
                         />
                       )}
                     </SwiperSlide>
