@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import TodayDeals from "../todaydeals/TodayDeals";
 import Home from "../home/Home";
-// import CardDetail from "../carddetail/CardDetail";
 import PrivacyPolicy from "../privacypolicy/PrivacyPolicy";
 import TermsConditions from "../termscondition/TermsCondition";
 import FAQ from "../faq/FAQ";
@@ -29,13 +28,14 @@ import Recipies from "../recipes/Recipies";
 import Track from "../track/Track";
 import CardDetail1 from "../carddetail1/CardDetail1";
 import YouMayLikeDetail from "../youmaylikedetail/YouMayLikeDetail";
+import CardFullDetail from "../../customcomponent/cardfulldetail/CardFullDetail";
 
 const Routes1 = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/todaydeals" element={<TodayDeals />} />
-      <Route path="/carddetail" element={<CardDetail />} />
+      <Route path="/carddetail" element={<CardFullDetail />} />
       <Route path="/carddetail1" element={<CardDetail1 />} />
       <Route path="/topseverweek" element={<TopSeverWeek />} />
       <Route path="/bestseller" element={<BestSeller />} />
