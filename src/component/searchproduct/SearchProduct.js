@@ -21,6 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
 import TopHeader from "../topheader/TopHeader";
 import { useNavigate } from "react-router-dom";
+import ProductNotFound from "../../customcomponent/productnotfound/ProductNotFound";
 
 const SearchProduct = () => {
   let navigate = useNavigate();
@@ -50,22 +51,21 @@ const SearchProduct = () => {
   // categorie api
 
   useEffect(() => {
-    async function getData() {
-      setLoad(true);
-      const newData = await productCategorie();
-      setData(newData.data);
-      setLoad(false);
-    }
     window.scrollTo(0, 0);
     getData();
+    handleSearch();
   }, []);
 
+  async function getData() {
+    setLoad(true);
+    const newData = await productCategorie();
+    setData(newData.data);
+    setLoad(false);
+  }
   // search api
   const handleSearch = async (e) => {
-    setLoad(true);
-
     setSearchItem(e);
-    if (e.length >= 3) {
+    if (e.length >= 1) {
       const requestData = { search: e };
       searchProduct(requestData).then((res) => {
         if (res.status == true) {
@@ -78,6 +78,9 @@ const SearchProduct = () => {
           setShow(false);
         }
       });
+    } else {
+      getData();
+      setLoad(false);
     }
   };
   {
@@ -344,7 +347,9 @@ const SearchProduct = () => {
                 ))}
               </div>
             </>
-          ) : null}
+          ) : (
+            <ProductNotFound />
+          )}
         </div>
       </div>
       <Loader loading={load} />
