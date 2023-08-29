@@ -22,16 +22,20 @@ export default function BannerCard1({ productId, to }) {
   const swiperNavNextRef = useRef(null);
 
   useEffect(() => {
-    async function getBanner() {
-      const newData = await BannerCard();
-      // console.log(newData.data[0] ,"===============product================");
-
-      setBanner(newData.data);
-    }
-    getBanner();
+    getbenner();
   }, []);
-  const hanfleFullView = (productId) => {
-    // console.log(productId, "=============11111111111111111==================");
+
+  const getbenner = async () => {
+    const newData = await BannerCard();
+    if (newData?.status === true) {
+      setBanner(newData.data);
+    } else {
+    }
+  };
+
+  const handleShopNowClick = (productId) => {
+    console.log("Product ID:", productId);
+    // You can perform any other actions related to the clicked product here
   };
 
   return (
@@ -67,148 +71,37 @@ export default function BannerCard1({ productId, to }) {
         }}
         className="mySwiper"
       >
-       {/* <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${"https://res.cloudinary.com/dgghwthdr/image/upload/v1690102908/banner/02_tajzy0.png"}) `,
-              display: "block",
-              width: "100%",
-              height: "100%",
-              objectfit: "cover",
-            }}
-            className="banner_sliderimg"
-          >
+        {banner.map((item, index) => (
+          <SwiperSlide key={item._id}>
             <div
-              className="cashback_container"
-              style={
-                {
-                  // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
-                  // to='/carddetail' state={{ productId: productId }}
-                }
-              }
+              style={{
+                backgroundImage: `url(${item?.image}) `,
+                display: "block",
+                width: "100%",
+                height: "100%",
+                objectfit: "cover",
+              }}
+              className="banner_sliderimg"
             >
-              <h1>{"Fresh Nulli Mutton"}</h1>
-              <h2>{"Upto 10"}% OFF</h2>
-              <h5>{"Use code M50"}</h5>
-              <div className="ban_discription">
-                <h6>
-                  {"Enjoy complimentary shipping for orders above AED 1000."}
-                </h6>
-              </div>
-              <NavLink
-                to="/carddetail"
-                state={{
-                  id: {
-                    id: "64bd92181499daeff33142e3",
-                  },
-                }}
-              >
-                <div
-                  className="order_shop_btn"
-                  // onClick={(ban) => hanfleFullView(ban.productId)}
-                >
-                  <button>SHOP NOW</button>
+              <div className="cashback_container">
+                <h1>{item?.title1}</h1>
+                <h2>{item?.title2}% OFF</h2>
+                <h5>{item?.title3}</h5>
+                <div className="ban_discription">
+                  <h6>{item?.description}</h6>
                 </div>
-              </NavLink>
-            </div>
-          </div>
-        </SwiperSlide>
-              */}
-        {/*<SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${"https://res.cloudinary.com/dgghwthdr/image/upload/v1690102908/banner/01_osyl29.png"}) `,
-              display: "block",
-              width: "100%",
-              height: "100%",
-              objectfit: "cover",
-            }}
-            className="banner_sliderimg"
-          >
-            <div
-              className="cashback_container"
-              style={
-                {
-                  // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
-                  // to='/carddetail' state={{ productId: productId }}
-                }
-              }
-            >
-              <h1>{"Fresh Boneless Mutton"}</h1>
-              <h2>{"Upto 10"}% OFF</h2>
-              <h5>{"Use code M50"}</h5>
-              <div className="ban_discription">
-                <h6>
-                  {"Enjoy complimentary shipping for orders above AED 1000."}
-                </h6>
+                <NavLink to="/carddetail" state={{ id: item?.productId }}>
+                  <div className="order_shop_btn">
+                    <button onClick={() => handleShopNowClick(item?.productId)}>
+                      SHOP NOW
+                    </button>
+                  </div>
+                </NavLink>
               </div>
-              <NavLink
-                to="/carddetail"
-                state={{
-                  id: {
-                    id: "64bd8f231499daeff331420e",
-                  },
-                }}
-              >
-                <div
-                  className="order_shop_btn"
-                  // onClick={(ban) => hanfleFullView(ban.productId)}
-                >
-                  <button>SHOP NOW</button>
-                </div>
-              </NavLink>
             </div>
-          </div>
-        </SwiperSlide>
-              */}
-        <SwiperSlide>
-          <div
-            style={{
-              backgroundImage: `url(${"https://res.cloudinary.com/dgghwthdr/image/upload/v1690102907/banner/04_jop4ah.png"}) `,
-              display: "block",
-              width: "100%",
-              height: "100%",
-              objectfit: "cover",
-            }}
-            className="banner_sliderimg"
-          >
-            <div
-              className="cashback_container"
-              style={
-                {
-                  // background: `linear-gradient(to right,  ${ban.color2} , rgba(255,255,255,0.02))`,
-                  // to='/carddetail' state={{ productId: productId }}
-                }
-              }
-            >
-              <h1>{"Fresh Boneless Chicken"}</h1>
-              <h2>{"Upto 15"}% OFF</h2>
-              <h5>{"use our copons codes"}</h5>
-              <div className="ban_discription">
-              <h6>
-                  {"Revel in the perks of complimentary shipping on all orders*"}
-            </h6>
-              </div>
-              <NavLink
-                to="/carddetail"
-                state={{
-                  id: {
-                    id: "64bed069337a6343fd9cb9a7",
-                  },
-                }}
-              >
-                <div
-                  className="order_shop_btn"
-                  // onClick={(ban) => hanfleFullView(ban.productId)}
-                >
-                  <button>SHOP NOW</button>
-                </div>
-              </NavLink>
-            </div>
-          </div>
-        </SwiperSlide>
-        {/*  <div className="swiperNavPrev" ref={swiperNavPrevRef}></div>
-              <div className="swiperNavNext" ref={swiperNavNextRef}></div>*/}
+          </SwiperSlide>
+        ))}
+
         <div className="swiper-pagination"> </div>
       </Swiper>
     </div>
