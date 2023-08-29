@@ -40,7 +40,10 @@ import TopHeader from "../../component/topheader/TopHeader";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
-  let location = useLocation();
+  const location = useLocation();
+  const productId = location.state;
+  console.log(productId, "==============gaurav=============");
+
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
   const [incre, setIncre] = useState(1);
@@ -105,6 +108,7 @@ export default function CardFullDetail({ id }) {
       productId: id,
     };
     productDeatail(requestData).then((res) => {
+
       if (res?.status == true) {
         setProduct(res?.data);
         setLoad(false);
@@ -194,7 +198,7 @@ export default function CardFullDetail({ id }) {
       if (res.status === true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -209,7 +213,7 @@ export default function CardFullDetail({ id }) {
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 2000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -232,7 +236,7 @@ export default function CardFullDetail({ id }) {
     setOtp(e.target.value);
   };
 
-   const handleOTP = () => {
+  const handleOTP = () => {
     // otp validation
     if (otp === "") {
       toast.error("Please enter otp", {
@@ -289,6 +293,7 @@ export default function CardFullDetail({ id }) {
       }
     });
   };
+
   {
     /* end login api */
   }
@@ -815,28 +820,12 @@ export default function CardFullDetail({ id }) {
           handleHome={() => handleHome()}
         />
       </div>
-      <div className="cardetail_container" state={{ productId: id }}>
+      <div className="cardetail_container">
         <div className="cardetail">
           {/* image_card */}
           <div className="image_cardetail">
             <div className="image_cardetail_slider">
-              <Swiper
-                spaceBetween={30}
-                pagination={{
-                  clickable: true,
-                }}
-                autoplay={{
-                  delay: 2500,
-                }}
-                modules={[Pagination, Autoplay]}
-                className="mySwiper"
-              >
-                {allImage.map((img) => (
-                  <SwiperSlide>
-                    <img src={img.image} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              <img src={product.image} />
             </div>
           </div>
           {/* card_content */}
