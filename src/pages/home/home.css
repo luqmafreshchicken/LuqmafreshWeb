@@ -49,7 +49,6 @@
   display: none;
 }
 .next_prev_btn_container {
-  /* background-color: yellowgreen; */
   width: 100%;
   display: grid;
   place-items: center;
@@ -115,6 +114,16 @@
     grid-template-columns: 24% 24% 24% 24%;
     word-wrap: break-word;
   }
+  .next_prev_btn_container{
+    padding-top: 0rem;
+  }
+  .head_box{
+    width: 100%;
+  }
+  .next_prev_btn_content{
+    display: none;
+  }
+
 }
 
 /* iPads, Tablets (481px - 768px) */
