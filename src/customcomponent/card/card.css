@@ -187,17 +187,19 @@
 @media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .singlecard {
-    min-width: 70%;
+    width: 100%;
     height: auto;
-    margin-right: 1.4rem;
   }
   .image_singlecard {
     width: 100%;
   }
   .image_singlecard img {
-    height: 150px;
+    height: 200px;
     width: 100%;
     border-radius: 15px;
+  }
+  .icons_img{
+    width: 15%;
   }
   .image_singlecard {
     height: auto;
