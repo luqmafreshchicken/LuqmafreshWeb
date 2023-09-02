@@ -34,7 +34,7 @@ const ImagesCard = () => {
           </div>
         </div>
         <div className="imagecard1">
-          <img src="frying-pan.png"  style={{height:"120px", width:"180px"}} />
+          <img src="frying-pan.png"  />
           <div className="imagecard1_text">
             <p>Embark on an exceptional culinary journey</p>
           </div>
