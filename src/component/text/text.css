@@ -24,20 +24,20 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .head_text_container {
-    height: 16vh;
-    padding-top: 0px;
+    height: auto;
+    padding-top: 1px;
     padding-left: 0px;
   }
   .head_text {
     height: 5vh;
-    padding-top: 5px;
+    padding-top: 0px;
   }
   .head_text h5 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 0.5;
   }
   .head_text p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
