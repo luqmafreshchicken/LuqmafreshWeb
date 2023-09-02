@@ -146,7 +146,7 @@
     display: none;
   }
   .cardetail {
-    min-width: 92%;
+    min-width: 90%;
     display: grid;
     grid-template-columns: 100%;
     margin-top: 0px;
