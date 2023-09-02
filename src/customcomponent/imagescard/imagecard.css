@@ -25,7 +25,7 @@
   width: 130px;
 }
 
-.imagecard1_text{
+.imagecard1_text {
   width: 100%;
   height: 10vh;
   padding-top: 1rem;
@@ -34,7 +34,6 @@
   font-family: medium;
   font-size: 0.8rem;
   text-align: center;
-
 }
 
 /* Mobile devices (320px - 480px) */
@@ -46,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .imagecard {
     width: 93%;
@@ -56,10 +55,10 @@
     gap: 10px;
     margin-bottom: 20px;
   }
-  
+
   .imagecard1 {
     width: 100%;
-    height: 30vh;
+    height: auto;
   }
   .imagecard1 img {
     height: 70px;
@@ -67,7 +66,6 @@
   }
   .imagecard1 p {
     font-size: 10px;
-   
   }
 }
 
@@ -97,7 +95,6 @@
   .imagecard1 p {
     font-size: 0.7rem;
     padding-left: 0.7rem;
-   
   }
 }
 
@@ -129,7 +126,7 @@
   }
 }
 
-@media only screen and (min-width: 901px) and (max-width: 1024px){
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
   .imagecard {
     width: 92%;
     height: auto;
@@ -164,7 +161,7 @@
     gap: 1rem;
     margin-bottom: 2rem;
   }
- 
+
   .imagecard1 {
     width: 50%;
     height: 30vh;
@@ -175,14 +172,13 @@
   }
   .imagecard1 p {
     font-size: 0.8rem;
-   
   }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1200px) and (max-width: 1530px){
+@media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
-  .imagecard{
+  .imagecard {
     width: 90%;
   }
   .imagecard1 img {
@@ -192,8 +188,5 @@
   .imagecard1 p {
     font-size: 0.8rem;
     padding-left: 1rem;
-   
   }
-  
 }
-
