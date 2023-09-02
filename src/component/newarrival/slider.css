@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 78vh;
+  
 }
 .cardswrapper {
   width: 89.5%;
@@ -43,7 +44,7 @@
   }
   .cardswrapper {
     width: 91%;
-    height: 65vh;
+    height: auto;
   }
 }
 
