@@ -6,16 +6,13 @@
   object-fit: cover;
   background-repeat: no-repeat;
   padding: 3rem 0rem;
-
 }
-
 
 .cashback_container {
   height: 65vh;
   width: 50%;
   /* background-color: aqua; */
   padding: 1rem 0rem;
-
 }
 .cashback_container h1 {
   color: white;
@@ -35,7 +32,6 @@
   line-height: 1;
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-transform: uppercase;
-
 }
 .cashback_container h5 {
   color: white;
@@ -46,7 +42,7 @@
 
   font-weight: 600;
 }
-.ban_discription{
+.ban_discription {
   /* background-color: blue; */
   width: 50%;
 }
@@ -81,7 +77,6 @@
 .order_shop_btn button:hover {
   background-color: #c12118;
   color: white;
-  
 }
 /* .swiperNavPrev {
   background-image: url("/public/left.png");
@@ -110,7 +105,7 @@
   display: none;
 } */
 
- .swiper-pagination{
+.swiper-pagination {
   color: red;
   /* background-color: aqua; */
   width: 50px;
@@ -122,12 +117,13 @@
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .banner_sliderimg {
-    height: 30vh;
+    background-position: center;
   }
   .order_shop_btn {
     width: 70%;
-    padding-top: 0rem;
+    padding-top: 0.5rem;
     padding-left: 1.2rem;
+    height: auto;
   }
   .order_shop_btn button {
     font-size: 0.6rem;
@@ -136,50 +132,57 @@
   }
 
   .cashback_container {
-    height: 30vh;
-    min-width: 60%;
+    height: 25vh;
+    width: 70%;
     text-align: justify;
-    /* background-color: pink; */
+    padding: 0rem 0rem;
   }
   .cashback_container h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-left: 1.2rem;
-    padding-top: 1rem;
-    line-height: 0.8;
-    text-align: justify;
+    padding-top: 0rem;
+    /* text-align: justify; */
   }
   .cashback_container h2 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     padding-left: 1.2rem;
-    /* line-height: 1; */
+    padding-top: 5px;
+    line-height: 1;
     text-align: justify;
+    padding-top: 0.3rem;
   }
   .cashback_container h5 {
     color: white;
     padding-left: 1.2rem;
-    padding-top: 5px;
+    padding-top: 4px;
     font-family: light;
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-align: justify;
   }
-  .cashback_container h6 {
+  .ban_discription {
+    width: 100%;
+  }
+  .ban_discription h6 {
     color: white;
     padding-left: 1.2rem;
-    padding-top: 0px;
-    line-height: 1.2;
+    padding-top: 5px;
+    line-height: 1.6;
     font-family: "Poppins", sans-serif;
     font-size: 0.7rem;
     /* text-align: justify; */
   }
-  .swiperNavPrev{
+  .swiperNavPrev {
     display: none;
   }
-  .swiperNavNext{
+  .swiperNavNext {
+    display: none;
+  }
+  .swiper-pagination {
     display: none;
   }
 }
-@media only screen and (min-width: 350px) and (max-width: 480px) {
+/* @media only screen and (min-width: 350px) and (max-width: 480px) {
   .cashback_container {
     min-width: 60vw;
   }
@@ -190,12 +193,12 @@
   .cashback_container h6 {
     font-size: 0.8rem;
   }
-}
-@media only screen and (min-width: 410px) and (max-width: 768px) {
+} */
+/* @media only screen and (min-width: 410px) and (max-width: 768px) {
   .cashback_container {
     min-width: 50vw;
   }
-}
+} */
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -250,10 +253,10 @@
     font-size: 0.8rem;
     /* text-align: justify; */
   }
-  .swiperNavPrev{
+  .swiperNavPrev {
     display: none;
   }
-  .swiperNavNext{
+  .swiperNavNext {
     display: none;
   }
 }
