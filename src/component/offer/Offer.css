@@ -139,13 +139,13 @@
 .FaArrowRightoffer {
   color: #ff0040;
 }
-.new_more_modal img{
+.new_more_modal img {
   position: absolute;
   right: 1rem;
   top: 1rem;
   transition: 0.3s linear;
 }
-.new_more_modal img:hover{
+.new_more_modal img:hover {
   transform: rotateZ(90deg);
 }
 
@@ -162,7 +162,7 @@
     /* background-color: #f9fb1c; */
   }
   .coupon_container h1 {
-    font-size: 10px;
+    font-size: 12px;
   }
   .coupon_container h1 span {
     font-size: 8px;
@@ -178,6 +178,10 @@
     width: 65px;
     background-color: #f9fb1c;
     font-size: 8px;
+  }
+  .swiperNavNext1,
+  .swiperNavPrev1 {
+    display: none;
   }
 }
 @media only screen and (min-width: 390px) and (max-width: 480px) {
