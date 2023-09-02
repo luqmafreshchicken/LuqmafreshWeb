@@ -48,7 +48,7 @@ const CountDown = () => {
           <span>Most popular products near you!</span>
         </div>
 
-        <div className="countdown">
+        {/* <div className="countdown">
           <div>
             <p>
               {days}
@@ -77,7 +77,7 @@ const CountDown = () => {
               <span>Seconds</span>
             </p>
           </div>
-        </div>
+  </div>*/}
       </div>
     </div>
   );
