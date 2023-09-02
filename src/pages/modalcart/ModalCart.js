@@ -52,7 +52,7 @@ const ModalCart = ({
                       <p>Your Order List</p>
                     </div>
 
-                    {cartProduct.map((option, index) => (
+                    {cartProduct?.map((option, index) => (
                       <div className="product_card">
                         <div className="product_detail">
                           <div className="subproduct_detail">
@@ -69,7 +69,7 @@ const ModalCart = ({
                           </div>
 
                           <div
-                            onClick={() => removeProduct(option._id)}
+                            onClick={() => removeProduct(option?._id)}
                             className="product_cross"
                           >
                             <img src="cross.png" height="22px" width="22px" />
@@ -84,20 +84,20 @@ const ModalCart = ({
                               <p>
                                 {" "}
                                 {modalcurrency}
-                                {option.productId.price}
+                                {option?.productId?.price}
                               </p>
                             </div>
                             <div className="cut_count">
                               <p>
                                 {" "}
                                 {modalcurrency}
-                                {option.productId.originalPrice}
+                                {option?.productId?.originalPrice}
                               </p>
                             </div>
                             <div className="total_cart_amount">
                               <p>
                                 {modalcurrency}
-                                {option?.quantity * option.productId.price}
+                                {option?.quantity * option?.productId?.price}
                               </p>
                             </div>
                           </div>
@@ -210,14 +210,14 @@ const ModalCart = ({
 
                             <div className="product_name">
                               <p>
-                                {option.productId.name} -{" "}
-                                {option.productId.quantity} Qty
+                                {option?.productId?.name} -{" "}
+                                {option?.productId?.quantity} Qty
                               </p>
                             </div>
                           </div>
 
                           <div
-                            onClick={() => removeProduct(option._id)}
+                            onClick={() => removeProduct(option?._id)}
                             className="product_cross"
                           >
                             <img src="cross.png" height="22px" width="22px" />
@@ -232,14 +232,14 @@ const ModalCart = ({
                               <p>
                                 {" "}
                                 {modalcurrency}
-                                {option.productId.price}
+                                {option?.productId?.price}
                               </p>
                             </div>
                             <div className="cut_count">
                               <p>
                                 {" "}
                                 {modalcurrency}
-                                {option.productId.originalPrice}
+                                {option?.productId?.originalPrice}
                               </p>
                             </div>
 
@@ -249,8 +249,8 @@ const ModalCart = ({
                             <div className="total_cart_amount">
                               <p>
                                 {modalcurrency}
-                                {option.productId.quantity *
-                                  option.productId.price}
+                                {option?.productId?.quantity *
+                                  option?.productId?.price}
                               </p>
                             </div>
                           </div>
