@@ -39,7 +39,9 @@
   /* CSS rules for mobile devices */
   .subcategorie_product_name_img {
     width: 100%;
-    height: 26vh;
+    height: auto;
+    background-color: aqua;
+    display: none;
   }
   .subcategorie_product_name_img p {
     font-size: 12px;
