@@ -228,7 +228,7 @@ const TodayDeals = () => {
     setOtp(e.target.value);
   };
 
-   const handleOTP = () => {
+  const handleOTP = () => {
     // otp validation
     if (otp === "") {
       toast.error("Please enter otp", {
