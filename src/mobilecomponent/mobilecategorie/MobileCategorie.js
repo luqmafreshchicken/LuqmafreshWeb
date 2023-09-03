@@ -77,9 +77,7 @@ const MobileCategorie = () => {
               <div className="mobile_subcategory">
                 {item?.subcategories.map((item) => (
                   <div className="mobile_subcategory_container">
-                    <div className="mobile_subcategory_img">
-                      <img src={item.subcategoryImage} />
-                    </div>
+                  
                     <div className="mobile_subcategory_para">
                       <p>{item.subcategoryName}</p>
                     </div>
