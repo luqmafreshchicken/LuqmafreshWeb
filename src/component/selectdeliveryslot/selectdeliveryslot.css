@@ -67,21 +67,22 @@
   cursor: pointer;
   transition: 0.3s linear;
 }
-.stot_content tr td:first-child img:hover{
+.stot_content tr td:first-child img:hover {
   transform: rotateZ(90deg);
 }
 .stot_content tr {
   font-size: 1rem;
   font-family: regular;
 }
-.table_addtocart{
+.table_addtocart {
   width: 100%;
   height: 5vh;
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
 }
-.table_dre,.table_incre{
+.table_dre,
+.table_incre {
   width: 30%;
   /* background-color: #ff0040; */
   height: 5vh;
@@ -93,20 +94,18 @@
   transition: 0.3s linear;
   font-family: regular;
   font-weight: 600;
-
-
 }
-.table_incre:hover{
-   color: white;
-   background-color: #ff0040;
-   transform: scale(0.2s);
-}
-.table_dre:hover{
+.table_incre:hover {
   color: white;
   background-color: #ff0040;
   transform: scale(0.2s);
 }
-.table_count{
+.table_dre:hover {
+  color: white;
+  background-color: #ff0040;
+  transform: scale(0.2s);
+}
+.table_count {
   /* background-color: yellowgreen; */
   width: 40%;
   height: 5vh;
@@ -117,21 +116,19 @@
   padding-top: 0.1rem;
   cursor: pointer;
   font-family: regular;
-
-
 }
-.stot_content_total{
+.stot_content_total {
   float: right;
 }
-.stot_content_total p{
+.stot_content_total p {
   font-size: 1.1rem;
   font-family: regular;
 }
-.stot_content_total p span{
+.stot_content_total p span {
   font-family: regular;
   font-weight: 600;
 }
-.primary_select_slots{
+.primary_select_slots {
   display: flex;
   gap: 1rem;
 }
@@ -149,14 +146,13 @@
   display: grid;
   place-items: center;
 }
-.select_delivery_time:hover{
+.select_delivery_time:hover {
   background-color: #ff0040;
   transform: scale(0.2s);
   color: white;
 }
 
-
-.selectslots_delivery_time{
+.selectslots_delivery_time {
   height: 7vh;
   width: 30%;
   background-color: lightgray;
@@ -169,7 +165,6 @@
   padding-top: 1rem;
   /* justify-content: center;
   align-items: center; */
-
 }
 
 .slots_edit_icon {
@@ -222,7 +217,6 @@
   font-size: 1rem;
 }
 
-
 .selectdeliveryslot_btn {
   height: 10vh;
   /* padding-left: 30px; */
@@ -258,20 +252,19 @@
 .select_slot_shipment h5 {
   font-family: regular;
   font-weight: 600;
-  padding: 1.5rem 0rem 1rem 2rem ;
+  padding: 1.5rem 0rem 1rem 2rem;
 }
 .selectdeliveryslot_day p {
   font-family: regular;
   font-weight: 600;
-  padding: 0rem 0rem 0rem 2rem ;
+  padding: 0rem 0rem 0rem 2rem;
   font-size: 0.8rem;
 }
 .selectdeliveryslot_timer {
   height: auto;
   display: flex;
   gap: 20px;
-  padding: 0rem 0rem 2rem 2rem ;
-
+  padding: 0rem 0rem 2rem 2rem;
 }
 .selectdeliveryslot_time_slot {
   height: 6vh;
@@ -287,7 +280,7 @@
   font-family: medium;
   color: #ff0040;
 }
-.selectdeliveryslot_time_slot:hover{
+.selectdeliveryslot_time_slot:hover {
   background-color: #ff0040;
   transform: scale(0.2s);
   color: white;
@@ -296,8 +289,7 @@
   height: auto;
   display: flex;
   width: 95%;
-  padding: 1.5rem 0rem 2rem 2rem ;
-
+  padding: 1.5rem 0rem 2rem 2rem;
 }
 .selectdeliveryslot_btn1 {
   height: 7vh;
@@ -318,7 +310,7 @@
   padding-top: 15px;
 }
 
-.selectdeliveryslot_modal img{
+.selectdeliveryslot_modal img {
   position: absolute;
   right: 1rem;
   top: 0.5rem;
@@ -327,7 +319,7 @@
   transition: 0.3s linear;
   cursor: pointer;
 }
-.selectdeliveryslot_modal img:hover{
+.selectdeliveryslot_modal img:hover {
   transform: rotateZ(90deg);
 }
 
@@ -338,6 +330,7 @@
   .selectdeliveryslot_container {
     height: auto;
     padding-bottom: 0rem;
+    padding: 1rem 0rem;
   }
   .selectime_steps {
     display: none;
@@ -345,7 +338,7 @@
   .selectdeliveryslot_content {
     width: 100%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 0rem;
   }
   .selectime_container {
@@ -362,10 +355,48 @@
   .select_text_container {
     width: 100%;
   }
+
   .select_text_container h5 {
     padding: 0px 20px;
     padding-top: 0px;
     font-size: 14px;
+  }
+
+  .select_text_container p {
+    padding: 0px 20px;
+    padding-top: 0px;
+    font-size: 14px;
+  }
+  .select_text_container h6 {
+    padding: 0px 20px;
+    padding-top: 0px;
+    font-size: 14px;
+  }
+
+  .d-flex img {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    margin: 0.5rem 0rem;
+  }
+  .slots_heading tr {
+    font-size: 0.7rem;
+    font-family: regular;
+  }
+  .stot_content tr {
+    font-size: 0.8rem;
+    font-family: regular;
+  }
+  .stot_content tr td:first-child img {
+    height: 20px;
+    width: 20px;
+  }
+  .table_addtocart{
+    width: 90%;
+  }
+  .bor_bottom {
+    margin: 2rem 1rem 0rem 0rem;
+    padding: 0rem 1rem;
   }
   .select_delivery_time {
     height: 6vh;
@@ -378,7 +409,26 @@
     padding-top: 0.35rem;
     font-size: 14px;
   }
-
+  .stot_content_total {
+    float: right;
+  }
+  .stot_content_total p {
+    font-size: 1rem;
+    font-family: regular;
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+  .stot_content_total p span {
+    font-family: regular;
+    font-weight: 600;
+  }
+  .primary_select_slots{
+    padding-left: 1.5rem;
+  }
+  
+.selectslots_delivery_time {
+  width: 40%;
+}
   .product_detail_01 {
     width: 30%;
     margin-top: 20px;
@@ -418,7 +468,7 @@
     font-size: 12px;
   }
   .selectdeliveryslot_btn {
-    height: 10vh;
+    height: auto;
     padding-left: 20px;
     /* padding-top: 10px; */
     /* margin-bottom: 1rem;
@@ -431,7 +481,7 @@
     margin-bottom: 30px;
   }
   .selectdeliveryslot_modal {
-    width: 40%;
+    width: 90%;
     height: auto;
     border-radius: 8px;
   }
@@ -450,18 +500,16 @@
     font-size: 0.8rem;
   }
   .selectdeliveryslot_timer {
-    width: 90%;
-    margin-left: 6%;
+    width: 100%;
+    /* margin-left: 6%; */
   }
   .selectdeliveryslot_time_slot {
-    width: 31%;
+    width: 50%;
     display: flex;
-    /* background-color: #c42118; */
+    font-size: 0.7rem;
+
   }
-  .selectdeliveryslot_time_slot p {
-    font-size: 0.8rem;
-    align-items: center;
-  }
+  
   .select_proceed {
     width: 93%;
     margin-left: 6%;
@@ -476,7 +524,7 @@
     padding-top: 1rem;
   }
   .selectdeliveryslot_btn_proceed {
-    padding-top: 0.75rem;
+    padding-top: 0rem;
     cursor: pointer;
     width: 60%;
     font-size: 0.9rem;
