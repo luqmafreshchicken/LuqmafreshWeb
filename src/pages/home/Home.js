@@ -1286,7 +1286,7 @@ const Home = () => {
       </div>
       {/**************** today Deals Section **************************/}
 
-      <Offer />
+ {/*<Offer />*/}
       {/****************bestSeller*********************/}
       <div>
         <div className="next_prev_btn_container">
