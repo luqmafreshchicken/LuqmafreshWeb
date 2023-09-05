@@ -166,8 +166,11 @@ export const bestSeller = async (requestData) => {
 
 /* combo API */
 
-export const comBos = async () => {
-  const response = await axios.get(`${API_BASE_URL}product/getComboProduct`);
+export const comBos = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}product/getComboProduct`,
+    requestData
+  );
   return response.data;
 };
 // export const deleteData = async (id) => {
