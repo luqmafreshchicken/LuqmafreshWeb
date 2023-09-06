@@ -57,6 +57,7 @@ const TodayDeals = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [todayView, setTodayView] = useState([]);
   const [whistlistOpen, setWhistlistOpen] = useState(false);
+  const [colorId, setColorId] = useState("");
 
   useEffect(() => {
     setLoad(true);
@@ -110,7 +111,7 @@ const TodayDeals = () => {
 
   const categoryProduct = async (id) => {
     setLoad(true);
-
+    setColorId(id);
     const requestData = {
       subCategoryId: id,
     };
@@ -591,7 +592,6 @@ const TodayDeals = () => {
       productId: id,
     };
     productDeatail(requestData).then((res) => {
-      console.log(res.data, "======================");
       if (res.status == true) {
         setSearchOpen(true);
         setTodayView(res.data);
@@ -745,14 +745,14 @@ const TodayDeals = () => {
         {subcategorie.length >= 1 ? (
           <div className="subcategorie_contaner">
             <div className="subcategorie_content">
-              <SubCategorieList
+              <SubCategorieList selID={colorId == '' ? '123' : colorId } catId={"123"}
                 // img={category.subcategoryImage}
                 name="All"
                 onclick={() => productAll()}
               />
               {subcategorie.map((category) => (
                 <>
-                  <SubCategorieList
+                  <SubCategorieList selID={colorId} catId={category._id}
                     // img={category.subcategoryImage}
                     name={category.subcategoryName}
                     onclick={() => categoryProduct(category._id)}
