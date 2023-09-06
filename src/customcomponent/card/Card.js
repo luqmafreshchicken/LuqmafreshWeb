@@ -107,7 +107,7 @@ const Card = ({
       </div>
       <div className="rating">
         <Rating
-          name="size-small"
+           readOnly
           defaultValue={rating}
           style={{ fontSize: "20px", color: "#ff0040", gap: "0.2rem" }}
         />
