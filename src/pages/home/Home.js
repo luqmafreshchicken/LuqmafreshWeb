@@ -12,7 +12,8 @@ import CountDown from "../../component/countdown/CountDown";
 import {
   CountryDetail,
   GetCountry,
-    comBos,
+  catProduct,
+  comBos,
   productCategorie,
   productDeatail,
   removeFromCart,
@@ -53,6 +54,7 @@ import Discount from "../../customcomponent/discount/Discount";
 import ModalCart from "../modalcart/ModalCart";
 import { useNavigate } from "react-router-dom";
 import TopHeader from "../../component/topheader/TopHeader";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
 
 const Home = () => {
   let navigate = useNavigate();
@@ -62,6 +64,10 @@ const Home = () => {
   const [data2, setData2] = useState([]);
   const [data3, setData3] = useState([]);
   const [data4, setData4] = useState([]);
+  const [data5, setData5] = useState([]);
+  const [data6, setData6] = useState([]);
+  const [data7, setData7] = useState([]);
+
   const [today, setToday] = useState([]);
   const [showInput, setShowInput] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
@@ -114,9 +120,12 @@ const Home = () => {
     localContent();
     topSaverWeekList();
     bestSellerList();
-     comboList();
+    comboList();
     categoryList();
     todayDealList();
+    chickenProductList();
+    muttonProductList();
+    fishProductList();
   }, []);
 
   const handleLocation = () => {
@@ -166,18 +175,60 @@ const Home = () => {
     const res = await newArrival(data);
     if (res?.status === true) {
       setData(res?.data);
-      // categoryList();
       setLoad(false);
     } else {
       setLoad(false);
-      // categoryList();
     }
   };
 
+  const chickenProductList = async () => {
+    const UserId = await getUserID();
+    const data = {
+      categoryName: "Chicken",
+
+      userId: UserId ? UserId : "",
+    };
+    const res = await catProduct(data);
+    if (res?.status === true) {
+      setData5(res?.data);
+      setLoad(false);
+    } else {
+      setLoad(false);
+    }
+  };
+  const muttonProductList = async () => {
+    const UserId = await getUserID();
+    const data = {
+      categoryName: "Mutton",
+
+      userId: UserId ? UserId : "",
+    };
+    const res = await catProduct(data);
+    if (res?.status === true) {
+      setData6(res?.data);
+      setLoad(false);
+    } else {
+      setLoad(false);
+    }
+  };
+  const fishProductList = async () => {
+    const UserId = await getUserID();
+    const data = {
+      categoryName: "Beaf",
+      userId: UserId ? UserId : "",
+    };
+    const res = await catProduct(data);
+    if (res?.status === true) {
+      setData7(res?.data);
+      setLoad(false);
+    } else {
+      setLoad(false);
+    }
+  };
   const topSaverWeekList = async () => {
     const UserId = await getUserID();
     const data = {
-      id: UserId ? UserId : "",
+      userID: UserId ? UserId : "",
     };
     const res = await topSeverweek(data);
     if (res?.status === true) {
@@ -202,8 +253,7 @@ const Home = () => {
       setLoad(false);
     }
   };
-
-   const comboList = async () => {
+  const comboList = async () => {
     const UserId = await getUserID();
     const data = {
       id: UserId ? UserId : "",
@@ -277,7 +327,7 @@ const Home = () => {
     setCartProduct(removeProduct);
     setCartPrice(
       cartPrice?.price -
-      product?.productId?.price * product?.productId?.quantity
+        product?.productId?.price * product?.productId?.quantity
     );
     toast.success("Product remove from cart", {
       position: "top-right",
@@ -382,15 +432,15 @@ const Home = () => {
         const newCart = cart?.map((x) =>
           x._id === id
             ? {
-              _id: id,
-              productId: {
                 _id: id,
-                quantity: x?.productId?.quantity + 1,
-                name: name,
-                price: price,
-                originalPrice: originalPrice,
-              },
-            }
+                productId: {
+                  _id: id,
+                  quantity: x?.productId?.quantity + 1,
+                  name: name,
+                  price: price,
+                  originalPrice: originalPrice,
+                },
+              }
             : x
         );
         localStorage.setItem("cart", JSON.stringify(newCart));
@@ -568,7 +618,6 @@ const Home = () => {
     });
   };
 
-
   const handleMobileNumber = (e) => {
     setMobileNumber(e.target.value);
     if (e?.target?.value?.length <= 40) {
@@ -711,6 +760,9 @@ const Home = () => {
       arrivalProductList();
       topSaverWeekList();
       bestSellerList();
+      chickenProductList();
+      muttonProductList();
+      fishProductList();
       setLoad(false);
     } else {
       toast.error(res?.message, {
@@ -860,10 +912,11 @@ const Home = () => {
         store={store}
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
-        // removeProduct={(id) => removeCartProduct(id)} removeLocalCart
-        removeProduct={(id) =>
-          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-        }
+        removeProduct={(id) => removeCartProduct(id)}
+        removeLocalCart
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
         handleHome={() => handleHome()}
@@ -947,15 +1000,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -987,15 +1040,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1046,24 +1099,610 @@ const Home = () => {
             price={product.price}
             ogp={product.originalPrice}
             discount={product.discount}
-          // handleViewCart={() => console.log("view cart")
-          // loginStatus == true
-          //   ? AddToCart(product._id)
-          //   : AddLocalCart(
-          //     product._id,
-          //     product.name,
-          //     product.price,
-          //     product.originalPrice,
-          //     product.discount,
-          //     product.quantity,
-          //     product.unit,
-          //     product.image
-          //   )
-          // }
+            // handleViewCart={() => console.log("view cart")
+            // loginStatus == true
+            //   ? AddToCart(product._id)
+            //   : AddLocalCart(
+            //     product._id,
+            //     product.name,
+            //     product.price,
+            //     product.originalPrice,
+            //     product.discount,
+            //     product.quantity,
+            //     product.unit,
+            //     product.image
+            //   )
+            // }
           />
         </div>
       </div>
       {/**************************** end new arrival section ***************************/}
+
+      {/********************************Chicken Product section****************************** */}
+      {data5?.length >= 1 ? (
+        <>
+          <div>
+            <div className="next_prev_btn_container">
+              <div className="next_prev_btn">
+                <div className="head_box">
+                  <Text
+                    heading1="Chicken Product"
+                    text1="Most popular products near you!"
+                  />
+                </div>
+                <div className="next_prev_btn_content">
+                  <div className="swiperNavPrev" ref={swiperNavPrevRef}>
+                    <FaArrowLeft className="FaArrowLeft" />
+                  </div>
+                  <div className="swiperNavNext" ref={swiperNavNextRef}>
+                    <FaArrowRight className="FaArrowRight" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="carouselitem">
+              <div className="cardswrapper">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={8}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  parallax={true}
+                  navigation={{
+                    prevEl: "swiperNavPrevRef.current",
+                    nextEl: "swiperNavNextRef.current",
+                  }}
+                  onInit={(swiper) => {
+                    swiper.params.navigation.prevEl = swiperNavPrevRef.current;
+                    swiper.params.navigation.nextEl = swiperNavNextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                      spaceBetween: 40,
+                    },
+                  }}
+                  modules={[Navigation, Parallax]}
+                >
+                  {data5.map((detail, index) => (
+                    <SwiperSlide>
+                      {loginStatus == false ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          // onclick={() => AddToCart(detail._id)}
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          // onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      )}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              <WhistList
+                whistlistOpen={whistlistOpen}
+                handlewhistlistClose={handlewhistlistClose}
+                onclick={handlewhistlistClose}
+                proceedOTP="Proceed Via OTP"
+                proceedsubmit="Submit"
+                onChange={handleMobileNumber}
+                value={mobileNumber}
+                onChange1={(e) => setOtp(e.target.value)}
+                onclick1={() => handleLogin()}
+                onclick2={() => handleOTP()}
+                otpHide={hideOTP}
+                btnShow={btn}
+                email={store}
+                handleResendOTP={() => handleResendOTP()}
+              />
+
+              <SearchModal
+                searchOpen={searchOpen}
+                handleSearchClose={handleSearchClose}
+                onclick={handleSearchClose}
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                description1={product.description1}
+                description2={product.description2}
+                description3={product.description3}
+                qty={product.quantity}
+                unit={product.unit}
+                price={product.price}
+                ogp={product.originalPrice}
+                discount={product.discount}
+                // handleViewCart={() => console.log("view cart")
+                // loginStatus == true
+                //   ? AddToCart(product._id)
+                //   : AddLocalCart(
+                //     product._id,
+                //     product.name,
+                //     product.price,
+                //     product.originalPrice,
+                //     product.discount,
+                //     product.quantity,
+                //     product.unit,
+                //     product.image
+                //   )
+                // }
+              />
+            </div>
+          </div>
+        </>
+      ) : null}
+      {/**************************** end new arrival section ***************************/}
+
+      {/********************************new arrival section****************************** */}
+      {data6?.length >= 1 ? (
+        <>
+          <div>
+            <div className="next_prev_btn_container">
+              <div className="next_prev_btn">
+                <div className="head_box">
+                  <Text
+                    heading1="Mutton Product"
+                    text1="Most popular products near you!"
+                  />
+                </div>
+                <div className="next_prev_btn_content">
+                  <div className="swiperNavPrev" ref={swiperNavPrevRef}>
+                    <FaArrowLeft className="FaArrowLeft" />
+                  </div>
+                  <div className="swiperNavNext" ref={swiperNavNextRef}>
+                    <FaArrowRight className="FaArrowRight" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="carouselitem">
+              <div className="cardswrapper">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={8}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  parallax={true}
+                  navigation={{
+                    prevEl: "swiperNavPrevRef.current",
+                    nextEl: "swiperNavNextRef.current",
+                  }}
+                  onInit={(swiper) => {
+                    swiper.params.navigation.prevEl = swiperNavPrevRef.current;
+                    swiper.params.navigation.nextEl = swiperNavNextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                      spaceBetween: 40,
+                    },
+                  }}
+                  modules={[Navigation, Parallax]}
+                >
+                  {data6.map((detail, index) => (
+                    <SwiperSlide>
+                      {loginStatus == false ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          // onclick={() => AddToCart(detail._id)}
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          // onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      )}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              <WhistList
+                whistlistOpen={whistlistOpen}
+                handlewhistlistClose={handlewhistlistClose}
+                onclick={handlewhistlistClose}
+                proceedOTP="Proceed Via OTP"
+                proceedsubmit="Submit"
+                onChange={handleMobileNumber}
+                value={mobileNumber}
+                onChange1={(e) => setOtp(e.target.value)}
+                onclick1={() => handleLogin()}
+                onclick2={() => handleOTP()}
+                otpHide={hideOTP}
+                btnShow={btn}
+                email={store}
+                handleResendOTP={() => handleResendOTP()}
+              />
+
+              <SearchModal
+                searchOpen={searchOpen}
+                handleSearchClose={handleSearchClose}
+                onclick={handleSearchClose}
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                description1={product.description1}
+                description2={product.description2}
+                description3={product.description3}
+                qty={product.quantity}
+                unit={product.unit}
+                price={product.price}
+                ogp={product.originalPrice}
+                discount={product.discount}
+                // handleViewCart={() => console.log("view cart")
+                // loginStatus == true
+                //   ? AddToCart(product._id)
+                //   : AddLocalCart(
+                //     product._id,
+                //     product.name,
+                //     product.price,
+                //     product.originalPrice,
+                //     product.discount,
+                //     product.quantity,
+                //     product.unit,
+                //     product.image
+                //   )
+                // }
+              />
+            </div>
+          </div>
+        </>
+      ) : null}
+      {/**************************** end new arrival section ***************************/}
+
+      {/********************************new arrival section****************************** */}
+      {data7?.length >= 1 ? (
+        <>
+          <div>
+            <div className="next_prev_btn_container">
+              <div className="next_prev_btn">
+                <div className="head_box">
+                  <Text
+                    heading1="Beaf Product"
+                    text1="Most popular products near you!"
+                  />
+                </div>
+                <div className="next_prev_btn_content">
+                  <div className="swiperNavPrev" ref={swiperNavPrevRef}>
+                    <FaArrowLeft className="FaArrowLeft" />
+                  </div>
+                  <div className="swiperNavNext" ref={swiperNavNextRef}>
+                    <FaArrowRight className="FaArrowRight" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="carouselitem">
+              <div className="cardswrapper">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={8}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  parallax={true}
+                  navigation={{
+                    prevEl: "swiperNavPrevRef.current",
+                    nextEl: "swiperNavNextRef.current",
+                  }}
+                  onInit={(swiper) => {
+                    swiper.params.navigation.prevEl = swiperNavPrevRef.current;
+                    swiper.params.navigation.nextEl = swiperNavNextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    768: {
+                      slidesPerView: 4,
+                      spaceBetween: 40,
+                    },
+                  }}
+                  modules={[Navigation, Parallax]}
+                >
+                  {data7.map((detail, index) => (
+                    <SwiperSlide>
+                      {loginStatus == false ? (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          // onclick={() => AddToCart(detail._id)}
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          // onclick1={() => fullView(detail._id)}
+                          onclick2={() => setWhistlistOpen(true)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      ) : (
+                        <Card
+                          currency={countrycurrency}
+                          offer={detail.discount}
+                          productName={detail.name}
+                          weight={detail.quantity}
+                          unit={detail.unit}
+                          total={detail.price}
+                          cutotal={detail.originalPrice}
+                          offer1={detail.discount}
+                          today={moment(detail.discountExpiryDate).format(
+                            "dddd"
+                          )}
+                          date={detail.deliveryTime}
+                          totalpayment={detail.price}
+                          to="/carddetail"
+                          onclick={() =>
+                            // AddToCart(detail._id)
+                            loginStatus == true
+                              ? AddToCart(detail._id)
+                              : AddLocalCart(
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
+                          }
+                          id={{ id: detail._id }}
+                          rating={detail.rating}
+                          img={detail.image}
+                          onclick1={() => fullView(detail._id)}
+                          onclick2={() => handleWhistlist(detail._id)}
+                          // cartStatus={detail?.isAddedToCart}
+                          // qty={detail?.qty}
+                          whist={detail?.inWishlist}
+                        />
+                      )}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              <WhistList
+                whistlistOpen={whistlistOpen}
+                handlewhistlistClose={handlewhistlistClose}
+                onclick={handlewhistlistClose}
+                proceedOTP="Proceed Via OTP"
+                proceedsubmit="Submit"
+                onChange={handleMobileNumber}
+                value={mobileNumber}
+                onChange1={(e) => setOtp(e.target.value)}
+                onclick1={() => handleLogin()}
+                onclick2={() => handleOTP()}
+                otpHide={hideOTP}
+                btnShow={btn}
+                email={store}
+                handleResendOTP={() => handleResendOTP()}
+              />
+
+              <SearchModal
+                searchOpen={searchOpen}
+                handleSearchClose={handleSearchClose}
+                onclick={handleSearchClose}
+                image={product.image}
+                name={product.name}
+                description={product.description}
+                description1={product.description1}
+                description2={product.description2}
+                description3={product.description3}
+                qty={product.quantity}
+                unit={product.unit}
+                price={product.price}
+                ogp={product.originalPrice}
+                discount={product.discount}
+                // handleViewCart={() => console.log("view cart")
+                // loginStatus == true
+                //   ? AddToCart(product._id)
+                //   : AddLocalCart(
+                //     product._id,
+                //     product.name,
+                //     product.price,
+                //     product.originalPrice,
+                //     product.discount,
+                //     product.quantity,
+                //     product.unit,
+                //     product.image
+                //   )
+                // }
+              />
+            </div>
+          </div>
+        </>
+      ) : null}
+      {/**************************** end new arrival section ***************************/}
+
       {/************************ topserverweek *********************************/}
       <div>
         <div className="next_prev_btn_container">
@@ -1137,15 +1776,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1175,15 +1814,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1251,19 +1890,19 @@ const Home = () => {
               height="160px"
               width="160px"
               id={{ id: cat._id }}
-            // onclick={() => handleNav(cat._id)}
+              // onclick={() => handleNav(cat._id)}
             />
           ))}
         </div>
       </div>
-      <div className="todaydeals_container">
+      {/*<div className="todaydeals_container">
         <div className="todaydeals_content">
           <h5>Today’s deals</h5>
           <p>Offers curated only for you!</p>
         </div>
-      </div>
+          </div>*/}
       {/**************** today Deals Section **************************/}
-      <div className="main_discountsection">
+      {/*<div className="main_discountsection">
         <div className="submain_discountsection">
           {today.map((deals) => (
             <Discount
@@ -1301,12 +1940,12 @@ const Home = () => {
           ogp={product.originalPrice}
           discount={product.discount}
         />
-      </div>
+            </div>*/}
       {/**************** today Deals Section **************************/}
 
- {/*<Offer />*/}
+      {/*<Offer />*/}
       {/****************bestSeller*********************/}
-      <div>
+      {/*<div>
         <div className="next_prev_btn_container">
           <div className="next_prev_btn">
             <div className="head_box">
@@ -1381,15 +2020,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1397,7 +2036,6 @@ const Home = () => {
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => setWhistlistOpen(true)}
                           whist={detail?.inWishlist}
-
                         />
                       ) : (
                         <Card
@@ -1420,15 +2058,15 @@ const Home = () => {
                             loginStatus == true
                               ? AddToCart(detail._id)
                               : AddLocalCart(
-                                detail._id,
-                                detail.name,
-                                detail.price,
-                                detail.originalPrice,
-                                detail.discount,
-                                detail.quantity,
-                                detail.unit,
-                                detail.image
-                              )
+                                  detail._id,
+                                  detail.name,
+                                  detail.price,
+                                  detail.originalPrice,
+                                  detail.discount,
+                                  detail.quantity,
+                                  detail.unit,
+                                  detail.image
+                                )
                           }
                           id={{ id: detail._id }}
                           rating={detail.rating}
@@ -1436,7 +2074,6 @@ const Home = () => {
                           onclick1={() => fullView(detail._id)}
                           onclick2={() => handleWhistlist(detail._id)}
                           whist={detail?.inWishlist}
-
                         />
                       )}
                     </SwiperSlide>
@@ -1479,9 +2116,10 @@ const Home = () => {
             discount={product.discount}
           />
         </div>
-      </div>
+                        </div>*/}
+
       {/* **************** end bestSeller********************* */}
-    {/* ******************** combo ***************** */}
+      {/* ******************** combo ***************** */}
 
       <div>
         <div className="next_prev_btn_container">
