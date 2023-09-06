@@ -136,6 +136,16 @@ export const newArrival = async (requestData) => {
   return response.data;
 };
 
+/* catProduct API */
+
+export const catProduct = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}product/ProBycatName`,
+    requestData
+  );
+  return response.data;
+};
+
 /* topSeverWeek API */
 
 export const topSeverweek = async (requestData) => {
