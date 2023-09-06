@@ -42,7 +42,6 @@ export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
   const location = useLocation();
   const productId = location.state;
-  console.log(productId, "==============gaurav=============");
 
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
@@ -108,7 +107,6 @@ export default function CardFullDetail({ id }) {
       productId: id,
     };
     productDeatail(requestData).then((res) => {
-
       if (res?.status == true) {
         setProduct(res?.data);
         setLoad(false);
