@@ -1,17 +1,17 @@
 import React from "react";
 import "./subcategorie.css";
 
-const SubCategorieList = ({ img, name, id, onclick }) => {
+const SubCategorieList = ({ img, name, id, onclick,selID,catId }) => {
   return (
     <div
       className="subcategorie_product_name_img"
       onClick={onclick}
       state={{ id: id }}
     >
-    { /* <div className="subcategorie_product_img_comtainer">
+      {/* <div className="subcategorie_product_img_comtainer">
         <img src={img} />
   </div>*/}
-      <p>{name}</p>
+      <p style={{color:selID == catId ? 'red' : 'black' }}>{name}</p>
     </div>
   );
 };
