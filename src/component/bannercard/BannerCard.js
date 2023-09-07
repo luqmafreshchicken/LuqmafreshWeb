@@ -1,23 +1,31 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
 import "./bannercard.css";
-import { useEffect, useState, useRef } from "react";
 import { BannerCard } from "../../serverRequest/Index";
 import { NavLink } from "react-router-dom";
 
 export default function BannerCard1({ productId, to }) {
   const [banner, setBanner] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getbenner();
+    getBanner();
   }, []);
 
-  const getbenner = async () => {
-    const newData = await BannerCard();
-    if (newData?.status === true) {
-      setBanner(newData.data);
-    } else {
+  const getBanner = async () => {
+    try {
+      const newData = await BannerCard();
+      if (newData?.status === true) {
+        setBanner(newData?.data);
+      } else {
+        setError("Error fetching data");
+      }
+    } catch (error) {
+      setError("An error occurred");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -26,13 +34,21 @@ export default function BannerCard1({ productId, to }) {
     // You can perform any other actions related to the clicked product here
   };
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
-    <Slide autoplay={false}>
-      {banner.map((item) => (
-        <div className="each-slide-effect">
+    <Slide autoplay={true}>
+      {banner?.map((item) => (
+        <div className="each-slide-effect" key={item.productId}>
           <div
             style={{
-              backgroundImage: `url(${item?.image}) `,
+              backgroundImage: `url(${item?.image})`,
             }}
             className="banner_slider"
           >
@@ -44,11 +60,14 @@ export default function BannerCard1({ productId, to }) {
                 <div className="ban_discription">
                   <h6>{item?.description}</h6>
                 </div>
-                <NavLink to="/carddetail" state={{ 
-                  id:{
-                    id: item?.productId
-                  }
-                 }}>
+                <NavLink
+                  to="/carddetail"
+                  state={{
+                    id: {
+                      id: item?.productId,
+                    },
+                  }}
+                >
                   <button onClick={() => handleShopNowClick(item?.productId)}>
                     SHOP NOW
                   </button>
