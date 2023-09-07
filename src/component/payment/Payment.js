@@ -14,7 +14,8 @@ import {
   CountryDetail,
   GetCountry,
   removeFromCart,
-  applyCoupon
+  applyCoupon,
+  getAllCoupon,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -61,7 +62,18 @@ const Payment = () => {
   const [coupon, setCoupon] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [vatAmount, setVatAmount] = React.useState(0);
-console.log(coupon,"coupon")
+
+  const [couponLen, setCouponLen] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const newData = await getAllCoupon();
+      setCouponLen(newData.data);
+    }
+    getData();
+  }, []);
+
+  console.log(coupon, "coupon");
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -291,9 +303,9 @@ console.log(coupon,"coupon")
       }
     });
   };
- 
+
   const handleApplyCoupon = async (couponCode, discount) => {
-    setLoad(true)
+    setLoad(true);
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -311,35 +323,33 @@ console.log(coupon,"coupon")
     })
       .then((res) => res.json())
       .then((res) => {
-            if (res.status === true) {
-        toast.success(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        showcart();
-        setCouponModal(false);
-        setLoad(false)
-        setCoupon(couponCode)
-        setAmount(discount)
-
-      } else {
-        toast.error(res.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        setLoad(false)
-
-      }
+        if (res.status === true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          showcart();
+          setCouponModal(false);
+          setLoad(false);
+          setCoupon(couponCode);
+          setAmount(discount);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -347,7 +357,7 @@ console.log(coupon,"coupon")
   };
   return (
     <>
-    <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
 
       <div className="mobile_payment">
         <Header
@@ -400,7 +410,7 @@ console.log(coupon,"coupon")
               >
                 <p>Debit/Credit/UPI Card</p>
               </div>
-              <div
+              {/* <div
                 className="cash_on_delivery"
                 onClick={() => {
                   setOpen1(2);
@@ -439,7 +449,7 @@ console.log(coupon,"coupon")
                 value={open}
               >
                 <p>Debit/Credit/UPI Card</p>
-              </div>*/}
+              </div>
               <div
                 className="cash_on_delivery"
                 onClick={() => {
@@ -449,14 +459,18 @@ console.log(coupon,"coupon")
                 value={open1}
               >
                 <p>NetBanking</p>
-              </div>
+              </div>*/}
             </div>
             {/* end sidebar Container  */}
 
             <div className="online_payment_content">
               {open1 == 0 && <CashDelivery onClick={() => paymentMethods()} />}
               {open1 == 1 && (
-                <OnlineDelivery onClick={() => paymentMethods()} />
+                <OnlineDelivery
+                  onClick={() => paymentMethods()}
+                  cartProduct={calculateTotalBill()}
+                  currency={countrycurrency}
+                />
               )}
               {open1 == 2 && <AmazonPay onClick={() => paymentMethods()} />}
               {open1 == 3 && <GooglePay onClick={() => paymentMethods()} />}
@@ -488,7 +502,11 @@ console.log(coupon,"coupon")
               <div className="coupon_avilable">
                 <img src="coupon.svg" height="28px" width="28px" />
                 <div className="coupon_avilable_text">
-                  <p>1 Coupon Available</p>
+                  {coupon.length >= 1 ? (
+                    <p>{coupon.length} Coupon Avialable</p>
+                  ) : (
+                    <p>No Coupon Avialable</p>
+                  )}
                 </div>
               </div>
               <div className="bank_offer">
@@ -512,7 +530,7 @@ console.log(coupon,"coupon")
                   <p>Delivery Charge</p>
                   <p>₹ {cartProduct?.totalAmount > 199 ? 0 : 40}</p>
               </div>*/}
-              
+
                 <div className="online_subtotal">
                   <p>Vat</p>
                   <p>
@@ -520,11 +538,11 @@ console.log(coupon,"coupon")
                   </p>
                 </div>
                 <div className="online_subtotal">
-                <p>Coupon Discount</p>
-                <p>
-                  {countrycurrency} {amount == "" ? 0 : amount}
-                </p>
-              </div>
+                  <p>Coupon Discount</p>
+                  <p>
+                    {countrycurrency} {amount == "" ? 0 : amount}
+                  </p>
+                </div>
               </div>
               <div className="online_total_count">
                 <p>Total Amount</p>
