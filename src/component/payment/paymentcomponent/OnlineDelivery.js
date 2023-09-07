@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import {
-  Show_Cart,
-  getUserID,
-} from "../../../serverRequest/Index";
+import React, { useEffect, useState } from "react";
+import { Show_Cart, getUserID } from "../../../serverRequest/Index";
 
-const OnlineDelivery = ({onClick}) => {
-  const [cartProduct, setCartProduct] = useState([]);
+const OnlineDelivery = ({ onClick,cartProduct, currency }) => {
+  // const [cartProduct, setCartProduct] = useState([]);
 
   // const incre = () => {
   //   setCount(count + 1);
@@ -17,24 +14,31 @@ const OnlineDelivery = ({onClick}) => {
   //     setCount(0);
   //   }
   // };
-  useEffect(() => {
-    window.scrollTo(0, 0)
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
 
-    showcart();
+  //   showcart();
+  // }, []);
+  // const showcart = async () => {
+  //   const userId = await getUserID();
+  //   const data = {
+  //     userId: userId,
+  //   };
+  //   const res = await Show_Cart(data);
+  //   if (res.status == true) {
+  //     console.log(res.data.totalAmount,"===============kwbgckgfiugesri========================================kugfigiu=");
+  //     setCartProduct(res.data.cart);
+  //   } else {
+  //   }
+  // };
 
-  }, []);
-  const showcart = async () => {
-    const userId = await getUserID();
-    const data = {
-      userId: userId,
-    };
-    const res = await Show_Cart(data);
-    if (res.status == true) {
-      console.log(res.data);
-      setCartProduct(res.data.cart);
-    } else {
-    }
-  };
+  // const calculateTotalBill = () => {
+  //   const amount = cartProduct?.totalAmount;
+  //   const vat = (cartPrice * 5) / 100;
+  //   // setVatAmount(amount + vat)
+  //   return amount + vat;
+  // };
+
   // const removeProduct = async (productId) => {
   //   const userId = await getUserID();
   //   if (!userId) {
@@ -56,8 +60,7 @@ const OnlineDelivery = ({onClick}) => {
   // };
   return (
     <div className="CashDelivery_container">
-      <div className="cash_delivery_heading">
-      </div>
+      <div className="cash_delivery_heading"></div>
       {/*cartProduct.map((option, index) => (
         <div className="cash_delivery_card">
           <div className="cash_delivery_image">
@@ -79,9 +82,11 @@ const OnlineDelivery = ({onClick}) => {
           </div>
         </div>
       ))*/}
-      <button className="order_confirm_btn" onClick={onClick}>Pay ₹1245.56</button>
+      <button className="order_confirm_btn" onClick={onClick}>
+       Pay {currency} {cartProduct}
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default OnlineDelivery
+export default OnlineDelivery;
