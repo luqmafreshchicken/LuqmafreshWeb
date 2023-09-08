@@ -65,13 +65,16 @@ const SelectDeliveryslot = () => {
       setTime(newData.data);
       setLoad(false);
 
-      const myDate = new Date(
-        moment(newData.data[0].date).format("DD/MM/YYYY")
-      );
-      const month = myDate.toLocaleString("default", { month: "long" });
-      const day = myDate.getDate();
-      setDaySlot(` ${day} ${month}`);
-    }
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds(); //Current Seconds
+    setDaySlot(
+      date + '/' + month + '/' + year 
+      + ' ' + hours + ':' + min + ':' + sec
+    );
     timeSlot();
     showcart();
   }, []);
