@@ -65,13 +65,7 @@ const SelectDeliveryslot = () => {
       setTime(newData.data);
       setLoad(false);
 
-    const options = {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    };
-
-    const formattedDate = new Date().toLocaleDateString('en-US', options);
+   const formattedDate = moment().format('D MMM YYYY');
     setDaySlot(formattedDate);
     timeSlot();
     showcart();
