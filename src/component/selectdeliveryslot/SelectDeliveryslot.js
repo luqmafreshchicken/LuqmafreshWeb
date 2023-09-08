@@ -519,7 +519,7 @@ const SelectDeliveryslot = () => {
             <img src="cross.png" onClick={handleClose1} />
             {slotId == false ? (
               <div className="select_slot_shipment">
-                <h5>Select slot for Shipment 1 of 1</h5>
+                <h5>Select slot for Shipment</h5>
               </div>
             ) : (
               <div className="select_slot_shipment">
