@@ -63,9 +63,8 @@ const SelectDeliveryslot = () => {
     async function timeSlot() {
       const newData = await getTimeslot();
       setTime(newData.data);
-      setLoad(false);
-
-   const formattedDate = moment().format('D MMM YYYY');
+      setLoad(false); }
+      const formattedDate = moment().format('D MMM YYYY');
     setDaySlot(formattedDate);
     timeSlot();
     showcart();
