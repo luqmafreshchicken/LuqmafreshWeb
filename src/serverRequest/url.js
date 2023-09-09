@@ -1,4 +1,4 @@
-const base_url = 'https://luqmafresh-beckend.onrender.com/';
+const base_url = 'https://luqmafresh-backend-zzfk.onrender.com/';
 const searchlocation_url1 = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
 const searchlocation_url2 = '&radius=500&key=AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU';
 const currentlocation = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
