@@ -188,7 +188,7 @@ const Payment = () => {
     const fAmount = totalAmount - couponAmount * 100;
     console.log(fAmount, "fAmount");
     const options = {
-      key: "rzp_test_tOH1E84QsR3LSK",
+      key: "rzp_live_55ZIuRP4gr00Pu",
       amount: fAmount,
       currency: "INR",
       name: "Luqmafresh Private Limited",
