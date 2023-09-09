@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiConfig } from "./url";
-const API_BASE_URL = "https://luqmafresh-beckend.onrender.com/";
+const API_BASE_URL = "https://luqmafresh-backend-zzfk.onrender.com/";
 
 // ort const Current_Live_Location = async (latitude, longitude) => {
 //   return await API({
