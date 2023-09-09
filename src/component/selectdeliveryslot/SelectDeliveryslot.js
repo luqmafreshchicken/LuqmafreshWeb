@@ -197,7 +197,7 @@ const SelectDeliveryslot = () => {
     };
 
     fetch(
-      "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
+      "https://luqmafresh-backend-zzfk.onrender.com/product/UpdateCartQuantity",
       requestOptions
     )
       .then((response) => response.json())
@@ -255,7 +255,7 @@ const SelectDeliveryslot = () => {
       };
 
       fetch(
-        "https://luqmafresh-beckend.onrender.com/product/UpdateCartQuantity",
+        "https://luqmafresh-backend-zzfk.onrender.com/product/UpdateCartQuantity",
         requestOptions
       )
         .then((response) => response.json())
