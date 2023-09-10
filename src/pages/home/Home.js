@@ -884,7 +884,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div style={{  paddingBottom: "3rem" }}>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
 
       <Header
@@ -2293,7 +2293,7 @@ const Home = () => {
       {/* **************** end combo ********************* */}
 
       <Loader loading={load} />
-    </>
+    </div>
   );
 };
 
