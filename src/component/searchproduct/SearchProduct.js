@@ -348,7 +348,7 @@ const SearchProduct = () => {
               </div>
             </>
           ) : (
-            <ProductNotFound />
+            <>{show == true ? <ProductNotFound /> : null}</>
           )}
         </div>
       </div>
