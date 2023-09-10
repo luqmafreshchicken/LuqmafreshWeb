@@ -84,12 +84,38 @@
 }
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .viewprofile_style {
     top: 50%;
     left: 60%;
     width: 85%;
+  }
+  .my_profile h5 {
+    font-family: regular;
+    /* font-weight: 600; */
+    padding-top: 10px;
+    font-size: 1rem;
+  }
+  .profile_picture_name {
+    width: 25%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile_picture_name p{
+    font-size: 1.7rem;
+  }
+  .basic_information p {
+    font-size: 1rem;
+  }
+  .first_name span {
+    font-size: 12px;
+  }
+  .first_name span p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 
