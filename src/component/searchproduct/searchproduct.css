@@ -51,7 +51,6 @@
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
- 
   .search_text {
     margin-top: 10px;
   }
@@ -76,8 +75,8 @@
   }
   .searchsroductlist_container {
     display: grid;
-    margin-bottom: 20px;
     grid-template-columns: 100%;
+    padding-bottom: 5rem;
   }
 }
 
