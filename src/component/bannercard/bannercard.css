@@ -40,7 +40,6 @@
   padding-top: 20px;
   font-family: "M PLUS Rounded 1c", sans-serif;
   font-size: 1.2rem;
-
   font-weight: 600;
 }
 .ban_discription {
@@ -68,4 +67,54 @@
   cursor: pointer;
   padding: 0.7rem 0rem;
   margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .each-slide-effect {
+    height: 35vh;
+  }
+  .cashback_container {
+    /* background-color: aqua; */
+    width: 80%;
+    height: 35vh;
+  }
+  .cashback_content {
+    /* background-color: #f1c40f; */
+    height: auto;
+    width: 90%;
+  }
+  .cashback_container h1 {
+    color: white;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .cashback_container h2 {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    line-height: 1;
+  }
+  .cashback_container h5 {
+    padding-top: 5px;
+    font-size: 0.7rem;
+  }
+  .cashback_container h6 {
+    color: white;
+    padding-top: 0.1rem;
+    line-height: 1.4;
+    font-family: regular;
+    font-size: 0.4rem;
+  }
+  .cashback_container button {
+    width: 40%;
+    border-radius: 5px;
+    background-color: #c12118;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.6rem 0rem;
+    margin-top: 0rem;
+  }
+  .banner_slider{
+    background-size: contain;
+
+  }
 }
