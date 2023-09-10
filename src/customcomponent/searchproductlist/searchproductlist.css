@@ -93,16 +93,16 @@
     gap: 0rem;
   }
   .searchproduct_img {
-    width: auto;
+    max-width: 25%;
   }
   .searchproduct_img img {
     width: 100%;
-    height: 11vh;
+    height: 10vh;
     border-radius: 5px;
   }
   .searchproduct_weight_qty {
     width: 100%;
-    height: 8vh;
+    height: 7vh;
   }
   .searchproduct_weight_qty p {
     font-size: 13px;
@@ -129,7 +129,7 @@
   .add_to_cart {
     width: 100%;
     height: auto;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.6rem;
     font-size: 12px;
   }
 }
