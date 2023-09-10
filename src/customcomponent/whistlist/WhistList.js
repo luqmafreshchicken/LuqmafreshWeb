@@ -20,7 +20,7 @@ const SearchModal = ({
   otpHide = false,
   btnShow = true,
   email,
-  handleResendOTP = () =>{}
+  handleResendOTP = () => {},
 }) => {
   return (
     <div>
@@ -78,7 +78,7 @@ const SearchModal = ({
               </div>
             </div>
           </div>
-          <div className="predefine_massege_container">
+          {/* <div className="predefine_massege_container">
             <div className="predefine_massege_content">
               <p>
                 Note : Our website is now desktop-friendly, and we're diligently
@@ -87,7 +87,7 @@ const SearchModal = ({
                 soon on Android and iOs App.
               </p>
             </div>
-          </div>
+                </div>*/}
         </Box>
       </Modal>
     </div>
