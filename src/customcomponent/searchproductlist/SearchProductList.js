@@ -27,7 +27,7 @@ const SearchProductList = ({
           {/* product name price */}
           <div className="productnameprice">
             <p>
-              <span style={{ color: "black" }}> {currency}{price}</span>{" "}
+              <span style={{ color: "black" }}> {currency}{price}</span>
               <span
                 style={{
                   textDecoration: "line-through",
@@ -36,7 +36,7 @@ const SearchProductList = ({
               >
                 {currency}{originprice}
               </span>
-              <span style={{color:"green"}}>{discount}% off</span>
+              <span style={{color:"green"}}>{discount}%</span>
             </p>
           </div>
           {/* end product name price */}
@@ -48,7 +48,7 @@ const SearchProductList = ({
               style={{ width: "100%" }}
             >
               <div className="add_to_cart" onClick={onclick}>
-                View
+                Shop Now
               </div>
             </NavLink>
           </div>
