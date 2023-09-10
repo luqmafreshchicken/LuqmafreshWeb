@@ -72,16 +72,14 @@
   outline: none;
 }
 .user_mobile_content p {
-   font-size: 1rem;
+  font-size: 1rem;
   margin: 0.5rem 0rem 0rem 1rem;
-
 }
 .user_mobile_content p img {
   height: 15px;
   width: 20px;
   border-radius: 2px;
   margin-bottom: 0.2rem;
-
 }
 
 .user_email_section {
@@ -128,12 +126,16 @@
 }
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .editprofile_style {
     top: 50%;
     left: 60%;
     width: 85%;
+  }
+
+  .update_profile h5 {
+    font-size: 1rem;
   }
   .user_profile_img img {
     width: 28%;
@@ -149,6 +151,17 @@
   }
   .user_submit_btn {
     margin-left: 6.5%;
+  }
+  .user_mobile_content p {
+    font-size: 0.8rem;
+  }
+  .user_name_section {
+    font-size: 0.8rem;
+  }
+  .user_mobile_content input {
+    font-size: 0.8rem;
+    border-radius: 10px;
+    width: 65%;
   }
 }
 
