@@ -10,12 +10,12 @@
   height: auto;
   padding: 3rem 0rem 4rem 0rem;
 }
-.main_user_contact_location h5{
+.main_user_contact_location h5 {
   padding-left: 3rem;
   font-family: regular;
   font-weight: 600;
 }
-.main_user_contact_location p{
+.main_user_contact_location p {
   padding-left: 3rem;
   color: grey;
   font-family: regular;
@@ -38,31 +38,38 @@
   width: 90%;
   height: auto;
 }
-.usercontact_button{
+.usercontact_button {
   padding-left: 3rem;
 }
-.usercontact_button button{
-  width: 30%;
+.usercontact_button button {
+  width: auto;
   border: none;
   background-color: #ff0040;
-  height: 7vh;
+  height: auto;
   border-radius: 10px;
-  padding-right: 4rem;
+  /* padding-right: 4rem; */
+  font-family: regular;
+  color: white;
+  padding: 0.7rem 3rem;
+
+
+
+
 }
-.usercontact_button button p {
+/* .usercontact_button button p {
   color: white;
   font-size: 1.1rem;
   font-family: regular;
   font-weight: 600;
   text-align: center;
   padding-top: 0.7rem;
-}
-.usercontact_mobile{
+} */
+.usercontact_mobile {
   display: flex;
   width: 100%;
   padding-left: 3rem;
 }
-.usercontact_flag{
+.usercontact_flag {
   width: 10%;
   height: 7.2vh;
   display: flex;
@@ -72,12 +79,11 @@
   border: 1px solid #bdbdbd;
   border-radius: 3px;
 }
-.usercontact_flag img{
+.usercontact_flag img {
   height: 15px;
   width: 20px;
   border-radius: 2px;
 }
-
 
 @media screen and (max-width: 768px) {
   .main_usercontact {
@@ -90,12 +96,28 @@
     height: auto;
     display: grid;
     grid-template-columns: 100%;
+    padding: 1rem 0rem 4rem 0rem;
   }
   .user_contact_location {
     width: 100%;
     height: auto;
     display: grid;
     grid-template-columns: 100%;
+    /* background-color: aqua; */
+  }
+  .main_user_contact_location h5 {
+    padding-left: 1.3rem;
+    font-size: 1rem;
+    font-family: regular;
+    font-weight: 600;
+  }
+  .main_user_contact_location p {
+    padding-left: 1.3rem;
+    color: grey;
+    font-family: regular;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
   }
   .user_map_location {
     width: 100%;
@@ -105,8 +127,30 @@
     width: 100%;
     height: auto;
   }
+  .usercontact_mobile {
+    display: flex;
+    width: 100%;
+    padding-left: 1.3rem;
+  }
   .user_steps {
     display: none;
+  }
+  .user_contact_location_steps {
+    display: none;
+  }
+  .usercontact_button {
+    padding-left: 1.3rem;
+    padding-bottom: 3rem;
+  }
+  .usercontact_button button {
+    width: auto;
+    border: none;
+    background-color: #ff0040;
+    height: auto;
+    border-radius: 10px;
+  }
+  .usercontact_flag {
+    width: 25%;
   }
 }
 /* Mobile devices (320px - 480px) */
