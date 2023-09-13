@@ -3,6 +3,7 @@ import "./orderhistory.css";
 import { getOrderByUserId, getUserID } from "../../serverRequest/Index";
 import * as moment from "moment";
 import { NavLink } from "react-router-dom";
+import TopHeader from "../topheader/TopHeader";
 
 const Orderhistory = ({id,countyCurrency}) => {
   const [getData, setGetData] = useState([]);
@@ -25,7 +26,8 @@ const Orderhistory = ({id,countyCurrency}) => {
   };
 
   return (
-    <div>
+    <div className="order_list">
+    <TopHeader/>
       {/* ***past heading*** */}
       <div className="order_historylist_container">
         <h5>My Orders</h5>
