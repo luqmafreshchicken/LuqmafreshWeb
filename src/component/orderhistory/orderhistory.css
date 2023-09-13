@@ -64,15 +64,11 @@
   font-family: regular;
   font-size: 1.1rem;
   padding-top: 1rem;
-
-
 }
 .orderlist_detail_weight_price p {
   font-family: regular;
   font-size: 1rem;
   padding-top: 2rem;
-
-
 }
 .show_date_time {
   height: 9vh;
@@ -138,31 +134,45 @@
   padding-top: 0.6rem;
   font-family: medium;
 }
-.track_order_btn{
-
-}
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
+  .order_list {
+    /* background-color: aqua; */
+    width: 100%;
+    height: auto;
+    padding: 1rem 1rem 3rem 1rem ;
+  }
   .order_historylist_container {
     width: 100%;
-    height: 5vh;
+    height: auto;
+  }
+  .order_historylist_container h5 {
+    font-size: 1.2rem;
+    padding-top: 0px;
   }
 
   .order_date_time {
     width: 100%;
     height: auto;
   }
-  .order_historylist_container h5 {
-    font-size: 17px;
-    padding-top: 0px;
+  .mobile_border_box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    background-color: white;
+    width: 100%;
+    padding-bottom: 0rem;
   }
+  /* margin-bottom: 2rem; */
+  /* border-bottom: 1px solid lightgray; */
+
   .order_date_text p {
     color: gray;
     font-size: 12px;
     padding-top: 20px;
-    padding-left: 10px;
+    /* padding-left: 10px; */
   }
   .order_date_text p span {
     padding-right: 10px;
@@ -172,7 +182,7 @@
     color: gray;
     font-size: 12px;
     line-height: 0;
-    padding-left: 10px;
+    /* padding-left: 10px; */
   }
   .orderlist_detail {
     width: 100%;
@@ -182,7 +192,7 @@
   .orderlist_detail_img img {
     width: 70px;
     height: 55px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
   }
   .orderlist_detail_text h5 {
     font-size: 13px;
@@ -223,24 +233,17 @@
     padding-left: 50px;
     font-weight: 580;
   }
-  .mobile_border_box {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 1px solid lightgrey;
-    background-color: white;
-    border-radius: 5px;
-    width: 100%;
+
+  .orderlist_detail {
+    padding-left: 0px;
   }
-.orderlist_detail{
-  padding-left: 0px;
-}
- .track_order_btn{
-  margin-left: 10px;
-  height: 5vh;
-  font-size: 12px;
-  text-align: center;
-  padding-top: 8px;
- }
+  .track_order_btn {
+    height: 5vh;
+    font-size: 12px;
+    text-align: center;
+    width: auto;
+    width: 100px;
+  }
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -295,7 +298,7 @@
   .order_list_viewdetail p {
     font-size: 14px;
   }
-  .track_order_btn{
+  .track_order_btn {
     height: 5vh;
     font-size: 14px;
   }
@@ -319,8 +322,7 @@
     height: 5vh;
   }
   .order_date_text p {
-
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     padding-left: 20px;
   }
 }
@@ -328,5 +330,4 @@
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1280px) {
   /* CSS rules for extra large screens and TV */
- 
 }
