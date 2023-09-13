@@ -124,7 +124,7 @@ const MobileAccount = () => {
                 <img src="shop.png" />
               </div>
               <div className="reward_text">
-                <NavLink to="/account" className="nav_list">
+                <NavLink to="/orderhistory" className="nav_list">
                   <p>Orders</p>
                 </NavLink>
               </div>
