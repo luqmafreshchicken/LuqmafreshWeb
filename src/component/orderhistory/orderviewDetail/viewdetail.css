@@ -4,7 +4,6 @@
   place-items: center;
   padding: 3rem 0px;
   /* background-color: aqua; */
-
 }
 .order_view_detail_container {
   width: 60%;
@@ -30,17 +29,16 @@
   font-weight: 900;
   /* background-color: bisque; */
 }
-.order_heading h5 span{
+.order_heading h5 span {
   font-family: initial;
 
   font-size: 3rem;
 }
-.order_heading p{
+.order_heading p {
   padding-top: 1rem;
   /* background-color: aqua; */
   font-family: regular;
   font-size: 0.8rem;
-
 }
 /* end order heading */
 
@@ -48,7 +46,7 @@
 
 .order_id_para {
   /* background-color: green; */
- padding-top: 1rem;
+  padding-top: 1rem;
   width: 89%;
 }
 .order_id_para p {
@@ -83,7 +81,7 @@
 }
 .order_cancelled_img_text p {
   font-family: regular;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 /* end order_cancelled */
 /* end items order */
@@ -96,7 +94,7 @@
 .shipmenet_cancle_address p {
   font-family: regular;
 }
-.shipmenet_cancle_address p span{
+.shipmenet_cancle_address p span {
   font-family: semibold;
 }
 
@@ -110,7 +108,6 @@
   display: grid;
   place-items: center;
   gap: 1rem;
-
 }
 .order_name_container {
   background-color: white;
@@ -119,10 +116,8 @@
   display: flex;
   gap: 2rem;
   border-bottom: 1px solid lightgray;
-  
-
 }
-.order_name_container span{
+.order_name_container span {
   background-color: #ff0040;
   height: 25px;
   width: 25px;
@@ -137,7 +132,7 @@
 .order_name_container h5 {
   padding-left: 15px;
   font-family: semibold;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   font-size: 1.1rem;
 }
 .order_name_container_box {
@@ -162,7 +157,6 @@
   place-items: center;
   height: 30vh;
   /* background-color: orange; */
-
 }
 .bill_full_detail {
   width: 90%;
@@ -175,8 +169,6 @@
   font-size: 1.1rem;
   padding: 1rem 0rem 0rem 1rem;
   font-weight: 600;
-
-
 }
 .bill_detail_price {
   display: flex;
@@ -186,7 +178,6 @@
   padding: 0px 1rem;
   color: #9c9c9c;
   line-height: 1;
-
 }
 .bill_detail_total {
   display: flex;
@@ -199,7 +190,6 @@
   padding-top: 1rem;
   font-size: 1rem;
   font-family: semibold;
-
 }
 .bill_detail_container {
   width: 100%;
@@ -230,7 +220,7 @@
   font-weight: 500;
   transition: 0.3s linear;
 }
-.bill_detail_button1:hover{
+.bill_detail_button1:hover {
   background-color: #ff0040;
   color: white;
   transform: scale(0.2s);
@@ -251,12 +241,11 @@
   font-weight: 500;
   transition: 0.3s linear;
 }
-.bill_detail_button2:hover{
+.bill_detail_button2:hover {
   border: 1px solid #ff0040;
   background-color: white;
   color: #ff0040;
   transform: scale(0.2s);
-
 }
 
 /* end total bill amount */
@@ -339,9 +328,8 @@
   font-family: medium;
   cursor: pointer;
   transition: 0.3s linear;
-
 }
-.do_not_cancle:hover{
+.do_not_cancle:hover {
   color: white;
   background-color: #ff0040;
   transform: scale(0.2s);
@@ -359,7 +347,7 @@
   cursor: pointer;
   transition: 0.3s linear;
 }
-.do_not_cancle1:hover{
+.do_not_cancle1:hover {
   border: 1px solid #ff0040;
   color: #ff0040;
   background-color: white;
@@ -374,18 +362,27 @@
   }
   .order_view_detail {
     height: auto;
+    padding: 1rem 0px;
   }
   .order_view_detail_container {
     width: 100%;
     height: auto;
     box-shadow: none;
+    padding-top: 0rem;
   }
   .order_heading h5 {
-    font-size: 12px;
+    font-size: 1.6rem;
   }
+  .order_heading h5 span {
+    font-size: 2rem;
+  }
+  .order_id_para {
+    padding-top: 0.5rem;
+  }
+
   .order_id_para p {
     font-size: 12px;
-    line-height: 0.1;
+    line-height: 1;
   }
   .order_location img {
     height: 20px;
@@ -413,33 +410,34 @@
     width: 90%;
   }
   .shipmenet_cancle_address p {
-    font-size: 10px;
-    padding-top: 10px;
+    font-size: 0.8rem;
+    padding-top: 5px;
   }
   .order_name_container {
     width: 90%;
+    gap: 0.8rem;
   }
   .order_name_container h5 {
     padding-top: 10px;
     font-size: 12px;
   }
-  .order_name_container_box_image {
-    width: 40%;
-  }
-  .order_name_container_box_image img {
-    width: 80%;
-    height: 60px;
+
+  .order_name_container_box_name {
+    gap: 1rem;
   }
   .order_name_container_box_name p {
     font-size: 12px;
+    width: auto;
   }
   .order_name_container_box_name span {
     font-size: 12px;
     padding-left: 4px;
   }
+  
 
   .bill_full_detail {
     width: 90%;
+    height: 20vh;
   }
 
   .bill_full_detail h5 {
@@ -449,6 +447,7 @@
   .bill_detail_price p {
     font-size: 12px;
   }
+ 
   .bill_detail_total p {
     font-size: 14px;
   }
@@ -458,24 +457,22 @@
 
   .bill_detail_container {
     height: 7vh;
+    margin-bottom: 4rem;
   }
 
   .bill_detail_button1 {
     width: 40%;
     height: 5vh;
+    font-size: 0.9rem;
   }
-  .bill_detail_button1 p {
-    font-size: 12px;
-    padding-top: 15px;
-  }
+  
   .bill_detail_button2 {
     width: 40%;
     height: 5vh;
+    font-size: 0.9rem;
+
   }
-  .bill_detail_button2 p {
-    font-size: 12px;
-    padding-top: 15px;
-  }
+  
   .cancle_modal {
     top: 72%;
     width: 100%;
@@ -489,43 +486,43 @@
   }
   .Order_cancellation_head p {
     padding: 8px 25px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .select_cancle_reason p {
     padding: 8px 25px;
-    font-size: 12px;
+    font-size: 13px;
   }
   .select_cancle_option {
     width: 87%;
   }
   .select_input_radio input[type="radio"] {
-    height: 30px;
-    width: 14px;
+    height: 38px;
+    width: 18px;
   }
   .select_cancle_option p {
     font-family: medium;
-    padding-top: 6px;
-    font-size: 12px;
+    padding-top: 10px;
+    font-size: 13px;
   }
 
   .conform_order_button {
     width: 87%;
   }
   .do_not_cancle {
-    padding-top: 8px;
-  }
-  .do_not_cancle p {
+    padding-top: 2px;
     font-family: medium;
     font-size: 12px;
+
   }
+  
   .do_not_cancle1 {
-    padding-top: 8px;
-  }
-  .do_not_cancle1 p {
+    padding-top: 2px;
     font-family: medium;
-    color: white;
     font-size: 12px;
+
+
   }
+ 
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -592,9 +589,8 @@
   }
   .order_name_container_box_image {
     width: 20%;
-
   }
- 
+
   .order_name_container_box_image img {
     width: 80%;
     height: 60px;
@@ -692,7 +688,6 @@
   .do_not_cancle1 {
     padding-top: 8px;
     width: 25%;
-
   }
   .do_not_cancle1 p {
     font-family: medium;
