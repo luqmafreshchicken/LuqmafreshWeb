@@ -3,12 +3,10 @@
   display: grid;
   place-items: center;
   padding: 3rem 0px;
-  /* background-color: aqua; */
 }
 .order_view_detail_container {
   width: 60%;
   height: auto;
-  /* background-color: orange; */
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   display: grid;
@@ -362,19 +360,26 @@
   }
   .order_view_detail {
     height: auto;
-    padding: 1rem 0px;
+    padding: 0rem 0rem 7rem 0rem;
+    margin: 0rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .order_view_detail::-webkit-scrollbar{
+    width: 1px;
   }
   .order_view_detail_container {
     width: 100%;
     height: auto;
     box-shadow: none;
     padding-top: 0rem;
+    background-color: aqua;
   }
   .order_heading h5 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
   .order_heading h5 span {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .order_id_para {
     padding-top: 0.5rem;
@@ -457,7 +462,7 @@
 
   .bill_detail_container {
     height: 7vh;
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
   }
 
   .bill_detail_button1 {
