@@ -425,7 +425,7 @@ const UserContactDetail = () => {
               />
               <div className="usercontact_button">
                 <button onClick={() => handleCreateAdd(userId)}>
-                  <p>Save & Next</p>
+                  Save & Next
                 </button>
               </div>
             </div>
