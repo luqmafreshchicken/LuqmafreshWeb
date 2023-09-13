@@ -144,13 +144,17 @@
   }
   .usercontact_button button {
     width: auto;
-    border: none;
-    background-color: #ff0040;
     height: auto;
     border-radius: 10px;
   }
   .usercontact_flag {
     width: 25%;
+    height: 8vh;
+    font-size: 0.9rem;
+  }
+  .usercontact_flag img{
+    width: 17px;
+    height: 12px;
   }
 }
 /* Mobile devices (320px - 480px) */
