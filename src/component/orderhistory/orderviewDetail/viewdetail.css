@@ -373,7 +373,6 @@
     height: auto;
     box-shadow: none;
     padding-top: 0rem;
-    background-color: aqua;
   }
   .order_heading h5 {
     font-size: 1.3rem;
@@ -386,7 +385,7 @@
   }
 
   .order_id_para p {
-    font-size: 12px;
+    font-size: 10px;
     line-height: 1;
   }
   .order_location img {
@@ -442,7 +441,7 @@
 
   .bill_full_detail {
     width: 90%;
-    height: 20vh;
+    height: 22vh;
   }
 
   .bill_full_detail h5 {
