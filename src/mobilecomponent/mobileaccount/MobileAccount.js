@@ -4,9 +4,15 @@ import { NavLink } from "react-router-dom";
 import ViewProfile from "../../component/viewprofile/ViewProfile";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { loginRegister, otpVerify } from "../../serverRequest/Index";
+import {
+  getUserID,
+  loginRegister,
+  otpVerify,
+  viewProfile,
+} from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "../../component/loder/Loader";
 
 const MobileAccount = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -17,12 +23,30 @@ const MobileAccount = () => {
   const [btn, setBtn] = useState(false);
   const [otp, setOtp] = useState("");
   const [showbtn, setShowbtn] = useState(false);
+  const [viewUser, setViewUser] = useState([]);
+  const [load, setLoad] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
     localContent();
+    userDetail();
+    setLoad(true)
   }, []);
+
+  
+  const userDetail = async () => {
+    const UserId = await getUserID();
+    viewProfile(UserId).then((res) => {
+      console.log(res.data);
+      if (res.status == true) {
+        setViewUser(res.data);
+        setLoad(false)
+
+      } else {
+      }
+    });
+  };
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
@@ -39,7 +63,9 @@ const MobileAccount = () => {
   };
   const handleLogin = () => {
     const requestData = { email: mobileNumber };
-    loginRegister(requestData).then((res) => {
+    setLoad(true);
+      loginRegister(requestData).then((res) => {
+      setLoad(false);
       setShowInput(!showInput);
       setShowbtn(true);
     });
@@ -54,6 +80,7 @@ const MobileAccount = () => {
   };
   const handleOTP = () => {
     const requestData = { email: mobileNumber, otp: otp };
+    setLoad(true);
     otpVerify(requestData).then((res) => {
       if (res.status == true) {
         toast.success(res.message, {
@@ -68,6 +95,7 @@ const MobileAccount = () => {
         localStorage.setItem("userDetail", JSON.stringify(res.data));
         localContent();
         setOpen(false);
+        setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
@@ -79,9 +107,9 @@ const MobileAccount = () => {
           progress: undefined,
         });
       }
+      setLoad(false);
     });
   };
-
 
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
@@ -91,19 +119,21 @@ const MobileAccount = () => {
       {loginStatus == true ? (
         <div className="mobile_user_profile">
           <div className="mobile_user_name">
-            <p style={{ paddingLeft: "12px" }}>Gaurav Joshi</p>
-            <span style={{ paddingRight: "12px" }} onClick={viewhandleOpen}>
+            <p style={{ paddingLeft: "20px" }}>{viewUser.name}</p>
+            <span style={{ paddingRight: "20px" }} onClick={viewhandleOpen}>
               View Profile
             </span>
           </div>
           <div className="mobile_user_email">
-            <p>+91 9118146726 | gauravjoshi897@gmail.com</p>
+            <p style={{ paddingLeft: "20px" }}>
+              + 971 {viewUser?.mobile?.number} | {viewUser.email}
+            </p>
           </div>
         </div>
       ) : null}
       {loginStatus == false ? (
         <div className="mobile_login">
-          <h5>Hey Meatlover,</h5>
+          <h5>Hey Meatlover</h5>
           <p>
             Welcome to Luqmafresh. Manage your orders, address, LuqmaFresh
             wallet & other details.{" "}
@@ -290,6 +320,7 @@ const MobileAccount = () => {
         </Modal>
       </div>
       <ViewProfile profile={profile} viewhandleClose={viewhandleClose} />
+      <Loader loading={load} />
       <ToastContainer
         position="top-right"
         autoClose={5000}
