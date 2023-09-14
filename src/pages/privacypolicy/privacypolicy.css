@@ -28,10 +28,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .main_content {
-    width: 100%;
+  .privacy_header{
+    display: none;
   }
-  .main_para {
-    padding: 0px 10px;
+  .pravacy_container{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 81vh;
+  }
+  .pravacy_container::-webkit-scrollbar{
+    width: 0.1px;
+  }
+  .pravacy_content h2{
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .pravacy_content h5 {
+    text-align: left;
+    padding-top: 0.9rem;
+    font-size: 0.8rem;
+  }
+  .pravacy_content p{
+    font-size: 0.7rem;
+    text-align: justify;
   }
 }
