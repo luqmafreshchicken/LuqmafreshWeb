@@ -31,7 +31,7 @@ const MobileAccount = () => {
   useEffect(() => {
     localContent();
     userDetail();
-    setLoad(true);
+    setLoad(false);
   }, []);
 
   const userDetail = async () => {
@@ -242,7 +242,7 @@ const MobileAccount = () => {
           </div>
         </div>
         {/* end 7box */}
-        {/* 8box */}
+        {/* 8box */} 
 
         {loginStatus == true ? (
           <div className="mobile_list_box">
@@ -272,6 +272,7 @@ const MobileAccount = () => {
               <div className="mobile_number_login_content">
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter Your Email..."
                   value={mobileNumber}
                   onChange={handleMobileNumber}
