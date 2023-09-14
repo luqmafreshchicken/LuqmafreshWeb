@@ -178,7 +178,9 @@ const MobileAccount = () => {
                 <img src="wallet.png" />
               </div>
               <div className="reward_text">
-                <p>Luqmafresh Wallet</p>
+                <NavLink to="/whistlistdetail" className="nav_list">
+                  <p>WhistList</p>
+                </NavLink>
               </div>
               <div className="reward_arrow">
                 <img src="rtarrow.png" />
@@ -242,7 +244,7 @@ const MobileAccount = () => {
           </div>
         </div>
         {/* end 7box */}
-        {/* 8box */} 
+        {/* 8box */}
 
         {loginStatus == true ? (
           <div className="mobile_list_box">
