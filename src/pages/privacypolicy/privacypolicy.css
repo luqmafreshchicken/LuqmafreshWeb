@@ -34,7 +34,7 @@
   .pravacy_container{
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 81vh;
+    height: 77vh;
   }
   .pravacy_container::-webkit-scrollbar{
     width: 0.1px;
