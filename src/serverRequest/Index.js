@@ -423,3 +423,9 @@ export const applyCoupon = async (requestData) => {
   );
   return response.data;
 };
+
+/* viewProfile API */
+export const showNotification = async (UserId) => {
+  const response = await axios.get(`${API_BASE_URL}notification/notificationByUserId/` + UserId);
+  return response.data;
+};
