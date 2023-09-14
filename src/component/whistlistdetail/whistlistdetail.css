@@ -4,3 +4,19 @@
 .whist_list_heading_container h5{
   font-family: medium;
 }
+
+@media (max-width: 768px) {
+    .whist_list_heading_container{
+      padding: 1.6rem 0rem 0.8rem 1rem;
+    }
+    .whist_list_heading_container h5{
+      font-size: 1rem;
+    }
+    .whist_list_scroll{
+      overflow-y: scroll;
+      height: 77vh;
+    }
+    .whist_list_scroll::-webkit-scrollbar{
+      width: 0.1px;
+    }
+}
