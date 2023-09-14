@@ -31,18 +31,16 @@ const MobileAccount = () => {
   useEffect(() => {
     localContent();
     userDetail();
-    setLoad(true)
+    setLoad(true);
   }, []);
 
-  
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
       console.log(res.data);
       if (res.status == true) {
         setViewUser(res.data);
-        setLoad(false)
-
+        setLoad(false);
       } else {
       }
     });
@@ -64,7 +62,7 @@ const MobileAccount = () => {
   const handleLogin = () => {
     const requestData = { email: mobileNumber };
     setLoad(true);
-      loginRegister(requestData).then((res) => {
+    loginRegister(requestData).then((res) => {
       setLoad(false);
       setShowInput(!showInput);
       setShowbtn(true);
@@ -218,7 +216,9 @@ const MobileAccount = () => {
             <img src="privacy.png" />
           </div>
           <div className="reward_text">
-            <p>Term & Condition</p>
+            <NavLink to="/termsconditions" className="nav_list">
+              <p>Terms & Conditions</p>
+            </NavLink>
           </div>
           <div className="reward_arrow">
             <img src="rtarrow.png" />
@@ -233,7 +233,9 @@ const MobileAccount = () => {
             <img src="security.png" />
           </div>
           <div className="reward_text">
-            <p>Privacy Policy</p>
+            <NavLink to="/privacypolicy" className="nav_list">
+              <p>Privacy Policy</p>
+            </NavLink>
           </div>
           <div className="reward_arrow">
             <img src="rtarrow.png" />
