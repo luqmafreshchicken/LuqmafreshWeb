@@ -33,6 +33,10 @@ import TopHeader from "../../component/topheader/TopHeader";
 const TodayDeals = () => {
   let navigate = useNavigate();
 
+  let location1 = useLocation();
+  const data = location1.state.id;
+
+  console.log(data, "1234567890");
   let location = useLocation();
   const [subcategorie, setSubcategorie] = useState([]);
   const [product, setProduct] = useState([]);
@@ -90,6 +94,7 @@ const TodayDeals = () => {
     }
     subCategorie();
     productAll();
+    categoryProduct1(data)
   }, []);
 
   const subCategorie = () => {
@@ -110,6 +115,21 @@ const TodayDeals = () => {
   };
 
   const categoryProduct = async (id) => {
+    setLoad(true);
+    setColorId(id);
+    const requestData = {
+      subCategoryId: id,
+    };
+    ProductBySubCategoryId(requestData).then((res) => {
+      if (res.status == true) {
+        setProduct(res.data);
+        setLoad(false);
+      } else {
+        setLoad(false);
+      }
+    });
+  };
+  const categoryProduct1 = async (id) => {
     setLoad(true);
     setColorId(id);
     const requestData = {
@@ -745,14 +765,18 @@ const TodayDeals = () => {
         {subcategorie.length >= 1 ? (
           <div className="subcategorie_contaner">
             <div className="subcategorie_content">
-              <SubCategorieList selID={colorId == '' ? '123' : colorId } catId={"123"}
+              <SubCategorieList
+                selID={colorId == "" ? "123" : colorId}
+                catId={"123"}
                 // img={category.subcategoryImage}
                 name="All"
                 onclick={() => productAll()}
               />
               {subcategorie.map((category) => (
                 <>
-                  <SubCategorieList selID={colorId} catId={category._id}
+                  <SubCategorieList
+                    selID={colorId}
+                    catId={category._id}
                     // img={category.subcategoryImage}
                     name={category.subcategoryName}
                     onclick={() => categoryProduct(category._id)}
