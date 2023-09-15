@@ -62,9 +62,11 @@ const SelectDeliveryslot = () => {
     setLoad(true);
     async function timeSlot() {
       const newData = await getTimeslot();
+      console.log(newData, "=12345678765");
       setTime(newData.data);
-      setLoad(false); }
-      const formattedDate = moment().format('D MMM YYYY');
+      setLoad(false);
+    }
+    const formattedDate = moment().format("D MMM YYYY");
     setDaySlot(formattedDate);
     timeSlot();
     showcart();
@@ -365,7 +367,7 @@ const SelectDeliveryslot = () => {
                       <th scope="col">Product</th>
                       <th scope="col">Price</th>
                       <th scope="col">Items</th>
-                      <th scope="col">Add to Cart</th>
+                      <th scope="col">Cart</th>
                       <th scope="col" style={{ textAlign: "right" }}>
                         SubTotal
                       </th>
@@ -519,7 +521,7 @@ const SelectDeliveryslot = () => {
             <img src="cross.png" onClick={handleClose1} />
             {slotId == false ? (
               <div className="select_slot_shipment">
-                <h5>Select slot for Shipment</h5>
+                <h5>Select slot for Shipment 1 of 1</h5>
               </div>
             ) : (
               <div className="select_slot_shipment">
@@ -533,16 +535,24 @@ const SelectDeliveryslot = () => {
 
             <div className="selectdeliveryslot_timer">
               {time.map((slots) => (
-                <div
-                  className="selectdeliveryslot_time_slot"
-                  onClick={() => {
-                    setSlotId(slots._id);
-                    setSelect(slots.time1 + " - " + slots.time2);
-                    setOpen1(false);
-                  }}
-                >
-                  {slots.time1} AM - {slots.time2} PM
-                </div>
+                <>
+                  {slots?.maxOrders === slots?.orderCount ? (
+                    <button disabled className="disabled">
+                      {slots.time1} - {slots.time2}
+                    </button>
+                  ) : (
+                    <div
+                      className="selectdeliveryslot_time_slot"
+                      onClick={() => {
+                        setSlotId(slots._id);
+                        setSelect(slots.time1 + " - " + slots.time2);
+                        setOpen1(false);
+                      }}
+                    >
+                      {slots.time1} - {slots.time2}
+                    </div>
+                  )}
+                </>
               ))}
             </div>
             {/* <div className="select_proceed">
