@@ -429,3 +429,12 @@ export const showNotification = async (UserId) => {
   const response = await axios.get(`${API_BASE_URL}notification/notificationByUserId/` + UserId);
   return response.data;
 };
+
+// /* cancle order API */
+export const updateTimeSlot  = async (requestData) => {
+  const response = await axios.put(
+    `${API_BASE_URL}timeslot/updateTimeslot`,
+    requestData
+  );
+  return response.data;
+};
