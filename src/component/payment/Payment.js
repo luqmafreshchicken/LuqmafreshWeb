@@ -16,6 +16,7 @@ import {
   removeFromCart,
   applyCoupon,
   getAllCoupon,
+  updateTimeSlot,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -148,6 +149,15 @@ const Payment = () => {
     }
   };
 
+  const updateSlot = async () => {
+    const data = {
+      id: slotID,
+    };
+    const res = await updateTimeSlot(data);
+    console.log(res)
+  };
+
+
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
@@ -169,10 +179,13 @@ const Payment = () => {
         if (method === "online") {
           handlePayment(res.data.data);
           setLoad(false);
+          updateSlot()
         } else {
           Swal.fire("Your Order Confirm Successfully", "", "success");
           setLoad(false);
           navigate("/account");
+          updateSlot()
+
         }
       } else {
         Swal.fire("Something went Wrong", "", "error");
@@ -188,7 +201,7 @@ const Payment = () => {
     const fAmount = totalAmount - couponAmount * 100;
     console.log(fAmount, "fAmount");
     const options = {
-      key: "rzp_live_55ZIuRP4gr00Pu",
+      key: "rzp_test_tOH1E84QsR3LSK",
       amount: fAmount,
       currency: "INR",
       name: "Luqmafresh Private Limited",
@@ -207,6 +220,7 @@ const Payment = () => {
             if (res.status == true) {
               setLoad(false);
               navigate("/account");
+              updateSlot()
             } else {
               setLoad(false);
               console.log("Payment Error");
