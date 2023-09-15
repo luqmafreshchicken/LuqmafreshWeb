@@ -75,7 +75,7 @@
   font-family: regular;
 }
 .table_addtocart {
-  width: 100%;
+  width: 100px;
   height: 5vh;
   display: flex;
   align-items: center;
@@ -83,7 +83,7 @@
 }
 .table_dre,
 .table_incre {
-  width: 30%;
+  width: 30px;
   /* background-color: #ff0040; */
   height: 5vh;
   display: block;
@@ -107,7 +107,7 @@
 }
 .table_count {
   /* background-color: yellowgreen; */
-  width: 40%;
+  width: 40px;
   height: 5vh;
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
@@ -242,7 +242,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 60%;
   height: auto;
   background-color: white;
   box-shadow: 24;
@@ -262,13 +262,14 @@
 }
 .selectdeliveryslot_timer {
   height: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 0rem 0rem 2rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
 }
 .selectdeliveryslot_time_slot {
   height: 6vh;
-  width: 28%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -322,6 +323,13 @@
 .selectdeliveryslot_modal img:hover {
   transform: rotateZ(90deg);
 }
+.disabled{
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 0rem;
+  color: black;
+  background-color: lightgrey;
+}
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -331,6 +339,17 @@
     height: auto;
     padding-bottom: 0rem;
     padding: 1rem 0rem;
+  }
+  .slots_heading th {
+    display: none;
+  }
+
+  .stot_content td {
+    width: 100%;
+    /* background-color: blue; */
+  }
+  .align-items-center {
+    /* background-color: aqua;s */
   }
   .selectime_steps {
     display: none;
@@ -374,11 +393,12 @@
   }
 
   .d-flex img {
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     border-radius: 10px;
     margin: 0.5rem 0rem;
   }
+
   .slots_heading tr {
     font-size: 0.7rem;
     font-family: regular;
@@ -387,12 +407,16 @@
     font-size: 0.8rem;
     font-family: regular;
   }
-  .stot_content tr td:first-child img {
+  /* .stot_content tr td:first-child img {
     height: 20px;
     width: 20px;
-  }
-  .table_addtocart{
+  } */
+  .table_addtocart {
     width: 90%;
+  }
+  .table_dre,
+  .table_incre {
+    width: 20px;
   }
   .bor_bottom {
     margin: 2rem 1rem 0rem 0rem;
@@ -422,13 +446,13 @@
     font-family: regular;
     font-weight: 600;
   }
-  .primary_select_slots{
+  .primary_select_slots {
     padding-left: 1.5rem;
   }
-  
-.selectslots_delivery_time {
-  width: 40%;
-}
+
+  .selectslots_delivery_time {
+    width: 40%;
+  }
   .product_detail_01 {
     width: 30%;
     margin-top: 20px;
@@ -437,15 +461,15 @@
     overflow: hidden; /* Hide the overflowing text */
     text-overflow: ellipsis;
   }
-  .product_detail_01 {
+  /* .product_detail_01 {
     width: 90%;
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 0rem;
-  }
-  .product_detail_text {
+  } */
+  /* .product_detail_text {
     width: 73%;
-  }
+  } */
   .product_detail_text p {
     font-size: 12px;
     white-space: nowrap; /* Prevent text from wrapping */
@@ -481,9 +505,13 @@
     margin-bottom: 30px;
   }
   .selectdeliveryslot_modal {
-    width: 90%;
+    width: 100%;
     height: auto;
-    border-radius: 8px;
+  }
+  .selectdeliveryslot_timer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .select_slot_shipment {
     background-color: #dbd6d6;
@@ -504,12 +532,11 @@
     /* margin-left: 6%; */
   }
   .selectdeliveryslot_time_slot {
-    width: 50%;
+    width: 100%;
     display: flex;
     font-size: 0.7rem;
-
   }
-  
+
   .select_proceed {
     width: 93%;
     margin-left: 6%;
