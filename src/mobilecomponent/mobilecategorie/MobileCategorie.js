@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./mobilecategorie.css";
 import { productCategorie } from "../../serverRequest/Index";
-import { getAllSubcategoryByCategoryId } from "../../serverRequest/Index";
-import { useLocation } from "react-router-dom";
+import { ProductBySubCategoryId } from "../../serverRequest/Index";
+import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
 
 const MobileCategorie = () => {
-
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [showText, setShowText] = React.useState(false);
   const [show, setShow] = useState(false);
-  const [id, setId] = useState('');
-
+  const [id, setId] = useState("");
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
     setLoad(true);
@@ -29,6 +28,23 @@ const MobileCategorie = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const categoryProduct = async (id) => {
+    // setLoad(true);
+    // setColorId(id);
+    const requestData = {
+      subCategoryId: id,
+    };
+    ProductBySubCategoryId(requestData).then((res) => {
+      console.log(res);
+      // if (res.status == true) {
+      //   setProduct(res.data);
+      //   setLoad(false);
+      // } else {
+      //   setLoad(false);
+      // }
+    });
+  };
 
   //   useEffect(() => {
   //     handle();
@@ -59,7 +75,13 @@ const MobileCategorie = () => {
               </div>
               {id === "" ? (
                 <div className="mobile_categorie_arr">
-                  <img src="down (2).png" onClick={()=>{setShow(true); setId(item._id)}} />
+                  <img
+                    src="down (2).png"
+                    onClick={() => {
+                      setShow(true);
+                      setId(item._id);
+                    }}
+                  />
                 </div>
               ) : null}
 
@@ -68,18 +90,22 @@ const MobileCategorie = () => {
                   <img
                     src="upload.png"
                     style={{ height: "14px", width: "14px" }}
-                    onClick={()=>setId('')}
+                    onClick={() => setId("")}
                   />
                 </div>
               ) : null}
             </div>
-            {item._id === id  ? (
+            {item._id === id ? (
               <div className="mobile_subcategory">
                 {item?.subcategories.map((item) => (
                   <div className="mobile_subcategory_container">
-                  
                     <div className="mobile_subcategory_para">
-                      <p>{item.subcategoryName}</p>
+                      <p onClick={() => categoryProduct(item._id)}>
+                        <NavLink to="/todaydeals" state={{ id:item._id }} className="nav_list">
+                          {" "}
+                          {item.subcategoryName}
+                        </NavLink>
+                      </p>
                     </div>
                   </div>
                 ))}
