@@ -32,6 +32,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import TopHeader from "../topheader/TopHeader";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
 
 const Payment = () => {
   let navigate = useNavigate();
@@ -154,9 +156,8 @@ const Payment = () => {
       id: slotID,
     };
     const res = await updateTimeSlot(data);
-    console.log(res)
+    console.log(res);
   };
-
 
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
@@ -173,19 +174,20 @@ const Payment = () => {
       timeSlotId: slotID,
       method: method,
       couponCode: coupon === "" ? "" : coupon,
+      currency: countrytitle,
     };
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
+          console.log(res?.data,"-------------------------------")
           handlePayment(res.data.data);
           setLoad(false);
-          updateSlot()
+          // updateSlot();
         } else {
           Swal.fire("Your Order Confirm Successfully", "", "success");
           setLoad(false);
           navigate("/account");
-          updateSlot()
-
+          updateSlot();
         }
       } else {
         Swal.fire("Something went Wrong", "", "error");
@@ -195,6 +197,8 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
+    console.log(params,"============")
+
     const vat = (cartPrice * 5) / 100;
     const totalAmount = cartPrice + vat;
     const couponAmount = coupon === "" ? 0 : amount;
@@ -202,13 +206,14 @@ const Payment = () => {
     console.log(fAmount, "fAmount");
     const options = {
       key: "rzp_test_tOH1E84QsR3LSK",
-      amount: fAmount,
+      amount: params?.amount,
       currency: "INR",
       name: "Luqmafresh Private Limited",
       description: "Luqmafresh Online",
       image: "https://example.com/your_logo",
       order_id: params.id,
       handler: function (response) {
+        console.log(response,"============")
         if (response != "") {
           setLoad(true);
           const requestData = {
@@ -220,7 +225,7 @@ const Payment = () => {
             if (res.status == true) {
               setLoad(false);
               navigate("/account");
-              updateSlot()
+              // updateSlot();
             } else {
               setLoad(false);
               console.log("Payment Error");
@@ -231,10 +236,10 @@ const Payment = () => {
       prefill: {
         name: "Gaurav Joshi",
         email: "gauravjoshi@example.com",
-        contact: "8565002333",
+        contact: "9118146726",
       },
       notes: {
-        address: "Lucknow Uttar Pradesh",
+        address: "Kamta",
       },
       theme: {
         color: "#C42118",
@@ -242,17 +247,28 @@ const Payment = () => {
     };
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
+      console.log(params,response.error.description,"================jgfgi========");
       setLoad(false);
-      alert(response.error.code);
-      alert(response.error.description);
-      alert(response.error.source);
-      alert(response.error.step);
-      alert(response.error.reason);
-      alert(response.error.metadata.order_id);
-      alert(response.error.metadata.payment_id);
+      // alert(response.error.code);
+      // alert(response.error.description);
+      // alert(response.error.source);
+      // alert(response.error.step);
+      // alert(response.error.reason);
+      // alert(response.error.metadata.order_id);
+      // alert(response.error.metadata.payment_id);
     });
     rzp1.open();
   };
+
+  // const handlePost = async () => {
+  //   const userID = await getUserID();
+
+  //   const data = {
+  //     userId: userID,
+  //     orderId: params.id,
+  //     remark: remark,
+  //   };
+  // };
 
   useEffect(() => {
     showcart();
@@ -393,6 +409,28 @@ const Payment = () => {
           totalAmount={cartPrice}
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          // removeProduct={(id) => removeCartProduct(id)}
+          // headerCart = {false}
+        />
+        <ModalCart
+          // cartopen={cartopen}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          onclose={carthandleClose}
+          loginStatus={loginStatus}
+          cartProduct={cartProduct}
+          // cartProductlength={cartProduct}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          // totalAmount={totalAmount}
+          // modalcurrency={modalcurrency}
+          // removeProduct={removeProduct}
+          // removeProduct={(id) =>
+          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+          // }
+          // handleCartLogin={handleCartLogin}
+          // handleHome={handleHome}
+          // handleHome={() => handleHome()}
           removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
@@ -579,6 +617,7 @@ const Payment = () => {
         }
       />
       <Loader loading={load} />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </>
   );
 };
