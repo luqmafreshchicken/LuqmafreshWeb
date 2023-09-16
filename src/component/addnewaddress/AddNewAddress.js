@@ -18,6 +18,8 @@ import {
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
 import TopHeader from "../topheader/TopHeader";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
+import ModalCart from "../../pages/modalcart/ModalCart";
 
 const AddNewAddress = ({ id }) => {
   let navigate = useNavigate();
@@ -193,6 +195,18 @@ const AddNewAddress = ({ id }) => {
   };
   // end remove cart
 
+  const handleCartEmpty = () => {
+    toast.error("Your cart is empty", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   return (
     <>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
@@ -216,6 +230,27 @@ const AddNewAddress = ({ id }) => {
           totalAmount={cartPrice}
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
+          // removeProduct={(id) => removeCartProduct(id)}
+        />
+        <ModalCart
+          // cartopen={cartopen}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          onclose={carthandleClose}
+          loginStatus={loginStatus}
+          cartProduct={cartProduct}
+          // cartProductlength={cartProduct}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          // totalAmount={totalAmount}
+          // modalcurrency={modalcurrency}
+          // removeProduct={removeProduct}
+          // removeProduct={(id) =>
+          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+          // }
+          // handleCartLogin={handleCartLogin}
+          // handleHome={handleHome}
+          // handleHome={() => handleHome()}
           removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
@@ -272,15 +307,24 @@ const AddNewAddress = ({ id }) => {
 
             {/* proceed btn */}
             {addressid !== "" ? (
-              <NavLink
-                to="/selectdeliveryslot"
-                className="nav_list"
-                state={{ id: addressid }}
-              >
-                <button className="addaddress_button">
-                  Proceed
-                </button>
-              </NavLink>
+              <>
+                {cartProduct?.length >= 1 ? (
+                  <NavLink
+                    to="/selectdeliveryslot"
+                    className="nav_list"
+                    state={{ id: addressid }}
+                  >
+                    <button className="addaddress_button">Proceed</button>
+                  </NavLink>
+                ) : (
+                  <button
+                    className="addaddress_button"
+                    onClick={() => handleCartEmpty()}
+                  >
+                    Proceed
+                  </button>
+                )}
+              </>
             ) : null}
             {/* add new Address */}
             <div className="add_new_address_container">
@@ -309,6 +353,7 @@ const AddNewAddress = ({ id }) => {
         />
         <ToastContainer />
         <Loader loading={load} />
+        <MobileBottomtab handleMobile={() => setCartOpen(true)} />
       </div>
     </>
   );
