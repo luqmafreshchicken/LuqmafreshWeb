@@ -37,7 +37,6 @@ function App() {
       <div className="mobile_lower_footer">
         <LowerFooter />
       </div>
-      <MobileBottomtab />
     </div>
   );
 }
