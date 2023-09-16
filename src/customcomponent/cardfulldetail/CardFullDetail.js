@@ -37,6 +37,8 @@ import { Navigation, Parallax } from "swiper";
 import Card from "../card/Card";
 import CustomAddToCartButton from "../../component/AddToCart";
 import TopHeader from "../../component/topheader/TopHeader";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
 
 export default function CardFullDetail({ id }) {
   let navigate = useNavigate();
@@ -785,36 +787,59 @@ export default function CardFullDetail({ id }) {
 
       <div className="fullview_search_mobile">
         <Header
-          code={countrytitle}
-          currency={countrycurrency}
-          flag={flag}
-          cartPrice={cartPrice}
-          cartProductlength={cartProduct}
-          curr={countrycurrency}
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        // cartProductlength={cartProduct}
+        curr={countrycurrency}
+        // cartopen={cartOpen}
+        // carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        loginStatus={loginStatus}
+        handleOpen={() => setOpen(true)}
+        handleClose={() => setOpen(false)}
+        open={open}
+        showbtn={btn}
+        handleLogin={() => handleLogin()}
+        handleOTP={() => handleOTP()}
+        mobileNumber={mobileNumber}
+        handleMobileNumber={(e) => handleMobileNumber(e)}
+        sethandleOtp={(e) => sethandleOtp(e)}
+        otp={otp}
+        // totalAmount={cartPrice}
+        store={store}
+        // modalcurrency={countrycurrency}
+        handleclear={(index) => handleclear(index)}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
+        // removeLocalCart
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
+        handleResendOTP={() => handleResendOTP()}
+        handleCartLogin={() => handleCartLogin()}
+        handleHome={() => handleHome()}
+        />
+        <ModalCart
+          // cartopen={cartopen}
           cartopen={cartOpen}
           carthandleClose={carthandleClose}
-          carthandleOpen={carthandleOpen}
+          onclose={carthandleClose}
           loginStatus={loginStatus}
-          handleOpen={() => setOpen(true)}
-          handleClose={() => setOpen(false)}
-          open={open}
-          showbtn={btn}
-          handleLogin={() => handleLogin()}
-          handleOTP={() => handleOTP()}
-          mobileNumber={mobileNumber}
-          handleMobileNumber={(e) => handleMobileNumber(e)}
-          sethandleOtp={(e) => sethandleOtp(e)}
-          otp={otp}
+          cartProduct={cartProduct}
+          // cartProductlength={cartProduct}
           totalAmount={cartPrice}
-          store={store}
           modalcurrency={countrycurrency}
-          handleclear={(index) => handleclear(index)}
-          // removeProduct={(id) => removeCartProduct(id)}
+          // totalAmount={totalAmount}
+          // modalcurrency={modalcurrency}
+          // removeProduct={removeProduct}
           removeProduct={(id) =>
             loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
           }
-          handleCartLogin={() => handleCartLogin()}
-          handleResendOTP={() => handleResendOTP()}
+          handleCartLogin={handleCartLogin}
+          // handleHome={handleHome}
           handleHome={() => handleHome()}
         />
       </div>
@@ -941,6 +966,7 @@ export default function CardFullDetail({ id }) {
       />
 
       <Loader loading={load} />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </>
   );
 }
