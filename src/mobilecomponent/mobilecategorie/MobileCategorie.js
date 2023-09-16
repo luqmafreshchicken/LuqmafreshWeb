@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./mobilecategorie.css";
-import { productCategorie } from "../../serverRequest/Index";
+import {
+  Show_Cart,
+  getUserID,
+  productCategorie,
+  removeFromCart,
+} from "../../serverRequest/Index";
 import { ProductBySubCategoryId } from "../../serverRequest/Index";
 import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
+import MobileBottomtab from "../mobilebottomtab/MobileBottomtab";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MobileCategorie = () => {
   const [data, setData] = useState([]);
@@ -11,7 +20,13 @@ const MobileCategorie = () => {
   const [showText, setShowText] = React.useState(false);
   const [show, setShow] = useState(false);
   const [id, setId] = useState("");
-  const [product, setProduct] = useState([]);
+
+  const [cartProduct, setCartProduct] = useState([]);
+  const [countrycurrency, setCountryCurrency] = useState("");
+  // const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
     setLoad(true);
@@ -28,6 +43,9 @@ const MobileCategorie = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
 
   const categoryProduct = async (id) => {
     // setLoad(true);
@@ -52,6 +70,51 @@ const MobileCategorie = () => {
 
   const handle = (id) => {
     setShowText(!showText);
+  };
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      setCartProduct(res.data.cart);
+      setCartPrice(res.data.totalAmount);
+    } else {
+      setCartProduct([]);
+      setCartPrice("");
+    }
+  };
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
   };
 
   return (
@@ -101,7 +164,11 @@ const MobileCategorie = () => {
                   <div className="mobile_subcategory_container">
                     <div className="mobile_subcategory_para">
                       <p onClick={() => categoryProduct(item._id)}>
-                        <NavLink to="/todaydeals" state={{ id:item._id }} className="nav_list">
+                        <NavLink
+                          to="/todaydeals"
+                          state={{ id: item._id }}
+                          className="nav_list"
+                        >
                           {" "}
                           {item.subcategoryName}
                         </NavLink>
@@ -116,6 +183,28 @@ const MobileCategorie = () => {
         </div>
       ))}
       <Loader loading={load} />
+      <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
+        // cartProductlength={cartProduct}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        // totalAmount={totalAmount}
+        // modalcurrency={modalcurrency}
+        // removeProduct={removeProduct}
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
+        // handleCartLogin={handleCartLogin}
+        // handleHome={handleHome}
+        // handleHome={() => handleHome()}
+        removeProduct={(id) => removeCartProduct(id)}
+      />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </div>
   );
 };
