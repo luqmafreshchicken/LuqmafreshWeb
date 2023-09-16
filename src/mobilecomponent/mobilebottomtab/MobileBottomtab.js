@@ -4,11 +4,11 @@ import "./mobilebottom.css";
 import { NavLink } from "react-router-dom";
 import ModalCart from "../../pages/modalcart/ModalCart";
 
-const MobileBottomtab = () => {
+const MobileBottomtab = ({handleMobile}) => {
   const [cartopen, setCartopen] = useState(false);
 
-  const carthandleOpen = () => setCartopen(true);
-  const carthandleClose = () => setCartopen(false);
+  // const carthandleOpen = () => setCartopen(true);
+  // const carthandleClose = () => setCartopen(false);
   return (
     <div className="mobile_bottom_container">
       <div className="mobile_bottom">
@@ -26,7 +26,7 @@ const MobileBottomtab = () => {
             <p>Categories</p>
           </NavLink>
         </div>
-        <div className="bottom_tab1" onClick={carthandleOpen}>
+        <div className="bottom_tab1" onClick={()=> handleMobile()}>
           <div className="bottom_top_image">
             <img src="cart1.png" className="home" />
           </div>
@@ -35,13 +35,14 @@ const MobileBottomtab = () => {
         <div className="bottom_tab1">
           <NavLink to="/mobileaccount" className="mob_nav">
             <div className="bottom_top_image">
-              <img src="user (1).png" className="home" />
+              <img src="home.png" className="home" />
             </div>
             <p>Account</p>
           </NavLink>
         </div>
       </div>
-      <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} />
+    {/* <ModalCart cartopen={cartopen} carthandleClose={carthandleClose} />*/}
+      
     </div>
   );
 };
