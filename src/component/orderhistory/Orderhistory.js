@@ -27,7 +27,6 @@ const Orderhistory = ({id,countyCurrency}) => {
 
   return (
     <div className="order_list">
-    <TopHeader/>
       {/* ***past heading*** */}
       <div className="order_historylist_container">
         <h5>My Orders</h5>
