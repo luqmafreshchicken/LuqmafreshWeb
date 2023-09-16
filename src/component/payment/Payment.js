@@ -546,7 +546,7 @@ const Payment = () => {
               </div>*/}
 
                 <div className="online_subtotal">
-                  <p>Vat</p>
+                  <p>VAT (Include) 5%</p>
                   <p>
                     {countrycurrency} {(cartPrice * 5) / 100}
                   </p>
@@ -561,7 +561,7 @@ const Payment = () => {
               <div className="online_total_count">
                 <p>Total Amount</p>
                 <p style={{ color: "#FF0040" }}>
-                  {countrycurrency} {calculateTotalBill() - amount}
+                  {countrycurrency} {cartPrice}
                 </p>
               </div>
             </div>
