@@ -31,14 +31,14 @@
   .termcondition_header{
     display: none;
   }
-  .pravacy_container{
+/*   .pravacy_container{
     overflow-y: scroll;
     overflow-x: hidden;
     height: 76vh;
   }
   .pravacy_container::-webkit-scrollbar{
     width: 0.1px;
-  }
+  } */
   .pravacy_content h2{
     padding-top: 1rem;
     text-align: center;
