@@ -31,6 +31,8 @@ import {
 } from "mdb-react-ui-kit";
 import { FaEdit } from "react-icons/fa";
 import TopHeader from "../topheader/TopHeader";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
 
 const SelectDeliveryslot = () => {
   let navigate = useNavigate();
@@ -340,8 +342,29 @@ const SelectDeliveryslot = () => {
           totalAmount={cartPrice}
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
-          removeProduct={(id) => removeCartProduct(id)}
+          // removeProduct={(id) => removeCartProduct(id)}
         />
+        <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
+        // cartProductlength={cartProduct}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        // totalAmount={totalAmount}
+        // modalcurrency={modalcurrency}
+        // removeProduct={removeProduct}
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
+        // handleCartLogin={handleCartLogin}
+        // handleHome={handleHome}
+        // handleHome={() => handleHome()}
+        removeProduct={(id) => removeCartProduct(id)}
+      />
       </div>
       <div className="selectdeliveryslot_container">
         <div className="selectdeliveryslot_content">
@@ -563,6 +586,8 @@ const SelectDeliveryslot = () => {
           </Box>
         </Modal>
         <Loader loading={load} />
+        <MobileBottomtab handleMobile={() => setCartOpen(true)} />
+
       </div>
     </>
   );
