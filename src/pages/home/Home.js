@@ -912,7 +912,7 @@ const Home = () => {
         store={store}
         modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
-        removeProduct={(id) => removeCartProduct(id)}
+        removeProduct={(id) => loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)}
         removeLocalCart
         // removeProduct={(id) =>
         //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
