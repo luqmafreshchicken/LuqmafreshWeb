@@ -884,18 +884,17 @@ const Home = () => {
   };
 
   return (
-    <div style={{  paddingBottom: "4rem" }}>
+    <div style={{ paddingBottom: "3rem" }}>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
-
       <Header
         code={countrytitle}
         currency={countrycurrency}
         flag={flag}
         cartPrice={cartPrice}
-        cartProductlength={cartProduct}
+        // cartProductlength={cartProduct}
         curr={countrycurrency}
-        cartopen={cartOpen}
-        carthandleClose={carthandleClose}
+        // cartopen={cartOpen}
+        // carthandleClose={carthandleClose}
         carthandleOpen={carthandleOpen}
         loginStatus={loginStatus}
         handleOpen={() => setOpen(true)}
@@ -908,17 +907,39 @@ const Home = () => {
         handleMobileNumber={(e) => handleMobileNumber(e)}
         sethandleOtp={(e) => sethandleOtp(e)}
         otp={otp}
-        totalAmount={cartPrice}
+        // totalAmount={cartPrice}
         store={store}
-        modalcurrency={countrycurrency}
+        // modalcurrency={countrycurrency}
         handleclear={(index) => handleclear(index)}
-        removeProduct={(id) => loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)}
-        removeLocalCart
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
+        // removeLocalCart
         // removeProduct={(id) =>
         //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
         // }
         handleResendOTP={() => handleResendOTP()}
         handleCartLogin={() => handleCartLogin()}
+        handleHome={() => handleHome()}
+      />
+      <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
+        // cartProductlength={cartProduct}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        // totalAmount={totalAmount}
+        // modalcurrency={modalcurrency}
+        // removeProduct={removeProduct}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
+        handleCartLogin={handleCartLogin}
+        // handleHome={handleHome}
         handleHome={() => handleHome()}
       />
       <BannerCard />
@@ -2293,6 +2314,7 @@ const Home = () => {
       {/* **************** end combo ********************* */}
 
       <Loader loading={load} />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </div>
   );
 };
