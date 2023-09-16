@@ -30,11 +30,13 @@ import CustomTodayCard from "./customtodaycomponent/customtodaycard/CustomTodayC
 import SearchModal from "../../customcomponent/searchmodal/SearchModal";
 import WhistList from "../../customcomponent/whistlist/WhistList";
 import TopHeader from "../../component/topheader/TopHeader";
+import ModalCart from "../modalcart/ModalCart";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
 const TodayDeals = () => {
   let navigate = useNavigate();
 
   let location1 = useLocation();
-  const data = location1.state.id;
+  const data = location1?.state?.id
 
   console.log(data, "1234567890");
   let location = useLocation();
@@ -148,7 +150,6 @@ const TodayDeals = () => {
   const productAll = async (id) => {
     setLoad(true);
     const categoryId = location?.state?.id?.id;
-
     const requestData = {
       categoryId: categoryId,
     };
@@ -729,40 +730,63 @@ const TodayDeals = () => {
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
 
       <Header
-        code={countrytitle}
-        currency={countrycurrency}
-        flag={flag}
-        cartPrice={cartPrice}
-        cartProductlength={cartProduct}
-        curr={countrycurrency}
+      code={countrytitle}
+      currency={countrycurrency}
+      flag={flag}
+      cartPrice={cartPrice}
+      // cartProductlength={cartProduct}
+      curr={countrycurrency}
+      // cartopen={cartOpen}
+      // carthandleClose={carthandleClose}
+      carthandleOpen={carthandleOpen}
+      loginStatus={loginStatus}
+      handleOpen={() => setOpen(true)}
+      handleClose={() => setOpen(false)}
+      open={open}
+      showbtn={btn}
+      handleLogin={() => handleLogin()}
+      handleOTP={() => handleOTP()}
+      mobileNumber={mobileNumber}
+      handleMobileNumber={(e) => handleMobileNumber(e)}
+      sethandleOtp={(e) => sethandleOtp(e)}
+      otp={otp}
+      // totalAmount={cartPrice}
+      store={store}
+      // modalcurrency={countrycurrency}
+      handleclear={(index) => handleclear(index)}
+      removeProduct={(id) =>
+        loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+      }
+      // removeLocalCart
+      // removeProduct={(id) =>
+      //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+      // }
+      handleResendOTP={() => handleResendOTP()}
+      handleCartLogin={() => handleCartLogin()}
+      handleHome={() => handleHome()}
+      />
+      <ModalCart
+        // cartopen={cartopen}
         cartopen={cartOpen}
         carthandleClose={carthandleClose}
-        carthandleOpen={carthandleOpen}
+        onclose={carthandleClose}
         loginStatus={loginStatus}
-        handleOpen={() => setOpen(true)}
-        handleClose={() => setOpen(false)}
-        open={open}
-        showbtn={btn}
-        handleLogin={() => handleLogin()}
-        handleOTP={() => handleOTP()}
-        mobileNumber={mobileNumber}
-        handleMobileNumber={(e) => handleMobileNumber(e)}
-        sethandleOtp={(e) => sethandleOtp(e)}
-        otp={otp}
+        cartProduct={cartProduct}
+        // cartProductlength={cartProduct}
         totalAmount={cartPrice}
-        store={store}
-        handleclear={(index) => handleclear(index)}
-        // removeProduct={(id) => removeCartProduct(id)}
         modalcurrency={countrycurrency}
+        // totalAmount={totalAmount}
+        // modalcurrency={modalcurrency}
+        // removeProduct={removeProduct}
         removeProduct={(id) =>
           loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
         }
-        handleResendOTP={() => handleResendOTP()}
-        handleCartLogin={() => handleCartLogin()}
+        handleCartLogin={handleCartLogin}
+        // handleHome={handleHome}
         handleHome={() => handleHome()}
       />
       <div>
-        {subcategorie.length >= 1 ? (
+        {subcategorie?.length >= 1 ? (
           <div className="subcategorie_contaner">
             <div className="subcategorie_content">
               <SubCategorieList
@@ -772,14 +796,14 @@ const TodayDeals = () => {
                 name="All"
                 onclick={() => productAll()}
               />
-              {subcategorie.map((category) => (
+              {subcategorie?.map((category) => (
                 <>
                   <SubCategorieList
                     selID={colorId}
-                    catId={category._id}
+                    catId={category?._id}
                     // img={category.subcategoryImage}
-                    name={category.subcategoryName}
-                    onclick={() => categoryProduct(category._id)}
+                    name={category?.subcategoryName}
+                    onclick={() => categoryProduct(category?._id)}
                   />
                 </>
               ))}
@@ -788,7 +812,7 @@ const TodayDeals = () => {
           </div>
         ) : null}
 
-        {product.length >= 1 ? (
+        {product?.length >= 1 ? (
           <div className="main_today_card">
             <div className="today_card">
               {product.map((item) => (
@@ -806,7 +830,7 @@ const TodayDeals = () => {
                       totalpayment={item?.price}
                       img={item?.image}
                       rating={item?.rating}
-                      id={{ id: item._id }}
+                      id={{ id: item?._id }}
                       to="/carddetail"
                       onclick={() => {
                         // setShow(!show);
@@ -918,6 +942,8 @@ const TodayDeals = () => {
           pauseOnHover
         />
         <ToastContainer />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
+
       </div>
     </>
   );
