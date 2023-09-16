@@ -42,6 +42,7 @@ const Header = ({
   handleResendOTP = () => {},
   handleCartLogin = () => {},
   handleHome = () => {},
+  headerCart = true
 }) => {
   // let navigate = useNavigate();
 
@@ -219,7 +220,7 @@ const Header = ({
                     </li>
                   </div>
                 )}
-
+                  {headerCart == true && (
                 <NavLink className="nav_list">
                   <li>
                     <div
@@ -240,13 +241,13 @@ const Header = ({
                     </div>
                   </li>
                 </NavLink>
+                )}
               </ul>
             </div>
           </nav>
         </div>
       </div>
-
-      <ModalCart
+     {/* <ModalCart
         cartopen={cartopen}
         carthandleClose={carthandleClose}
         onclose={carthandleClose}
@@ -257,7 +258,7 @@ const Header = ({
         removeProduct={removeProduct}
         handleCartLogin={handleCartLogin}
         handleHome={handleHome}
-      />
+                          />*/}
 
       <Modal
         open={open}
