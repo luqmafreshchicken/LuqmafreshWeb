@@ -34,9 +34,12 @@ import Swal from "sweetalert2";
 import TopHeader from "../topheader/TopHeader";
 import ModalCart from "../../pages/modalcart/ModalCart";
 import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
+import { useMediaQuery } from "react-responsive";
 
 const Payment = () => {
   let navigate = useNavigate();
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const Razorpay = useRazorpay();
 
   const location = useLocation();
@@ -179,15 +182,19 @@ const Payment = () => {
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
-          console.log(res?.data,"-------------------------------")
+          // console.log(res?.data, "-------------------------------");
           handlePayment(res.data.data);
           setLoad(false);
           // updateSlot();
         } else {
           Swal.fire("Your Order Confirm Successfully", "", "success");
           setLoad(false);
-          navigate("/account");
           updateSlot();
+          if (isMobile) {
+            navigate("/mobileaccount");
+          } else {
+            navigate("/account");
+          }
         }
       } else {
         Swal.fire("Something went Wrong", "", "error");
@@ -197,7 +204,7 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
-    console.log(params,"============")
+    // console.log(params, "============");
 
     const vat = (cartPrice * 5) / 100;
     const totalAmount = cartPrice + vat;
@@ -213,7 +220,7 @@ const Payment = () => {
       image: "https://example.com/your_logo",
       order_id: params.id,
       handler: function (response) {
-        console.log(response,"============")
+        console.log(response, "============");
         if (response != "") {
           setLoad(true);
           const requestData = {
@@ -247,7 +254,11 @@ const Payment = () => {
     };
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
-      console.log(params,response.error.description,"================jgfgi========");
+      console.log(
+        params,
+        response.error.description,
+        "================jgfgi========"
+      );
       setLoad(false);
       // alert(response.error.code);
       // alert(response.error.description);
