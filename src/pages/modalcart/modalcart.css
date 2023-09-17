@@ -446,8 +446,9 @@
     width: 30px;
   }
   .order_summary p {
-    font-size: 17px;
-    margin-left: 0.5rem;
+    font-size: 15px;
+    /* margin-left: 0.5rem; */
+    margin-top: 1rem;
   }
   .style2 {
     left: 55%;
@@ -455,8 +456,8 @@
   }
   
   .product_card {
-    width: 94%;
-    margin-left: 1rem;
+    width: 95%;
+    /* margin-left: 1rem; */
   }
   .number {
     height: 20px;
@@ -501,10 +502,10 @@
   }
 
   .biil_payment {
-    width: 94%;
-    margin-left: 1rem;
+    width: 95%;
+    /* margin-left: 1rem; */
     margin-top: 1rem;
-    height: 25vh;
+    height: 24vh;
   }
 
   .bill_name p {
@@ -518,7 +519,7 @@
     color: gray;
   }
   .cong_charge_section p{
-    font-size: 10px;
+    font-size: 9px;
   }
   .delivery_charge p {
     font-size: 10px;
@@ -530,7 +531,7 @@
     position: fixed;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     z-index: 999;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
   }
   .small_card_content {
     width: 40%;
