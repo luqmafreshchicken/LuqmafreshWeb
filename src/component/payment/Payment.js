@@ -547,7 +547,7 @@ const Payment = () => {
               {open1 == 1 && (
                 <OnlineDelivery
                   onClick={() => paymentMethods()}
-                  cartProduct={calculateTotalBill()}
+                  cartProduct={cartPrice}
                   currency={countrycurrency}
                 />
               )}
