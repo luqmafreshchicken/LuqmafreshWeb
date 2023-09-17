@@ -3,6 +3,7 @@ import "./notification.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { getUserID, showNotification } from "../../serverRequest/Index";
+import moment from "moment/moment";
 const Notification = () => {
   const [notification, setNotification] = useState([]);
 
@@ -13,6 +14,7 @@ const Notification = () => {
   const notiList = async () => {
     const UserId = await getUserID();
     const res = await showNotification(UserId);
+    console.log(res,"==================")
     if (res.status == true) {
       setNotification(res?.data);
     } else {
@@ -31,7 +33,7 @@ const Notification = () => {
         <p>
         {list?.message}
         </p>
-        <span>20/09/2023</span>
+        <span>{moment(list?.createdAt).format("DD/MM/YYYY")}</span>
       </div>
       ))}
       </div>
