@@ -160,22 +160,30 @@ const MobileCategorie = () => {
             </div>
             {item._id === id ? (
               <div className="mobile_subcategory">
+              {item?.subcategories?.length >= 1 ? (
+                <>
                 {item?.subcategories.map((item) => (
                   <div className="mobile_subcategory_container">
                     <div className="mobile_subcategory_para">
-                      <p onClick={() => categoryProduct(item._id)}>
-                        <NavLink
-                          to="/todaydeals"
-                          state={{ id: item._id }}
-                          className="nav_list"
-                        >
-                          {" "}
-                          {item.subcategoryName}
-                        </NavLink>
-                      </p>
+                      
+                        <p onClick={() => categoryProduct(item._id)}>
+                          <NavLink
+                            to="/todaydeals"
+                            state={{ id: item._id }}
+                            className="nav_list"
+                          >
+                            {" "}
+                            {item.subcategoryName}
+                          </NavLink>
+                        </p>
+                      
                     </div>
                   </div>
                 ))}
+                </>
+                ) : (
+                  <p>Product not found</p>
+                )}
               </div>
             ) : null}
           </div>
