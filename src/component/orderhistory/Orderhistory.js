@@ -34,7 +34,7 @@ const Orderhistory = ({ id, countyCurrency }) => {
 
       {/* ****order date time*** */}
 
-      {getData?.lemgth >= 1 ? (
+      {getData?.length >= 1 ? (
         <>
           {getData.map((item) => (
             <>
