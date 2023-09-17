@@ -13,6 +13,8 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../../component/loder/Loader";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import MobileBottomtab from "../mobilebottomtab/MobileBottomtab";
 
 const MobileAccount = () => {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -27,6 +29,7 @@ const MobileAccount = () => {
   const [load, setLoad] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [cartOpen, setCartOpen] = useState("");
 
   useEffect(() => {
     localContent();
@@ -108,6 +111,8 @@ const MobileAccount = () => {
       setLoad(false);
     });
   };
+
+  const carthandleClose = () => setCartOpen(false);
 
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
@@ -338,6 +343,27 @@ const MobileAccount = () => {
         pauseOnHover
       />
       <ToastContainer />
+      <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        // carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        // loginStatus={loginStatus}
+        // cartProduct={cartProduct}
+        // // cartProductlength={cartProduct}
+        // totalAmount={cartPrice}
+        // modalcurrency={countrycurrency}
+        // // totalAmount={totalAmount}
+        // // modalcurrency={modalcurrency}
+        // // removeProduct={removeProduct}
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
+        // handleCartLogin={handleCartLogin}
+        // // handleHome={handleHome}
+        // handleHome={() => handleHome()}
+      />
+      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </div>
   );
 };
