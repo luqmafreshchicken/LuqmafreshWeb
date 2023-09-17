@@ -345,26 +345,26 @@ const SelectDeliveryslot = () => {
           // removeProduct={(id) => removeCartProduct(id)}
         />
         <ModalCart
-        // cartopen={cartopen}
-        cartopen={cartOpen}
-        carthandleClose={carthandleClose}
-        onclose={carthandleClose}
-        loginStatus={loginStatus}
-        cartProduct={cartProduct}
-        // cartProductlength={cartProduct}
-        totalAmount={cartPrice}
-        modalcurrency={countrycurrency}
-        // totalAmount={totalAmount}
-        // modalcurrency={modalcurrency}
-        // removeProduct={removeProduct}
-        // removeProduct={(id) =>
-        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-        // }
-        // handleCartLogin={handleCartLogin}
-        // handleHome={handleHome}
-        // handleHome={() => handleHome()}
-        removeProduct={(id) => removeCartProduct(id)}
-      />
+          // cartopen={cartopen}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          onclose={carthandleClose}
+          loginStatus={loginStatus}
+          cartProduct={cartProduct}
+          // cartProductlength={cartProduct}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          // totalAmount={totalAmount}
+          // modalcurrency={modalcurrency}
+          // removeProduct={removeProduct}
+          // removeProduct={(id) =>
+          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+          // }
+          // handleCartLogin={handleCartLogin}
+          // handleHome={handleHome}
+          // handleHome={() => handleHome()}
+          removeProduct={(id) => removeCartProduct(id)}
+        />
       </div>
       <div className="selectdeliveryslot_container">
         <div className="selectdeliveryslot_content">
@@ -380,83 +380,62 @@ const SelectDeliveryslot = () => {
             </div>
 
             <div>
-              <Card style={{ boxShadow: "none", border: "none" }}>
-                <MDBTable align="middle" className="bor_bottom">
-                  <MDBTableHead className="slots_heading">
-                    <tr>
-                      <th scope="col" style={{ textAlign: "left" }}>
-                        Delete
-                      </th>
-                      <th scope="col">Product</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">Items</th>
-                      <th scope="col">Cart</th>
-                      <th scope="col" style={{ textAlign: "right" }}>
-                        SubTotal
-                      </th>
-                    </tr>
-                  </MDBTableHead>
+              <Card
+                style={{
+                  boxShadow: "none",
+                  border: "none",
+                  padding: "0.2rem 0.2rem",
+                }}
+              >
+                {cartProduct.map((item) => (
+                  <div className="selectdeliveryslot_product">
+                    <div className="selectdeliveryslot_product_img">
+                      <img src={item?.productId?.image} />
+                    </div>
+                    <div className="selectdeliveryslot_product_name">
+                      <div className="selectdeliveryslotname">
+                        <p>{item?.productId?.name}</p>
+                      </div>
+                      <div className="selectdeliveryslotquantity">
+                        <p>
+                          {item?.productId?.quantity} {item?.productId?.unit}{" "}
+                        </p>
+                        <p>
+                          {countrycurrency} {item?.productId?.price}
+                        </p>
+                        <p>{item?.quantity}</p>
+                        <p style={{ fontWeight: "bold" }}>
+                          {countrycurrency}{" "}
+                          {item?.quantity * item?.productId?.price}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="selectdeliveryslot_product_cartbtn">
+                      <div className="selectdeliveryslot_cross">
+                        <img
+                          src="cross.png"
+                          onClick={() => removeCartProduct(item?._id)}
+                        />
+                      </div>
+                      <div className="selectdeliveryslot_addcart">
+                        <div
+                          className="table_dre"
+                          onClick={() => handleDecre(item?._id, item?.quantity)}
+                        >
+                          -
+                        </div>
+                        <div className="table_count">{item?.quantity}</div>
 
-                  {cartProduct.map((item) => {
-                    return (
-                      <MDBTableBody key={item} className="stot_content">
-                        <tr>
-                          <td>
-                            <img
-                              src="cross.png"
-                              onClick={() => removeCartProduct(item?._id)}
-                            />
-                          </td>
-                          <td>
-                            <div className="d-flex align-items-center">
-                              <img src={item?.productId?.image} />
-                              <div className="ms-3">
-                                <p className="fw-bold mb-1">
-                                  {item?.productId?.name}
-                                </p>
-                                <p>
-                                  {item?.productId?.quantity}{" "}
-                                  {item?.productId?.unit}{" "}
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            {countrycurrency} {item?.productId?.price}
-                          </td>
-                          <td> {item?.quantity}</td>
-                          <td>
-                            <div className="table_addtocart">
-                              <div
-                                className="table_dre"
-                                onClick={() =>
-                                  handleDecre(item?._id, item?.quantity)
-                                }
-                              >
-                                -
-                              </div>
-                              <div className="table_count">
-                                {item?.quantity}
-                              </div>
-                              <div
-                                className="table_incre"
-                                onClick={() =>
-                                  handleIncre(item?._id, item.quantity)
-                                }
-                              >
-                                +
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            {countrycurrency}{" "}
-                            {item?.quantity * item?.productId?.price}
-                          </td>
-                        </tr>
-                      </MDBTableBody>
-                    );
-                  })}
-                </MDBTable>
+                        <div
+                          className="table_incre"
+                          onClick={() => handleIncre(item?._id, item.quantity)}
+                        >
+                          +
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
                 <div className="stot_content_total">
                   <p>
                     {" "}
@@ -587,7 +566,6 @@ const SelectDeliveryslot = () => {
         </Modal>
         <Loader loading={load} />
         <MobileBottomtab handleMobile={() => setCartOpen(true)} />
-
       </div>
     </>
   );
