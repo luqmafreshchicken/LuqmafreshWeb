@@ -450,21 +450,22 @@
     margin-left: 0.5rem;
   }
   .style2 {
-    left: 60%;
-    width: 80%;
+    left: 55%;
+    width: 90%;
   }
   
   .product_card {
-    width: 96%;
+    width: 94%;
     margin-left: 1rem;
   }
   .number {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
   }
   .number p {
     text-align: center;
-    padding-top: 6px;
+    padding-top: 3px;
+    font-size: 10px;
   }
   .product_name {
     width: 75%;
@@ -484,6 +485,11 @@
     font-size: 11px;
     padding-top: 7px;
   }
+  .total_cart_amount p{
+    padding-top: 20px;
+    font-size: 12px;
+    font-family: regular;
+  }
   .peices_content {
     width: 100%;
   }
@@ -495,40 +501,44 @@
   }
 
   .biil_payment {
-    width: 96%;
+    width: 94%;
     margin-left: 1rem;
     margin-top: 1rem;
+    height: 25vh;
   }
 
   .bill_name p {
-    font-size: 14px;
+    font-size: 12px;
   }
   .subbill_Detail {
     height: 3vh;
   }
   .subbill_Detail p {
-    font-size: 11px;
+    font-size: 10px;
     color: gray;
   }
+  .cong_charge_section p{
+    font-size: 10px;
+  }
   .delivery_charge p {
-    font-size: 11px;
+    font-size: 10px;
     color: gray;
   }
   .proceed_section {
-    width: 93%;
-    margin-left: 17px;
+    width: 95%;
+    /* margin-left: 17px; */
     position: fixed;
-    bottom: 10;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     z-index: 999;
+    margin-bottom: 1.5rem;
   }
   .small_card_content {
     width: 40%;
   }
   .product_item_price {
-    width: 45%;
+    width: 40%;
     display: flex;
-    gap: 10px;
+    gap: 0px;
   }
   .mobile_cart_nologin {
     height: 77.5vh;
@@ -538,7 +548,7 @@
   }
   .mobile_cart_nologin img {
     height: 250px;
-    width: 250px;
+    width: 270px;
   }
   .mobile_cart_nologin p {
     font-family: "Poppins", sans-serif;
@@ -570,13 +580,13 @@
     font-size: 12px;
   }
   .proceed_payment p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
   }
   .proceed_btn p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
   }
   .modalcart_scroll_bar_container {
     height: 77vh;
@@ -597,6 +607,9 @@
     text-align: justify;
     padding: 0.5rem 2rem;
     font-size: 0.8rem;
+  }
+  .cart_empty button{
+    display: none;
   }
 }
 /* Mobile devices (320px - 420px)
