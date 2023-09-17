@@ -224,16 +224,7 @@ const UserContactDetail = () => {
         draggable: true,
       });
       return false;
-    } else if (!mobile == "") {
-      toast.error("Please enter valid mobile No", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        draggable: true,
-      });
-      return false;
-    }
+    } 
     if (email === "") {
       toast.error("Please enter Address", {
         position: "top-right",
