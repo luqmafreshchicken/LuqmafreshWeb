@@ -734,7 +734,7 @@ const TodayDeals = () => {
       currency={countrycurrency}
       flag={flag}
       cartPrice={cartPrice}
-      // cartProductlength={cartProduct}
+      cartProductlength={cartProduct}
       curr={countrycurrency}
       // cartopen={cartOpen}
       // carthandleClose={carthandleClose}
