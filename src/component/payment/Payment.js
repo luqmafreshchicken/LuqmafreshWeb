@@ -17,6 +17,7 @@ import {
   applyCoupon,
   getAllCoupon,
   updateTimeSlot,
+  viewProfile,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -50,7 +51,7 @@ const Payment = () => {
   const [couponModal, setCouponModal] = React.useState(false);
   const [method, setMethod] = React.useState("cod");
   const [load, setLoad] = React.useState(false);
-  const [userId, setUserId] = useState("");
+  const [user, setUser] = useState([]);
   const [longitude, setLongitude] = useState(null);
 
   const [latitude, setLatitude] = useState(null);
@@ -72,14 +73,26 @@ const Payment = () => {
   const [couponLen, setCouponLen] = useState([]);
 
   useEffect(() => {
+    userDetail();
     async function getData() {
       const newData = await getAllCoupon();
       setCouponLen(newData.data);
     }
     getData();
   }, []);
+  const userDetail = async () => {
+    const UserId = await getUserID();
+    viewProfile(UserId).then((res) => {
+      console.log(res.data);
+      if (res.status == true) {
+        setUser(res.data);
+        setLoad(false);
+      } else {
+      }
+    });
+  };
 
-  console.log(coupon, "coupon");
+  console.log(user?.name, "coupon");
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -204,23 +217,22 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
-    // console.log(params, "============");
+    console.log(params, "============");
 
     const vat = (cartPrice * 5) / 100;
     const totalAmount = cartPrice + vat;
     const couponAmount = coupon === "" ? 0 : amount;
     const fAmount = totalAmount - couponAmount * 100;
-    console.log(fAmount, "fAmount");
     const options = {
-      key: "rzp_test_tOH1E84QsR3LSK",
+      key: "rzp_live_55ZIuRP4gr00Pu",
       amount: params?.amount,
-      currency: "INR",
+      currency: countrytitle,
       name: "Luqmafresh Private Limited",
       description: "Luqmafresh Online",
-      image: "https://example.com/your_logo",
-      order_id: params.id,
+      image: "https://res.cloudinary.com/dgghwthdr/image/upload/v1694800122/krhfhi3ava2bybwjuc81.png",
+      order_id: params?.id,
       handler: function (response) {
-        console.log(response, "============");
+        console.log(response, "======Kishan 1======",options);
         if (response != "") {
           setLoad(true);
           const requestData = {
@@ -231,8 +243,12 @@ const Payment = () => {
           verifyPayment(requestData).then((res) => {
             if (res.status == true) {
               setLoad(false);
-              navigate("/account");
-              // updateSlot();
+              updateSlot();
+              if (isMobile) {
+                navigate("/mobileaccount");
+              } else {
+                navigate("/account");
+              }
             } else {
               setLoad(false);
               console.log("Payment Error");
@@ -241,12 +257,12 @@ const Payment = () => {
         }
       },
       prefill: {
-        name: "Gaurav Joshi",
-        email: "gauravjoshi@example.com",
-        contact: "9118146726",
+        name: user?.name,
+        email: user?.email,
+        contact: "",
       },
       notes: {
-        address: "Kamta",
+        address: "",
       },
       theme: {
         color: "#C42118",
@@ -255,7 +271,7 @@ const Payment = () => {
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
       console.log(
-        params,
+        params?.order_id,
         response.error.description,
         "================jgfgi========"
       );
