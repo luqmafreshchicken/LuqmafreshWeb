@@ -28,6 +28,7 @@ const UserContactDetail = () => {
   const [address, setAddress] = useState("");
   const [address1, setAddress1] = useState("");
   const [landmark, setLandmark] = useState("");
+
   const [city, setCity] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
@@ -47,9 +48,7 @@ const UserContactDetail = () => {
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
 
-  useEffect(() => {
-    userDetail();
-  }, []);
+
 
   const userDetail = async () => {
     const UserId = await getUserID();
@@ -102,6 +101,8 @@ const UserContactDetail = () => {
     }
   },[]);
 
+  console.log(city,"==============================")
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -131,8 +132,11 @@ const UserContactDetail = () => {
     }
     localContent();
     showcart();
+    userDetail();
+
   }, []);
 
+  
   console.error("Geolocation is not supported by your browser.");
 
   const localContent = () => {
@@ -398,7 +402,7 @@ const UserContactDetail = () => {
                 lable="City"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                disabled={true}
+                // disabled={true}
               />
               <div className="usercontact_mobile">
                 <div className="usercontact_flag">
