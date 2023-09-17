@@ -34,7 +34,6 @@ const MobileAccount = () => {
   const [cartOpen, setCartOpen] = useState("");
   const [countryCode, setCountryCode] = useState("");
 
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -50,7 +49,7 @@ const MobileAccount = () => {
                   // setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   // setCountryTitle(res[0]?.currencies[0]?.code);
                   // setFlag(res[0]?.flags?.png);
-                  setCountryCode(res[0]?.callingCodes[0])
+                  setCountryCode(res[0]?.callingCodes[0]);
                 });
               }
             });
@@ -68,11 +67,11 @@ const MobileAccount = () => {
     setLoad(false);
   }, []);
 
-  useEffect(() => {
-    localContent();
-    userDetail();
-    setLoad(false);
-  }, []);
+  // useEffect(() => {
+  //   localContent();
+  //   userDetail();
+  //   setLoad(false);
+  // }, []);
 
   const userDetail = async () => {
     const UserId = await getUserID();
@@ -157,17 +156,13 @@ const MobileAccount = () => {
     <div className="mobile_account_container">
       {/* name */}
       {loginStatus == true ? (
+
         <div className="mobile_user_profile">
-          <div className="mobile_user_name">
-            <p style={{ paddingLeft: "20px" }}>{viewUser.name}</p>
-            <span style={{ paddingRight: "20px" }} onClick={viewhandleOpen}>
-              View Profile
-            </span>
-          </div>
+          <div className="mobile_user_name"><h1>{viewUser?.name?.slice(0, 1)}</h1></div>
           <div className="mobile_user_email">
-            <p style={{ paddingLeft: "20px" }}>
-              + {countryCode} {viewUser?.mobile?.number} | {viewUser.email}
-            </p>
+           <h6>{viewUser.name}</h6>
+           <p>{viewUser.email}</p>
+            <button onClick={viewhandleOpen}>View profile</button>
           </div>
         </div>
       ) : null}
