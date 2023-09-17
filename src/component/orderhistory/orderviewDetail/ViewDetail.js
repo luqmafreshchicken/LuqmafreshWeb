@@ -37,7 +37,6 @@ const ViewDetail = () => {
   const [load, setLoad] = useState(false);
   const [cancelStatus, setCancelStatus] = useState("");
   const [orderStatus, setOrderStatus] = useState(false);
-
   let location = useLocation();
   const id = location.state.orderId;
 
@@ -224,7 +223,7 @@ const ViewDetail = () => {
           {/* order id para */}
           <div className="order_id_para ">
             <p>
-              Here your conformation for Order number <span>{orderId}</span>
+              Here your conformation for Order Id <span>{orderId}</span>
             </p>
           </div>
           {/* end order para */}
@@ -278,7 +277,7 @@ const ViewDetail = () => {
                 </p>
               </div>
               <div className="bill_detail_price">
-                <p>Vat</p>
+                <p style={{color:"lightgray"}}>VAT 5% (Included)</p>
                 <p>
                   {countrycurrency} {(order.subtotal * 5) / 100}
                 </p>
@@ -286,7 +285,7 @@ const ViewDetail = () => {
               <div className="bill_detail_total">
                 <p>Total</p>
                 <p>
-                  {countrycurrency} {calculateTotalBill()}
+                  {countrycurrency}  {order.subtotal}
                 </p>
               </div>
             </div>
