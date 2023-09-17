@@ -142,7 +142,7 @@
     /* background-color: aqua; */
     width: 100%;
     height: auto;
-    padding: 1rem 1rem 5rem 0rem ;
+    padding: 1rem 1rem 5rem 0rem;
   }
   .order_historylist_container {
     width: 100%;
@@ -166,7 +166,6 @@
     background-color: white;
     width: 90%;
     padding-bottom: 0rem;
-    
   }
   /* margin-bottom: 2rem; */
   /* border-bottom: 1px solid lightgray; */
@@ -245,6 +244,26 @@
     font-size: 12px;
     text-align: center;
     width: auto;
+    width: 100px;
+  }
+  /* no order */
+  .order_not_found {
+    height: 80vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .order_not {
+    display: grid;
+    place-items: center;
+    grid-row-gap: 1rem;
+  }
+  .order_not h5 {
+    font-family: medium;
+    font-size: 1rem;
+  }
+  .order_not img {
+    height: 100px;
     width: 100px;
   }
 }
