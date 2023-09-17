@@ -102,20 +102,32 @@ const WhistListDetail = () => {
         <h5>WhistList Detail</h5>
       </div>
       {/* end past heading */}
-      {showList.map((list) => (
-        <WhistListComponent
-          name={list.productId?.name}
-          qty={list.productId?.quantity}
-          unit={list.productId?.unit}
-          price={list.productId?.price}
-          dis={list.productId?.discount}
-          ogp={list.productId?.originalPrice}
-          img={list.productId?.image}
-          onclick={() => handleListDelete(list.productId?._id)}
-          id={{ id: list?.productId?._id }}
-          to="/carddetail"
-        />
-      ))}
+      {showList?.length >= 1 ? (
+        <div className="whist_list_scroll">
+          {showList.map((list) => (
+            <WhistListComponent
+              name={list.productId?.name}
+              qty={list.productId?.quantity}
+              unit={list.productId?.unit}
+              price={list.productId?.price}
+              dis={list.productId?.discount}
+              ogp={list.productId?.originalPrice}
+              img={list.productId?.image}
+              onclick={() => handleListDelete(list.productId?._id)}
+              id={{ id: list?.productId?._id }}
+              to="/carddetail"
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="order_not_found">
+          <div className="order_not">
+            <img src="empty.png" />
+            <h5>No product found</h5> 
+          </div>
+        </div>
+      )}
+
       <Loader loading={load} />
     </div>
   );
