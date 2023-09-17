@@ -387,6 +387,17 @@ ul li {
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
+  .handle_login {
+    position: absolute;
+    top: 50%;
+    left:60%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 24;
+  }
+  
   .luqma_logo_img img {
     height: 70px;
     width: 140px;
