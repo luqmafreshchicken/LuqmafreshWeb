@@ -37,6 +37,8 @@ const Account = () => {
   const [btn, setBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [countryCode, setCountryCode] = useState("");
+
 
   const handleOpen = () => {
     if (open2 === 0) {
@@ -87,6 +89,7 @@ const Account = () => {
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
+                  setCountryCode(res[0]?.callingCodes[0])
                 });
               }
             });
@@ -209,7 +212,8 @@ const Account = () => {
             <h3>{viewUser.name}</h3>
             <div className="account_profile">
               <p>
-               <img src={flag}/> +971 {viewUser?.mobile?.number} | {viewUser.email}
+                <img src={flag} /> +{countryCode} {viewUser?.mobile?.number} |{" "}
+                {viewUser.email}
               </p>
               <span onClick={viewhandleOpen}>View profile</span>
             </div>
