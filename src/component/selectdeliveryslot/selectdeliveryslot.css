@@ -17,7 +17,6 @@
   height: auto;
   width: 50%;
   border-radius: 3px;
-
 }
 .selectime_steps {
   /* height: 50vh; */
@@ -53,7 +52,7 @@
 }
 /* product list */
 
-.selectdeliveryslot_product{
+.selectdeliveryslot_product {
   width: 100%;
   height: auto;
   display: flex;
@@ -65,61 +64,62 @@
   padding: 1rem 1rem;
   border-radius: 10px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-
 }
-.selectdeliveryslot_product_img{
+.selectdeliveryslot_product_img {
   width: 20%;
   height: 15vh;
   border-radius: 20px;
 }
 
-.selectdeliveryslot_product_img img{
+.selectdeliveryslot_product_img img {
   height: 100%;
   width: 100%;
   border-radius: 10px;
-
 }
-.selectdeliveryslot_product_name{
+.selectdeliveryslot_product_name {
   width: 70%;
   height: 15vh;
 }
-.selectdeliveryslotname{
+.selectdeliveryslotname {
   width: 100%;
   height: 8vh;
 }
-.selectdeliveryslotname p{
+.selectdeliveryslotname p {
   font-size: 1.1rem;
   font-family: regular;
   margin: 0rem;
   padding: 0rem;
 }
-.selectdeliveryslotquantity{
+.selectdeliveryslotquantity {
   width: 100%;
   height: 7vh;
   display: flex;
   gap: 2rem;
   padding-top: 1.5rem;
-
 }
-.selectdeliveryslotquantity p{
+.selectdeliveryslotquantity p {
   font-family: regular;
-    
 }
-.selectdeliveryslot_product_cartbtn{
+.selectdeliveryslot_product_cartbtn {
   width: 20%;
   height: 15vh;
 }
 
-.selectdeliveryslot_cross{
+.selectdeliveryslot_cross {
   display: flex;
   justify-content: flex-end;
   height: 9vh;
 }
-.selectdeliveryslot_cross img{
+.selectdeliveryslot_cross img {
   height: 30px;
   width: 30px;
+  cursor: pointer;
+  transition: 0.3s linear;
 }
-.selectdeliveryslot_addcart{
+.selectdeliveryslot_cross img:hover {
+  transform: rotateZ(90deg);
+}
+.selectdeliveryslot_addcart {
   width: 100%;
   height: 6vh;
   border: 1px solid lightgray;
@@ -148,8 +148,6 @@
   transform: scale(0.2s);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  
-
 }
 .table_dre:hover {
   color: white;
@@ -362,7 +360,7 @@
 .selectdeliveryslot_modal img:hover {
   transform: rotateZ(90deg);
 }
-.disabled{
+.disabled {
   border: none;
   border-radius: 10px;
   padding: 0.7rem 0rem;
@@ -379,7 +377,7 @@
     padding-bottom: 0rem;
     padding: 1rem 0rem;
   }
-  
+
   .align-items-center {
     /* background-color: aqua;s */
   }
