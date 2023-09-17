@@ -15,10 +15,11 @@ import {
   viewProfile,
 } from "../../serverRequest/Index";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 
 const Editprofile = ({ edit, edithandleClose }) => {
   let navigate = useNavigate();
-
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
@@ -85,7 +86,13 @@ const Editprofile = ({ edit, edithandleClose }) => {
           draggable: true,
           progress: undefined,
         });
+        if (isMobile) {
+        navigate("/mobileaccount");
+          
+        } else {
         navigate("/account");
+          
+        }
         window.location.reload();
       } else {
         toast.error(res.message, {
