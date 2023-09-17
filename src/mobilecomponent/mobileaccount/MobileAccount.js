@@ -5,6 +5,8 @@ import ViewProfile from "../../component/viewprofile/ViewProfile";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import {
+  CountryDetail,
+  GetCountry,
   getUserID,
   loginRegister,
   otpVerify,
@@ -30,6 +32,41 @@ const MobileAccount = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [cartOpen, setCartOpen] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  // setCountry(res[0]?.name);
+                  // setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  // setCountryTitle(res[0]?.currencies[0]?.code);
+                  // setFlag(res[0]?.flags?.png);
+                  setCountryCode(res[0]?.callingCodes[0])
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    localContent();
+    userDetail();
+    setLoad(false);
+  }, []);
 
   useEffect(() => {
     localContent();
@@ -129,7 +166,7 @@ const MobileAccount = () => {
           </div>
           <div className="mobile_user_email">
             <p style={{ paddingLeft: "20px" }}>
-              + 971 {viewUser?.mobile?.number} | {viewUser.email}
+              + {countryCode} {viewUser?.mobile?.number} | {viewUser.email}
             </p>
           </div>
         </div>
