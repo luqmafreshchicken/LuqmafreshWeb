@@ -47,6 +47,7 @@ const UserContactDetail = () => {
   const [btn, setBtn] = useState(false);
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [countryCode, setCountryCode] = useState("");
 
 
 
@@ -118,6 +119,8 @@ const UserContactDetail = () => {
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
+                  setCountryCode(res[0]?.callingCodes[0])
+                  console.log(res[0]?.callingCodes[0],"==================================22222222222222")
                 });
               }
             });
@@ -398,7 +401,7 @@ const UserContactDetail = () => {
               <div className="usercontact_mobile">
                 <div className="usercontact_flag">
                   <img src={flag} />
-                  +971
+                  +{countryCode}
                 </div>
                 <div style={{ width: "89%" }}>
                   <Input
