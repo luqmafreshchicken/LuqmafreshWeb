@@ -884,7 +884,7 @@ const Home = () => {
   };
 
   return (
-    <div style={{ paddingBottom: "3rem" }}>
+    <div className="homepagecontainer">
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
       <Header
         code={countrytitle}
