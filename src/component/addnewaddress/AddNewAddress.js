@@ -289,7 +289,12 @@ const AddNewAddress = ({ id }) => {
                           checked={addressid === add._id}
                           // onChange={() => console.log(add._id)}
                         />
-                        <p>Select</p>
+                        <p
+                          htmlFor={`address_${add._id}`}
+                          onClick={() => setAddressId(add._id)}
+                        >
+                          Select
+                        </p>
                       </div>
                       {/*<NavLink
                         to={"/editaddress"}
