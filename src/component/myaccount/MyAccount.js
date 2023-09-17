@@ -40,6 +40,7 @@ const MyAccount = () => {
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
+                  setCountryCode(res[0]?.callingCodes[0])
                   setLoad(false);
                 });
               }
@@ -113,7 +114,7 @@ const MyAccount = () => {
         <p>Mobile :</p>
         <p>
          
-          <img src={flag} /> +971 {viewUser?.mobile?.number}
+          <img src={flag} /> +{countryCode} {viewUser?.mobile?.number}
         </p>
       </div>
       <div className="myaccount_username_container">
