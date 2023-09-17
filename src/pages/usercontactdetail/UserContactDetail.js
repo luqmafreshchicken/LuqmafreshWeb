@@ -224,7 +224,7 @@ const UserContactDetail = () => {
         draggable: true,
       });
       return false;
-    } else if (!mobile.match(phoneRegExp)) {
+    } else if (!mobile == "") {
       toast.error("Please enter valid mobile No", {
         position: "top-right",
         autoClose: 5000,
