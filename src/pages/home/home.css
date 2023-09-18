@@ -113,8 +113,8 @@
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .homepagecontainer{
-  padding-bottom: 7rem;
-}
+    padding-bottom: 7rem;
+  }
   .categoriecard_content {
     width: 100%;
     display: grid;
@@ -129,6 +129,13 @@
   }
   .next_prev_btn_content{
     display: none;
+  }
+  .todaydeals_content h5 {
+    font-family: semibold;
+    font-size: 16px;
+  }
+  .todaydeals_content p {
+    font-size: 13px;
   }
 
 }
