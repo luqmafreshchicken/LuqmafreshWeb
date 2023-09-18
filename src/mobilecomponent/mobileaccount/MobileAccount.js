@@ -32,7 +32,7 @@ const MobileAccount = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [cartOpen, setCartOpen] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  // const [countryCode, setCountryCode] = useState("");
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -49,7 +49,7 @@ const MobileAccount = () => {
                   // setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   // setCountryTitle(res[0]?.currencies[0]?.code);
                   // setFlag(res[0]?.flags?.png);
-                  setCountryCode(res[0]?.callingCodes[0]);
+                  // setCountryCode(res[0]?.callingCodes[0]);
                 });
               }
             });
@@ -64,7 +64,7 @@ const MobileAccount = () => {
     }
     localContent();
     userDetail();
-    setLoad(false);
+    setLoad(true);
   }, []);
 
   // useEffect(() => {
@@ -76,6 +76,7 @@ const MobileAccount = () => {
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
+      setLoad(true)
       console.log(res.data);
       if (res.status == true) {
         setViewUser(res.data);
@@ -156,12 +157,13 @@ const MobileAccount = () => {
     <div className="mobile_account_container">
       {/* name */}
       {loginStatus == true ? (
-
         <div className="mobile_user_profile">
-          <div className="mobile_user_name"><h1>{viewUser?.name?.slice(0, 1)}</h1></div>
+          <div className="mobile_user_name">
+            <h1>{viewUser?.name?.slice(0, 1)}</h1>
+          </div>
           <div className="mobile_user_email">
-           <h6>{viewUser.name}</h6>
-           <p>{viewUser.email}</p>
+            <h6>{viewUser.name}</h6>
+            <p>{viewUser.email}</p>
             <button onClick={viewhandleOpen}>View profile</button>
           </div>
         </div>
@@ -203,7 +205,7 @@ const MobileAccount = () => {
               </div>
               <div className="reward_text">
                 <NavLink to="/addnewaddress" className="nav_list">
-                  <p>Addresses</p>
+                  <p>Blog</p>
                 </NavLink>
               </div>
               <div className="reward_arrow">
@@ -236,7 +238,7 @@ const MobileAccount = () => {
                 <img src="rtarrow.png" />
               </div>
             </div>
-            <div className="mobile_list_box">
+            {/* <div className="mobile_list_box">
               <div className="reward_img">
                 <img src="phone.png" />
               </div>
@@ -246,7 +248,7 @@ const MobileAccount = () => {
               <div className="reward_arrow">
                 <img src="rtarrow.png" />
               </div>
-            </div>
+        </div>*/}
           </>
         ) : null}
 
