@@ -90,23 +90,28 @@
 }
 
 .user_gender_section {
-  height: 7vh;
-  width: 87%;
+  height: auto;
+  width: 82%;
   margin-top: 10px;
-  /* background-color: red; */
   margin-left: 5%;
-  display: flex;
-  justify-content: space-between;
 }
 .user_gender {
-  width: 70%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  width: 50px;
+  height: 50px;
+}
+.user_gender FormControlLabel[type="radio"] {
+  background-color: #ff0040;
+  height: 20px;
+  width: 15px;
+  cursor: pointer;
 }
 .user_gender_section p {
   font-family: "Poppins", sans-serif;
-  font-weight: 800;
   padding-top: 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 .user_submit_btn {
   width: 82%;
@@ -131,7 +136,7 @@
   .editprofile_style {
     top: 50%;
     left: 60%;
-    width: 85%;
+    width: 89%;
   }
 
   .update_profile h5 {
@@ -146,9 +151,7 @@
     top: 110;
     left: 240;
   }
-  .user_gender_section {
-    display: none;
-  }
+
   .user_submit_btn {
     margin-left: 6.5%;
   }
@@ -158,6 +161,7 @@
   .user_name_section {
     font-size: 0.8rem;
   }
+
   .user_mobile_content input {
     font-size: 0.8rem;
     border-radius: 10px;
