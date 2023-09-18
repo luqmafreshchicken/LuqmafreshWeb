@@ -967,7 +967,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1}
+              slidesPerView={1.2}
               spaceBetween={8}
               pagination={{
                 clickable: true,
@@ -1164,7 +1164,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1}
+                  slidesPerView={1.2}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1359,7 +1359,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1}
+                  slidesPerView={1.2}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1554,7 +1554,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1}
+                  slidesPerView={1.2}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1744,7 +1744,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1}
+              slidesPerView={1.2}
               spaceBetween={8}
               pagination={{
                 clickable: true,
@@ -2161,7 +2161,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1}
+              slidesPerView={1.2}
               spaceBetween={8}
               pagination={{
                 clickable: true,
