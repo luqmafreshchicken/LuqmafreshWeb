@@ -15,7 +15,7 @@ import {
   viewProfile,
 } from "../../serverRequest/Index";
 import { useNavigate } from "react-router-dom";
-import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from "react-responsive";
 
 const Editprofile = ({ edit, edithandleClose }) => {
   let navigate = useNavigate();
@@ -25,6 +25,11 @@ const Editprofile = ({ edit, edithandleClose }) => {
   const [mobile, setMobile] = useState("");
   const [gender, setGender] = useState("");
   const [flag, setFlag] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+
+
+
+  
 
   useEffect(() => {
     // localContent();
@@ -44,6 +49,9 @@ const Editprofile = ({ edit, edithandleClose }) => {
                   // setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   // setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
+                  setCountryCode(res[0]?.callingCodes[0]);
+
+
                 });
               }
             });
@@ -87,11 +95,9 @@ const Editprofile = ({ edit, edithandleClose }) => {
           progress: undefined,
         });
         if (isMobile) {
-        navigate("/mobileaccount");
-          
+          navigate("/mobileaccount");
         } else {
-        navigate("/account");
-          
+          navigate("/account");
         }
         window.location.reload();
       } else {
@@ -165,7 +171,7 @@ const Editprofile = ({ edit, edithandleClose }) => {
               <div className="user_mobile_content">
                 <p>
                   {" "}
-                  <img src={flag} /> + 971
+                  <img src={flag} /> +{countryCode}
                 </p>
                 <input
                   placeholder="Mobile Number..."
@@ -174,9 +180,11 @@ const Editprofile = ({ edit, edithandleClose }) => {
                 />
               </div>
             </div>
-            <label className="input_lable" style={{marginTop:"1rem"}}>Email Id</label>
+            <label className="input_lable" style={{ marginTop: "1rem" }}>
+              Email Id
+            </label>
 
-            <div className="user_name_section" >
+            <div className="user_name_section">
               <input
                 placeholder="Email ID..."
                 // onChange={(e) => setEmail(e.target.value)}
@@ -186,13 +194,15 @@ const Editprofile = ({ edit, edithandleClose }) => {
             </div>
             <div className="user_gender_section">
               <p>Gender</p>
-              <div className="user_gender">
+              <div>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="female"
                   name="radio-buttons-group"
                   value={gender}
                   onChange={handleChange}
+                  className="user_gender"
+                  // style={radioGroupStyle}
                 >
                   <FormControlLabel
                     value="male"
