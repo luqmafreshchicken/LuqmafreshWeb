@@ -44,8 +44,8 @@ const CountDown = () => {
     <div className="countdown_section_container">
       <div className="countdown_section">
         <div className="top_severweek">
-          <p>Top Rated</p>
-          <span>Most popular products near you!</span>
+          <h5>Top Rated</h5>
+          <p>Most popular products near you!</p>
         </div>
 
         {/* <div className="countdown">
