@@ -16,7 +16,7 @@
   /* background-color: blue; */
 }
 
-.top_severweek p {
+/* .top_severweek p {
   font-family: semibold;
   font-size: 20px;
   line-height: 0;
@@ -25,6 +25,12 @@
 .top_severweek span {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
+} */
+.top_severweek h5 {
+  font-family: semibold;
+}
+.top_severweek p {
+  font-family: light;
 }
 .countdown {
   background-color: #ff0040;
@@ -76,19 +82,18 @@
     width: 100%;
     margin-bottom: 30px;
   }
+  .top_severweek{
+    height: 5vh;
+    padding-top: 7px;
+  }
+  .top_severweek h5 {
+    font-size: 16px;
+    line-height: 0.5;
+  }
   .top_severweek p {
-    font-family: "Poppins", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 0;
-    padding-top: 15px;
+    font-size: 13px;
   }
-  .top_severweek span {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
-  line-height: 1;
-
-  }
+  
 }
 
 /* iPads, Tablets (481px - 768px) */
