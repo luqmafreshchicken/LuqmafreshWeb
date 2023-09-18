@@ -2,7 +2,6 @@
   height: 85vh;
   width: 100%;
   margin-right: 50px;
-  /* background-color: #ff0040; */
   /* padding: 1rem 1rem; */
   /* border-radius: 15px; */
 }
@@ -13,7 +12,6 @@
   overflow: hidden;
   border-radius: 15px;
   display: block;
-
 }
 
 .image_singlecard img {
@@ -21,7 +19,7 @@
   height: 30vh;
   width: 100%;
   display: block;
-  transition: 0.3s ease-in-out
+  transition: 0.3s ease-in-out;
 }
 .image_singlecard:hover img {
   transform: scale(1.2);
@@ -43,19 +41,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:15%;
+  width: 15%;
 }
-.fa_search{
+.fa_search {
   font-size: 18px;
   color: rgb(192, 194, 196);
   cursor: pointer;
-  
-} 
-.fa_search:hover{
-  color: #FF0040;
+}
+.fa_search:hover {
+  color: #ff0040;
   transition: 0.3s ease-in-out;
 }
-.icons_img img{
+.icons_img img {
   cursor: pointer;
 }
 .hover-image {
@@ -169,7 +166,7 @@
   width: 40%;
 }
 
-.shop_now_btn  {
+.shop_now_btn {
   background-color: #ff0040;
   width: 40%;
   height: 5.5vh;
@@ -187,7 +184,7 @@
 @media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .singlecard {
-    width: 100%;
+    width: 95%;
     height: auto;
   }
   .image_singlecard {
@@ -198,8 +195,9 @@
     width: 100%;
     border-radius: 15px;
   }
-  .icons_img{
-    width: 15%;
+  .icons_img {
+    width: 25%;
+    gap: 0.4rem;
   }
   .image_singlecard {
     height: auto;
@@ -209,32 +207,26 @@
   }
   .name_singlecard p {
     font-size: 14px;
+    font-family: regular;
     padding-top: 15px;
     line-height: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .time_singlecard p {
-    font-size: 13px;
-    font-weight: 500;
-  }
+
   .offer_singlecard h4 {
     padding-top: 20px;
-    font-size: 27px;
+    font-size: 1.2rem;
+    font-family: regular;
   }
   .offer_singlecard {
     height: 8vh;
   }
-  .price_singlecard p {
-    font-size: 17px;
-  }
   .ammount_singlecard p span {
-    font-size: 17px;
+    font-size: 13px;
   }
-  .time_singlecard p {
-    font-size: 15px;
-  }
+
   .ammount_singlecard p {
     font-size: 14px;
   }
@@ -242,11 +234,31 @@
     width: 30%;
     height: 5vh;
     margin-top: 10px;
-    border: none;
     border-radius: 10px;
     color: white;
     font-size: 13px;
-    font-weight: 600;
+  }
+  .weight_singlecard p {
+    font-family: regular;
+    font-size: 13px;
+    padding-top: 0px;
+    color: black;
+  }
+  .price_singlecard p {
+    font-size: 13px;
+    padding-top: 0px;
+    font-family: light;
+  }
+  .today_singlecard p {
+    font-size: 13px;
+  }
+  .time_singlecard p {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .shop_now_btn {
+    font-size: 12px;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 480px) {
@@ -301,9 +313,7 @@
   .ammount_singlecard p span {
     font-size: 17px;
   }
-  .time_singlecard p {
-    font-size: 15px;
-  }
+
   .ammount_singlecard p {
     font-size: 14px;
   }
@@ -324,12 +334,12 @@
     min-width: 44%;
   }
 }
-@media only screen and (min-width: 660px) and (max-width: 768px){
+@media only screen and (min-width: 660px) and (max-width: 768px) {
   .singlecard {
     min-width: 40%;
   }
 }
-@media only screen and (min-width: 700px) and (max-width: 768px){
+@media only screen and (min-width: 700px) and (max-width: 768px) {
   .singlecard {
     min-width: 38%;
   }
@@ -461,7 +471,7 @@
     font-weight: 600;
   }
 }
-@media only screen and (min-width: 940px) and (max-width: 1024px){
+@media only screen and (min-width: 940px) and (max-width: 1024px) {
   .singlecard {
     min-width: 27%;
     height: auto;
@@ -532,7 +542,7 @@
     font-weight: 600;
   }
 }
-@media only screen and (min-width: 1140px) and (max-width: 1200px){
+@media only screen and (min-width: 1140px) and (max-width: 1200px) {
   .singlecard {
     min-width: 23%;
   }
@@ -549,15 +559,13 @@
     width: 100%;
     border-radius: 15px;
     height: auto;
-
-
   }
   .image_singlecard img {
     height: 30vh;
     width: 100%;
     border-radius: 15px;
   }
- 
+
   .name_singlecard {
     width: 100%;
   }
@@ -574,7 +582,7 @@
     font-weight: 500;
   }
   /* */
-  .offer_singlecard{
+  .offer_singlecard {
     margin: 0.2rem 0rem 0.2rem 0rem;
   }
   .offer_singlecard h4 {
@@ -589,14 +597,12 @@
   .price_singlecard p {
     font-size: 17px;
   }
-  .total_singlecard{
+  .total_singlecard {
     padding-top: 1rem;
   }
- 
 }
-@media only screen and (min-width: 1260px) and (max-width: 1530px){
+@media only screen and (min-width: 1260px) and (max-width: 1530px) {
   .singlecard {
     min-width: 21%;
   }
- 
 }
