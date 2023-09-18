@@ -4,11 +4,6 @@
   height: 70vh;
   margin-top: 1rem;
 }
-.banner_slider {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 .cashback_container {
   height: 70vh;
   width: 50%;
@@ -72,7 +67,10 @@
 @media (max-width: 768px) {
   .each-slide-effect {
     height: 30vh;
+    object-fit: cover;
   }
+ 
+
   .cashback_container {
     /* background-color: aqua; */
     width: 80%;
@@ -113,8 +111,9 @@
     padding: 0.6rem 0rem;
     margin-top: 0rem;
   }
-  .banner_slider {
-    background-size: contain;
+
+  .react-slideshow-container .default-nav {
+    display: none;
   }
   /* Hide the previous and next buttons */
   .react-slideshow-container .prev,
