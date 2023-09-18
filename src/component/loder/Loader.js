@@ -1,7 +1,10 @@
 import React from "react";
-import FadeLoader from "react-spinners/FadeLoader";
+import ClipLoader from "react-spinners/ClipLoader";
+import { useMediaQuery } from "react-responsive";
 
 const Loader = ({ loading, color }) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+
   const loaderStyle = {
     position: "fixed",
     top: "50%",
@@ -18,13 +21,23 @@ const Loader = ({ loading, color }) => {
 
   return (
     <div style={loading ? loaderStyle : {}}>
-      <FadeLoader
-        color="#C42118"
-        loading={loading}
-        size={150}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      {isMobile <= 768 ? (
+        <ClipLoader
+          color="#C42118"
+          loading={loading}
+          size={25}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <ClipLoader
+          color="#C42118"
+          loading={loading}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      )}
     </div>
   );
 };
