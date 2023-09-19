@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./mobilecategorie.css";
 import {
+  CountryDetail,
+  GetCountry,
   Show_Cart,
   getUserID,
   productCategorie,
@@ -23,25 +25,20 @@ const MobileCategorie = () => {
 
   const [cartProduct, setCartProduct] = useState([]);
   const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+
   // const [cartProduct, setCartProduct] = useState([]);
   const [cartPrice, setCartPrice] = useState([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
-    setLoad(true);
+    // setLoad(true);
     async function getData(res) {
       const newData = await productCategorie();
       setData(newData.data);
     }
     getData();
-    const timer = setTimeout(() => {
-      setLoad(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   const carthandleOpen = () => setCartOpen(true);
@@ -64,9 +61,36 @@ const MobileCategorie = () => {
     });
   };
 
-  //   useEffect(() => {
-  //     handle();
-  //   }, []);
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  // setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  // setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    // localContent();
+    showcart();
+  }, []);
 
   const handle = (id) => {
     setShowText(!showText);
@@ -196,7 +220,7 @@ const MobileCategorie = () => {
         cartopen={cartOpen}
         carthandleClose={carthandleClose}
         onclose={carthandleClose}
-        loginStatus={loginStatus}
+        loginStatus={true}
         cartProduct={cartProduct}
         // cartProductlength={cartProduct}
         totalAmount={cartPrice}
