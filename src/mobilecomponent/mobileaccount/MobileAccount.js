@@ -7,6 +7,7 @@ import Modal from "@mui/material/Modal";
 import {
   CountryDetail,
   GetCountry,
+  Show_Cart,
   getUserID,
   loginRegister,
   otpVerify,
@@ -32,6 +33,8 @@ const MobileAccount = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [cartOpen, setCartOpen] = useState("");
+  const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState("");
   // const [countryCode, setCountryCode] = useState("");
 
   useEffect(() => {
@@ -45,11 +48,8 @@ const MobileAccount = () => {
             ).then((res) => {
               if (res?.address?.country) {
                 CountryDetail(res?.address?.country).then((res) => {
-                  // setCountry(res[0]?.name);
                   // setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   // setCountryTitle(res[0]?.currencies[0]?.code);
-                  // setFlag(res[0]?.flags?.png);
-                  // setCountryCode(res[0]?.callingCodes[0]);
                 });
               }
             });
@@ -65,18 +65,29 @@ const MobileAccount = () => {
     localContent();
     userDetail();
     setLoad(true);
+    showcart();
   }, []);
 
-  // useEffect(() => {
-  //   localContent();
-  //   userDetail();
-  //   setLoad(false);
-  // }, []);
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    setCartPrice(res?.data?.totalAmount);
+    if (res.status == true) {
+      setCartProduct(res?.data?.cart);
+      setCartPrice(res?.data?.totalAmount);
+      localContent();
+    } else {
+      localContent();
+    }
+  };
 
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
-      setLoad(true)
+      setLoad(true);
       console.log(res.data);
       if (res.status == true) {
         setViewUser(res.data);
@@ -150,7 +161,6 @@ const MobileAccount = () => {
   };
 
   const carthandleClose = () => setCartOpen(false);
-
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
   return (
@@ -380,10 +390,10 @@ const MobileAccount = () => {
       <ModalCart
         // cartopen={cartopen}
         cartopen={cartOpen}
-        // carthandleClose={carthandleClose}
+        carthandleClose={carthandleClose}
         onclose={carthandleClose}
-        // loginStatus={loginStatus}
-        // cartProduct={cartProduct}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
         // // cartProductlength={cartProduct}
         // totalAmount={cartPrice}
         // modalcurrency={countrycurrency}
