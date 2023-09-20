@@ -12,7 +12,7 @@ const CashDelivery = ({ onClick }) => {
     window.scrollTo(0, 0);
 
     showcart();
-  }, []);
+  });
   const showcart = async () => {
     const userId = await getUserID();
     const data = {
@@ -46,7 +46,6 @@ const CashDelivery = ({ onClick }) => {
   };
   return (
     <div className="CashDelivery_container">
-     
       {/*cartProduct.map((option, index) => (
         <div className="cash_delivery_card">
           <div className="cash_delivery_image">
@@ -68,9 +67,15 @@ const CashDelivery = ({ onClick }) => {
           </div>
         </div>
       ))*/}
-      <button className="order_confirm_btn" onClick={onClick}>
-        Proceed
-      </button>
+      {cartProduct?.length >= 1 ? (
+        <button className="order_confirm_btn" onClick={onClick}>
+          Proceed
+        </button>
+      ) : (
+        <button className="order_confirm_btn disabled" disabled>
+          Proceed
+        </button>
+      )}
     </div>
   );
 };
