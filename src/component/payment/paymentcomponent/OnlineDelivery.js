@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Show_Cart, getUserID } from "../../../serverRequest/Index";
 
-const OnlineDelivery = ({ onClick,cartProduct, currency }) => {
-  // const [cartProduct, setCartProduct] = useState([]);
+const OnlineDelivery = ({ onClick, cartProduct, currency }) => {
+  const [cartProduct1, setCartProduct1] = useState([]);
 
   // const incre = () => {
   //   setCount(count + 1);
@@ -14,23 +14,26 @@ const OnlineDelivery = ({ onClick,cartProduct, currency }) => {
   //     setCount(0);
   //   }
   // };
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
 
-  //   showcart();
-  // }, []);
-  // const showcart = async () => {
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     console.log(res.data.totalAmount,"===============kwbgckgfiugesri========================================kugfigiu=");
-  //     setCartProduct(res.data.cart);
-  //   } else {
-  //   }
-  // };
+    showcart();
+  }, []);
+  const showcart = async () => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      console.log(
+        res.data.totalAmount,
+        "===============kwbgckgfiugesri========================================kugfigiu="
+      );
+      setCartProduct1(res.data.cart);
+    } else {
+    }
+  };
 
   // const calculateTotalBill = () => {
   //   const amount = cartProduct?.totalAmount;
@@ -82,9 +85,15 @@ const OnlineDelivery = ({ onClick,cartProduct, currency }) => {
           </div>
         </div>
       ))*/}
-      <button className="order_confirm_btn" onClick={onClick}>
-       Pay {currency} {cartProduct}
-      </button>
+      {cartProduct1?.length >= 1 ? (
+        <button className="order_confirm_btn" onClick={onClick}>
+          Pay {currency} {cartProduct}
+        </button>
+      ) : (
+        <button className="order_confirm_btn disabled">
+          Pay {currency} {cartProduct}
+        </button>
+      )}
     </div>
   );
 };
