@@ -5,7 +5,7 @@ import Steps from "../../customcomponent/steps/Steps";
 import CashDelivery from "./paymentcomponent/CashDelivery";
 import OnlineDelivery from "./paymentcomponent/OnlineDelivery";
 import CouponModal from "./paymentcomponent/couponmodal/CouponModal";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, json, useLocation } from "react-router-dom";
 import {
   Show_Cart,
   createOrder,
@@ -17,7 +17,6 @@ import {
   applyCoupon,
   getAllCoupon,
   updateTimeSlot,
-  viewProfile,
 } from "../../serverRequest/Index";
 import Account from "../accountsection/Account";
 import useRazorpay from "react-razorpay";
@@ -51,7 +50,7 @@ const Payment = () => {
   const [couponModal, setCouponModal] = React.useState(false);
   const [method, setMethod] = React.useState("cod");
   const [load, setLoad] = React.useState(false);
-  const [user, setUser] = useState([]);
+  const [userId, setUserId] = useState("");
   const [longitude, setLongitude] = useState(null);
 
   const [latitude, setLatitude] = useState(null);
@@ -73,26 +72,14 @@ const Payment = () => {
   const [couponLen, setCouponLen] = useState([]);
 
   useEffect(() => {
-    userDetail();
     async function getData() {
       const newData = await getAllCoupon();
       setCouponLen(newData.data);
     }
     getData();
   }, []);
-  const userDetail = async () => {
-    const UserId = await getUserID();
-    viewProfile(UserId).then((res) => {
-      console.log(res.data);
-      if (res.status == true) {
-        setUser(res.data);
-        setLoad(false);
-      } else {
-      }
-    });
-  };
 
-  console.log(user?.name, "coupon");
+  console.log(coupon, "coupon");
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -175,6 +162,18 @@ const Payment = () => {
     console.log(res);
   };
 
+  // const cancleOrderUser = async () => {
+  //   const userId = await getUserID();
+
+  //   const data = {
+  //     userId: userId,
+  //     orderId: res,
+  //     remark:response.error.description,
+  //   };
+  //   const res = await updateTimeSlot(data);
+  //   console.log(res);
+  // };
+
   const carthandleOpen = () => setCartOpen(true);
   const carthandleClose = () => setCartOpen(false);
 
@@ -195,7 +194,10 @@ const Payment = () => {
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
-          // console.log(res?.data, "-------------------------------");
+          console.log(
+            res?.data,
+            "------------iugfiyguigiyifiyfiy-------------------"
+          );
           handlePayment(res.data.data);
           setLoad(false);
           // updateSlot();
@@ -217,22 +219,23 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
-    console.log(params, "============");
+    console.log(params, "===12345678=========");
 
     const vat = (cartPrice * 5) / 100;
     const totalAmount = cartPrice + vat;
     const couponAmount = coupon === "" ? 0 : amount;
     const fAmount = totalAmount - couponAmount * 100;
+    console.log(fAmount, "fAmount");
     const options = {
       key: "rzp_live_55ZIuRP4gr00Pu",
       amount: params?.amount,
-      currency: countrytitle,
+      currency: "INR",
       name: "Luqmafresh Private Limited",
       description: "Luqmafresh Online",
-      image: "https://res.cloudinary.com/dgghwthdr/image/upload/v1694800122/krhfhi3ava2bybwjuc81.png",
-      order_id: params?.id,
+      image: "https://example.com/your_logo",
+      order_id: params.id,
       handler: function (response) {
-        console.log(response, "======Kishan 1======",options);
+        console.log(response,"098765432")
         if (response != "") {
           setLoad(true);
           const requestData = {
@@ -243,63 +246,58 @@ const Payment = () => {
           verifyPayment(requestData).then((res) => {
             if (res.status == true) {
               setLoad(false);
-              updateSlot();
-              if (isMobile) {
-                navigate("/mobileaccount");
-              } else {
-                navigate("/account");
-              }
+              navigate("/account");
+              // updateSlot();
             } else {
               setLoad(false);
               console.log("Payment Error");
             }
           });
         }
+        console.log(response,"zxcvbnm,")
       },
       prefill: {
-        name: user?.name,
-        email: user?.email,
-        contact: "",
+        name: "Gaurav Joshi",
+        email: "gauravjoshi@example.com",
+        contact: "9118146726",
       },
       notes: {
-        address: "",
+        address: "Kamta",
       },
       theme: {
         color: "#C42118",
       },
     };
+    console.log()
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
-      console.log(
-        params?.order_id,
-        response.error.description,
-        "================jgfgi========"
-      );
-      setLoad(false);
-      // alert(response.error.code);
-      // alert(response.error.description);
-      // alert(response.error.source);
-      // alert(response.error.step);
-      // alert(response.error.reason);
-      // alert(response.error.metadata.order_id);
-      // alert(response.error.metadata.payment_id);
+      const errorDiscription = JSON.parse(response?.error?.description);
+    console.log(errorDiscription, "dfghjkjhgfdfghjhgffghjkjhgffg");
+
+      cancleOrderUser(errorDiscription, params?.order_id);
+  
+      // Handle payment failure here
     });
+  
     rzp1.open();
   };
 
-  // const handlePost = async () => {
-  //   const userID = await getUserID();
+  const cancleOrderUser = async (description, id) => {
+    console.log(description, id, "12345678987654356789");
+    // const userId = await getUserID();
 
-  //   const data = {
-  //     userId: userID,
-  //     orderId: params.id,
-  //     remark: remark,
-  //   };
-  // };
+    // const data = {
+    //   userId: userId,
+    //   orderId: id,
+    //   remark: description,
+    // };
+    // const res = await updateTimeSlot(data);
+    // console.log(res);
+  };
 
-  useEffect(() => {
-    showcart();
-  }, []);
+  // useEffect(() => {
+  //   showcart();
+  // }, []);
 
   // const showcart = async () => {
   //   const userId = await getUserID();
@@ -470,7 +468,7 @@ const Payment = () => {
             {/* sidebar Container */}
             <div className="online_payment_sidebar">
               <div
-                className="cash_on_delivery"
+              className={`cash_on_delivery ${open1 === 0 ? 'activecolor' : ''}`}
                 onClick={() => {
                   setOpen1(0);
                   setMethod("cod");
@@ -480,8 +478,9 @@ const Payment = () => {
                 <p>Cash On Delivery</p>
               </div>
               <div
-                className="cash_on_delivery"
-                onClick={() => {
+              className={`cash_on_delivery ${open1 === 1 ? 'activecolor' : ''}`}
+
+                  onClick={() => {
                   setOpen1(1);
                   setMethod("online");
                 }}
