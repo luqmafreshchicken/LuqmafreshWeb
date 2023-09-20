@@ -11,6 +11,7 @@ import {
   getUserID,
   loginRegister,
   otpVerify,
+  removeFromCart,
   viewProfile,
 } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
@@ -36,6 +37,8 @@ const MobileAccount = () => {
   const [cartProduct, setCartProduct] = useState([]);
   const [cartPrice, setCartPrice] = useState("");
   // const [countryCode, setCountryCode] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -48,7 +51,7 @@ const MobileAccount = () => {
             ).then((res) => {
               if (res?.address?.country) {
                 CountryDetail(res?.address?.country).then((res) => {
-                  // setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   // setCountryTitle(res[0]?.currencies[0]?.code);
                 });
               }
@@ -81,6 +84,8 @@ const MobileAccount = () => {
       localContent();
     } else {
       localContent();
+      setLoad(false);
+
     }
   };
 
@@ -93,6 +98,8 @@ const MobileAccount = () => {
         setViewUser(res.data);
         setLoad(false);
       } else {
+        setLoad(false);
+
       }
     });
   };
@@ -159,6 +166,76 @@ const MobileAccount = () => {
       setLoad(false);
     });
   };
+    // remove cart
+    const removeCartProduct = async (id) => {
+      const userId = await getUserID();
+      const data = {
+        userId: userId,
+        productId: id,
+      };
+      removeFromCart(data).then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+          });
+          showcart();
+          // setCount(0);
+          // setShow(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      });
+    };
+    // end remove cart
+
+    // remove local cart
+    const removeLocalCart = (id) => {
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+      const cartData = cart?.filter((item) => item?.productId?._id !== id);
+      const product = cart?.find((item) => item?.productId?._id === id);
+      const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+      cart?.length >= 1 &&
+        localStorage.setItem(
+          "cartPrice",
+          JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+        );
+      cart?.length < 1 &&
+        localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+      localStorage.setItem("cart", JSON.stringify(cartData));
+      setCartProduct(removeProduct);
+      setCartPrice(
+        cartPrice?.price -
+          product?.productId?.price * product?.productId?.quantity
+      );
+      // setShowCartBtn(false);
+      // setCount(0);
+      // setShow(false);
+      toast.success("Product remove from cart", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+      localContent();
+    };
 
   const carthandleClose = () => setCartOpen(false);
   const viewhandleOpen = () => setProfile(true);
@@ -395,14 +472,14 @@ const MobileAccount = () => {
         loginStatus={loginStatus}
         cartProduct={cartProduct}
         // // cartProductlength={cartProduct}
-        // totalAmount={cartPrice}
-        // modalcurrency={countrycurrency}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
         // // totalAmount={totalAmount}
         // // modalcurrency={modalcurrency}
         // // removeProduct={removeProduct}
-        // removeProduct={(id) =>
-        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-        // }
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
         // handleCartLogin={handleCartLogin}
         // // handleHome={handleHome}
         // handleHome={() => handleHome()}
