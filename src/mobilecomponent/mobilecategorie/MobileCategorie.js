@@ -74,7 +74,7 @@ const MobileCategorie = () => {
                 CountryDetail(res?.address?.country).then((res) => {
                   // setCountry(res[0]?.name);
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
-                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  // setCountryTitle(res[0]?.currencies[0]?.code);
                   // setFlag(res[0]?.flags?.png);
                 });
               }
@@ -88,7 +88,7 @@ const MobileCategorie = () => {
     } else {
       console.error("Geolocation is not supported by your browser.");
     }
-    // localContent();
+    localContent();
     showcart();
   }, []);
 
@@ -141,6 +141,50 @@ const MobileCategorie = () => {
     });
   };
 
+  // remove local cart
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart?.length >= 1 &&
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      );
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
+    // setShowCartBtn(false);
+    // setCount(0);
+    // setShow(false);
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
+  };
+
+  const localContent = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  };
+
   return (
     <div className="mobile_categorie">
       {/* heading */}
@@ -184,27 +228,25 @@ const MobileCategorie = () => {
             </div>
             {item._id === id ? (
               <div className="mobile_subcategory">
-              {item?.subcategories?.length >= 1 ? (
-                <>
-                {item?.subcategories.map((item) => (
-                  <div className="mobile_subcategory_container">
-                    <div className="mobile_subcategory_para">
-                      
-                        <p onClick={() => categoryProduct(item._id)}>
-                          <NavLink
-                            to="/todaydeals"
-                            state={{ id: item._id }}
-                            className="nav_list"
-                          >
-                            {" "}
-                            {item.subcategoryName}
-                          </NavLink>
-                        </p>
-                      
-                    </div>
-                  </div>
-                ))}
-                </>
+                {item?.subcategories?.length >= 1 ? (
+                  <>
+                    {item?.subcategories.map((item) => (
+                      <div className="mobile_subcategory_container">
+                        <div className="mobile_subcategory_para">
+                          <p onClick={() => categoryProduct(item._id)}>
+                            <NavLink
+                              to="/todaydeals"
+                              state={{ id: item._id }}
+                              className="nav_list"
+                            >
+                              {" "}
+                              {item.subcategoryName}
+                            </NavLink>
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </>
                 ) : (
                   <p>Product not found</p>
                 )}
@@ -222,19 +264,18 @@ const MobileCategorie = () => {
         onclose={carthandleClose}
         loginStatus={true}
         cartProduct={cartProduct}
-        // cartProductlength={cartProduct}
+        // // cartProductlength={cartProduct}
         totalAmount={cartPrice}
         modalcurrency={countrycurrency}
         // totalAmount={totalAmount}
-        // modalcurrency={modalcurrency}
-        // removeProduct={removeProduct}
-        // removeProduct={(id) =>
-        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-        // }
+        // // modalcurrency={modalcurrency}
+        // // removeProduct={removeProduct}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
         // handleCartLogin={handleCartLogin}
-        // handleHome={handleHome}
+        // // handleHome={handleHome}
         // handleHome={() => handleHome()}
-        removeProduct={(id) => removeCartProduct(id)}
       />
       <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </div>
