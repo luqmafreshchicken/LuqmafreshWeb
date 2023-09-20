@@ -30,11 +30,16 @@
   /* border-right: 1px solid lightgrey; */
   cursor: pointer;
 }
+
 .cash_on_delivery {
   height: 8vh;
   width: 100%;
   border-bottom: 1px solid lightgrey;
   /* border-top: 1px solid lightgrey; */
+}
+.activecolor{
+  color: #ff0040;
+  border-bottom: 3px solid #ff0040;
 }
 .cash_on_delivery:hover {
   /* background-color: #fdf5f6; */
