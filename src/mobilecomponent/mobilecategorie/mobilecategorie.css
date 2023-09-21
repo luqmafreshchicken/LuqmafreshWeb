@@ -41,10 +41,12 @@
     height: 10vh;
     width: 15%;
     padding-top: 10px;
+
   }
   .mobile_categorie_image img {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
   }
   .mobile_categorie_name {
     height: 10vh;
