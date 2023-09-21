@@ -259,8 +259,8 @@ const MobileAccount = () => {
         <div className="mobile_login">
           <h5>Hey Meatlover</h5>
           <p>
-            Welcome to Luqmafresh. Manage your orders, address, LuqmaFresh
-            wallet & other details.{" "}
+            Welcome to Luqmafresh. Manage your orders, address
+             & other details.{" "}
           </p>
           <div style={{ display: "grid", placeItems: "center" }}>
             <div className="mobile_login_btn" onClick={handleOpen}>
@@ -291,8 +291,8 @@ const MobileAccount = () => {
                 <img src="address.png" />
               </div>
               <div className="reward_text">
-                <NavLink to="/addnewaddress" className="nav_list">
-                  <p>Blog</p>
+                <NavLink to="/whylicious" className="nav_list">
+                  <p>Why Luqmafresh?</p>
                 </NavLink>
               </div>
               <div className="reward_arrow">
