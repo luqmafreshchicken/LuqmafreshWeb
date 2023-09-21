@@ -86,7 +86,7 @@
 /*  shipmenet cancle */
 
 .shipmenet_cancle_address {
-  height: 7vh;
+  height: auto;
   width: 89%;
 }
 .shipmenet_cancle_address p {
@@ -385,7 +385,7 @@
   }
 
   .order_id_para p {
-    font-size: 9px;
+    font-size: 10px;
     line-height: 1;
   }
   .order_location img {
@@ -411,6 +411,7 @@
     font-size: 12px;
   }
   .shipmenet_cancle_address {
+    height: auto;
     width: 90%;
   }
   .shipmenet_cancle_address p {
