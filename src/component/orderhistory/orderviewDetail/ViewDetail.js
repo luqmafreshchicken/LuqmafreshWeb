@@ -392,7 +392,7 @@ const ViewDetail = () => {
               {/* **************** */}
 
               <div className="conform_order_button">
-                <div className="do_not_cancle">DO NOT CANCEL</div>
+                <div className="do_not_cancle" onClick={() => setOpen(false)}>DO NOT CANCEL</div>
 
                 <div className="do_not_cancle1" onClick={() => handleCancle()}>
                   CANCEL ORDER
