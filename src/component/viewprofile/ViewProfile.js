@@ -9,7 +9,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
   const [edit, setEdit] = useState(false);
   const [viewUser, setViewUser] = useState([]);
   // const [country, setCountry] = useState("");
-  // const [countrycurrency, setCountryCurrency] = useState("");
+  const [countryCode, setCountryCode] = useState("");
   // const [countrytitle, setCountryTitle] = useState("");
   const [flag, setFlag] = useState("");
   
@@ -27,9 +27,10 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
               if (res?.address?.country) {
                 CountryDetail(res?.address?.country).then((res) => {
                   // setCountry(res[0]?.name);
-                  // setCountryCode(res[0]?.countryCode[0].code)
+                  setCountryCode(res[0]?.callingCodes[0]);
+                  // setCountryCode()
                   // setCountryCurrency(res[0]?.currencies[0]?.symbol);
-                  // setCountryTitle(res[0]?.currencies[0]?.code);
+                  // setCountryCurrency(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
                 });
               }
@@ -109,7 +110,7 @@ const ViewProfile = ({ profile, viewhandleClose }) => {
             <div className="first_name">
               <span>
                 Mobile No <br />
-                <p> <img src={flag}/> +971 {viewUser?.mobile?.number}</p>
+                <p> <img src={flag}/> +{countryCode} {viewUser?.mobile?.number}</p>
               </span>
             </div>
             {/* email_id */}
