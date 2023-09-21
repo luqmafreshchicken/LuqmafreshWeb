@@ -12,6 +12,7 @@ import {
   loginRegister,
   otpVerify,
   removeFromCart,
+  resendOTP,
   viewProfile,
 } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
@@ -117,16 +118,61 @@ const MobileAccount = () => {
     await localStorage.clear();
     localContent();
   };
+
   const handleLogin = () => {
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
     const requestData = { email: mobileNumber };
     setLoad(true);
     loginRegister(requestData).then((res) => {
-      setLoad(false);
-      setShowInput(!showInput);
-      setShowbtn(true);
+      if (res.status === true) {
+        toast.success(res?.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+        setShowInput(!showInput);
+        setShowbtn(true);
+      } else {
+        toast.error(res?.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      }
+     
     });
   };
+
   const handleMobileNumber = (e) => {
+    
     setMobileNumber(e.target.value);
     if (e.target.value.length <= 40) {
       setBtn(false);
@@ -141,7 +187,7 @@ const MobileAccount = () => {
       if (res.status == true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -155,7 +201,7 @@ const MobileAccount = () => {
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -235,6 +281,56 @@ const MobileAccount = () => {
         progress: undefined,
       });
       localContent();
+    };
+    const handleResendOTP = () => {
+      // email validation
+      if (mobileNumber === "") {
+        toast.error("Please enter email", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+        });
+        return false;
+      } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+        toast.error("Please enter valid email address", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          draggable: true,
+        });
+        return false;
+      }
+      setLoad(true);
+      const requestData = { email: mobileNumber };
+      resendOTP(requestData).then((res) => {
+        if (res.status === true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+  
+          setLoad(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
+      });
     };
 
   const carthandleClose = () => setCartOpen(false);
@@ -406,7 +502,6 @@ const MobileAccount = () => {
                   onChange={handleMobileNumber}
                   // maxLength="10"
                 />
-                <p>edit</p>
               </div>
             </div>
             {showbtn == true ? (
@@ -417,7 +512,7 @@ const MobileAccount = () => {
                     placeholder="Enter OTP"
                     onChange={(e) => setOtp(e.target.value)}
                   />
-                  <p>ResendOTP</p>
+                  <p onClick={() => handleResendOTP()}>ResendOTP</p>
                 </div>
               </div>
             ) : null}
