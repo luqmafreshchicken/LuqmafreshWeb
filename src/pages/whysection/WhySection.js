@@ -388,7 +388,7 @@ export default function WhySection() {
   return (
     <div>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
-
+     <div className="mobile_header">
       <Header
         code={countrytitle}
         currency={countrycurrency}
@@ -422,6 +422,7 @@ export default function WhySection() {
         handleCartLogin={() => handleCartLogin()}
         handleHome={() => handleHome()}
       />
+      </div>
       <div className="why_section_heading">
         <h3>Why Luqmafresh</h3>
       </div>
@@ -463,7 +464,7 @@ export default function WhySection() {
 
         {/* section2 */}
 
-        <div className="why_section_content">
+        <div className="why_section_content reverse" >
           <div className="why_section_image">
             <img src="whyImage2.png" />
           </div>
@@ -517,7 +518,7 @@ export default function WhySection() {
         {/* end section3 */}
         {/* section4 */}
 
-        <div className="why_section_content">
+        <div className="why_section_content reverse">
           <div className="why_section_image">
             <img src="whyImage2.png" />
           </div>
