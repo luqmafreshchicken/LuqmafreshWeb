@@ -3,15 +3,19 @@ import "./orderhistory.css";
 import { getOrderByUserId, getUserID } from "../../serverRequest/Index";
 import * as moment from "moment";
 import { NavLink } from "react-router-dom";
+import Loader from "../loder/Loader";
 
 const Orderhistory = ({ id, countyCurrency }) => {
   const [getData, setGetData] = useState([]);
+  const [load, setLoad] = useState([]);
 
   useEffect(() => {
     getOrder();
   }, []);
 
   const getOrder = async () => {
+    setLoad(true);
+
     const id = await getUserID();
     const requestData = {
       userId: id,
@@ -19,7 +23,9 @@ const Orderhistory = ({ id, countyCurrency }) => {
     getOrderByUserId(requestData).then((res) => {
       if (res.status == true) {
         setGetData(res.data);
+        setLoad(false);
       } else {
+        setLoad(false);
       }
     });
   };
@@ -100,12 +106,14 @@ const Orderhistory = ({ id, countyCurrency }) => {
         </>
       ) : (
         <div className="order_not_found">
-        <div className="order_not">
-        <img src="empty.png"/>
-         <h5>No orders found</h5>
-        </div>
+          <div className="order_not">
+            <img src="empty.png" />
+            <h5>No orders found</h5>
+          </div>
         </div>
       )}
+      <Loader loading={load} />
+
     </div>
   );
 };
