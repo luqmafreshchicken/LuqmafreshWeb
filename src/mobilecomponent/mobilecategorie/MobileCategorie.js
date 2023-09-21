@@ -25,7 +25,6 @@ const MobileCategorie = () => {
 
   const [cartProduct, setCartProduct] = useState([]);
   const [countrycurrency, setCountryCurrency] = useState("");
-  const [countrytitle, setCountryTitle] = useState("");
 
   // const [cartProduct, setCartProduct] = useState([]);
   const [cartPrice, setCartPrice] = useState([]);
@@ -33,10 +32,15 @@ const MobileCategorie = () => {
   const [loginStatus, setLoginStatus] = useState(false);
 
   useEffect(() => {
-    // setLoad(true);
+    setLoad(true);
     async function getData(res) {
       const newData = await productCategorie();
-      setData(newData.data);
+      if (newData.status == true) {
+        setData(newData.data);
+        setLoad(false);
+      } else {
+        setLoad(false);
+      }
     }
     getData();
   }, []);
