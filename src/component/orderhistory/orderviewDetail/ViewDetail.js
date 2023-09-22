@@ -8,6 +8,7 @@ import {
   cancleOrder,
   getOrderById,
   getUserID,
+  sendRating,
 } from "../../../serverRequest/Index";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -16,6 +17,7 @@ import Loader from "../../loder/Loader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TopHeader from "../../topheader/TopHeader";
+import SendRating from "../sendrating/SendRating";
 
 const ViewDetail = () => {
   let navigate = useNavigate();
@@ -37,28 +39,65 @@ const ViewDetail = () => {
   const [load, setLoad] = useState(false);
   const [cancelStatus, setCancelStatus] = useState("");
   const [orderStatus, setOrderStatus] = useState(false);
+  const [rating, setRating] = useState(false);
+  const [ratingShow, setRatingShow] = useState(0);
+  const [ratingMess, setRatingMess] = useState("");
+  const [proID, setProID] = useState("");
+
   let location = useLocation();
   const id = location.state.orderId;
 
   useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
     orderDetails();
   }, []);
+
   const orderDetails = async (id) => {
     setLoad(true);
     const requestData = {
       id: location?.state?.orderId,
     };
     getOrderById(requestData).then((res) => {
+      // console.log(res, "===========jhvjfiviv=================");
+
       if (res.status == true) {
-        console.log(res.data, "==============================");
         setCancelStatus(res?.data?.orders[0]?.orderStatus);
         setUser(res?.data?.user[0]);
-
         setData(res?.data?.orders[0]?.productId);
+        // console.log(
+        //   res?.data?.orders[0]?.productId[0]?.id,
+        //   "===========jhvjfiviv================="
+        // );
+
         setOrder(res?.data?.orders[0]);
-        // console.log(res?.data?.orders[0].subtotal);
         setAddress(res?.data?.address[0]);
         setorderId(res?.data?.orders[0]?.orderId);
+        setProID(res?.data?.orders[0]?.productId[0]?.id);
         setLoad(false);
       } else {
         setLoad(false);
@@ -73,11 +112,11 @@ const ViewDetail = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const calculateTotalBill = () => {
-    const subtotal = order.subtotal;
-    const vat = (order.subtotal * 5) / 100;
-    return subtotal + vat;
-  };
+  // const calculateTotalBill = () => {
+  //   const subtotal = order.subtotal;
+  //   const vat = (order.subtotal * 5) / 100;
+  //   return subtotal + vat;
+  // };
   const handleCancle = async () => {
     setLoad(true);
     const id = await getUserID();
@@ -136,37 +175,56 @@ const ViewDetail = () => {
       window.location.reload();
     }
   };
+  const handleSubmit = () => {
+    const requestData = {
+      productId: proID,
+    };
+    sendRating(requestData).then((res) => {
+      if (ratingShow == "") {
+        toast.error("please select rating", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          if (position?.coords?.latitude) {
-            GetCountry(
-              position?.coords?.latitude,
-              position?.coords?.longitude
-            ).then((res) => {
-              if (res?.address?.country) {
-                CountryDetail(res?.address?.country).then((res) => {
-                  setCountry(res[0]?.name);
-                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
-                  setCountryTitle(res[0]?.currencies[0]?.code);
-                  setFlag(res[0]?.flags?.png);
-                });
-              }
-            });
-          }
-        },
-        (error) => {
-          console.error("Error retrieving location:", error);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by your browser.");
-    }
-    // localContent();
-    // showcart();
-  }, []);
+        return false;
+      }
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setLoad(false);
+      }
+    });
+  };
+
+  const handleOpenRating = () => {
+    setRating(true);
+  };
+  const handleRating = () => {
+    setRating(false);
+  };
   return (
     <>
       <TopHeader handleclear={() => handleclear(4)} />
@@ -277,7 +335,7 @@ const ViewDetail = () => {
                 </p>
               </div>
               <div className="bill_detail_price">
-                <p style={{color:"lightgray"}}>VAT 5% (Included)</p>
+                <p style={{ color: "lightgray" }}>VAT 5% (Included)</p>
                 <p>
                   {countrycurrency} {(order.subtotal * 5) / 100}
                 </p>
@@ -285,7 +343,7 @@ const ViewDetail = () => {
               <div className="bill_detail_total">
                 <p>Total</p>
                 <p>
-                  {countrycurrency}  {order.subtotal}
+                  {countrycurrency} {order.subtotal}
                 </p>
               </div>
             </div>
@@ -297,7 +355,12 @@ const ViewDetail = () => {
             <>
               <div className="bill_detail_container">
                 <div className="bill_detail_button">
-                  <div className="bill_detail_button1">Rating</div>
+                  <div
+                    className="bill_detail_button1"
+                    onClick={() => handleOpenRating()}
+                  >
+                    Rating
+                  </div>
                   <div className="bill_detail_button2" onClick={handleOpen}>
                     Order cancel
                   </div>
@@ -392,7 +455,9 @@ const ViewDetail = () => {
               {/* **************** */}
 
               <div className="conform_order_button">
-                <div className="do_not_cancle" onClick={() => setOpen(false)}>DO NOT CANCEL</div>
+                <div className="do_not_cancle" onClick={() => setOpen(false)}>
+                  DO NOT CANCEL
+                </div>
 
                 <div className="do_not_cancle1" onClick={() => handleCancle()}>
                   CANCEL ORDER
@@ -405,6 +470,15 @@ const ViewDetail = () => {
         </Modal>
         <Loader loading={load} />
       </div>
+      <SendRating
+        open={rating}
+        handleClose={() => handleRating()}
+        ratingShow={ratingShow}
+        onchange1={(e) => setRatingShow(e.target.value)}
+        value={ratingMess}
+        onchange={(e) => setRatingMess(e.target.value)}
+        onclick={() => handleSubmit()}
+      />
     </>
   );
 };
