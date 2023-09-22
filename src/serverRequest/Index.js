@@ -438,3 +438,21 @@ export const updateTimeSlot  = async (requestData) => {
   );
   return response.data;
 };
+
+// /* cancle order API */
+export const cancleByUser = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}order/paymentCancelByUser`,
+    requestData
+  );
+  return response.data;
+};
+
+// order/paymentCancelByUser
+export const sendRating = async (requestData) => {
+  const response = await axios.post(
+    `${API_BASE_URL}rating/getRating`,
+    requestData
+  );
+  return response.data;
+};
