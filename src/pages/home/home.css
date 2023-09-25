@@ -137,6 +137,9 @@
   .todaydeals_content p {
     font-size: 13px;
   }
+  .next_prev_btn_content{
+    display: none;
+  }
 
 }
 
@@ -147,6 +150,9 @@
     width: 93%;
     display: grid;
     grid-template-columns: auto auto auto auto;
+  }
+  .next_prev_btn_content{
+    display: none;
   }
 }
 
