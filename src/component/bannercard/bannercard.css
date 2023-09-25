@@ -1,11 +1,12 @@
 .each-slide-effect > div {
   background-size: cover;
   width: 100%;
-  height: 70vh;
+  height: auto;
   margin-top: 1rem;
+  padding: 3rem 0rem;
 }
 .cashback_container {
-  height: 70vh;
+  height: auto;
   width: 50%;
   display: grid;
   place-items: center;
@@ -64,20 +65,19 @@
   margin-top: 1rem;
 }
 
-@media (max-width: 768px) {
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for desktops and large screens */
   .each-slide-effect {
-    height: 30vh;
+    height: auto;
     object-fit: cover;
+    padding: 0rem 0rem;
   }
- 
-
   .cashback_container {
-    /* background-color: aqua; */
     width: 80%;
-    height: 30vh;
+    height: auto;
   }
   .cashback_content {
-    /* background-color: #f1c40f; */
     height: auto;
     width: 90%;
   }
@@ -118,6 +118,157 @@
   /* Hide the previous and next buttons */
   .react-slideshow-container .prev,
   .react-slideshow-container .next {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 600px) {
+  .each-slide-effect {
+    height: auto;
+    object-fit: cover;
+    padding: 0rem 0rem;
+  }
+  .cashback_container {
+    width: 80%;
+    height: auto;
+  }
+  .cashback_container h1 {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 0.8;
+  }
+  .cashback_container h2 {
+    font-size: 1.3rem;
+    padding-top: 0rem;
+    line-height: 1.2;
+  }
+  .cashback_container h5 {
+    padding-top: 0px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    /* color: red; */
+  }
+  .ban_discription {
+    width: 80%;
+  }
+  .cashback_container h6 {
+    color: white;
+    padding-top: 0rem;
+    line-height: 1.6;
+    font-family: regular;
+    font-size: 0.7rem;
+  }
+  .cashback_container button {
+    width: 35%;
+    border-radius: 5px;
+    background-color: #c12118;
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.6rem 0rem;
+    margin-top: 0rem;
+  }
+  .react-slideshow-container .default-nav {
+    display: none;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .each-slide-effect {
+    height: auto;
+    object-fit: cover;
+    padding: 0rem 0rem;
+  }
+  .cashback_container {
+    width: 70%;
+    height: auto;
+    padding: 1rem 0rem;
+  }
+  .cashback_container h1 {
+    color: white;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .cashback_container h2 {
+    font-size: 1.9rem;
+    padding-top: 0rem;
+    line-height: 1.2;
+  }
+  .cashback_container h5 {
+    padding-top: 0px;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    /* color: red; */
+  }
+  .ban_discription {
+    width: 80%;
+  }
+  .cashback_container h6 {
+    color: white;
+    padding-top: 0rem;
+    line-height: 1.6;
+    font-family: regular;
+    font-size: 0.7rem;
+  }
+  .cashback_container button {
+    width: 35%;
+    border-radius: 5px;
+    background-color: #c12118;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.6rem 0rem;
+    margin-top: 1rem;
+  }
+  .react-slideshow-container .default-nav {
+    display: none;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  .each-slide-effect > div{
+    height: auto;
+    object-fit: cover;
+    padding: 1rem 0rem;
+    margin-top: 1rem;
+  }
+  .cashback_container {
+    width: 80%;
+    height: auto;
+    padding: 2rem 0rem;
+  }
+  .cashback_container h1 {
+    color: white;
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .cashback_container h2 {
+    font-size: 2rem;
+    padding-top: 0rem;
+    line-height: 1.2;
+  }
+  .cashback_container h5 {
+    padding-top: 0px;
+    font-size: 1rem;
+    line-height: 1.2;
+    /* color: red; */
+  }
+  .ban_discription {
+    width: 60%;
+  }
+  .cashback_container h6 {
+    color: white;
+    padding-top: 0rem;
+    line-height: 1.8;
+    font-family: regular;
+    font-size: 0.7rem;
+  }
+  .cashback_container button {
+    width: 35%;
+    border-radius: 5px;
+    background-color: #c12118;
+    color: white;
+    font-size: 0.9rem;
+    padding: 0.6rem 0rem;
+    margin-top: 0rem;
+  }
+  .react-slideshow-container .default-nav {
     display: none;
   }
 }
