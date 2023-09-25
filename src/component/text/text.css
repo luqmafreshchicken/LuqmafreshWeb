@@ -1,7 +1,6 @@
- .head_text {
+.head_text {
   width: 90%;
   padding-top: 1.6rem;
-
 }
 .head_text h5 {
   font-family: semibold;
@@ -45,8 +44,8 @@
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .head_text_container {
-    height: 15vh;
-    padding-top: 28px;
+    height: 10vh;
+    padding-top: 10px;
     padding-left: 0px;
   }
 
