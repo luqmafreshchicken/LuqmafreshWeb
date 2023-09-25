@@ -57,10 +57,11 @@
   .cardswrapper {
     width: 91%;
     gap: 0px;
-    height: 65vh;
+    height: auto;
+    padding: 2rem 0rem;
   }
   .carouselitem {
-    height: 65vh;
+    height: auto;
   }
 }
 
@@ -68,11 +69,11 @@
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
   .carouselitem {
-    height: 65vh;
+    height: auto;
   }
   .cardswrapper {
     width: 92%;
-    height: 65vh;
+    height: auto;
   }
 }
 
