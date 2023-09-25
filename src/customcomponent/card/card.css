@@ -261,24 +261,21 @@
     font-size: 12px;
   }
 }
-@media only screen and (min-width: 400px) and (max-width: 480px) {
-  .singlecard {
-    min-width: 55%;
-  }
-}
+
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .singlecard {
-    min-width: 47%;
+    width: 100%;
     height: auto;
     margin-right: 1.4rem;
+    /* background-color: orange; */
   }
   .image_singlecard {
-    width: 100%;
+    width: 93%;
   }
   .image_singlecard img {
-    height: 150px;
+    height: 220px;
     width: 100%;
     border-radius: 15px;
   }
@@ -304,6 +301,9 @@
     padding-top: 20px;
     font-size: 27px;
   }
+  .icons_img{
+    width: 1%;
+  }
   .offer_singlecard {
     height: 8vh;
   }
@@ -317,33 +317,13 @@
   .ammount_singlecard p {
     font-size: 14px;
   }
-  .total_singlecard button {
+  .shop_now_btn {
     width: 30%;
-    height: 5vh;
-    margin-top: 10px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
+    
   }
 }
 
-@media only screen and (min-width: 570px) and (max-width: 768px) {
-  .singlecard {
-    min-width: 44%;
-  }
-}
-@media only screen and (min-width: 660px) and (max-width: 768px) {
-  .singlecard {
-    min-width: 40%;
-  }
-}
-@media only screen and (min-width: 700px) and (max-width: 768px) {
-  .singlecard {
-    min-width: 38%;
-  }
-}
+
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
