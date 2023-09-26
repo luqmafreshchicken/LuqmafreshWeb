@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
-import ModalCart from "../../pages/modalcart/ModalCart";
-import Options from "../dropdownvalue/Dropdownvalue";
 import { NavLink } from "react-router-dom";
 import { currentLocation } from "../../serverRequest/Index";
 import Box from "@mui/material/Box";
@@ -10,6 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assest/Image/MAIN LOGO.png"
+import Search from "../../assest/Image/search.png"
+import Location from "../../assest/Image/pin.png"
+import User from "../../assest/Image/user.png"
+import Profile from "../../assest/Image/user1.png"
+import cart from "../../assest/Image/grocery-store.png"
 
 const Header = ({
   onchange,
@@ -128,7 +132,7 @@ const Header = ({
               value={value}
               type="text"
             />
-            <img src="search.png" height="17px" width="17px" />
+            <img src={Search} height="17px" width="17px" />
           </div>
         </NavLink>
       </div>
@@ -138,13 +142,13 @@ const Header = ({
           <nav className="main_nav">
             <NavLink to="/">
               <div className="luqma_logo">
-                <img src="MAIN LOGO.png" />
+                <img src={Logo} />
               </div>
             </NavLink>
 
             <div className="luqma_location">
               <div className="luqma_location_top">
-                <img src="pin.png" />
+                <img src={Location} />
                 <p>Your Loction</p>
               </div>
 
@@ -162,7 +166,7 @@ const Header = ({
                   onChange={onchange}
                   value={value}
                 />
-                <img src="search.png" height="20px" width="20px" />
+                <img src={Search} height="20px" width="20px" />
               </NavLink>
             </div>
 
@@ -182,7 +186,7 @@ const Header = ({
                   <NavLink className="nav_list">
                     <li>
                       <div className="currency_container" onClick={handleOpen}>
-                        <img src="user.png" />
+                        <img src={User} />
                         <p>Login</p>
                       </div>
                     </li>
@@ -205,7 +209,7 @@ const Header = ({
                           }}
                           to="/account"
                         >
-                          <img src="user1.png" height="17px" width="17px" />
+                          <img src={Profile} height="17px" width="17px" />
                           <span
                             style={{
                               fontSize: "13px",
@@ -228,7 +232,7 @@ const Header = ({
                       onClick={carthandleOpen}
                     >
                       <div className="cart_border_content1">
-                        <img src="grocery-store.png" />
+                        <img src={cart} />
                       </div>
                       <div className="cart_border_content2">
                         <p>
