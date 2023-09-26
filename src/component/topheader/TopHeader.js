@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "./topheader.css";
+import Location from "../../assest/Image/pin.png"
+import Phone from "../../assest/Image/smartphone.png"
 
 import {
   FaYoutube,
@@ -17,7 +19,7 @@ const TopHeader = ({ handleclear, loginStatus }) => {
         {/* left side */}
         <div className="topheader_location">
           <div className="top_location">
-            <img src="pin.png" />
+            <img src={Location} />
             <p>
               <span>Our Shop Location</span>
               <br /> Lawnz Block 3, Al Warsan First, UAE
@@ -25,7 +27,7 @@ const TopHeader = ({ handleclear, loginStatus }) => {
           </div>
 
           <div className="toplemail_mob">
-            <img src="smartphone.png" />
+            <img src={Phone} />
             <p>
               <b> Customer Care : +971</b>
             </p>
