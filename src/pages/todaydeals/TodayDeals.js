@@ -831,7 +831,7 @@ const TodayDeals = () => {
                       img={item?.image}
                       rating={item?.rating}
                       id={{ id: item?._id }}
-                      to="/carddetail"
+                      to={`/carddetail/${item._id}`}
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
@@ -865,7 +865,7 @@ const TodayDeals = () => {
                       img={item?.image}
                       rating={item?.rating}
                       id={{ id: item._id }}
-                      to="/carddetail"
+                      to={`/carddetail/${item._id}`}
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
