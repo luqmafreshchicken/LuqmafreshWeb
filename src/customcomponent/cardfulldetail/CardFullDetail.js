@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./cardfulldetail.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import {
   productDeatail,
@@ -24,25 +24,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Pagination, Autoplay } from "swiper";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 import ImagesCard from "../imagescard/ImagesCard";
-import Text from "../../component/text/Text";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import * as moment from "moment";
-import { Navigation, Parallax } from "swiper";
-import Card from "../card/Card";
+
 import CustomAddToCartButton from "../../component/AddToCart";
 import TopHeader from "../../component/topheader/TopHeader";
 import ModalCart from "../../pages/modalcart/ModalCart";
 import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
-
-export default function CardFullDetail({ id }) {
+import Weight from "../../assest/Image/usp8.png"
+export default function CardFullDetail() {
   let navigate = useNavigate();
   const location = useLocation();
+  let { id } = useParams();
+
   const productId = location.state;
 
   const [data, setData] = useState([]);
@@ -103,7 +99,6 @@ export default function CardFullDetail({ id }) {
   const fullView = async () => {
     showcart();
     setLoad(true);
-    const id = location?.state?.id?.id;
     findProductCount(id);
     const requestData = {
       productId: id,
@@ -146,7 +141,6 @@ export default function CardFullDetail({ id }) {
   };
 
   const all_Image = async () => {
-    const id = location.state.id.id;
     getAllProductImage(id).then((res) => {
       if (res.status == true) {
         setAllImage(res.data);
@@ -470,7 +464,6 @@ export default function CardFullDetail({ id }) {
         updatedCart?.map((item) => {
           total = total + item?.productId?.price * item?.productId?.quantity;
         });
-        console.log(total, "==================update count product");
         localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
@@ -699,8 +692,7 @@ export default function CardFullDetail({ id }) {
     const cart = JSON.parse(localStorage.getItem("cart"));
     const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
     const product = cart?.find((item) => item?.productId?._id === id);
-    console.log(product);
-    console.log(cartPrice);
+
     if (quantity < product?.productId?.quantity) {
       const updateQuantity = cart?.map((item) => {
         if (item?.productId?._id === id) {
@@ -869,7 +861,7 @@ export default function CardFullDetail({ id }) {
                   }}
                 >
                   <div className="image_text_content3">
-                    <img src="usp8.png" />
+                    <img src={Weight} />
                     <span>
                       Net wt.{product.quantity}
                       {product.unit}
