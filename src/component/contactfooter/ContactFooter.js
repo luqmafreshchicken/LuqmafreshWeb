@@ -11,6 +11,11 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import Android from "../../customcomponent/androidmodal/Android";
+import Ard from "../../assest/Image/App2.png"
+import IOS from "../../assest/Image/App3.png"
+import Payment from "../../assest/Image/payment1.png"
+
+
 
 export default function ContactFooter() {
   const [androidopen, setAndroidopen] = React.useState(false);
@@ -34,8 +39,8 @@ export default function ContactFooter() {
             }}
             className="store_img"
           >
-            <img src="App2.png" onClick={handleAndroid} />
-            <img src="App3.png" onClick={handleiOs} />
+            <img src={Ard} onClick={handleAndroid} />
+            <img src={IOS} onClick={handleiOs} />
           </div>
           <p
             style={{
@@ -121,7 +126,7 @@ export default function ContactFooter() {
           <p>House of Luqmafresh, UAE</p>
           <p>Dubai.</p>
           <h5>PAYMENT OPTIONS</h5>
-          <img src="payment1.png" />
+          <img src={Payment} />
           <h6>HAVE ANY CONCERN?</h6>
 
           <p>mail : info@luqmafresh.com</p>
