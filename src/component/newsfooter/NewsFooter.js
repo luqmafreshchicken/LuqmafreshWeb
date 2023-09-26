@@ -3,6 +3,9 @@ import "./newsfooter.css";
 import { emailRegister } from "../../serverRequest/Index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import EmailImg from "../../assest/Image/email (1).png"
+import Whatsapp from "../../assest/Image/whatsapp.png"
+
 
 const NewsFooter = () => {
   const [email, setEmail] = useState("");
@@ -64,7 +67,7 @@ const NewsFooter = () => {
       <div className="submain_newsfooter">
         {/* first card */}
         <div className="newsletter">
-          <img src="email (1).png" />
+          <img src={EmailImg} />
           <div style={{ paddingRight: "40px", height: "6vh", lineHeight: 1 }}>
             <h5>Sign up to Newsletter</h5>
             <p>and receive ₹20 Coupon for first shopping</p>
@@ -87,7 +90,7 @@ const NewsFooter = () => {
         {/* third card */}
 
         <div className="whatsapp">
-          <img src="whatsapp.png" />
+          <img src={Whatsapp} />
           <div
             style={{
               height: "5vh",
