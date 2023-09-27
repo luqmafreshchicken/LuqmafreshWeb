@@ -451,7 +451,6 @@ const Home = () => {
         updatedCart?.map((item) => {
           total = total + item?.productId?.price * item?.productId?.quantity;
         });
-        console.log(total, "==================update count product");
         localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
@@ -463,15 +462,6 @@ const Home = () => {
           draggable: true,
           progress: undefined,
         });
-        // let total = 0;
-        // const updatedCart = JSON.parse(localStorage.getItem("cart"));
-        // updatedCart?.map((item) => {
-        //   total = total + item?.productId?.price * item?.quantity;
-        // });
-        // console.log(total, "==================update count product")
-        // localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
-        // console.log(total, "==================update count product")
-        // setCartPrice(total);
 
         localContent();
       } else {
@@ -1015,7 +1005,7 @@ const Home = () => {
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
                           // to="/carddetail"
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1056,7 +1046,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1210,7 +1200,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1251,7 +1241,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1405,7 +1395,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1446,7 +1436,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1600,7 +1590,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1641,7 +1631,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1792,7 +1782,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1830,7 +1820,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -2209,7 +2199,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -2247,7 +2237,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail._id}`}
+                          to={`/carddetail/${detail?.name}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
