@@ -101,7 +101,7 @@ export default function CardFullDetail() {
     setLoad(true);
     findProductCount(id);
     const requestData = {
-      productId: id,
+      name: id,
     };
     productDeatail(requestData).then((res) => {
       if (res?.status == true) {
