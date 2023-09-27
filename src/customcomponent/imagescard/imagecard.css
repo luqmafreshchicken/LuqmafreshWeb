@@ -37,7 +37,7 @@
 }
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .mainimagecard {
     height: auto;
@@ -80,17 +80,18 @@
     grid-template-columns: auto auto auto;
     gap: 10px;
     margin-bottom: 20px;
+    padding-bottom: 4rem;
   }
   .imagecard1 {
     width: 100%;
   }
   .imagecard1 {
     width: 100%;
-    height: 30vh;
+    height: auto;
   }
   .imagecard1 img {
-    height: 90px;
-    width: 110px;
+    height: 70px;
+    width: 90px;
   }
   .imagecard1 p {
     font-size: 0.7rem;
@@ -107,14 +108,13 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     gap: 10px;
-    margin-bottom: 20px;
+    padding-bottom: 5rem;
   }
+ 
   .imagecard1 {
     width: 100%;
-  }
-  .imagecard1 {
-    width: 100%;
-    height: 30vh;
+    height: auto;
+    padding-bottom: 5rem;
   }
   .imagecard1 img {
     height: 70px;
