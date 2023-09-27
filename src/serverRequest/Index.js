@@ -192,7 +192,7 @@ export const comBos = async (requestData) => {
 
 export const productDeatail = async (requestData) => {
   const response = await axios.post(
-    `${API_BASE_URL}product/ProductFullDetails`,
+    `${API_BASE_URL}product/ProductFullDetailsByname`,
     requestData
   );
   return response.data;
