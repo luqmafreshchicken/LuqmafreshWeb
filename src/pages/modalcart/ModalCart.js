@@ -3,12 +3,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import "./modalcart.css";
 import { NavLink } from "react-router-dom";
-import {
-  getUserID,
-  removeFromCart,
-  newArrival,
-  Show_Cart,
-} from "../../serverRequest/Index";
+import { newArrival } from "../../serverRequest/Index";
 
 const ModalCart = ({
   cartopen,
@@ -32,7 +27,6 @@ const ModalCart = ({
     }
     getData();
   }, []);
-  console.log("data", cartProduct);
 
   return (
     <div>
@@ -77,9 +71,6 @@ const ModalCart = ({
                         </div>
                         <div className="peices_content">
                           <div className="peices_price">
-                            {/* <div className="border_peices">
-                              <p>{option.productId.quantity}gms</p>
-                            </div> */}
                             <div className="color_count">
                               <p>
                                 {modalcurrency}
@@ -115,7 +106,10 @@ const ModalCart = ({
                           {totalAmount}
                         </p>
                       </div>
-                      <div className="subbill_Detail" style={{color:"lightgray"}}>
+                      <div
+                        className="subbill_Detail"
+                        style={{ color: "lightgray" }}
+                      >
                         <p style={{ paddingLeft: "15px", paddingTop: "15px" }}>
                           VAT (Include) 5% :
                         </p>
@@ -143,10 +137,6 @@ const ModalCart = ({
                           Total Amount {modalcurrency} :
                         </p>
                         <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                          {/* {modalcurrency}
-                        {totalAmount > 200
-                          ? totalAmount + (totalAmount * 5) / 100
-                          : totalAmount + 50 + (totalAmount * 5) / 100} */}
                           {totalAmount}
                         </p>
                       </div>
@@ -160,8 +150,7 @@ const ModalCart = ({
                           {totalAmount > 200
                             ? totalAmount + (totalAmount * 5) / 100
                             : totalAmount + 50 + (totalAmount * 5) / 100} */}
-                            {modalcurrency}{" "}
-                            {totalAmount}
+                            {modalcurrency} {totalAmount}
                           </p>
                         </div>
                         <div className="proceed_btn" onClick={onclick}>
@@ -223,9 +212,6 @@ const ModalCart = ({
                         </div>
                         <div className="peices_content">
                           <div className="peices_price">
-                            {/* <div className="border_peices">
-                          <p>{option.productId.quantity}gms</p>
-                        </div> */}
                             <div className="color_count">
                               <p>
                                 {" "}
@@ -296,11 +282,7 @@ const ModalCart = ({
                           Total Amount {modalcurrency} :
                         </p>
                         <p style={{ paddingTop: "10px", color: "#FF0040" }}>
-                          {/* {modalcurrency}
-                    {totalAmount > 200
-                      ? totalAmount + (totalAmount * 5) / 100
-                      : totalAmount + 50 + (totalAmount * 5) / 100} */}
-                          {totalAmount + (totalAmount * 5) / 100}
+                          {totalAmount}
                         </p>
                       </div>
                     </div>
@@ -313,8 +295,7 @@ const ModalCart = ({
                       {totalAmount > 200
                         ? totalAmount + (totalAmount * 5) / 100
                         : totalAmount + 50 + (totalAmount * 5) / 100} */}
-                            {modalcurrency}{" "}
-                            {totalAmount}
+                            {modalcurrency} {totalAmount}
                           </p>
                         </div>
                         <div
