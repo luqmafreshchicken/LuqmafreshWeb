@@ -332,16 +332,15 @@ const SearchProduct = () => {
               <div className="searchsroductlist_container">
                 {data1.map((search) => (
                   <SearchProductList
-                    name={search.name}
-                    qty={search.qty}
-                    // offername={search.name}
-                    price={search.price}
-                    originprice={search.originalPrice}
-                    img={search.image}
-                    to={`/carddetail/${search._id}`}
+                    name={search?.name}
+                    qty={search?.qty}
+                    price={search?.price}
+                    originprice={search?.originalPrice}
+                    img={search?.image}
+                    to={`/carddetail/${search?.name}`}
                     id={{ id: search._id }}
                     onclick={() => handleView(search._id)}
-                    discount={search.discount}
+                    discount={search?.discount}
                     currency={countrycurrency}
                   />
                 ))}
