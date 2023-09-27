@@ -490,11 +490,7 @@ const SelectDeliveryslot = () => {
                     </div>
                   </NavLink>
                 ) : (
-                  // <NavLink
-                  //   to="/payment"
-                  //   className="nav_list"
-                  //   state={{ addressId: id, slotId: slotId }}
-                  // >
+                
                   <div
                     className="selectdeliveryslot_btn"
                     onClick={() => handleCartEmpty()}
