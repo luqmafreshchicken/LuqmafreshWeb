@@ -232,28 +232,19 @@ const AddNewAddress = ({ id }) => {
           handleclear={(index) => handleclear(index)}
           // removeProduct={(id) => removeCartProduct(id)}
         />
-        <ModalCart
-          // cartopen={cartopen}
-          cartopen={cartOpen}
-          carthandleClose={carthandleClose}
-          onclose={carthandleClose}
-          loginStatus={loginStatus}
-          cartProduct={cartProduct}
-          // cartProductlength={cartProduct}
-          totalAmount={cartPrice}
-          modalcurrency={countrycurrency}
-          // totalAmount={totalAmount}
-          // modalcurrency={modalcurrency}
-          // removeProduct={removeProduct}
-          // removeProduct={(id) =>
-          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-          // }
-          // handleCartLogin={handleCartLogin}
-          // handleHome={handleHome}
-          // handleHome={() => handleHome()}
-          removeProduct={(id) => removeCartProduct(id)}
-        />
       </div>
+
+      <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        removeProduct={(id) => removeCartProduct(id)}
+      />
       <div className="main_addaddress_container">
         <div className="addaddress_container">
           <div className="addaddress_content_text">
@@ -274,10 +265,8 @@ const AddNewAddress = ({ id }) => {
                     {/*  saved Area */}
 
                     <div className="all_detail_text">
-                      <p>{add?.address1}</p>
-                      <p>{add?.landmark}</p>
-                      <p>{add?.city}</p>
-                      <p>Mobile Number : {add?.mobile}</p>
+                      <div>{add?.city}</div>
+                      <div>Mobile Number : {add?.mobile}</div>
                     </div>
                     {/* end Area */}
 
@@ -296,41 +285,38 @@ const AddNewAddress = ({ id }) => {
                           Select
                         </p>
                       </div>
-                      {/*<NavLink
-                        to={"/editaddress"}
-                        state={{ id: add?._id }}
-                        className="nav_list"
-                      >
-                        <p onClick={() => setAddressId(add._id)}>Edit</p>
-                        </NavLink>*/}
+                      
                       <p onClick={() => handleDelete(add._id)}>Delete</p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+            <div className="address_proceed_btn">
+              {" "}
+              {/* proceed btn */}
+              {addressid !== "" ? (
+                <>
+                  {cartProduct?.length >= 1 ? (
+                    <NavLink
+                      to="/selectdeliveryslot"
+                      className="nav_list"
+                      state={{ id: addressid }}
+                    >
+                      <button className="addaddress_button">Proceed</button>
+                    </NavLink>
+                  ) : (
+                    <button
+                      className="addaddress_button"
+                      onClick={() => handleCartEmpty()}
+                    >
+                      Proceed
+                    </button>
+                  )}
+                </>
+              ) : null}
+            </div>
 
-            {/* proceed btn */}
-            {addressid !== "" ? (
-              <>
-                {cartProduct?.length >= 1 ? (
-                  <NavLink
-                    to="/selectdeliveryslot"
-                    className="nav_list"
-                    state={{ id: addressid }}
-                  >
-                    <button className="addaddress_button">Proceed</button>
-                  </NavLink>
-                ) : (
-                  <button
-                    className="addaddress_button"
-                    onClick={() => handleCartEmpty()}
-                  >
-                    Proceed
-                  </button>
-                )}
-              </>
-            ) : null}
             {/* add new Address */}
             <div className="add_new_address_container">
               <div className="add_new_address_text">
