@@ -19,3 +19,8 @@
     margin: 1rem 0rem;
     margin-left: 0.7rem;
 }
+@media only screen and (min-width: 901px) and (max-width: 1024px){
+    .choose_address p{
+        font-size: 14px;
+    }
+}
