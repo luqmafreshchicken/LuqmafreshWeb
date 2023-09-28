@@ -68,7 +68,6 @@ const Payment = () => {
   const [coupon, setCoupon] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [vatAmount, setVatAmount] = React.useState(0);
-
   const [couponLen, setCouponLen] = useState([]);
 
   useEffect(() => {
@@ -194,10 +193,6 @@ const Payment = () => {
     createOrder(requestData).then((res) => {
       if (res.status == true) {
         if (method === "online") {
-          console.log(
-            res?.data,
-            "------------iugfiyguigiyifiyfiy-------------------"
-          );
           handlePayment(res.data.data);
           setLoad(false);
           // updateSlot();
@@ -219,8 +214,6 @@ const Payment = () => {
     });
   };
   const handlePayment = async (params) => {
-    console.log(params, "===12345678=========");
-
     const vat = (cartPrice * 5) / 100;
     const totalAmount = cartPrice + vat;
     const couponAmount = coupon === "" ? 0 : amount;
@@ -235,7 +228,7 @@ const Payment = () => {
       image: "https://example.com/your_logo",
       order_id: params.id,
       handler: function (response) {
-        console.log(response,"098765432")
+        console.log(response, "098765432");
         if (response != "") {
           setLoad(true);
           const requestData = {
@@ -254,7 +247,7 @@ const Payment = () => {
             }
           });
         }
-        console.log(response,"zxcvbnm,")
+        console.log(response, "zxcvbnm,");
       },
       prefill: {
         name: "Gaurav Joshi",
@@ -268,17 +261,17 @@ const Payment = () => {
         color: "#C42118",
       },
     };
-    console.log()
+    console.log();
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response) {
       const errorDiscription = JSON.parse(response?.error?.description);
-    console.log(errorDiscription, "dfghjkjhgfdfghjhgffghjkjhgffg");
+      console.log(errorDiscription, "dfghjkjhgfdfghjhgffghjkjhgffg");
 
       cancleOrderUser(errorDiscription, params?.order_id);
-  
+
       // Handle payment failure here
     });
-  
+
     rzp1.open();
   };
 
@@ -293,29 +286,6 @@ const Payment = () => {
     // };
     // const res = await updateTimeSlot(data);
     // console.log(res);
-  };
-
-  // useEffect(() => {
-  //   showcart();
-  // }, []);
-
-  // const showcart = async () => {
-  //   const userId = await getUserID();
-  //   const data = {
-  //     userId: userId,
-  //   };
-  //   const res = await Show_Cart(data);
-  //   if (res.status == true) {
-  //     setCartProduct(res.data);
-  //   } else {
-  //   }
-  // };
-
-  const calculateTotalBill = () => {
-    const amount = cartPrice;
-    const vat = (cartPrice * 5) / 100;
-    // setVatAmount(amount + vat)
-    return amount + vat;
   };
 
   const handleclear = async (index) => {
@@ -434,28 +404,15 @@ const Payment = () => {
           totalAmount={cartPrice}
           modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
-          // removeProduct={(id) => removeCartProduct(id)}
-          // headerCart = {false}
         />
         <ModalCart
-          // cartopen={cartopen}
           cartopen={cartOpen}
           carthandleClose={carthandleClose}
           onclose={carthandleClose}
           loginStatus={loginStatus}
           cartProduct={cartProduct}
-          // cartProductlength={cartProduct}
           totalAmount={cartPrice}
           modalcurrency={countrycurrency}
-          // totalAmount={totalAmount}
-          // modalcurrency={modalcurrency}
-          // removeProduct={removeProduct}
-          // removeProduct={(id) =>
-          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-          // }
-          // handleCartLogin={handleCartLogin}
-          // handleHome={handleHome}
-          // handleHome={() => handleHome()}
           removeProduct={(id) => removeCartProduct(id)}
         />
       </div>
@@ -468,7 +425,9 @@ const Payment = () => {
             {/* sidebar Container */}
             <div className="online_payment_sidebar">
               <div
-              className={`cash_on_delivery ${open1 === 0 ? 'activecolor' : ''}`}
+                className={`cash_on_delivery ${
+                  open1 === 0 ? "activecolor" : ""
+                }`}
                 onClick={() => {
                   setOpen1(0);
                   setMethod("cod");
@@ -478,9 +437,10 @@ const Payment = () => {
                 <p>Cash On Delivery</p>
               </div>
               <div
-              className={`cash_on_delivery ${open1 === 1 ? 'activecolor' : ''}`}
-
-                  onClick={() => {
+                className={`cash_on_delivery ${
+                  open1 === 1 ? "activecolor" : ""
+                }`}
+                onClick={() => {
                   setOpen1(1);
                   setMethod("online");
                 }}
@@ -581,9 +541,9 @@ const Payment = () => {
                 <img src="coupon.svg" height="28px" width="28px" />
                 <div className="coupon_avilable_text">
                   {coupon.length >= 1 ? (
-                    <p>{coupon.length} Coupon Avialable</p>
+                    <>{coupon?.length} Coupon Avialable</>
                   ) : (
-                    <p>No Coupon Avialable</p>
+                    <>No Coupon Avialable</>
                   )}
                 </div>
               </div>
