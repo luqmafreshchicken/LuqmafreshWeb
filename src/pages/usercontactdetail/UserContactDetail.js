@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./usercontact.css";
 import Input from "../../customcomponent/input/Input";
-import Button from "../../customcomponent/button/Button";
 import Steps from "../../customcomponent/steps/Steps";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -49,8 +48,6 @@ const UserContactDetail = () => {
   const [loginStatus, setLoginStatus] = useState(false);
   const [countryCode, setCountryCode] = useState("");
 
-
-
   const userDetail = async () => {
     const UserId = await getUserID();
     viewProfile(UserId).then((res) => {
@@ -63,21 +60,6 @@ const UserContactDetail = () => {
     });
   };
 
-  // useEffect(() => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => {
-  //         setLatitude(position.coords.latitude);
-  //         setLongitude(position.coords.longitude);
-  //       },
-  //       (error) => {
-  //         console.error("Error retrieving location:", error);
-  //       }
-  //     );
-  //   } else {
-  //     console.error("Geolocation is not supported by your browser.");
-  //   }
-  // }, []);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -100,9 +82,7 @@ const UserContactDetail = () => {
     } else {
       console.error("Geolocation is not supported by your browser.");
     }
-  },[]);
-
-  console.log(city,"==============================")
+  }, []);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -119,8 +99,7 @@ const UserContactDetail = () => {
                   setCountryCurrency(res[0]?.currencies[0]?.symbol);
                   setCountryTitle(res[0]?.currencies[0]?.code);
                   setFlag(res[0]?.flags?.png);
-                  setCountryCode(res[0]?.callingCodes[0])
-                  console.log(res[0]?.callingCodes[0],"==================================22222222222222")
+                  setCountryCode(res[0]?.callingCodes[0]);
                 });
               }
             });
@@ -136,10 +115,8 @@ const UserContactDetail = () => {
     localContent();
     showcart();
     userDetail();
-
   }, []);
 
-  
   console.error("Geolocation is not supported by your browser.");
 
   const localContent = () => {
@@ -179,7 +156,6 @@ const UserContactDetail = () => {
 
   const handleCreateAdd = async () => {
     const id = await getUserID();
-    // console.log(id) ispe set h id isko use kar lo jha v jarurat padega
     if (address === "") {
       toast.error("Please enter Address", {
         position: "top-right",
@@ -227,7 +203,7 @@ const UserContactDetail = () => {
         draggable: true,
       });
       return false;
-    } 
+    }
     if (email === "") {
       toast.error("Please enter Address", {
         position: "top-right",
@@ -344,27 +320,28 @@ const UserContactDetail = () => {
   return (
     <>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
-
-      <Header
-        code={countrytitle}
-        currency={countrycurrency}
-        flag={flag}
-        cartPrice={cartPrice}
-        cartProductlength={cartProduct}
-        curr={countrycurrency}
-        cartopen={cartOpen}
-        carthandleClose={carthandleClose}
-        carthandleOpen={carthandleOpen}
-        loginStatus={loginStatus}
-        handleOpen={() => setOpen(true)}
-        handleClose={() => setOpen(false)}
-        open={open}
-        showbtn={btn}
-        totalAmount={cartPrice}
-        modalcurrency={countrycurrency}
-        handleclear={(index) => handleclear(index)}
-        removeProduct={(id) => removeCartProduct(id)}
-      />
+      <div className="contactdetailHeader">
+        <Header
+          code={countrytitle}
+          currency={countrycurrency}
+          flag={flag}
+          cartPrice={cartPrice}
+          cartProductlength={cartProduct}
+          curr={countrycurrency}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          carthandleOpen={carthandleOpen}
+          loginStatus={loginStatus}
+          handleOpen={() => setOpen(true)}
+          handleClose={() => setOpen(false)}
+          open={open}
+          showbtn={btn}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          handleclear={(index) => handleclear(index)}
+          removeProduct={(id) => removeCartProduct(id)}
+        />
+      </div>
       <div className="main_usercontact">
         <div className="main_user_contact_location">
           {/* contact page */}
@@ -398,19 +375,13 @@ const UserContactDetail = () => {
                 onChange={(e) => setCity(e.target.value)}
                 // disabled={true}
               />
-              <div className="usercontact_mobile">
-                <div className="usercontact_flag">
-                  <img src={flag} />
-                  +{countryCode}
-                </div>
-                <div style={{ width: "89%" }}>
-                  <Input
-                    lable="Mobile No"
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
-                  />
-                </div>
-              </div>
+
+              <Input
+                lable="Mobile No"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+
               <Input
                 lable="Enter Email"
                 value={email}
