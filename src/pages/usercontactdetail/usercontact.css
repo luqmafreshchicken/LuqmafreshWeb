@@ -8,15 +8,13 @@
 .main_user_contact_location {
   width: 96%;
   height: auto;
-  padding: 3rem 0rem 4rem 0rem;
+  padding: 3rem 3rem 3rem 3rem;
 }
 .main_user_contact_location h5 {
-  padding-left: 3rem;
   font-family: regular;
   font-weight: 600;
 }
 .main_user_contact_location p {
-  padding-left: 3rem;
   color: grey;
   font-family: regular;
   font-weight: 500;
@@ -31,15 +29,16 @@
 }
 .user_contact_location_steps {
   width: 30%;
-  height: 84vh;
+  height: auto;
+  padding-left: 5rem;
 }
 
 .user_contact_detail {
-  width: 90%;
+  width: 70%;
   height: auto;
 }
 .usercontact_button {
-  padding-left: 3rem;
+  padding: 1rem 0rem;
 }
 .usercontact_button button {
   width: auto;
@@ -51,10 +50,6 @@
   font-family: regular;
   color: white;
   padding: 0.7rem 3rem;
-
-
-
-
 }
 /* .usercontact_button button p {
   color: white;
@@ -64,28 +59,13 @@
   text-align: center;
   padding-top: 0.7rem;
 } */
-.usercontact_mobile {
-  display: flex;
-  width: 100%;
-  padding-left: 3rem;
-}
-.usercontact_flag {
-  width: 10%;
-  height: 7.2vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 0.4rem;
-  border: 1px solid #bdbdbd;
-  border-radius: 3px;
-}
-.usercontact_flag img {
-  height: 15px;
-  width: 20px;
-  border-radius: 2px;
-}
 
-@media screen and (max-width: 768px) {
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 280px) and (max-width: 480px) {
+  /* CSS rules for mobile devices */
+  .contactdetailHeader {
+    display: none;
+  }
   .main_usercontact {
     width: 100%;
     height: auto;
@@ -113,6 +93,7 @@
   }
   .main_user_contact_location p {
     padding-left: 1.3rem;
+
     color: grey;
     font-family: regular;
     font-weight: 500;
@@ -130,7 +111,7 @@
   .usercontact_mobile {
     display: flex;
     width: 100%;
-    padding-left: 1.3rem;
+    padding-left: 1rem;
   }
   .user_steps {
     display: none;
@@ -147,46 +128,174 @@
     height: auto;
     border-radius: 10px;
   }
-  .usercontact_flag {
-    width: 25%;
-    height: 7.5vh;
-    font-size: 0.9rem;
-  }
-  .usercontact_flag img{
-    width: 17px;
-    height: 12px;
-  }
-}
-/* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-  /* CSS rules for mobile devices */
 }
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
+  .contactdetailHeader {
+    display: none;
+  }
+  .main_usercontact {
+    width: 100%;
+    height: auto;
+  }
+  .main_user_contact_location {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 1rem 0rem 1rem 0rem;
+  }
+  .user_contact_location {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    /* background-color: aqua; */
+  }
+  .main_user_contact_location h5 {
+    padding: 0rem 1.8rem;
+    font-size: 1rem;
+  }
+  .main_user_contact_location p {
+    padding: 0rem 1.8rem;
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
+  }
+
+  .user_contact_detail {
+    width: 100%;
+    height: auto;
+  }
+
+  .user_steps {
+    display: none;
+  }
+  .user_contact_location_steps {
+    display: none;
+  }
+  .usercontact_button {
+    padding: 2rem;
+  }
+  .usercontact_button button {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  }
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
+  .contactdetailHeader {
+    display: none;
+  }
+  .main_usercontact {
+    width: 100%;
+    height: auto;
+  }
+  .main_user_contact_location {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 1rem 0rem 1rem 0rem;
+  }
+  .user_contact_location {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    /* background-color: aqua; */
+  }
+  .main_user_contact_location h5 {
+    padding: 0rem 2.2rem;
+    font-size: 1.2rem;
+  }
+  .main_user_contact_location p {
+    padding: 0rem 2.2rem;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .user_contact_detail {
+    width: 100%;
+    height: auto;
+  }
+
+  .user_steps {
+    display: none;
+  }
+  .user_contact_location_steps {
+    display: none;
+  }
+  .usercontact_button {
+    padding: 2rem;
+  }
+  .usercontact_button button {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 901px) and (max-width: 1025px) {
   /* CSS rules for desktops and large screens */
+  .main_user_contact_location {
+    width: 96%;
+    height: auto;
+    padding: 3rem 3rem 3rem 1rem;
+  }
+  .user_contact_location{
+    width: 100%;
+  }
+  .user_contact_detail {
+    height: auto;
+  }
+ 
+
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) and (max-width: 1530px) {
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for extra large screens and TV */
 
   .main_user_contact_location {
-    padding: 5rem 0rem;
+    width: 94%;
+    height: auto;
+    padding: 3rem 3rem 3rem 1rem;
+  }
+  .user_contact_location{
+    width: 100%;
+  }
+  .user_contact_detail {
+    height: auto;
   }
   .user_contact_location_steps {
-    width: 40%;
-    height: 94vh;
+    width: 30%;
+    height: auto;
+    padding-left: 3rem;
+  }
+}
+@media only screen and (min-width: 1201px) and (max-width: 1530px){
+  .main_user_contact_location {
+    width: 93%;
+    height: auto;
+    padding: 3rem 3rem 3rem 1rem;
+  }
+  .user_contact_location{
+    width: 100%;
+  }
+  .user_contact_detail {
+    height: auto;
+  }
+  .user_contact_location_steps {
+    width: 30%;
+    height: auto;
     padding-left: 3rem;
   }
 }
