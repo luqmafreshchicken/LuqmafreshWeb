@@ -8,7 +8,7 @@ const Input = ({ lable, onChange, value , id , name, disabled}) => {
     <Box
       component="form"
       sx={{
-        "& > :not(style)": { m: 1 },
+        "& > :not(style)": { m: 0 },
       }}
       noValidate
       autoComplete="off"
