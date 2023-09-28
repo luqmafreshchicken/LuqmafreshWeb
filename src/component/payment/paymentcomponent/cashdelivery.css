@@ -3,7 +3,7 @@
 }
 
 .order_confirm_btn {
-  background-color: #FF0040;
+  background-color: #ff0040;
   height: 6vh;
   width: 30%;
   border: none;
@@ -16,34 +16,34 @@
   font-size: 17px;
   cursor: pointer;
 }
-.cash_delivery_card{
+.cash_delivery_card {
   display: flex;
   border: 1px solid lightgray;
   margin-bottom: 20px;
   border-radius: 5px;
   width: 95%;
 }
-.cash_delivery_image{
+.cash_delivery_image {
   width: 25%;
   height: 12vh;
   /* background-color: red; */
   display: grid;
   place-items: center;
 }
-.cash_delivery_image img{
+.cash_delivery_image img {
   height: 10vh;
   width: 90%;
   border-radius: 5px;
 }
-.cash_delivery_content_text{
+.cash_delivery_content_text {
   width: 75%;
   height: 12vh;
 }
-.cash_delivery_content_name{
+.cash_delivery_content_name {
   width: 90%;
   height: 6vh;
 }
-.cash_delivery_content_name p{
+.cash_delivery_content_name p {
   font-family: semibold;
   white-space: nowrap;
   overflow: hidden;
@@ -51,24 +51,23 @@
   padding-left: 10px;
   padding-top: 5px;
 }
-.cash_delivery_content_weight{
+.cash_delivery_content_weight {
   width: 100%;
   height: 6vh;
   display: flex;
   gap: 30px;
 }
-.cash_delivery_content_weight p{
+.cash_delivery_content_weight p {
   font-family: medium;
   padding-left: 10px;
   padding-top: 10px;
-
 }
-.disabled{
+.disabled {
   background-color: lightgray;
 }
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .cash_delivery_heading {
     display: none;
@@ -80,20 +79,11 @@
     font-size: 12px;
     width: 35%;
   }
-  .cash_delivery_card{
+  .cash_delivery_card {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: white;
-  }
-  .cash_delivery_content_name p{
-   font-size: 12px;
-  }
-  .cash_delivery_content_weight{
-    gap: 10px;
-  }
-  .cash_delivery_content_weight p{
-    font-size: 12px;
   }
 }
 
@@ -105,40 +95,67 @@
   }
 
   .order_confirm_btn {
-    margin-left: 0px;
-    margin-top: 10px;
-    font-size: 12px;
-    width: 35%;
-    /* background-color: orange; */
+    background-color: #ff0040;
+    height: auto;
+    width: 70%;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-left: 0rem;
+    margin-top: 0rem;
+    font-size: 15px;
+    padding: 0.55rem 0rem;
+    float: right;
   }
-  .cash_delivery_card{
+  .cash_delivery_card {
     width: 100%;
     /* margin-top: 10px; */
     /* margin-bottom: 10px; */
     background-color: white;
   }
-  .cash_delivery_content_name p{
-   font-size: 12px;
-  }
-  .cash_delivery_content_weight{
-    gap: 10px;
-  }
-  .cash_delivery_content_weight p{
-    font-size: 12px;
-  }
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
+  .order_confirm_btn {
+    height: auto;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    margin-left: 0rem;
+    margin-top: 1rem;
+    font-size: 15px;
+    padding: 0.55rem 0rem;
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .order_confirm_btn {
+    height: auto;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    margin-left: 0rem;
+    margin-top: 1rem;
+    font-size: 15px;
+    padding: 0.55rem 0rem;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
+  .order_confirm_btn {
+    height: auto;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    margin-left: 0rem;
+    margin-top: 1rem;
+    font-size: 15px;
+    padding: 0.55rem 0rem;
+  }
 }
