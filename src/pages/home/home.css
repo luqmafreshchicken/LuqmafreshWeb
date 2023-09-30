@@ -1,4 +1,4 @@
-.homepagecontainer{
+.homepagecontainer {
   padding-bottom: 5rem;
 }
 
@@ -56,8 +56,8 @@
   width: 100%;
   display: grid;
   place-items: center;
-  height: 15vh;
-  padding-top: 1rem;
+  height: auto;
+  padding: 2rem 0rem;
 }
 .next_prev_btn {
   /* background-color: olivedrab; */
@@ -73,7 +73,6 @@
   padding-right: 1rem;
 }
 .head_box {
-  /* background-color: blue; */
   width: 50%;
 }
 .FaArrowRight {
@@ -91,16 +90,15 @@
   transition: 0.3s ease-in-out;
 }
 .todaydeals_container {
-  /* background-color: aqua; */
   width: 100%;
-  height: 18vh;
+  height: auto;
   display: grid;
   place-items: center;
+  padding: 3rem 0rem 2rem 0rem;
 }
 .todaydeals_content {
   width: 89%;
-  height: 10vh;
-  /* background-color: orangered; */
+  height: auto;
 }
 .todaydeals_content h5 {
   font-family: semibold;
@@ -112,7 +110,7 @@
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
-  .homepagecontainer{
+  .homepagecontainer {
     padding-bottom: 7rem;
   }
   .categoriecard_content {
@@ -121,13 +119,13 @@
     grid-template-columns: 24% 24% 24% 24%;
     word-wrap: break-word;
   }
-  .next_prev_btn_container{
-    padding-top: 0rem;
+  .next_prev_btn_container {
+    padding: 0rem 0rem;
   }
-  .head_box{
+  .head_box {
     width: 100%;
   }
-  .next_prev_btn_content{
+  .next_prev_btn_content {
     display: none;
   }
   .todaydeals_content h5 {
@@ -137,10 +135,9 @@
   .todaydeals_content p {
     font-size: 13px;
   }
-  .next_prev_btn_content{
+  .next_prev_btn_content {
     display: none;
   }
-
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -151,7 +148,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
   }
-  .next_prev_btn_content{
+  .next_prev_btn_content {
     display: none;
   }
 }
@@ -178,7 +175,6 @@
   /* CSS rules for small screens and laptops */
   .categoriecard_content {
     width: 93%;
-
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
   }
@@ -187,7 +183,6 @@
   /* CSS rules for small screens and laptops */
   .categoriecard_content {
     width: 93%;
-
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
   }
