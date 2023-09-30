@@ -1,4 +1,4 @@
-.singlecard_combo {
+/* .singlecard_combo {
   height: 75vh;
   width: 22%;
   margin-right: 50px;
@@ -10,7 +10,6 @@
   overflow: hidden;
   border-radius: 15px;
   height: 30vh;
-  /* background-color: aqua; */
 }
 .image_doublecard img {
   border-radius: 15px;
@@ -37,12 +36,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 
-/* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 280px) and (max-width: 480px) {
-  /* CSS rules for mobile devices */
+/* @media only screen and (min-width: 280px) and (max-width: 480px) {
   .singlecard_combo {
     min-width:70%;
     height: auto;
@@ -58,7 +55,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -94,14 +90,13 @@
     width: 15%;
   }
  
-}
-@media only screen and (min-width: 400px) and (max-width: 480px){
+} */
+/* @media only screen and (min-width: 400px) and (max-width: 480px){
   .singlecard_combo {
     min-width: 55%;
   }
-}
-/* iPads, Tablets (481px - 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+} */
+/* @media only screen and (min-width: 481px) and (max-width: 768px) {
   .singlecard_combo {
     min-width:47%;
     height: auto;
@@ -117,7 +112,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -152,8 +146,8 @@
   .icons_img{
     width: 30%;
   }
-}
-@media only screen and (min-width: 570px) and (max-width: 768px){
+} */
+/* @media only screen and (min-width: 570px) and (max-width: 768px){
   .singlecard_combo {
     min-width: 44%;
   }
@@ -167,11 +161,10 @@
   .singlecard_combo {
     min-width: 38%;
   }
-}
+} */
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 900px) {
-  /* CSS rules for small screens and laptops */
+/* @media only screen and (min-width: 769px) and (max-width: 900px) {
   .singlecard_combo {
     min-width:31%;
     height: auto;
@@ -187,7 +180,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -222,9 +214,9 @@
   .icons_img{
     width: 30%;
   }
-}
+} */
 
-@media only screen and (min-width: 901px) and (max-width: 1024px){
+/* @media only screen and (min-width: 901px) and (max-width: 1024px){
   .singlecard_combo {
     min-width:29%;
     height: auto;
@@ -240,7 +232,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -275,15 +266,13 @@
   .icons_img{
     width: 30%;
   }
-}
-@media only screen and (min-width: 940px) and (max-width: 1024px){
+} */
+/* @media only screen and (min-width: 940px) and (max-width: 1024px){
   .singlecard_combo {
     min-width: 27%;
   }
 }
-/* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  /* CSS rules for desktops and large screens */
   .singlecard_combo {
     min-width:25%;
     height: auto;
@@ -299,7 +288,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -340,10 +328,9 @@
   .singlecard_combo {
     min-width: 23%;
   }
-}
+} */
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) and (max-width: 1530px){
-  /* CSS rules for extra large screens and TV */
+/* @media only screen and (min-width: 1201px) and (max-width: 1530px){
  
   .singlecard_combo {
     min-width:23%;
@@ -360,7 +347,6 @@
   }
   .name_singlecard {
     height: 6.4vh;
-    /* background-color: green; */
   }
   .image_doublecard {
     height: auto;
@@ -395,5 +381,5 @@
   .icons_img{
     width: 30%;
   }
-}
+} */
 
