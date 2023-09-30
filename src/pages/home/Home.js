@@ -280,10 +280,10 @@ const Home = () => {
   };
 
   const localContent = () => {
-    const items = JSON.parse(localStorage.getItem("userDetail"));
-    const items1 = JSON.parse(localStorage.getItem("modalCount"));
-    const cart = JSON.parse(localStorage.getItem("cart"));
-    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const items = JSON.parse(localStorage?.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage?.getItem("modalCount"));
+    const cart = JSON.parse(localStorage?.getItem("cart1"));
+    const cartPrice = JSON.parse(localStorage?.getItem("cartPrice"));
 
     if (items) {
       setWhistlistOpen(false);
@@ -957,7 +957,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1.2}
+              slidesPerView={1.5}
               spaceBetween={8}
               pagination={{
                 clickable: true,
@@ -974,13 +974,37 @@ const Home = () => {
                 swiper.navigation.update();
               }}
               breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                400: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
                 640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 4,
+                  slidesPerView: 2.3,
+                  spaceBetween: 30,
+                },
+                900: {
+                  slidesPerView: 3,
                   spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1200: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
                 },
               }}
               modules={[Navigation, Parallax]}
@@ -1155,7 +1179,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1.2}
+                  slidesPerView={1}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1172,13 +1196,37 @@ const Home = () => {
                     swiper.navigation.update();
                   }}
                   breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                      spaceBetween: 20,
+                    },
+                    400: {
+                      slidesPerView: 1.2,
+                      spaceBetween: 20,
+                    },
+                    500: {
+                      slidesPerView: 1.5,
+                      spaceBetween: 20,
+                    },
                     640: {
                       slidesPerView: 2,
                       spaceBetween: 20,
                     },
                     768: {
-                      slidesPerView: 4,
+                      slidesPerView: 2.3,
+                      spaceBetween: 30,
+                    },
+                    900: {
+                      slidesPerView: 3,
                       spaceBetween: 40,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    1200: {
+                      slidesPerView: 4,
+                      spaceBetween: 30,
                     },
                   }}
                   modules={[Navigation, Parallax]}
@@ -1350,7 +1398,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1.2}
+                  slidesPerView={1}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1367,13 +1415,37 @@ const Home = () => {
                     swiper.navigation.update();
                   }}
                   breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                      spaceBetween: 20,
+                    },
+                    400: {
+                      slidesPerView: 1.2,
+                      spaceBetween: 20,
+                    },
+                    500: {
+                      slidesPerView: 1.5,
+                      spaceBetween: 20,
+                    },
                     640: {
                       slidesPerView: 2,
                       spaceBetween: 20,
                     },
                     768: {
-                      slidesPerView: 4,
+                      slidesPerView: 2.3,
+                      spaceBetween: 30,
+                    },
+                    900: {
+                      slidesPerView: 3,
                       spaceBetween: 40,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    1200: {
+                      slidesPerView: 4,
+                      spaceBetween: 30,
                     },
                   }}
                   modules={[Navigation, Parallax]}
@@ -1545,7 +1617,7 @@ const Home = () => {
             <div className="carouselitem">
               <div className="cardswrapper">
                 <Swiper
-                  slidesPerView={1.2}
+                  slidesPerView={1}
                   spaceBetween={8}
                   pagination={{
                     clickable: true,
@@ -1562,13 +1634,37 @@ const Home = () => {
                     swiper.navigation.update();
                   }}
                   breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                      spaceBetween: 20,
+                    },
+                    400: {
+                      slidesPerView: 1.2,
+                      spaceBetween: 20,
+                    },
+                    500: {
+                      slidesPerView: 1.5,
+                      spaceBetween: 20,
+                    },
                     640: {
                       slidesPerView: 2,
                       spaceBetween: 20,
                     },
                     768: {
-                      slidesPerView: 4,
+                      slidesPerView: 2.3,
+                      spaceBetween: 30,
+                    },
+                    900: {
+                      slidesPerView: 3,
                       spaceBetween: 40,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    1200: {
+                      slidesPerView: 4,
+                      spaceBetween: 30,
                     },
                   }}
                   modules={[Navigation, Parallax]}
@@ -1720,7 +1816,10 @@ const Home = () => {
         <div className="next_prev_btn_container">
           <div className="next_prev_btn">
             <div className="head_box">
-              <CountDown />
+              <Text
+                heading1="Top Rated"
+                text1="Most popular products near you!"
+              />
             </div>
             <div className="next_prev_btn_content">
               <div className="swiperNavPrev" ref={swiperNavPrevRef}>
@@ -1735,7 +1834,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1.2}
+              slidesPerView={1}
               spaceBetween={8}
               pagination={{
                 clickable: true,
@@ -1752,13 +1851,37 @@ const Home = () => {
                 swiper.navigation.update();
               }}
               breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                400: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
                 640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 4,
+                  slidesPerView: 2.3,
+                  spaceBetween: 30,
+                },
+                900: {
+                  slidesPerView: 3,
                   spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1200: {
+                  slidesPerView: 4,
+                  spaceBetween: 30,
                 },
               }}
               modules={[Navigation, Parallax]}
@@ -1996,13 +2119,37 @@ const Home = () => {
                 swiper.navigation.update();
               }}
               breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                400: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
                 640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 768: {
+                  slidesPerView: 2.3,
+                  spaceBetween: 30,
+                },
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1200: {
                   slidesPerView: 4,
-                  spaceBetween: 50,
+                  spaceBetween: 30,
                 },
               }}
               modules={[Navigation, Parallax]}
@@ -2152,7 +2299,7 @@ const Home = () => {
         <div className="carouselitem">
           <div className="cardswrapper">
             <Swiper
-              slidesPerView={1.2}
+              slidesPerView={1}
               spaceBetween={8}
               pagination={{
                 clickable: true,
@@ -2169,13 +2316,37 @@ const Home = () => {
                 swiper.navigation.update();
               }}
               breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                400: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
                 640: {
                   slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 768: {
+                  slidesPerView: 2.3,
+                  spaceBetween: 30,
+                },
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1200: {
                   slidesPerView: 4,
-                  spaceBetween: 50,
+                  spaceBetween: 30,
                 },
               }}
               modules={[Navigation, Parallax]}
