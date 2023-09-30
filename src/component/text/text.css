@@ -1,6 +1,6 @@
 .head_text {
-  width: 90%;
-  padding-top: 1.6rem;
+  width: 100%;
+  padding-top: 1rem;
 }
 .head_text h5 {
   font-family: semibold;
@@ -8,50 +8,29 @@
 .head_text p {
   font-family: light;
 }
-/* .head_text_container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 22vh;
-  padding-top: 30px;
-  padding-left: 5px;
-  background-color: brown;
-} */
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
-  .head_text_container {
-    height: auto;
-    padding-top: 1px;
-    padding-left: 0px;
-  }
   .head_text {
-    height: 5vh;
-    padding-top: 0px;
+    height: auto;
+    padding: 2rem 0rem 0rem 0rem;
   }
   .head_text h5 {
     font-size: 16px;
-    line-height: 0.5;
   }
   .head_text p {
     font-size: 13px;
   }
 }
-
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .head_text_container {
-    height: 10vh;
-    padding-top: 10px;
-    padding-left: 0px;
+    height: auto;
   }
-
   .head_text h5 {
     font-size: 17px;
-    line-height: 0.5;
   }
   .head_text p {
     font-size: 12px;
@@ -62,11 +41,7 @@
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
   .head_text_container {
-    height: 16vh;
-    padding-top: 1.5rem;
-  }
-  .head_text {
-    width: 93%;
+    height: auto;
   }
   .head_text h5 {
     font-size: 1.2rem;
@@ -79,9 +54,24 @@
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .head_text_container {
+    height: auto;
+  }
+  .head_text {
+    width: 93%;
+  }
+  .head_text h5 {
+    font-size: 1.2rem;
+  }
+  .head_text p {
+    font-size: 0.8rem;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) {
+@media only screen and (min-width: 1201px) and (max-width:1530px) {
   /* CSS rules for extra large screens and TV */
+  .head_text {
+    width: 100%;
+  }
 }
