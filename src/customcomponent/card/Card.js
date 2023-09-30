@@ -51,7 +51,6 @@ const Card = ({
   function handleMouseLeave() {
     setIsHovered(false);
   }
- console.log(whist,"================")
   return (
     <div className="singlecard">
       <NavLink to={to} state={{ id: id }} className="nav_list">
@@ -139,27 +138,7 @@ const Card = ({
         <p>{date}</p>
       </div>
       <NavLink to={to} state={{ id: id }} className="nav_list">
-        {/*// onClick={() => {
-        //   handleShow();
-        //   onclick();
-        // }}*/}
         <div className="shop_now_btn">SHOP NOW</div>
-        {/*showData && (
-          <div className="incre_decre_btn" onClick={() => onclick()}>
-            <p onClick={() => handleDre()}>-</p>
-            <p>{incre}</p>
-            <p onClick={() => handleIncre()}>+</p>
-          </div>
-        )*/}
-        {/* <div className="ammount_singlecard">
-          <p>
-            Total{" "}
-            <span>
-              {currency}
-              {totalpayment * quantity}
-            </span>
-          </p>
-        </div>*/}
       </NavLink>
     </div>
   );
