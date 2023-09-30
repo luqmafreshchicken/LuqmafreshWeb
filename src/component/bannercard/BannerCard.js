@@ -31,7 +31,6 @@ export default function BannerCard1({ productId, to }) {
 
   const handleShopNowClick = (productId) => {
     console.log("Product ID:", productId);
-    // You can perform any other actions related to the clicked product here
   };
 
   if (loading) {
@@ -45,7 +44,6 @@ export default function BannerCard1({ productId, to }) {
   return (
     <Slide autoplay={true}>
       {banner?.map((item) => (
-        <div className="each-slide-effect" key={item.productId}>
           <div
             style={{
               backgroundImage: `url(${item?.image})`,
@@ -56,7 +54,9 @@ export default function BannerCard1({ productId, to }) {
               <div className="cashback_content">
                 <h1>{item?.title1}</h1>
                 <h2>{item?.title2} OFF</h2>
+                <div className="banTitle">
                 <h5>{item?.title3}</h5>
+                </div>
                 <div className="ban_discription">
                   <h6>{item?.description}</h6>
                 </div>
@@ -75,7 +75,6 @@ export default function BannerCard1({ productId, to }) {
               </div>
             </div>
           </div>
-        </div>
       ))}
     </Slide>
   );
