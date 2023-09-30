@@ -1,39 +1,35 @@
 .singlecard {
-  height: 85vh;
-  width: 100%;
-  margin-right: 50px;
-  /* padding: 1rem 1rem; */
-  /* border-radius: 15px; */
+  max-width: 100%;
+  height: auto;
 }
 
 .image_singlecard {
-  height: 30vh;
-  width: 100%;
+  max-width: 100%;
+  height: 32vh;
   overflow: hidden;
   border-radius: 15px;
-  display: block;
+  display: inline-block;
 }
 
 .image_singlecard img {
   border-radius: 15px;
-  height: 30vh;
   width: 100%;
-  display: block;
+  height: 100%;
   transition: 0.3s ease-in-out;
+
 }
 .image_singlecard:hover img {
   transform: scale(1.2);
 }
 
 .offer_singlecard {
-  height: 10vh;
   width: 100%;
-  /* background-color: green; */
+
 }
 .offer_singlecard h4 {
   /* font-weight: 600; */
   font-family: semibold;
-  padding-top: 2rem;
+  padding: 1rem 0rem 0rem 0rem;
   font-size: 1.6rem;
   color: #ff0040;
 }
@@ -59,32 +55,29 @@
   margin-right: 5px;
 }
 .rating {
-  height: 3vh;
-  padding-top: 3px;
+  padding: 5px 0px;
+  height: auto;
 }
 .name_singlecard {
-  height: 6vh;
+  min-height: 4vh;
   width: 100%;
-  /* background-color: orangered; */
 }
 .name_singlecard p {
   /* font-weight: 900; */
   font-family: semibold;
   font-size: 15px;
-  padding-top: 10px;
   color: black;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .weight_singlecard {
-  height: 4vh;
+  min-height: 4vh;
   width: 100%;
 }
 .weight_singlecard p {
   font-family: regular;
   font-size: 15px;
-  padding-top: 5px;
   color: black;
 }
 .price_singlecard {
@@ -92,12 +85,10 @@
   height: 4vh;
   display: flex;
   gap: 10px;
-  /* background-color: orangered; */
 }
 .price_singlecard p {
   font-family: medium;
-  font-size: 20px;
-  padding-top: 0px;
+  font-size: 18px;
 }
 .today_singlecard {
   height: 3vh;
@@ -118,53 +109,6 @@
   font-weight: 600;
   color: black;
 }
-.total_singlecard {
-  height: 7vh;
-  width: 100%;
-  display: flex;
-  gap: 10px;
-}
-.incre_decre_btn {
-  height: 5.5vh;
-  width: 40%;
-  margin-top: 10px;
-  border-radius: 10px;
-  border: 2px solid #ff0040;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 17px;
-  cursor: pointer;
-}
-.incre_decre_btn p {
-  font-size: 18px;
-  font-family: regular;
-  font-weight: 600;
-  color: #ff0040;
-}
-.ammount_singlecard {
-  height: 4vh;
-  width: 40%;
-  margin-top: 10px;
-  padding-top: 3px;
-}
-.ammount_singlecard p {
-  font-size: 1rem;
-  font-family: regular;
-  font-weight: 600;
-  color: black;
-  padding-top: 0.3rem;
-}
-.ammount_singlecard p span {
-  font-size: 18px;
-  font-family: regular;
-  font-weight: 600;
-  color: black;
-}
-.total_singlecard {
-  height: 15vh;
-  width: 40%;
-}
 
 .shop_now_btn {
   background-color: #ff0040;
@@ -184,23 +128,24 @@
 @media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .singlecard {
-    width: 95%;
+    width: 100%;
     height: auto;
   }
   .image_singlecard {
     width: 100%;
+    height: 37vh;
   }
   .image_singlecard img {
-    height: 200px;
     width: 100%;
+    height: 100%;
     border-radius: 15px;
   }
   .icons_img {
-    width: 25%;
-    gap: 0.4rem;
+    width: 15%;
   }
-  .image_singlecard {
+  .rating{
     height: auto;
+    padding: 0.5rem 0rem;
   }
   .name_singlecard {
     width: 100%;
@@ -208,7 +153,6 @@
   .name_singlecard p {
     font-size: 14px;
     font-family: regular;
-    padding-top: 15px;
     line-height: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -216,20 +160,12 @@
   }
 
   .offer_singlecard h4 {
-    padding-top: 20px;
     font-size: 1.2rem;
+    padding: 0.5rem 0rem 0.2rem 0rem;
     font-family: regular;
   }
-  .offer_singlecard {
-    height: 8vh;
-  }
-  .ammount_singlecard p span {
-    font-size: 13px;
-  }
+ 
 
-  .ammount_singlecard p {
-    font-size: 14px;
-  }
   .total_singlecard button {
     width: 30%;
     height: 5vh;
@@ -262,32 +198,27 @@
   }
 }
 
-
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .singlecard {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    margin-right: 1.4rem;
-    /* background-color: orange; */
   }
   .image_singlecard {
-    width: 93%;
+    width: 100%;
+    height: 37vh;
+    display: inline-block;
   }
   .image_singlecard img {
-    height: 220px;
-    width: 100%;
     border-radius: 15px;
-  }
-  .image_singlecard {
-    height: auto;
+    width: 100%;
+    height: 100%
   }
   .name_singlecard {
     width: 100%;
   }
   .name_singlecard p {
-    font-size: 14px;
-    padding-top: 15px;
+    font-size: 1rem;
     line-height: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -297,53 +228,55 @@
     font-size: 13px;
     font-weight: 500;
   }
+  .rating{
+    height: auto;
+    padding: 0.5rem 0rem;
+  }
   .offer_singlecard h4 {
     padding-top: 20px;
     font-size: 27px;
   }
-  .icons_img{
-    width: 1%;
-  }
-  .offer_singlecard {
-    height: 8vh;
+
+  
+  .offer_singlecard h4 {
+    font-size: 1.5rem;
+    padding: 0.5rem 0rem 0rem 0rem;
+    font-family: regular;
   }
   .price_singlecard p {
     font-size: 17px;
   }
-  .ammount_singlecard p span {
-    font-size: 17px;
-  }
-
-  .ammount_singlecard p {
-    font-size: 14px;
+  
+  .icons_img {
+    width: 14%;
+    gap: 0.2rem;
+  } 
+  .icons_img img {
+    background-color: red;
   }
   .shop_now_btn {
-    width: 30%;
-    
+    width: 35%;
+    font-size: 0.8rem;
   }
 }
-
-
 
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
   .singlecard {
-    min-width: 31%;
     height: auto;
-    margin-right: 1.4rem;
+    max-width: 100%;
   }
   .image_singlecard {
     width: 100%;
+    height: 37vh;
+    display: inline-block;
   }
   .image_singlecard img {
-    height: 150px;
     width: 100%;
-    border-radius: 15px;
+    height: 100%;
   }
-  .image_singlecard {
-    height: auto;
-  }
+
   .name_singlecard {
     width: 100%;
   }
@@ -391,21 +324,19 @@
 }
 @media only screen and (min-width: 901px) and (max-width: 1024px) {
   .singlecard {
-    min-width: 29%;
+    width: 100%;
     height: auto;
-    margin-right: 1.4rem;
   }
   .image_singlecard {
     width: 100%;
+    height: 35vh;
   }
   .image_singlecard img {
-    height: 150px;
+    height: 100%;
     width: 100%;
     border-radius: 15px;
   }
-  .image_singlecard {
-    height: auto;
-  }
+  
   .name_singlecard {
     width: 100%;
   }
@@ -451,32 +382,24 @@
     font-weight: 600;
   }
 }
-@media only screen and (min-width: 940px) and (max-width: 1024px) {
-  .singlecard {
-    min-width: 27%;
-    height: auto;
-    margin-right: 1.4rem;
-  }
-}
+
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
   .singlecard {
-    min-width: 25%;
+    width: 100%;
     height: auto;
-    margin-right: 1.4rem;
   }
   .image_singlecard {
     width: 100%;
+    height: 35vh;
   }
   .image_singlecard img {
-    height: 150px;
+    height: 100%;
     width: 100%;
     border-radius: 15px;
   }
-  .image_singlecard {
-    height: auto;
-  }
+
   .name_singlecard {
     width: 100%;
   }
@@ -522,18 +445,13 @@
     font-weight: 600;
   }
 }
-@media only screen and (min-width: 1140px) and (max-width: 1200px) {
-  .singlecard {
-    min-width: 23%;
-  }
-}
+
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1200px) and (max-width: 1530px) {
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .singlecard {
-    min-width: 23%;
+    width: 100%;
     height: auto;
-    margin-right: 1.4rem;
   }
   .image_singlecard {
     width: 100%;
@@ -543,7 +461,6 @@
   .image_singlecard img {
     height: 30vh;
     width: 100%;
-    border-radius: 15px;
   }
 
   .name_singlecard {
@@ -579,10 +496,5 @@
   }
   .total_singlecard {
     padding-top: 1rem;
-  }
-}
-@media only screen and (min-width: 1260px) and (max-width: 1530px) {
-  .singlecard {
-    min-width: 21%;
   }
 }
