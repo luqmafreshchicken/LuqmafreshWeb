@@ -2,13 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 78vh;
-  
+  height: auto;
+  padding-bottom: 1rem;
 }
 .cardswrapper {
   width: 89.5%;
   align-items: center;
-  height: 73vh;
+  height: auto;
 }
 .card_slider {
   display: flex;
@@ -41,6 +41,7 @@
   }
   .carouselitem {
     height: auto;
+    padding-bottom: 0rem;
   }
   .cardswrapper {
     width: 91%;
@@ -56,9 +57,8 @@
   }
   .cardswrapper {
     width: 91%;
-    gap: 0px;
     height: auto;
-    padding: 2rem 0rem;
+    padding: 0rem 0rem;
   }
   .carouselitem {
     height: auto;
@@ -77,7 +77,7 @@
   }
 }
 
-@media only screen and (min-width: 901px) and  (max-width: 1024px){
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
   .slider_next_btn {
     right: 10px;
   }
@@ -87,10 +87,10 @@
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
   .carouselitem {
-    height: 65vh;
+    height: auto;
   }
   .cardswrapper {
-    height: 65vh;
+    height: auto;
   }
 }
 
@@ -98,12 +98,10 @@
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .carouselitem {
-    height: 80vh;
-
+    height: auto;
   }
   .cardswrapper {
-    height: 80vh;
-    width: 90%;
-
+    height:auto;
+    width: 91%;
   }
 }
