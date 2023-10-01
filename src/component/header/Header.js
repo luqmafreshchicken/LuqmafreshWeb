@@ -8,12 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
 import { useNavigate } from "react-router-dom";
-import Logo from "../../assest/Image/MAIN LOGO.png"
-import Search from "../../assest/Image/search.png"
-import Location from "../../assest/Image/pin.png"
-import User from "../../assest/Image/user.png"
-import Profile from "../../assest/Image/user1.png"
-import cart from "../../assest/Image/grocery-store.png"
+import Logo from "../../assest/Image/MAIN LOGO.png";
+import Search from "../../assest/Image/search.png";
+import Location from "../../assest/Image/pin.png";
+import User from "../../assest/Image/user.png";
+import Profile from "../../assest/Image/user1.png";
+import cart from "../../assest/Image/grocery-store.png";
 
 const Header = ({
   onchange,
@@ -46,7 +46,7 @@ const Header = ({
   handleResendOTP = () => {},
   handleCartLogin = () => {},
   handleHome = () => {},
-  headerCart = true
+  headerCart = true,
 }) => {
   // let navigate = useNavigate();
 
@@ -100,16 +100,6 @@ const Header = ({
     e.stopPropagation();
     sethover(false);
   }
-
-  // const handleclear = async (index) => {
-  //   window.location.reload();
-
-  //   if (index == 4) {
-  //     await localStorage.clear();
-  //     navigate("/");
-  //     // localContent();
-  //   }
-  // };
 
   return (
     <>
@@ -224,34 +214,34 @@ const Header = ({
                     </li>
                   </div>
                 )}
-                  {headerCart == true && (
-                <NavLink className="nav_list">
-                  <li>
-                    <div
-                      className="cart_border_container"
-                      onClick={carthandleOpen}
-                    >
-                      <div className="cart_border_content1">
-                        <img src={cart} />
+                {headerCart == true && (
+                  <NavLink className="nav_list">
+                    <li>
+                      <div
+                        className="cart_border_container"
+                        onClick={carthandleOpen}
+                      >
+                        <div className="cart_border_content1">
+                          <img src={cart} />
+                        </div>
+                        <div className="cart_border_content2">
+                          <p>
+                            {cartProductlength?.length} Items <br />
+                            <span>
+                              {curr} {cartPrice}
+                            </span>
+                          </p>
+                        </div>
                       </div>
-                      <div className="cart_border_content2">
-                        <p>
-                          {cartProductlength?.length} Items <br />
-                          <span>
-                            {curr} {cartPrice}
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </li>
-                </NavLink>
+                    </li>
+                  </NavLink>
                 )}
               </ul>
             </div>
           </nav>
         </div>
       </div>
-     {/* <ModalCart
+      {/* <ModalCart
         cartopen={cartopen}
         carthandleClose={carthandleClose}
         onclose={carthandleClose}
@@ -272,11 +262,13 @@ const Header = ({
       >
         <Box>
           <div className="handle_login">
-            <div className="sign_in_logo">
-              <img src="01.jpg" />
+            <div className="loginLogoContainer">
+              <div className="loginLogo">
+                <img src={Logo} />
+              </div>
             </div>
 
-            <div className="handle_login_container">
+            <div className="handlelogin_container">
               {/* heading */}
               <div className="handle_login_heading">
                 <p>Sign In</p>
@@ -335,7 +327,7 @@ const Header = ({
                       color: btn === true ? "white" : "white",
                     }}
                   >
-                    <p>Continue</p>
+                    Continue
                   </div>
                 </div>
               ) : null}
@@ -347,7 +339,7 @@ const Header = ({
                       className="handle_login_proceed_content"
                       onClick={handleOTP}
                     >
-                      <p>Submit</p>
+                      Submit
                     </div>
                   </div>
                 </>
