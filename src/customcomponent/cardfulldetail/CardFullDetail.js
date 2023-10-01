@@ -346,7 +346,7 @@ export default function CardFullDetail() {
     if (items) {
       setWhistlistOpen(false);
       setLoginStatus(true);
-    } else {
+    } else {   
       setCartProduct(cart ? cart : []);
       cart?.map((item) => {
         setCartPrice((prev) => prev + item?.productId?.price * item?.quantity);
