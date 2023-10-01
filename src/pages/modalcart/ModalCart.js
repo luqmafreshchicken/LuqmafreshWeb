@@ -4,6 +4,12 @@ import Box from "@mui/material/Box";
 import "./modalcart.css";
 import { NavLink } from "react-router-dom";
 import { newArrival } from "../../serverRequest/Index";
+import CrossBtn from "../../assest/Image/crossbtn.png"
+import Lock from "../../assest/Image/lock.png"
+import Cross from "../../assest/Image/cross.png"
+import Empty from "../../assest/Image/emty cart.png"
+
+
 
 const ModalCart = ({
   cartopen,
@@ -66,7 +72,7 @@ const ModalCart = ({
                             onClick={() => removeProduct(option?._id)}
                             className="product_cross"
                           >
-                            <img src="cross.png" height="22px" width="22px" />
+                            <img src={Cross} height="22px" width="22px" />
                           </div>
                         </div>
                         <div className="peices_content">
@@ -164,7 +170,7 @@ const ModalCart = ({
                 ) : (
                   <>
                     <div className="mobile_cart_nologin">
-                      <img src="emty cart.png" />
+                      <img src={Empty} />
                     </div>
                     <div className="cart_empty">
                       <h5>Your cart is empty</h5>
@@ -312,7 +318,7 @@ const ModalCart = ({
                   <>
                     <div className="mobile_cart_nologin">
                       <div className="noLoginUser">
-                        <img src="lock.png" />
+                        <img src={Lock} />
                       </div>
                     </div>
                     <div className="cart_empty">
@@ -334,7 +340,7 @@ const ModalCart = ({
             ) : null}
           </div>
           <div className="crossbtn" onClick={carthandleClose}>
-            <img src="crossbtn.png" />
+            <img src={CrossBtn} />
           </div>
         </Box>
       </Modal>
