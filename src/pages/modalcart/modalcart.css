@@ -436,6 +436,18 @@
   background-color: #e30039;
   transform: scale(0.2s);
 }
+.crossbtn {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  left: 67%;
+  display: grid;
+  place-items: center;
+  top: 1rem;
+  border-radius: 50px;
+  border: 2px solid white;
+  cursor: pointer;
+}
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
@@ -454,11 +466,17 @@
     /* margin-left: 0.5rem; */
     margin-top: 1rem;
   }
-  .style2 {
-    left: 65%;
-    width: 70%;
+  .mobile_cart_nologin {
+    height: 20vh;
+    /* background-color: aqua; */
   }
-
+  .style2 {
+    left: 60%;
+    width: 80%;
+  }
+  .noLoginUser {
+    max-width: 40%;
+  }
   .product_card {
     width: 95%;
     /* margin-left: 1rem; */
@@ -545,12 +563,7 @@
     display: flex;
     gap: 0px;
   }
-  .mobile_cart_nologin {
-    height: 50vh;
-    width: 100%;
-    display: grid;
-    place-items: center;
-  }
+
   .mobile_cart_nologin img {
     height: 150px;
     width: 150px;
@@ -606,8 +619,8 @@
   .emptyText p {
     font-size: 0.7rem;
   }
-  .cart_empty button {
-    display: none;
+  .crossbtn{
+    left: 5%;
   }
 }
 /* Mobile devices (320px - 420px)
@@ -654,8 +667,8 @@
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
   .style2 {
-    left: 65%;
-    width: 70%;
+    left: 70%;
+    width: 60%;
   }
   .modalcart_btn {
     margin-top: 2rem;
@@ -716,11 +729,23 @@
   .emptyText p {
     font-size: 0.8rem;
   }
+  .crossbtn{
+    left: 30%;
+  }
 }
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   .style2 {
     left: 80%;
     width: 40%;
+  }
+  .crossbtn{
+    left: 53%;
+  }
+  .emptyText {
+    max-width: 80%;
+  }
+  .emptyText p {
+    font-size: 0.8rem;
   }
 }
 
@@ -797,6 +822,9 @@
   }
   .proceed_btn {
     width: 50%;
+  }
+  .crossbtn{
+    left: 55%;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 870px) {
@@ -881,6 +909,9 @@
     max-width: 75%;
     margin-left: 0.7rem;
   }
+  .crossbtn{
+    left: 65%;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
@@ -956,5 +987,8 @@
   .emptyText p {
     font-size: 0.8rem;
     padding: 1rem 0rem;
+  }
+  .crossbtn{
+    left: 65%;
   }
 }
