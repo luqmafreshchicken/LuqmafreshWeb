@@ -159,7 +159,7 @@
 }
 .color_count p {
   padding-top: 20px;
-  font-size:1rem;
+  font-size: 1rem;
   color: #ff0040;
   font-family: regular;
 }
@@ -197,7 +197,7 @@
   font-weight: 600;
   color: grey;
 }
-.total_cart_amount p{
+.total_cart_amount p {
   padding-top: 20px;
   font-size: 1rem;
   font-family: regular;
@@ -371,29 +371,34 @@
   overflow: hidden;
 }
 .mobile_cart_nologin {
-  height: 48vh;
+  display: grid;
+  place-items: center;
+  min-height: 40vh;
+}
+.noLoginUser {
+  max-width: 40%;
+}
+.noLoginUser img {
+  height: 100%;
   width: 100%;
+}
+.cart_empty {
   display: grid;
   place-items: center;
 }
-.mobile_cart_nologin img {
-  height: 60%;
-  width: 50%;
+.emptyText {
+  max-width: 60%;
 }
-.cart_empty {
-  padding-right: 1.5rem;
-}
-.cart_empty h5 {
+.emptyText h5 {
   text-align: center;
-  /* padding-top: 1rem; */
   font-family: regular;
   font-weight: 600;
 }
-.cart_empty p {
-  text-align: center;
-  padding: 1rem 2rem;
+.emptyText p {
+  text-align: justify;
   font-family: light;
   font-size: 0.9rem;
+  padding: 1rem 0rem;
 }
 .mobile_shopping {
   background-color: #ff0040;
@@ -413,7 +418,7 @@
   padding-top: 0.5rem;
 }
 
-.cart_empty button{
+.cart_empty button {
   position: absolute;
   bottom: 0rem;
   width: 100%;
@@ -426,9 +431,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s linear;
-
 }
-.cart_empty button:hover{
+.cart_empty button:hover {
   background-color: #e30039;
   transform: scale(0.2s);
 }
@@ -440,7 +444,7 @@
     margin-bottom: 0px;
     margin-left: 1rem;
   }
- 
+
   .modalcart_btn img {
     height: 30px;
     width: 30px;
@@ -451,10 +455,10 @@
     margin-top: 1rem;
   }
   .style2 {
-    left: 55%;
-    width: 90%;
+    left: 65%;
+    width: 70%;
   }
-  
+
   .product_card {
     width: 95%;
     /* margin-left: 1rem; */
@@ -486,7 +490,7 @@
     font-size: 11px;
     padding-top: 7px;
   }
-  .total_cart_amount p{
+  .total_cart_amount p {
     padding-top: 20px;
     font-size: 12px;
     font-family: regular;
@@ -518,7 +522,7 @@
     font-size: 10px;
     color: gray;
   }
-  .cong_charge_section p{
+  .cong_charge_section p {
     font-size: 9px;
   }
   .delivery_charge p {
@@ -592,13 +596,17 @@
   .modalcart_scroll_bar_container {
     height: 77vh;
   }
-  
-  
+
   .cart_empty {
     padding-right: 0rem;
   }
-  
-  .cart_empty button{
+  .emptyText {
+    max-width: 90%;
+  }
+  .emptyText p {
+    font-size: 0.7rem;
+  }
+  .cart_empty button {
     display: none;
   }
 }
@@ -647,7 +655,7 @@
   /* CSS rules for iPads and tablets */
   .style2 {
     left: 65%;
-    width: 75%;
+    width: 70%;
   }
   .modalcart_btn {
     margin-top: 2rem;
@@ -702,13 +710,26 @@
   .proceed_payment p {
     font-size: 0.8rem;
   }
+  .emptyText {
+    max-width: 80%;
+  }
+  .emptyText p {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 900px) {
+  .style2 {
+    left: 80%;
+    width: 40%;
+  }
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
   .style2 {
-    width: 65%;
+    left: 81%;
+    width: 38%;
   }
   .modalcart_btn {
     margin-left: 0.6rem;
@@ -752,6 +773,24 @@
     height: 80vh;
     padding-top: 0.7rem;
   }
+  .noLoginUser {
+    max-width: 40%;
+  }
+  .noLoginUser img {
+    height: 100%;
+    width: 100%;
+  }
+  .emptyText {
+    max-width: 65%;
+    /* background-color: aqua; */
+  }
+  .emptyText h5 {
+    font-weight: 600;
+  }
+  .emptyText p {
+    font-size: 0.8rem;
+    padding: 1rem 0rem;
+  }
   .proceed_section {
     max-width: 67%;
     margin-left: 0.6rem;
@@ -776,7 +815,8 @@
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
   .style2 {
-    width: 45%;
+    left: 85%;
+    max-width: 35%;
   }
   .modalcart_btn {
     margin-left: 0.7rem;
@@ -820,6 +860,23 @@
     height: 80vh;
     padding-top: 0.7rem;
   }
+  .noLoginUser {
+    max-width: 40%;
+  }
+  .noLoginUser img {
+    height: 100%;
+    width: 100%;
+  }
+  .emptyText {
+    max-width: 65%;
+  }
+  .emptyText h5 {
+    font-weight: 600;
+  }
+  .emptyText p {
+    font-size: 0.8rem;
+    padding: 1rem 0rem;
+  }
   .proceed_section {
     max-width: 75%;
     margin-left: 0.7rem;
@@ -830,7 +887,8 @@
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .style2 {
-    width: 40%;
+    left: 85%;
+    max-width: 35%;
   }
   .modalcart_btn {
     margin-left: 1rem;
@@ -880,5 +938,23 @@
   .modalcart_scroll_bar_container {
     height: 80vh;
     padding-top: 0.7rem;
+  }
+
+  .noLoginUser {
+    max-width: 40%;
+  }
+  .noLoginUser img {
+    height: 100%;
+    width: 100%;
+  }
+  .emptyText {
+    max-width: 65%;
+  }
+  .emptyText h5 {
+    font-weight: 600;
+  }
+  .emptyText p {
+    font-size: 0.8rem;
+    padding: 1rem 0rem;
   }
 }
