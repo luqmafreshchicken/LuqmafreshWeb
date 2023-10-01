@@ -71,7 +71,7 @@ export default function ContactFooter() {
 
         <Grid item className="contact2">
           <h6>USEFUL LINKS</h6>
-          <NavLink to="whylicious" className="nav_list">
+          <NavLink to="whyluqmafresh" className="nav_list">
             <p>Why Luqmafresh?</p>
           </NavLink>
           <NavLink to="affliatemarket" className="nav_list">
