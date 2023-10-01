@@ -4,12 +4,10 @@ import Box from "@mui/material/Box";
 import "./modalcart.css";
 import { NavLink } from "react-router-dom";
 import { newArrival } from "../../serverRequest/Index";
-import CrossBtn from "../../assest/Image/crossbtn.png"
-import Lock from "../../assest/Image/lock.png"
-import Cross from "../../assest/Image/cross.png"
-import Empty from "../../assest/Image/emty cart.png"
-
-
+import CrossBtn from "../../assest/Image/crossbtn.png";
+import Lock from "../../assest/Image/lock.png";
+import Cross from "../../assest/Image/cross.png";
+import Empty from "../../assest/Image/emty cart.png";
 
 const ModalCart = ({
   cartopen,
@@ -213,7 +211,7 @@ const ModalCart = ({
                             onClick={() => removeProduct(option?._id)}
                             className="product_cross"
                           >
-                            <img src="cross.png" height="22px" width="22px" />
+                            <img src={Cross} height="22px" width="22px" />
                           </div>
                         </div>
                         <div className="peices_content">
