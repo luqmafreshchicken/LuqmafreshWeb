@@ -45,14 +45,12 @@
   font-size: 1rem;
   font-family: semibold;
   padding-top: 1rem;
-
 }
 .luqma_location_bottom {
   width: 90%;
   height: 2.5vh;
   padding-left: 1.4rem;
   padding-top: 0.2rem;
-
 }
 .luqma_location_bottom p {
   font-size: 0.9rem;
@@ -63,9 +61,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.luqma_location_bottom p span{
+.luqma_location_bottom p span {
   font-family: semibold;
-
 }
 .luqma_input {
   height: 5vh;
@@ -114,12 +111,12 @@ ul li {
 .currency_container img {
   height: 18px;
   width: 18px;
-/*   cursor: none; */
+  /*   cursor: none; */
 }
 .currency_container p {
   font-size: 0.8rem;
   padding-top: 1.1rem;
-/*   cursor: none; */
+  /*   cursor: none; */
 }
 .cart_border_container {
   border: 1px solid #ff0040;
@@ -264,9 +261,8 @@ ul li {
 .handle_login_otp_content p {
   padding-top: 0.9rem;
   font-family: regular;
-   color: #ff0040;
-    cursor: pointer;
-
+  color: #ff0040;
+  cursor: pointer;
 }
 .handle_login_btn_container {
   width: 100%;
@@ -361,10 +357,10 @@ ul li {
   height: 6vh;
   cursor: pointer;
 }
-.crossbtn{
+.crossbtn {
   width: 40px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   right: 28rem;
   display: grid;
   place-items: center;
@@ -373,14 +369,12 @@ ul li {
   border: 2px solid white;
   cursor: pointer;
 }
-.crossbtn img{
+.crossbtn img {
   height: 30px;
   width: 30px;
   transition: 0.3s linear;
-
-
 }
-.crossbtn img:hover{
+.crossbtn img:hover {
   transform: rotateZ(90deg);
 }
 
@@ -390,14 +384,14 @@ ul li {
   .handle_login {
     position: absolute;
     top: 50%;
-    left:60%;
+    left: 60%;
     transform: translate(-50%, -50%);
     width: 90%;
     height: 100vh;
     background-color: white;
     box-shadow: 24;
   }
-  
+
   .luqma_logo_img img {
     height: 70px;
     width: 140px;
@@ -484,10 +478,9 @@ ul li {
 }
 .handle_login_heading p {
   font-size: 1rem;
- 
 }
 .handle_login_number_content input {
-   font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 .handle_login_btn_content p {
   font-size: 0.9rem;
@@ -497,7 +490,6 @@ ul li {
 }
 .handle_login_otp_content input {
   font-size: 0.8rem;
-
 }
 .handle_login_otp_content p {
   padding-top: 0.9rem;
@@ -507,6 +499,10 @@ ul li {
   font-size: 0.7rem;
   padding-top: 0.5rem;
 }
+.crossbtn {
+  left: 18%;
+   top: 1rem;
+ }
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
@@ -546,6 +542,10 @@ ul li {
     width: 1rem;
     margin-right: 10px;
   }
+  .crossbtn {
+    left: 20%;
+     top: 1rem;
+   }
 }
 
 /* Small screens, laptops (769px - 1024px) */
@@ -584,6 +584,10 @@ ul li {
     color: #b2b3b3;
     font-family: "Poppins", sans-serif;
   }
+  .crossbtn {
+    left: 53%;
+     top: 1rem;
+   }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
@@ -621,6 +625,10 @@ ul li {
     padding-top: 0.4rem;
     font-size: 0.7rem;
   }
+  .crossbtn {
+    left: 56%;
+     top: 1rem;
+   }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {
   .navbar {
@@ -672,6 +680,10 @@ ul li {
     padding-top: 0.4rem;
     font-size: 0.7rem;
   }
+  .crossbtn {
+    left: 65%;
+     top: 1rem;
+   }
 }
 /* @media only screen and (min-width: 970px){
   .luqma_input input{
@@ -761,5 +773,9 @@ ul li {
   }
   .handle_login_heading p {
     padding: 0.6rem 2rem;
+  }
+  .crossbtn {
+   left: 65%;
+    top: 1rem;
   }
 }
