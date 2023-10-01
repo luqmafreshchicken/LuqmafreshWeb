@@ -57,7 +57,7 @@ const Routes1 = () => {
       <Route path="/mobilecategorie" element={<MobileCategorie />} />
       <Route path="/viewdetails" element={<ViewDetail />} />
       <Route path="/notification" element={<Notification />} />
-      <Route path="/whylicious" element={<WhySection />} />
+      <Route path="/whyluqmafresh" element={<WhySection />} />
       <Route path="/affliatemarket" element={<AffliateMarket />} />
       <Route path="/franchies" element={<Franchies />} />
       <Route path="/recipies" element={<Recipies />} />
