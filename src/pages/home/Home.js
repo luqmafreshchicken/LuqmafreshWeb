@@ -282,7 +282,7 @@ const Home = () => {
   const localContent = () => {
     const items = JSON.parse(localStorage?.getItem("userDetail"));
     const items1 = JSON.parse(localStorage?.getItem("modalCount"));
-    const cart = JSON.parse(localStorage?.getItem("cart1"));
+    const cart = JSON.parse(localStorage?.getItem("cart"));
     const cartPrice = JSON.parse(localStorage?.getItem("cartPrice"));
 
     if (items) {
