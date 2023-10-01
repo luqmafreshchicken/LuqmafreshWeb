@@ -160,46 +160,52 @@ ul li {
 .handle_login {
   position: absolute;
   top: 50%;
-  left: 87%;
+  left: 85%;
   transform: translate(-50%, -50%);
   width: 30%;
   height: 100vh;
   background-color: white;
   box-shadow: 24;
 }
-.sign_in_logo {
-  width: 95%;
-  height: 60vh;
-}
-.sign_in_logo img {
+.loginLogoContainer {
   width: 100%;
-  height: 450px;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
 }
-.handle_login_container {
+.loginLogo {
+  max-width: 50%;
+  height: auto;
+}
+.loginLogo img {
+  height: 100%;
+  width: 100%;
+}
+.handlelogin_container {
   position: absolute;
   top: 75%;
-  left: 47%;
+  left: 50%;
   transform: translate(-50%, -50%);
   height: auto;
-  width: 94%;
+  width: 100%;
   background-color: white;
 }
 .handle_login_heading {
   width: 100%;
-  height: 7vh;
+  height: auto;
   background-color: #ff0040;
 }
 .handle_login_heading p {
-  font-size: 1.2rem;
-  padding: 0.8rem 2rem;
   font-family: regular;
   font-weight: 600;
   color: white;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
 }
 
 .handle_login_number_container {
   width: 100%;
-  height: 10vh;
+  height: auto;
   /* background-color: orange; */
   display: grid;
   place-items: center;
@@ -266,52 +272,50 @@ ul li {
 }
 .handle_login_btn_container {
   width: 100%;
-  height: 12vh;
-  /* background-color: orange; */
+  height: auto;
   display: grid;
   place-items: center;
-  /* margin-bottom: 6rem; */
+  padding: 2rem 0rem;
 }
 .handle_login_btn_content {
   width: 85%;
-  height: 6vh;
+  height: auto;
   background-color: #ff0040;
   border-radius: 5px;
-}
-.handle_login_btn_content p {
   text-align: center;
   font-size: 1.1rem;
   font-family: regular;
   font-weight: 600;
   color: white;
-  padding-top: 0.6rem;
+  padding: 0.5rem 0rem;
+  cursor: pointer;
 }
+
 .handle_login_btn_content p:hover {
   cursor: pointer;
 }
 .handle_login_proceed_container {
   width: 100%;
-  height: 12vh;
-  /* background-color: orange; */
+  height: auto;
   display: grid;
   place-items: center;
   /* margin-bottom: 10rem; */
 }
 .handle_login_proceed_content {
   width: 85%;
-  height: 6vh;
+  height: auto;
   background-color: #ff0040;
   border-radius: 5px;
-  cursor: pointer;
-}
-.handle_login_proceed_content p {
-  text-align: center;
   font-size: 1.1rem;
   font-family: regular;
   font-weight: 600;
   color: white;
-  padding-top: 0.6rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 0rem;
 }
+
 .mobile_input {
   display: none;
 }
@@ -357,18 +361,7 @@ ul li {
   height: 6vh;
   cursor: pointer;
 }
-.crossbtn {
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  right: 28rem;
-  display: grid;
-  place-items: center;
-  top: 1rem;
-  border-radius: 50px;
-  border: 2px solid white;
-  cursor: pointer;
-}
+
 .crossbtn img {
   height: 30px;
   width: 30px;
@@ -384,9 +377,9 @@ ul li {
   .handle_login {
     position: absolute;
     top: 50%;
-    left: 60%;
+    left: 59%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 82%;
     height: 100vh;
     background-color: white;
     box-shadow: 24;
@@ -403,7 +396,6 @@ ul li {
     transform: translate(-50%, -50%);
     width: 140%;
     height: 100vh;
-    background-color: pink;
     box-shadow: 24;
   }
   .modal_style {
@@ -476,9 +468,9 @@ ul li {
   height: auto;
   width: 94%;
 }
-.handle_login_heading p {
+/* .handle_login_heading p {
   font-size: 1rem;
-}
+} */
 .handle_login_number_content input {
   font-size: 0.8rem;
 }
@@ -500,9 +492,9 @@ ul li {
   padding-top: 0.5rem;
 }
 .crossbtn {
-  left: 18%;
-   top: 1rem;
- }
+  left: 1%;
+  top: 1rem;
+}
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
@@ -542,10 +534,17 @@ ul li {
     width: 1rem;
     margin-right: 10px;
   }
+  .handle_login {
+    left: 70%;
+    width: 60%;
+  }
+  .handle_login_btn_content {
+    font-size: 1rem;
+  }
   .crossbtn {
     left: 20%;
-     top: 1rem;
-   }
+    top: 1rem;
+  }
 }
 
 /* Small screens, laptops (769px - 1024px) */
@@ -584,10 +583,17 @@ ul li {
     color: #b2b3b3;
     font-family: "Poppins", sans-serif;
   }
+  .handle_login {
+    left: 80%;
+    width: 40%;
+  }
+  .handle_login_btn_content {
+    font-size: 1rem;
+  }
   .crossbtn {
     left: 53%;
-     top: 1rem;
-   }
+    top: 1rem;
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
@@ -606,6 +612,11 @@ ul li {
   .luqma_input {
     width: 35%;
     margin-left: 1rem;
+  }
+
+  .handle_login {
+    left: 80%;
+    width: 40%;
   }
 
   .luqma_logo img {
@@ -627,8 +638,12 @@ ul li {
   }
   .crossbtn {
     left: 56%;
-     top: 1rem;
-   }
+    top: 1rem;
+  }
+  .handle_login_btn_content {
+    font-size: 1rem;
+  }
+  
 }
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {
   .navbar {
@@ -682,8 +697,8 @@ ul li {
   }
   .crossbtn {
     left: 65%;
-     top: 1rem;
-   }
+    top: 1rem;
+  }
 }
 /* @media only screen and (min-width: 970px){
   .luqma_input input{
@@ -775,7 +790,7 @@ ul li {
     padding: 0.6rem 2rem;
   }
   .crossbtn {
-   left: 65%;
     top: 1rem;
+    left: 30%;
   }
 }
