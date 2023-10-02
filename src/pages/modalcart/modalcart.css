@@ -400,6 +400,27 @@
   font-size: 0.9rem;
   padding: 1rem 0rem;
 }
+.cartEmptyContainer {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.cartEmptyContent {
+  min-height: 30vh;
+  max-width: 70%;
+  display: grid;
+  place-items: center;
+}
+.cartEmptyContent p {
+  text-align: center;
+}
+.cartEmptyImg {
+  max-width: 60%;
+  padding: 1rem 0rem;
+}
+.cartEmptyImg img {
+  width: 100%;
+}
 .mobile_shopping {
   background-color: #ff0040;
   width: 100%;
@@ -619,7 +640,7 @@
   .emptyText p {
     font-size: 0.7rem;
   }
-  .crossbtn{
+  .crossbtn {
     left: 5%;
   }
 }
@@ -729,7 +750,7 @@
   .emptyText p {
     font-size: 0.8rem;
   }
-  .crossbtn{
+  .crossbtn {
     left: 30%;
   }
 }
@@ -738,7 +759,7 @@
     left: 80%;
     width: 40%;
   }
-  .crossbtn{
+  .crossbtn {
     left: 53%;
   }
   .emptyText {
@@ -823,7 +844,7 @@
   .proceed_btn {
     width: 50%;
   }
-  .crossbtn{
+  .crossbtn {
     left: 55%;
   }
 }
@@ -909,7 +930,7 @@
     max-width: 75%;
     margin-left: 0.7rem;
   }
-  .crossbtn{
+  .crossbtn {
     left: 65%;
   }
 }
@@ -988,7 +1009,7 @@
     font-size: 0.8rem;
     padding: 1rem 0rem;
   }
-  .crossbtn{
+  .crossbtn {
     left: 65%;
   }
 }
