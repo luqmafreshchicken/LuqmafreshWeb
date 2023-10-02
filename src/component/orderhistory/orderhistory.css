@@ -118,21 +118,21 @@
 }
 .track_order {
   width: 100%;
-  height: 8vh;
+  height: auto;
   display: flex;
   justify-content: space-between;
-  /* background-color: orange; */
   align-items: center;
 }
 .track_order_btn {
-  height: 6vh;
-  width: 140px;
+  height: auto;
+  width: auto;
   background-color: #c42118;
   color: white;
   border-radius: 3px;
   text-align: center;
-  padding-top: 0.6rem;
   font-family: medium;
+  padding: 0.5rem 1.3rem;
+  font-size: 0.9rem;
 }
 
 /* Mobile devices (320px - 480px) */
