@@ -247,8 +247,9 @@ const UserContactDetail = () => {
       longitude: longitude,
       type: "Office",
     };
-    createAddress(requestData).then((res) => {
       setLoad(true);
+    
+    createAddress(requestData).then((res) => {
       console.log(res.message);
       if (res.status == true) {
         toast.success(res.message + "Successfully", {
