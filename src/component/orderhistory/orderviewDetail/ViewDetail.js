@@ -291,7 +291,7 @@ const ViewDetail = () => {
           <div className="shipmenet_cancle_address">
             <p>
               <span>Delivery Address : </span>
-              {address.city}
+              {address?.city}
             </p>
           </div>
           {/* end shipmenet cancle */}
@@ -331,19 +331,19 @@ const ViewDetail = () => {
               <div className="bill_detail_price">
                 <p>Subtotal</p>
                 <p>
-                  {countrycurrency} {order.subtotal}
+                  {countrycurrency} {order?.subtotal}
                 </p>
               </div>
               <div className="bill_detail_price">
                 <p style={{ color: "lightgray" }}>VAT 5% (Included)</p>
                 <p>
-                  {countrycurrency} {(order.subtotal * 5) / 100}
+                  {countrycurrency} {(order?.subtotal * 5) / 100}
                 </p>
               </div>
               <div className="bill_detail_total">
                 <p>Total</p>
                 <p>
-                  {countrycurrency} {order.subtotal}
+                  {countrycurrency} {order?.subtotal}
                 </p>
               </div>
             </div>
