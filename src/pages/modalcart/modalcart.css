@@ -807,12 +807,12 @@
     padding-top: 0.4rem;
   }
   .product_card {
-    width: 69%;
+    width:96%;
     margin-left: 0.6rem;
   }
 
   .biil_payment {
-    width: 69%;
+    width: 97%;
     margin-left: 0.6rem;
   }
   .modalcart_scroll_bar_container {
@@ -838,7 +838,7 @@
     padding: 1rem 0rem;
   }
   .proceed_section {
-    max-width: 67%;
+    max-width: 100%;
     margin-left: 0.6rem;
   }
   .proceed_btn {
@@ -897,12 +897,12 @@
     padding-top: 0.4rem;
   }
   .product_card {
-    width: 77%;
+    width: 95%;
     margin-left: 0.7rem;
   }
 
   .biil_payment {
-    width: 77%;
+    width: 95%;
     margin-left: 0.7rem;
   }
   .modalcart_scroll_bar_container {
@@ -927,7 +927,7 @@
     padding: 1rem 0rem;
   }
   .proceed_section {
-    max-width: 75%;
+    max-width: 100%;
     margin-left: 0.7rem;
   }
   .crossbtn {
@@ -972,20 +972,23 @@
     padding-top: 0.4rem;
   }
   .product_card {
-    max-width: 79%;
+    width: 95%;
     margin-left: 1rem;
   }
 
   .biil_payment {
-    max-width: 79%;
+    width: 95%;
     margin-left: 1rem;
+
   }
   .cong_charge_section p {
     font-size: 0.8rem;
   }
   .proceed_section {
-    max-width: 77%;
+    max-width: 100%;
     margin-left: 1rem;
+
+    
   }
   .modalcart_scroll_bar_container {
     height: 80vh;
