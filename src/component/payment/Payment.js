@@ -139,6 +139,7 @@ const Payment = () => {
     }
   };
   const showcart = async () => {
+    setLoad(true);
     const userId = await getUserID();
     const data = {
       userId: userId,
@@ -147,9 +148,11 @@ const Payment = () => {
     if (res.status == true) {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
+      setLoad(false);
     } else {
       setCartProduct([]);
       setCartPrice("");
+      setLoad(false);
     }
   };
 
