@@ -787,8 +787,8 @@ const TodayDeals = () => {
       />
       <div>
         {subcategorie?.length >= 1 ? (
-          <div className="subcategorie_contaner">
-            <div className="subcategorie_content">
+         <div className="subCategorieContaner">
+            <div className="subCategorieContent">
               <SubCategorieList
                 selID={colorId == "" ? "123" : colorId}
                 catId={"123"}
