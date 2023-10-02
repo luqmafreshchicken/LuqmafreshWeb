@@ -167,16 +167,18 @@ const ModalCart = ({
                   </div>
                 ) : (
                   <>
-                    <div className="mobile_cart_nologin">
-                      <img src={Empty} />
-                    </div>
-                    <div className="cart_empty">
-                      <h5>Your cart is empty</h5>
-                      <p>
-                        It appears that your cart is currently empty.
-                        <br /> Feel free to explore our top categories and add
-                        items to your cart.
-                      </p>
+                    <div className="cartEmptyContainer">
+                      <div className="cartEmptyContent">
+                        <div className="cartEmptyImg">
+                          <img src={Empty} />
+                        </div>
+                        <h5>Your cart is empty</h5>
+                        <p>
+                          It appears that your cart is currently empty.
+                          <br /> Feel free to explore our top categories and add
+                          items to your cart.
+                        </p>
+                      </div>
                     </div>
                   </>
                 )}
