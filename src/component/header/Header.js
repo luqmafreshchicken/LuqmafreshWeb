@@ -14,6 +14,8 @@ import Location from "../../assest/Image/pin.png";
 import User from "../../assest/Image/user.png";
 import Profile from "../../assest/Image/user1.png";
 import cart from "../../assest/Image/grocery-store.png";
+import CrossBtn from "../../assest/Image/crossbtn.png";
+
 
 const Header = ({
   onchange,
@@ -357,7 +359,7 @@ const Header = ({
             </div>
           </div>
           <div className="crossbtn" onClick={handleClose}>
-            <img src="crossbtn.png" />
+           <img src={CrossBtn} />
           </div>
         </Box>
       </Modal>
