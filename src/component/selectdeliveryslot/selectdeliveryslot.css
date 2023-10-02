@@ -189,28 +189,9 @@
   color: white;
 }
 
-.selectslots_delivery_time {
-  height: 7vh;
-  width: 30%;
-  background-color: lightgray;
-  border-radius: 10px;
-  color: white;
-  font-family: regular;
-  font-weight: 600;
-  display: grid;
-  place-items: center;
-  padding-top: 1rem;
-  /* justify-content: center;
-  align-items: center; */
-}
 
-.slots_edit_icon {
-  margin-top: 1rem;
-  height: 20px;
-  width: 20px;
-  color: #ff0040;
-  cursor: pointer;
-}
+
+
 .select_product_detail {
   height: auto;
   display: flex;
@@ -359,6 +340,31 @@
 }
 .selectdeliveryslot_modal img:hover {
   transform: rotateZ(90deg);
+}
+.primary_select_slots{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.slots_edit_icon {
+  height: 20px;
+  width: 20px;
+  color: #ff0040;
+  cursor: pointer;
+}
+.selectslots_delivery_time {
+  height:auto;
+  width: 40%;
+  background-color: lightgray;
+  border-radius: 10px;
+  color: white;
+  font-family: regular;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  padding: 0.8rem 0rem;
+  /* justify-content: center;
+  align-items: center; */
 }
 .disabled {
   border: none;
@@ -622,6 +628,20 @@
     width: 60%;
     font-size: 0.9rem;
   }
+  .selectslots_delivery_time {
+    height:auto;
+    width: 60%;
+    background-color: lightgray;
+    border-radius: 10px;
+    color: white;
+    font-family: regular;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+    padding: 0.8rem 0rem;
+    /* justify-content: center;
+    align-items: center; */
+  }
 }
 
 /* iPads, Tablets (481px - 768px) */
@@ -747,10 +767,11 @@
     padding: 0rem 1rem;
   }
   .select_delivery_time {
-    height: 6vh;
+    height: auto;
     width: 90%;
     border-radius: 3px;
     margin-left: 1.2rem;
+    padding: 0.5rem 0rem;
     margin-top: 1.2rem;
   }
   .select_delivery_time p {
@@ -869,7 +890,7 @@
   .selectdeliveryslot_btn_proceed {
     padding-top: 0rem;
     cursor: pointer;
-    width: 60%;
+    width: 40%;
     font-size: 0.9rem;
   }
 }
@@ -998,7 +1019,7 @@
   }
   .select_delivery_time {
     height: auto;
-    width: 94%;
+    width: 39%;
     border-radius: 3px;
     margin-left: 1.2rem;
     margin-top: 1.2rem;
@@ -1163,7 +1184,7 @@
   }
   .select_delivery_time {
     height: auto;
-    width: 100%;
+    width: 40%;
     margin-top: 10px;
     border-radius: 3px;
     margin-left: 0rem;
@@ -1315,12 +1336,13 @@
   }
   .select_delivery_time {
     height: auto;
-    width: 100%;
+    width: 40%;
     margin-top: 10px;
     border-radius: 3px;
     margin-left: 0%;
     margin-top: 1.2rem;
     padding: 0.6rem 0rem;
+
   }
   .select_delivery_time p {
     padding-top: 0.35rem;
@@ -1348,7 +1370,6 @@
     text-overflow: ellipsis;
   }
   .product_selectdeliveryslot_text {
-    /* background-color: green; */
     width: 80%;
   }
 
@@ -1400,6 +1421,7 @@
     width: 100%;
     display: flex;
     font-size: 0.9rem;
+    
   }
   
 
