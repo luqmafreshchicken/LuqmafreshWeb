@@ -14,22 +14,22 @@
   line-height: 1;
 }
 
-.hover_bottom{
-  height: 6vh;
+.hover_bottom {
+  height: auto;
   width: 100%;
   padding: 10px 0px;
   border-bottom: 1px solid lightgray;
 }
-.hover_bottom:hover{
+.hover_bottom:hover {
   border-bottom: 3px solid #c42118;
   color: #c42118;
 }
 
-.account_text{
+.account_text {
   padding-top: 3rem;
 }
 .account_profile p {
-  font-family: regular
+  font-family: regular;
 }
 .account_profile p img {
   height: 15px;
@@ -61,7 +61,6 @@
   border-radius: 5px;
   display: flex;
   gap: 5rem;
-
 }
 .account_list_show {
   width: 15%;
@@ -70,11 +69,11 @@
 }
 .show_data {
   width: 77%;
-  height: 80vh;
+  max-height: 80vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.show_data::-webkit-scrollbar{
+.show_data::-webkit-scrollbar {
   overflow: hidden;
 }
 
@@ -190,7 +189,7 @@ li {
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
-  .account_header{
+  .account_header {
     display: none;
   }
   .account_section {
@@ -198,7 +197,6 @@ li {
   }
   .account_content {
     height: auto;
-
   }
   .account_text {
     display: none;
@@ -228,7 +226,7 @@ li {
     grid-template-columns: 100%;
     box-shadow: none;
   }
-  .place_order{
+  .place_order {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -265,10 +263,10 @@ li {
     width: 100%;
     height: auto;
   }
-  .account_total_price{
+  .account_total_price {
     height: 7vh;
   }
-  .account_total_order{
+  .account_total_order {
     height: 7vh;
   }
   .account_total_price p {
@@ -283,7 +281,7 @@ li {
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
-  
+
   .account_section {
     height: auto;
     padding: 5px 0px;
@@ -291,7 +289,7 @@ li {
   .account_content {
     height: auto;
   }
-  
+
   .account_profile {
     display: flex;
     gap: 0px;
@@ -416,9 +414,15 @@ li {
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .show_data {
+    max-height: 74vh;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
+  .show_data {
+    max-height: 75vh;
+  }
 }
