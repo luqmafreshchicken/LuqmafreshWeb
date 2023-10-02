@@ -21,6 +21,7 @@ const Orderhistory = ({ id, countyCurrency }) => {
       userId: id,
     };
     getOrderByUserId(requestData).then((res) => {
+      console.log(res.data, "===========================");
       if (res.status == true) {
         setGetData(res.data);
         setLoad(false);
@@ -69,12 +70,9 @@ const Orderhistory = ({ id, countyCurrency }) => {
                     <div className="orderlist_detail_text">
                       <h5>{item1?.name}</h5>
                       <div className="orderlist_detail_weight_price">
-                        <p>
-                          {item1.quantity}
-                          {item1.unit}
-                        </p>
+                        <p>{item1.quantity} Qty</p>
                         <p style={{ color: "black", fontWeight: "580" }}>
-                          {countyCurrency} {item1.price}
+                          {countyCurrency} {item?.amount}
                         </p>
                         <p
                           style={{
@@ -95,9 +93,7 @@ const Orderhistory = ({ id, countyCurrency }) => {
                     className="nav_list"
                     state={{ orderId: item?._id }}
                   >
-                    <div className="track_order_btn">
-                      <p>View Details</p>
-                    </div>
+                    <div className="track_order_btn">View Details</div>
                   </NavLink>
                 </div>
               </div>
@@ -113,7 +109,6 @@ const Orderhistory = ({ id, countyCurrency }) => {
         </div>
       )}
       <Loader loading={load} />
-
     </div>
   );
 };
