@@ -10,8 +10,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0rem;
-  grid-row-gap: 3rem;
-  max-width: 92%;
+  grid-row-gap: 4rem;
+  width: 90%;
 }
 
 .subCategorieContaner {
