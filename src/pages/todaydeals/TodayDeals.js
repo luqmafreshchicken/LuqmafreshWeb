@@ -36,7 +36,7 @@ const TodayDeals = () => {
   let navigate = useNavigate();
 
   let location1 = useLocation();
-  const data = location1?.state?.id
+  const data = location1?.state?.id;
 
   console.log(data, "1234567890");
   let location = useLocation();
@@ -96,7 +96,7 @@ const TodayDeals = () => {
     }
     subCategorie();
     productAll();
-    categoryProduct1(data)
+    categoryProduct1(data);
   }, []);
 
   const subCategorie = () => {
@@ -728,43 +728,44 @@ const TodayDeals = () => {
   return (
     <>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
-
+      <div className="todayDealsHeader">
       <Header
-      code={countrytitle}
-      currency={countrycurrency}
-      flag={flag}
-      cartPrice={cartPrice}
-      cartProductlength={cartProduct}
-      curr={countrycurrency}
-      // cartopen={cartOpen}
-      // carthandleClose={carthandleClose}
-      carthandleOpen={carthandleOpen}
-      loginStatus={loginStatus}
-      handleOpen={() => setOpen(true)}
-      handleClose={() => setOpen(false)}
-      open={open}
-      showbtn={btn}
-      handleLogin={() => handleLogin()}
-      handleOTP={() => handleOTP()}
-      mobileNumber={mobileNumber}
-      handleMobileNumber={(e) => handleMobileNumber(e)}
-      sethandleOtp={(e) => sethandleOtp(e)}
-      otp={otp}
-      // totalAmount={cartPrice}
-      store={store}
-      // modalcurrency={countrycurrency}
-      handleclear={(index) => handleclear(index)}
-      removeProduct={(id) =>
-        loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-      }
-      // removeLocalCart
-      // removeProduct={(id) =>
-      //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
-      // }
-      handleResendOTP={() => handleResendOTP()}
-      handleCartLogin={() => handleCartLogin()}
-      handleHome={() => handleHome()}
+        code={countrytitle}
+        currency={countrycurrency}
+        flag={flag}
+        cartPrice={cartPrice}
+        cartProductlength={cartProduct}
+        curr={countrycurrency}
+        // cartopen={cartOpen}
+        // carthandleClose={carthandleClose}
+        carthandleOpen={carthandleOpen}
+        loginStatus={loginStatus}
+        handleOpen={() => setOpen(true)}
+        handleClose={() => setOpen(false)}
+        open={open}
+        showbtn={btn}
+        handleLogin={() => handleLogin()}
+        handleOTP={() => handleOTP()}
+        mobileNumber={mobileNumber}
+        handleMobileNumber={(e) => handleMobileNumber(e)}
+        sethandleOtp={(e) => sethandleOtp(e)}
+        otp={otp}
+        // totalAmount={cartPrice}
+        store={store}
+        // modalcurrency={countrycurrency}
+        handleclear={(index) => handleclear(index)}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
+        // removeLocalCart
+        // removeProduct={(id) =>
+        //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        // }
+        handleResendOTP={() => handleResendOTP()}
+        handleCartLogin={() => handleCartLogin()}
+        handleHome={() => handleHome()}
       />
+      </div>
       <ModalCart
         // cartopen={cartopen}
         cartopen={cartOpen}
@@ -787,7 +788,7 @@ const TodayDeals = () => {
       />
       <div>
         {subcategorie?.length >= 1 ? (
-         <div className="subCategorieContaner">
+          <div className="subCategorieContaner">
             <div className="subCategorieContent">
               <SubCategorieList
                 selID={colorId == "" ? "123" : colorId}
@@ -814,7 +815,7 @@ const TodayDeals = () => {
 
         {product?.length >= 1 ? (
           <div className="main_today_card">
-            <div className="today_card">
+            <div className="todayCardContainer">
               {product.map((item) => (
                 <>
                   {loginStatus == false ? (
@@ -942,8 +943,7 @@ const TodayDeals = () => {
           pauseOnHover
         />
         <ToastContainer />
-      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
-
+        <MobileBottomtab handleMobile={() => setCartOpen(true)} />
       </div>
     </>
   );
