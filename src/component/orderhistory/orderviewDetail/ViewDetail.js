@@ -45,7 +45,7 @@ const ViewDetail = () => {
   const [proID, setProID] = useState("");
 
   let location = useLocation();
-  const id = location.state.orderId;
+  const id = location?.state?.orderId;
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -122,7 +122,7 @@ const ViewDetail = () => {
     const id = await getUserID();
     const requestData = {
       userId: id,
-      orderId: location.state.orderId,
+      orderId: location?.state?.orderId,
       remark: gender,
     };
     cancleOrder(requestData).then((res) => {
@@ -196,18 +196,20 @@ const ViewDetail = () => {
       if (res.status == true) {
         toast.success(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
         });
+        setRating(false);
+
         setLoad(false);
       } else {
         toast.error(res.message, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -235,30 +237,18 @@ const ViewDetail = () => {
           currency={countrycurrency}
           flag={flag}
           cartPrice={cartPrice}
-          // cartProductlength={cartProduct}
           curr={countrycurrency}
           cartopen={cartOpen}
           carthandleClose={carthandleClose}
           carthandleOpen={carthandleOpen}
-          // loginStatus={loginStatus}
-          // handleOpen={() => setOpen(true)}
-          // handleClose={() => setOpen(false)}
-          // open={open}
-          // showbtn={btn}
-          // handleLogin={() => handleLogin()}
-          // handleOTP={() => handleOTP()}
-          // mobileNumber={mobileNumber}
-          // handleMobileNumber={(e) => handleMobileNumber(e)}
-          // sethandleOtp={(e) => sethandleOtp(e)}
-          // otp={otp}
           totalAmount={cartPrice}
-          // store={store}
-          // modalcurrency={countrycurrency}
           handleclear={(index) => handleclear(index)}
-          // removeProduct={(id) => removeCartProduct(id)}
-          // handleResendOTP={() => handleResendOTP()}
           handleCartLogin={() => handleCartLogin()}
           handleHome={() => handleHome()}
+          handleOpen={() => setOpen(true)}
+          handleClose={() => setOpen(false)}
+          open={open}
+          modalcurrency={countrycurrency}
         />
       </div>
       <div className="order_view_detail">
