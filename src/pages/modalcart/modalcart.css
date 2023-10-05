@@ -93,8 +93,8 @@
   align-items: center;
 }
 .product_name {
-   max-width: 250px;
-  height: 5vh;
+  max-width: 250px;
+  height: auto;
 }
 .product_name p {
   text-align: justify;
@@ -203,22 +203,22 @@
   font-family: regular;
 }
 .biil_payment {
-  height: 26vh;
+  height: auto;
   width: 97%;
   margin-left: 8px;
   margin-top: 1.2rem;
+  padding: 1rem 0rem 0rem 0rem;
   /* margin-bottom: 130px; */
   border: 1px dashed #ff0040;
 }
 .bill_name {
-  height: 7vh;
+  height: auto;
 }
 .bill_name p {
   font-size: 16px;
   font-family: regular;
   font-weight: 600;
   padding-left: 15px;
-  padding-top: 15px;
 }
 .subbill_Detail {
   height: 4vh;
@@ -242,14 +242,7 @@
   font-family: light;
   font-weight: 600;
 }
-.cong_charge_section {
-  height: 3vh;
-}
-.cong_charge_section p {
-  font-size: 12px;
-  font-family: light;
-  color: green;
-}
+
 .border_line {
   background-color: #dbd6d6;
   width: 93%;
@@ -258,10 +251,9 @@
   height: 1px;
 }
 .total_payments {
-  height: 5vh;
+  height: auto;
   width: 93%;
   margin-left: 15px;
-  margin-top: 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -443,15 +435,16 @@
   position: absolute;
   bottom: 0rem;
   width: 100%;
-  height: 7vh;
+  height: auto;
   border: none;
   background-color: #ff0040;
   color: white;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: regular;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s linear;
+  padding: 0.8rem 0rem;
 }
 .cart_empty button:hover {
   background-color: #e30039;
@@ -512,7 +505,7 @@
     font-size: 10px;
   }
   .product_name {
-    width: 75%;
+    max-width: 100px;
     height: 5vh;
   }
   .product_name p {
@@ -634,6 +627,10 @@
   .cart_empty {
     padding-right: 0rem;
   }
+  .cart_empty button {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
   .emptyText {
     max-width: 90%;
   }
@@ -724,6 +721,10 @@
     width: 95%;
     margin-left: 0.6rem;
   }
+  .product_name {
+    max-width: 150px;
+    height: 5vh;
+  }
 
   .biil_payment {
     width: 95%;
@@ -747,6 +748,10 @@
   .emptyText {
     max-width: 80%;
   }
+  .cart_empty button {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
   .emptyText p {
     font-size: 0.8rem;
   }
@@ -761,6 +766,10 @@
   }
   .crossbtn {
     left: 53%;
+  }
+  .product_name {
+    max-width: 120px;
+    height: 5vh;
   }
   .emptyText {
     max-width: 80%;
@@ -796,6 +805,9 @@
     font-size: 0.8rem;
     padding-top: 0.5rem;
   }
+  .product_name {
+    max-width: 170px;
+  }
 
   .save_section {
     height: 5vh;
@@ -807,7 +819,7 @@
     padding-top: 0.4rem;
   }
   .product_card {
-    width:96%;
+    width: 96%;
     margin-left: 0.6rem;
   }
 
@@ -864,8 +876,8 @@
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
   .style2 {
-    left: 85%;
-    max-width: 35%;
+    left: 81%;
+    width: 40%;
   }
   .modalcart_btn {
     margin-left: 0.7rem;
@@ -873,6 +885,9 @@
   .modalcart_btn img {
     height: 30px;
     width: 30px;
+  }
+  .product_name {
+    max-width: 170px;
   }
   .order_summary p {
     font-size: 1.2rem;
@@ -931,7 +946,7 @@
     margin-left: 0.7rem;
   }
   .crossbtn {
-    left: 65%;
+    left: 55%;
   }
 }
 
@@ -948,6 +963,9 @@
   .modalcart_btn img {
     height: 25px;
     width: 25px;
+  }
+  .product_name {
+    max-width: 200px;
   }
   .order_summary p {
     font-size: 1.2rem;
@@ -979,7 +997,6 @@
   .biil_payment {
     width: 95%;
     margin-left: 1rem;
-
   }
   .cong_charge_section p {
     font-size: 0.8rem;
@@ -987,8 +1004,6 @@
   .proceed_section {
     max-width: 100%;
     margin-left: 1rem;
-
-    
   }
   .modalcart_scroll_bar_container {
     height: 80vh;
