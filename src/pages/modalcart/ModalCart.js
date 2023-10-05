@@ -130,11 +130,6 @@ const ModalCart = ({
                         {totalAmount}
                       </p>
                     </div> */}
-                      <div className="cong_charge_section">
-                        <p style={{ paddingLeft: "15px" }}>
-                          Congratulations, Your delivery charge is waived off!!!
-                        </p>
-                      </div>
                       <div className="border_line"></div>
                       <div className="total_payments">
                         <p style={{ paddingTop: "10px" }}>
