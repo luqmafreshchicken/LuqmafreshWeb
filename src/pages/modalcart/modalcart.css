@@ -93,7 +93,7 @@
   align-items: center;
 }
 .product_name {
-  width: 70%;
+   max-width: 250px;
   height: 5vh;
 }
 .product_name p {
