@@ -1,5 +1,5 @@
 .categorie_card {
-  height: 32vh;
+  min-height: 32vh;
   width: 100%;
 }
 
@@ -15,8 +15,8 @@
 }
 
 .categorie_image img {
-  height: 170px;
-  width: 170px;
+  height: 150px;
+  width: 150px;
   filter: brightness(100%);
   transition: 0.5s ease;
   cursor: pointer;
@@ -149,11 +149,11 @@
 @media only screen and (min-width: 1200px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .categorie_card {
-    height: 32vh;
+    min-height: 32vh;
   }
   .categorie_image img {
-    height: 160px;
-    width: 160px;
+    height: 150px;
+    width: 150px;
   }
 
 }
