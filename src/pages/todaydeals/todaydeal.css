@@ -32,7 +32,7 @@
   height: 1px;
 } */
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 280px) and (max-width: 369px) {
+@media only screen and (min-width: 280px) and (max-width: 400px) {
   /* CSS rules for mobile devices */
   .today_card {
     width: 90%;
@@ -51,16 +51,14 @@
   .todayCardContainer {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 0rem;
-    grid-row-gap: 3rem;
+    grid-row-gap: 5rem;
   }
 }
-@media only screen and (min-width: 370px) and (max-width: 480px) {
+@media only screen and (min-width: 401px) and (max-width: 480px) {
   .todayCardContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0rem;
-    grid-row-gap: 3rem;
+    grid-row-gap: 5rem;
   }
   .todayDealsHeader {
     display: none;
@@ -170,7 +168,6 @@
     gap: 0.6rem;
     border-bottom: 1px solid lightgray;
     overflow-x: scroll;
-
   }
 }
 
