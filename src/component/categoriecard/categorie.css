@@ -34,7 +34,7 @@
     padding-left: 7px;
     padding-right: 10px;
     width: 100%;
-    height: 18vh;
+    min-height: auto;
     margin-bottom: 0px;
   }
   .categorie_image img {
@@ -50,10 +50,11 @@
     font-size: 12px;
   }
 }
-@media only screen and (min-width:400px) and (max-width: 480px){
+@media only screen and (min-width: 400px) and (max-width: 480px) {
   .categorie_card {
     margin-left: 0px;
     width: 100%;
+    min-height: auto;
   }
   .categorie_image img {
     height: 88px;
@@ -66,7 +67,7 @@
   .categorie_card {
     margin-left: 0px;
     width: 100%;
-    height: 26vh;
+     min-height: auto;
   }
   .categorie_image img {
     height: 110px;
@@ -82,7 +83,7 @@
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
-  .categorie_card{
+  .categorie_card {
     height: 28vh;
     max-width: 90%;
   }
@@ -90,10 +91,9 @@
     height: 110px;
     width: 110px;
   }
- 
 }
-@media only screen and (min-width: 840px) and (max-width: 900px){
-  .categorie_card{
+@media only screen and (min-width: 840px) and (max-width: 900px) {
+  .categorie_card {
     height: 28vh;
     max-width: 90%;
   }
@@ -103,8 +103,8 @@
   }
 }
 
-@media only screen and (min-width: 901px) and (max-width: 1000px){
-  .categorie_card{
+@media only screen and (min-width: 901px) and (max-width: 1000px) {
+  .categorie_card {
     height: 28vh;
     max-width: 90%;
   }
@@ -112,12 +112,11 @@
     height: 120px;
     width: 120px;
   }
-
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
-  .categorie_card{
+  .categorie_card {
     height: 28vh;
     max-width: 90%;
   }
@@ -136,9 +135,8 @@
     height: 130px;
     width: 130px;
   }
- 
 }
-@media only screen and (min-width: 1120px) and (max-width: 1200px){
+@media only screen and (min-width: 1120px) and (max-width: 1200px) {
   .categorie_image img {
     height: 140px;
     width: 140px;
@@ -155,5 +153,4 @@
     height: 150px;
     width: 150px;
   }
-
 }
