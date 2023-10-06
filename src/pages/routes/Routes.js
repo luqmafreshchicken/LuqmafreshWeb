@@ -36,7 +36,7 @@ const Routes1 = () => {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route path="/todaydeals" element={<TodayDeals />} />
+      <Route path="/category/:id" element={<TodayDeals />} />
       <Route path="/carddetail/:id" element={<CardFullDetail />} />
       <Route path="/carddetail1" element={<CardDetail1 />} />
       <Route path="/topseverweek" element={<TopSeverWeek />} />
