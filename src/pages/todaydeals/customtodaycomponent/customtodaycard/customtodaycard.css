@@ -1,33 +1,25 @@
-.singlecard_container {
-  max-width: 90%;
+.Custom_container {
+  min-width: 90%;
   height: auto;
 }
 
-.customtodaycard1 {
-  /* margin-left: 10%; */
-  color: black;
-  /* background-color: aqua; */
-}
 
-.image_singlecard_detail {
-  width: 100%;
+.Custom_img_container {
   overflow: hidden;
   border-radius: 15px;
   display: inline-block;
 }
-.image_singlecard_detail img {
+.Custom_img_container img {
   border-radius: 10px;
-  width: 100%;
-  height: 30vh;
   display: block;
+  height: 34vh;
+  width: 100%;
   transition: 0.3s ease-in-out;
 }
-.image_singlecard_detail:hover img {
+.Custom_img_container:hover img {
   transform: scale(1.2);
 }
-.total_singlecard {
-  height: 15vh;
-}
+
 
 /* .total_singlecard button {
   background-color: #ff0040;
@@ -44,28 +36,31 @@
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 280px) and (max-width: 400px) {
   /* CSS rules for mobile devices */
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 35vh;
+    display: inline-block;
+    width: 100%;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     height: 100%;
     width: 100%;
+    display: block;
   }
 }
 @media only screen and (min-width: 401px) and (max-width: 480px) {
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 25vh;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     height: 100%;
     width: 100%;
@@ -78,15 +73,15 @@
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 600px) {
   /* CSS rules for iPads and tablets */
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     display: inline-block;
     height: 28vh;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -97,15 +92,15 @@
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 768px) {
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 24vh;
     display: inline-block;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -119,15 +114,15 @@
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 30vh;
     display: inline-block;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -139,15 +134,15 @@
   }
 }
 @media only screen and (min-width: 901px) and (max-width: 1024px) {
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 32vh;
     display: inline-block;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -161,15 +156,15 @@
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
+  .Custom_img_container {
     height: 27vh;
     display: inline-block;
   }
-  .image_singlecard_detail img {
+  .Custom_img_container img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -183,19 +178,24 @@
 /* Extra large screens, TV (1201px and above) */
 
 @media screen and (min-width: 1201px) and (max-width: 1530px) {
-  .singlecard_container {
+  .Custom_container {
     max-width: 100%;
     height: auto;
   }
-  .image_singlecard_detail {
-    height: 34vh;
+  
+  
+  .Custom_img_container {
+    overflow: hidden;
+    border-radius: 15px;
     display: inline-block;
-  }
-  .image_singlecard_detail img {
-    border-radius: 10px;
     width: 100%;
-    height: 100%;
+  }
+  .Custom_img_container img {
+    border-radius: 10px;
     display: block;
+    height: 34vh;
+    width: 100%;
+    transition: 0.3s ease-in-out;
   }
   .shop_now_btn {
     font-size: 0.8rem;
