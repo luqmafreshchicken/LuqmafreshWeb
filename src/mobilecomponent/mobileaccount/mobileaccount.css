@@ -3,12 +3,12 @@
 }
 
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .mobile_account_container {
     display: block;
   }
-  
+
   .mobile_user_profile {
     /* background-color: pink; */
     height: auto;
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0rem  1rem 1.2rem;
+    padding: 1rem 0rem 1rem 1.2rem;
     gap: 0.5rem;
   }
   .mobile_user_name {
@@ -35,7 +35,7 @@
     font-weight: bold;
     color: white;
   }
- 
+
   .mobile_user_email {
     height: auto;
     width: 70%;
@@ -43,16 +43,16 @@
     margin: 0rem;
     line-height: 0.3;
   }
-  .mobile_user_email h6{
+  .mobile_user_email h6 {
     font-family: medium;
     font-size: 1rem;
   }
-  .mobile_user_email p{
+  .mobile_user_email p {
     color: #bdc3c7;
     font-size: 0.8rem;
     font-family: light;
   }
-  .mobile_user_email button{
+  .mobile_user_email button {
     padding: 0.6rem 0.7rem;
     border: 2px solid #c42118;
     border-radius: 5px;
@@ -111,29 +111,26 @@
   }
 
   .mobile_login h5 {
-    padding-left: 13px;
+    padding-left: 1.1rem;
     padding-top: 10px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 580;
+    font-family: semibold;
   }
   .mobile_login p {
-    padding-left: 13px;
+    padding-left: 1.1rem;
     padding-right: 12px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
   }
   .mobile_login_btn {
     background-color: #c42118;
-    height: 6vh;
     width: 92%;
     border-radius: 3px;
     text-align: center;
-    padding-top: 11px;
-  }
-  .mobile_login_btn h6 {
-    font-size: 14px;
     color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 0.4rem 0rem;
   }
+
   .mobile_login_container {
     position: absolute;
     top: 95%;
@@ -147,29 +144,29 @@
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
   }
-  .mobile_login_heading{
+  .mobile_login_heading {
     width: 100%;
-    padding: 0rem 1.3rem;
-    padding-top: .9rem;
+    padding: 0rem 1.6rem;
+    padding-top: 0.9rem;
     height: 8vh;
     background-color: #c42118;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-  }
-  .mobile_login_heading p{
-    font-size: 1.1rem;
     font-family: regular;
     font-weight: 600;
     color: white;
+    font-size: 1.1rem;
+
   }
-  .mobile_number_login{
+  
+  .mobile_number_login {
     width: 100%;
     height: 12vh;
     /* margin-bottom: 15rem; */
     display: grid;
     place-items: center;
   }
-  .mobile_number_login_content{
+  .mobile_number_login_content {
     width: 88%;
     height: 6vh;
     /* background-color: orange; */
@@ -178,7 +175,7 @@
     align-items: center;
     border-bottom: 1px solid lightgray;
   }
-  .mobile_number_login_content input{
+  .mobile_number_login_content input {
     width: 100%;
     border: none;
     outline: none;
@@ -187,12 +184,12 @@
     font-family: regular;
     background-color: white;
   }
-  .mobile_number_login_content p{
-     padding-top: 1rem;
+  .mobile_number_login_content p {
+    padding-top: 1rem;
     font-size: 0.9rem;
     font-family: regular;
   }
-  .mobile_otp_login{
+  .mobile_otp_login {
     width: 100%;
     height: 8vh;
     /* margin-bottom: 15rem; */
@@ -200,7 +197,7 @@
     display: grid;
     place-items: center;
   }
-  .mobile_otp_login_content{
+  .mobile_otp_login_content {
     width: 88%;
     height: 6vh;
     /* background-color: orange; */
@@ -209,7 +206,7 @@
     align-items: center;
     border-bottom: 1px solid lightgray;
   }
-  .mobile_otp_login_content input{
+  .mobile_otp_login_content input {
     width: 100%;
     border: none;
     outline: none;
@@ -218,30 +215,30 @@
     font-family: regular;
     background-color: white;
   }
-  .mobile_otp_login_content p{
+  .mobile_otp_login_content p {
     padding-top: 1rem;
-   font-size: 0.9rem;
-   font-family: regular;
- }
- .mobile_submit_login{
-  width: 100%;
-  height: 15vh;
-  margin-bottom: 15rem;
-  display: grid;
-  place-items: center;
-}
- .mobile_submit_login_content{
-  width: 88%;
-  height: 6vh;
-  background-color: #c42118;
-  border-radius: 5px;
-}
-.mobile_submit_login_content p{
-  text-align: center;
-  padding-top: .5rem;
-  color: white;
-  font-family: semibold;
-}
+    font-size: 0.9rem;
+    font-family: regular;
+  }
+  .mobile_submit_login {
+    width: 100%;
+    height: 15vh;
+    margin-bottom: 15rem;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_submit_login_content {
+    width: 88%;
+    height: auto;
+    background-color: #c42118;
+    border-radius: 5px;
+    font-family: semibold;
+    text-align: center;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0rem;
+  }
+ 
 }
 
 /* iPads, Tablets (481px - 768px)   position: 'absolute',
@@ -335,29 +332,132 @@
   }
 
   .mobile_login h5 {
-    padding-left: 13px;
+    padding-left: 1rem;
     padding-top: 10px;
     font-family: "Poppins", sans-serif;
     font-weight: 580;
   }
   .mobile_login p {
-    padding-left: 13px;
+    padding-left: 1rem;
     padding-right: 12px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
   }
   .mobile_login_btn {
     background-color: #c42118;
-    height: 6vh;
     width: 92%;
     border-radius: 3px;
     text-align: center;
-    padding-top: 11px;
+    color: white;
+    padding: 0.4rem 0rem;
   }
-  .mobile_login_btn h6 {
-    font-size: 14px;
+  .mobile_login_container {
+    position: absolute;
+    top: 95%;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .mobile_login_heading {
+    width: 100%;
+    padding: 0rem 2rem;
+    padding-top: 0.9rem;
+    height: 8vh;
+    background-color: #c42118;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    font-size: 1.1rem;
+    font-family: regular;
+    font-weight: 600;
     color: white;
   }
+ 
+  .mobile_number_login {
+    width: 100%;
+    height: 12vh;
+    /* margin-bottom: 15rem; */
+    display: grid;
+    place-items: center;
+  }
+  .mobile_number_login_content {
+    width: 88%;
+    height: 6vh;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_number_login_content input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    height: 5vh;
+    font-family: regular;
+    background-color: white;
+  }
+  .mobile_number_login_content p {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: regular;
+  }
+  .mobile_otp_login {
+    width: 100%;
+    height: 8vh;
+    /* margin-bottom: 15rem; */
+    /* background-color: aqua; */
+    display: grid;
+    place-items: center;
+  }
+  .mobile_otp_login_content {
+    width: 88%;
+    height: 6vh;
+    /* background-color: orange; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+  }
+  .mobile_otp_login_content input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    height: 5vh;
+    font-family: regular;
+    background-color: white;
+  }
+  .mobile_otp_login_content p {
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    font-family: regular;
+  }
+  .mobile_submit_login {
+    width: 100%;
+    height: 15vh;
+    margin-bottom: 15rem;
+    display: grid;
+    place-items: center;
+  }
+  .mobile_submit_login_content {
+    width: 88%;
+    height: auto;
+    background-color: #c42118;
+    border-radius: 5px;
+    font-family: semibold;
+    text-align: center;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0rem;
+  }
+  
 }
 
 /* Small screens, laptops (769px - 1024px) */
