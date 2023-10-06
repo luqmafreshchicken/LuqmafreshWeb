@@ -2021,7 +2021,7 @@ const Home = () => {
             <CategorieCard
               text={cat.categoryName}
               img={cat.categoryImage}
-              today="/todaydeals"
+               today={`/category/${cat?.categoryName}`}
               height="160px"
               width="160px"
               id={{ id: cat._id }}
