@@ -360,7 +360,7 @@ const MobileAccount = () => {
           </p>
           <div style={{ display: "grid", placeItems: "center" }}>
             <div className="mobile_login_btn" onClick={handleOpen}>
-              <h6>Login/Sign Up</h6>
+              Login/Sign Up
             </div>
           </div>
         </div>
