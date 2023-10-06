@@ -41,8 +41,8 @@ export default function CustomTodayCard({
     setShowData(true);
   }
   return (
-    <div className="singlecard_container">
-      <div className="image_singlecard_detail">
+    <div className="Custom_container">
+      <div className="Custom_img_container">
         <NavLink to={to} state={{ id: id }} className="nav_list">
           <img src={img} />
         </NavLink>
