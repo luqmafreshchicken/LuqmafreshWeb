@@ -490,7 +490,7 @@ const MobileAccount = () => {
         >
           <Box className="mobile_login_container">
             <div className="mobile_login_heading">
-              <p>Sign In</p>
+              Sign In
             </div>
             <div className="mobile_number_login">
               <div className="mobile_number_login_content">
@@ -528,7 +528,7 @@ const MobileAccount = () => {
                     color: btn === true ? "white" : "white",
                   }}
                 >
-                  <p>Proceed Via OTP</p>
+                  Proceed Via OTP
                 </div>
               </div>
             ) : null}
@@ -538,7 +538,7 @@ const MobileAccount = () => {
                   className="mobile_submit_login_content"
                   onClick={() => handleOTP()}
                 >
-                  <p>Submit</p>
+                  Submit
                 </div>
               </div>
             ) : null}
