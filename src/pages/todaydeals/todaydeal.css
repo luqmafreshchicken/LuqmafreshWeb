@@ -11,9 +11,8 @@
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 0rem;
-  grid-row-gap: 4rem;
-  width: 90%;
+  grid-row-gap: 5rem;
+  max-width: 90%;
 }
 
 .subCategorieContaner {
@@ -186,7 +185,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 90%;
-    gap: 1rem;
+    gap: 3rem;
     grid-row-gap: 3rem;
   }
 
