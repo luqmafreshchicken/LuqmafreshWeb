@@ -9,7 +9,6 @@ import {
 const CashDelivery = ({ onClick }) => {
   const [cartProduct, setCartProduct] = useState([]);
   useEffect(() => {
-    window.scrollTo(0, 0);
 
     showcart();
   });
