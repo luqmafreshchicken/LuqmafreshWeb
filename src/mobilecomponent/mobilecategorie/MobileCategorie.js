@@ -26,8 +26,7 @@ const MobileCategorie = () => {
   const [cartProduct, setCartProduct] = useState([]);
   const [countrycurrency, setCountryCurrency] = useState("");
 
-  // const [cartProduct, setCartProduct] = useState([]);
-  const [cartPrice, setCartPrice] = useState([]);
+  const [cartPrice, setCartPrice] = useState('');
   const [cartOpen, setCartOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
 
@@ -109,8 +108,8 @@ const MobileCategorie = () => {
       setCartProduct(res.data.cart);
       setCartPrice(res.data.totalAmount);
     } else {
-      setCartProduct([]);
-      setCartPrice("");
+      // setCartProduct([]);
+      // setCartPrice("");
     }
   };
   const removeCartProduct = async (id) => {
@@ -182,9 +181,15 @@ const MobileCategorie = () => {
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
+    const cart = JSON.parse(localStorage?.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage?.getItem("cartPrice"));
     if (items) {
       setLoginStatus(true);
     } else {
+      setCartProduct(cart ? cart : []);
+      // setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
+      console.log(cartPrice?.price)
+      setCartPrice(cartPrice?.price);
       setLoginStatus(false);
     }
   };
@@ -263,11 +268,10 @@ const MobileCategorie = () => {
       ))}
       <Loader loading={load} />
       <ModalCart
-        // cartopen={cartopen}
         cartopen={cartOpen}
         carthandleClose={carthandleClose}
         onclose={carthandleClose}
-        loginStatus={true}
+        loginStatus={loginStatus}
         cartProduct={cartProduct}
         // // cartProductlength={cartProduct}
         totalAmount={cartPrice}
