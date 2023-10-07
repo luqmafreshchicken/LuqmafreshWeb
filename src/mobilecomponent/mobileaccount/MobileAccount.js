@@ -107,9 +107,13 @@ const MobileAccount = () => {
 
   const localContent = () => {
     const items = JSON.parse(localStorage.getItem("userDetail"));
+    const cart = JSON.parse(localStorage?.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage?.getItem("cartPrice"));
     if (items) {
       setLoginStatus(true);
     } else {
+      setCartProduct(cart ? cart : []);
+      setCartPrice(cart?.length > 0 ? cartPrice?.price : 0);
       setLoginStatus(false);
     }
   };
