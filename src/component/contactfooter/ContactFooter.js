@@ -39,7 +39,12 @@ export default function ContactFooter() {
             }}
             className="store_img"
           >
-            <img src={Ard} onClick={handleAndroid} />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.luqmafresh"
+              target="_blank"
+            >
+              <img src={Ard} />
+            </a>
             <img src={IOS} onClick={handleiOs} />
           </div>
           <p
