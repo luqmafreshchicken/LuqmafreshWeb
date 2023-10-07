@@ -399,8 +399,8 @@ const MobileAccount = () => {
               <div className="reward_img">
                 <img src="address.png" />
               </div>
-              <div className="reward_text">
-                <NavLink to="/whylicious" className="nav_list">
+               <div className="reward_text">
+                <NavLink to="/whyluqmafresh" className="nav_list">
                   <p>Why Luqmafresh?</p>
                 </NavLink>
               </div>
