@@ -173,7 +173,6 @@ const TodayDeals = () => {
       productId: id,
       quantity: "1",
     };
-    console.log(data, "gaurav joshi");
 
     const res = await Add_to_cart(data);
     if (res.status == true) {
@@ -501,7 +500,6 @@ const TodayDeals = () => {
         updatedCart?.map((item) => {
           total = total + item?.productId?.price * item?.productId?.quantity;
         });
-        console.log(total, "==================update count product");
         localStorage.setItem("cartPrice", JSON.stringify({ price: total }));
         setCartPrice(total);
         toast.success("Product quantity update in cart", {
@@ -832,7 +830,7 @@ const TodayDeals = () => {
                       img={item?.image}
                       rating={item?.rating}
                       id={{ id: item?._id }}
-                      to={`/carddetail/${item?.nameString}`}
+                      to={`/product/${item?.nameString}`}
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
@@ -866,7 +864,7 @@ const TodayDeals = () => {
                       img={item?.image}
                       rating={item?.rating}
                       id={{ id: item._id }}
-                      to={`/carddetail/${item?.nameString}`}
+                      to={`/product/${item?.nameString}`}
                       onclick={() => {
                         // setShow(!show);
                         loginStatus == true
