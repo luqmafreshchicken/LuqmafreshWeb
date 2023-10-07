@@ -37,7 +37,7 @@ const Routes1 = () => {
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/category/:id" element={<TodayDeals />} />
-      <Route path="/carddetail/:id" element={<CardFullDetail />} />
+      <Route path="/product/:id" element={<CardFullDetail />} />
       <Route path="/carddetail1" element={<CardDetail1 />} />
       <Route path="/topseverweek" element={<TopSeverWeek />} />
       <Route path="/bestseller" element={<BestSeller />} />
