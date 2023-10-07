@@ -13,6 +13,7 @@ import {
   Show_Cart,
   CountryDetail,
   GetCountry,
+  removeFromCart,
 } from "../../serverRequest/Index";
 import SearchProductList from "../../customcomponent/searchproductlist/SearchProductList";
 import Header from "../header/Header";
@@ -22,6 +23,7 @@ import Loader from "../loder/Loader";
 import TopHeader from "../topheader/TopHeader";
 import { useNavigate } from "react-router-dom";
 import ProductNotFound from "../../customcomponent/productnotfound/ProductNotFound";
+import ModalCart from "../../pages/modalcart/ModalCart"
 
 const SearchProduct = () => {
   let navigate = useNavigate();
@@ -272,10 +274,76 @@ const SearchProduct = () => {
       window.location.reload();
     }
   };
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart?.length >= 1 &&
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
+      );
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
+  };
+  const handleHome = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
   return (
     <>
       <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
-
       <Header
         onchange={(e) => handleSearch(e.target.value)}
         value={searchItem}
@@ -296,12 +364,32 @@ const SearchProduct = () => {
         handleLogin={() => handleLogin()}
         handleOTP={() => handleOTP()}
         mobileNumber={mobileNumber}
-        handleMobileNumber={(e) => handleMobileNumber(e)}
+        handleMobileNumber={(e) => handleMobileNumber(e)}   
         sethandleOtp={(e) => sethandleOtp(e)}
         otp={otp}
         totalAmount={cartPrice}
         store={store}
         handleCartLogin={() => handleCartLogin()}
+      />
+      <ModalCart
+        // cartopen={cartopen}
+        cartopen={cartOpen}
+        carthandleClose={carthandleClose}
+        onclose={carthandleClose}
+        loginStatus={loginStatus}
+        cartProduct={cartProduct}
+        // cartProductlength={cartProduct}
+        totalAmount={cartPrice}
+        modalcurrency={countrycurrency}
+        // totalAmount={totalAmount}
+        // modalcurrency={modalcurrency}
+        // removeProduct={removeProduct}
+        removeProduct={(id) =>
+          loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+        }
+        handleCartLogin={handleCartLogin}
+        // handleHome={handleHome}
+        handleHome={() => handleHome()}
       />
       <div className="search_container">
         <div className="search_content">
@@ -318,11 +406,9 @@ const SearchProduct = () => {
                   text={cat.categoryName}
                   img={cat.categoryImage}
                   // today="/todaydeals"
-                  height="160px"
-                  width="160px"
                   id={{ id: cat._id }}
                   // onclick={() => handleNav(cat._id)}
-                  style={{ backgroundColor: "red" }}
+                  // style={{ backgroundColor: "red" }}
                 />
               ))}
             </div>
