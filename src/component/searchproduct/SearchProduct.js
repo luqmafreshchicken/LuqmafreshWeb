@@ -317,7 +317,7 @@ const SearchProduct = () => {
                 <CategorieCard
                   text={cat.categoryName}
                   img={cat.categoryImage}
-                  today="/todaydeals"
+                  // today="/todaydeals"
                   height="160px"
                   width="160px"
                   id={{ id: cat._id }}
@@ -337,7 +337,7 @@ const SearchProduct = () => {
                     price={search?.price}
                     originprice={search?.originalPrice}
                     img={search?.image}
-                    to={`/carddetail/${search?.name}`}
+                    to={`/carddetail/${search?.nameString}`}
                     id={{ id: search._id }}
                     onclick={() => handleView(search._id)}
                     discount={search?.discount}
