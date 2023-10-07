@@ -423,7 +423,7 @@ const SearchProduct = () => {
                     price={search?.price}
                     originprice={search?.originalPrice}
                     img={search?.image}
-                    to={`/carddetail/${search?.nameString}`}
+                    to={`/product/${search?.nameString}`}
                     id={{ id: search._id }}
                     onclick={() => handleView(search._id)}
                     discount={search?.discount}
