@@ -43,6 +43,7 @@ const ViewDetail = () => {
   const [ratingShow, setRatingShow] = useState(0);
   const [ratingMess, setRatingMess] = useState("");
   const [proID, setProID] = useState("");
+  const [regionCancle, setRegionCancle] = useState(false)
 
   let location = useLocation();
   const id = location?.state?.orderId;
@@ -83,7 +84,6 @@ const ViewDetail = () => {
       id: location?.state?.orderId,
     };
     getOrderById(requestData).then((res) => {
-      // console.log(res, "===========jhvjfiviv=================");
 
       if (res.status == true) {
         setCancelStatus(res?.data?.orders[0]?.orderStatus);
@@ -109,14 +109,9 @@ const ViewDetail = () => {
     setGender(e.target.value);
   };
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleOpen = () => setRegionCancle(true);
+  const handleClose = () => setRegionCancle(false);
 
-  // const calculateTotalBill = () => {
-  //   const subtotal = order.subtotal;
-  //   const vat = (order.subtotal * 5) / 100;
-  //   return subtotal + vat;
-  // };
   const handleCancle = async () => {
     setLoad(true);
     const id = await getUserID();
@@ -138,7 +133,8 @@ const ViewDetail = () => {
         });
         setCancle(res.data);
         setLoad(false);
-        setOpen(false);
+        // setOpen(false);
+        setRegionCancle(false)
         orderDetails();
         setOrderStatus(true);
       } else {
@@ -364,7 +360,7 @@ const ViewDetail = () => {
       </div>
       <div>
         <Modal
-          open={open}
+          open={regionCancle}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
@@ -445,7 +441,7 @@ const ViewDetail = () => {
               {/* **************** */}
 
               <div className="conform_order_button">
-                <div className="do_not_cancle" onClick={() => setOpen(false)}>
+                <div className="do_not_cancle" onClick={() => setRegionCancle(false)}>
                   DO NOT CANCEL
                 </div>
 
