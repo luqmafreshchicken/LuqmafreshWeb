@@ -40,7 +40,6 @@ const MobileAccount = () => {
   // const [countryCode, setCountryCode] = useState("");
   const [countrycurrency, setCountryCurrency] = useState("");
 
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -86,7 +85,6 @@ const MobileAccount = () => {
     } else {
       localContent();
       setLoad(false);
-
     }
   };
 
@@ -100,7 +98,6 @@ const MobileAccount = () => {
         setLoad(false);
       } else {
         setLoad(false);
-
       }
     });
   };
@@ -171,12 +168,10 @@ const MobileAccount = () => {
         });
         setLoad(false);
       }
-     
     });
   };
 
   const handleMobileNumber = (e) => {
-    
     setMobileNumber(e.target.value);
     if (e.target.value.length <= 40) {
       setBtn(false);
@@ -216,130 +211,145 @@ const MobileAccount = () => {
       setLoad(false);
     });
   };
-    // remove cart
-    const removeCartProduct = async (id) => {
-      const userId = await getUserID();
-      const data = {
-        userId: userId,
-        productId: id,
-      };
-      removeFromCart(data).then((res) => {
-        if (res.status == true) {
-          toast.success(res.message, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-          });
-          showcart();
-          // setCount(0);
-          // setShow(false);
-        } else {
-          toast.error(res.message, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-      });
+  // remove cart
+  const removeCartProduct = async (id) => {
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
     };
-    // end remove cart
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+        // setCount(0);
+        // setShow(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
 
-    // remove local cart
-    const removeLocalCart = (id) => {
-      const cart = JSON.parse(localStorage.getItem("cart"));
-      const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
-      const cartData = cart?.filter((item) => item?.productId?._id !== id);
-      const product = cart?.find((item) => item?.productId?._id === id);
-      const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
-      cart?.length >= 1 &&
-        localStorage.setItem(
-          "cartPrice",
-          JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
-        );
-      cart?.length < 1 &&
-        localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
-      localStorage.setItem("cart", JSON.stringify(cartData));
-      setCartProduct(removeProduct);
-      setCartPrice(
-        cartPrice?.price -
-          product?.productId?.price * product?.productId?.quantity
+  // remove local cart
+  const removeLocalCart = (id) => {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const cartPrice = JSON.parse(localStorage.getItem("cartPrice"));
+    const cartData = cart?.filter((item) => item?.productId?._id !== id);
+    const product = cart?.find((item) => item?.productId?._id === id);
+    const removeProduct = cart?.filter((item) => item?.productId?._id !== id);
+    cart?.length >= 1 &&
+      localStorage.setItem(
+        "cartPrice",
+        JSON.stringify({ price: cartPrice?.price - product?.productId?.price })
       );
-      // setShowCartBtn(false);
-      // setCount(0);
-      // setShow(false);
-      toast.success("Product remove from cart", {
+    cart?.length < 1 &&
+      localStorage.setItem("cartPrice", JSON.stringify({ price: 0 }));
+    localStorage.setItem("cart", JSON.stringify(cartData));
+    setCartProduct(removeProduct);
+    setCartPrice(
+      cartPrice?.price -
+        product?.productId?.price * product?.productId?.quantity
+    );
+    // setShowCartBtn(false);
+    // setCount(0);
+    // setShow(false);
+    toast.success("Product remove from cart", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+    localContent();
+  };
+  const handleResendOTP = () => {
+    // email validation
+    if (mobileNumber === "") {
+      toast.error("Please enter email", {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
-        pauseOnHover: false,
         draggable: true,
-        progress: undefined,
       });
-      localContent();
-    };
-    const handleResendOTP = () => {
-      // email validation
-      if (mobileNumber === "") {
-        toast.error("Please enter email", {
+      return false;
+    } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      toast.error("Please enter valid email address", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+      });
+      return false;
+    }
+    setLoad(true);
+    const requestData = { email: mobileNumber };
+    resendOTP(requestData).then((res) => {
+      if (res.status === true) {
+        toast.success(res.message, {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
+          pauseOnHover: true,
           draggable: true,
+          progress: undefined,
         });
-        return false;
-      } else if (!mobileNumber.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-        toast.error("Please enter valid email address", {
+
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
+          pauseOnHover: true,
           draggable: true,
+          progress: undefined,
         });
-        return false;
+        setLoad(false);
       }
-      setLoad(true);
-      const requestData = { email: mobileNumber };
-      resendOTP(requestData).then((res) => {
-        if (res.status === true) {
-          toast.success(res.message, {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-  
-          setLoad(false);
-        } else {
-          toast.error(res.message, {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          setLoad(false);
-        }
-      });
-    };
+    });
+  };
 
   const carthandleClose = () => setCartOpen(false);
   const viewhandleOpen = () => setProfile(true);
   const viewhandleClose = () => setProfile(false);
+
+  const openMobile = () => {
+    setCartOpen(true);
+  };
+
+  const handleCartLogin = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
+
+  const handleHome = () => {
+    setCartOpen(false);
+    setOpen(true);
+  };
+
   return (
     <div className="mobile_account_container">
       {/* name */}
@@ -359,8 +369,7 @@ const MobileAccount = () => {
         <div className="mobile_login">
           <h5>Hey Meatlover</h5>
           <p>
-            Welcome to Luqmafresh. Manage your orders, address
-             & other details.{" "}
+            Welcome to Luqmafresh. Manage your orders, address & other details.{" "}
           </p>
           <div style={{ display: "grid", placeItems: "center" }}>
             <div className="mobile_login_btn" onClick={handleOpen}>
@@ -493,9 +502,7 @@ const MobileAccount = () => {
           aria-describedby="modal-modal-description"
         >
           <Box className="mobile_login_container">
-            <div className="mobile_login_heading">
-              Sign In
-            </div>
+            <div className="mobile_login_heading">Sign In</div>
             <div className="mobile_number_login">
               <div className="mobile_number_login_content">
                 <input
@@ -579,11 +586,11 @@ const MobileAccount = () => {
         removeProduct={(id) =>
           loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
         }
-        // handleCartLogin={handleCartLogin}
+        handleCartLogin={handleCartLogin}
         // // handleHome={handleHome}
-        // handleHome={() => handleHome()}
+        handleHome={() => handleHome()}
       />
-      <MobileBottomtab handleMobile={() => setCartOpen(true)} />
+      <MobileBottomtab handleMobile={() => openMobile()} />
     </div>
   );
 };
