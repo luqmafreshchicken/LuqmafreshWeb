@@ -13,7 +13,6 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
 }
-
 .search_content {
   width: 90%;
   height: auto;
@@ -29,7 +28,6 @@
   line-height: 1;
   font-family: light;
 }
-
 .searchsroductlist_container {
   display: flex;
   gap: 40px;
@@ -49,7 +47,7 @@
   font-family: "Poppins", sans-serif;
 }
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 280px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
   .search_text {
     margin-top: 10px;
@@ -106,7 +104,7 @@
   .searchsroductlist_container {
     display: grid;
     margin-bottom: 10px;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 100%;
   }
 }
 @media only screen and (min-width: 600px) and (max-width: 768px){
@@ -118,7 +116,7 @@
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
   .search_categoriecard {
     width: 100%;
@@ -136,11 +134,41 @@
     font-size: 14px;
     padding-left: 1rem;
   }
+  .searchsroductlist_container {
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 45% 45%;
+    gap: 50px;
+    padding-left: 1rem;
+
+
+  }
 }
 
 /* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 901px) and (max-width: 1024px) {
+  /* CSS rules for desktops and large screens */
+  .search_content {
+    min-width: 92%;
+  }
+  .searchsroductlist_container {
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 45% 45%;
+    gap: 50px;
+  }
+}
+
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .search_content {
+    min-width: 92%;
+  }
+  .searchsroductlist_container {
+    display: grid;
+    margin-bottom: 10px;
+    gap: 20px;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
