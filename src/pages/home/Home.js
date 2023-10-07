@@ -1029,7 +1029,7 @@ const Home = () => {
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
                           // to="/carddetail"
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1070,7 +1070,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1248,7 +1248,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1289,7 +1289,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1467,7 +1467,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1508,7 +1508,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1686,7 +1686,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           // onclick={() => AddToCart(detail._id)}
                           onclick={() =>
                             // AddToCart(detail._id)
@@ -1727,7 +1727,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1905,7 +1905,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -1943,7 +1943,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -2370,7 +2370,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
@@ -2408,7 +2408,7 @@ const Home = () => {
                           )}
                           date={detail.deliveryTime}
                           totalpayment={detail.price}
-                          to={`/carddetail/${detail?.nameString}`}
+                          to={`/product/${detail?.nameString}`}
                           onclick={() =>
                             // AddToCart(detail._id)
                             loginStatus == true
