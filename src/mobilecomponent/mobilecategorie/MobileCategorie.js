@@ -9,7 +9,7 @@ import {
   removeFromCart,
 } from "../../serverRequest/Index";
 import { ProductBySubCategoryId } from "../../serverRequest/Index";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../../component/loder/Loader";
 import MobileBottomtab from "../mobilebottomtab/MobileBottomtab";
 import ModalCart from "../../pages/modalcart/ModalCart";
@@ -17,15 +17,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const MobileCategorie = () => {
+  let navigate = useNavigate()
   const [data, setData] = useState([]);
   const [load, setLoad] = useState(false);
   const [showText, setShowText] = React.useState(false);
   const [show, setShow] = useState(false);
   const [id, setId] = useState("");
-
   const [cartProduct, setCartProduct] = useState([]);
   const [countrycurrency, setCountryCurrency] = useState("");
-
   const [cartPrice, setCartPrice] = useState('');
   const [cartOpen, setCartOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(false);
@@ -194,6 +193,10 @@ const MobileCategorie = () => {
     }
   };
 
+  const handleHome = () => {
+    setCartOpen(false)
+    navigate("/mobileaccount")
+  }
   return (
     <div className="mobile_categorie">
       {/* heading */}
@@ -283,8 +286,7 @@ const MobileCategorie = () => {
           loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
         }
         // handleCartLogin={handleCartLogin}
-        // // handleHome={handleHome}
-        // handleHome={() => handleHome()}
+        handleHome={() => handleHome()}
       />
       <MobileBottomtab handleMobile={() => setCartOpen(true)} />
     </div>
