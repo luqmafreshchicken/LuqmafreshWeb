@@ -13,6 +13,8 @@
   justify-content: center;
   grid-row-gap: 5rem;
   max-width: 90%;
+    column-gap: 2rem;
+
 }
 
 .subCategorieContaner {
