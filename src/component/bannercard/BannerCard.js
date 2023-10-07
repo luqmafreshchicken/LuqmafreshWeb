@@ -61,10 +61,11 @@ export default function BannerCard1({ productId, to }) {
                   <h6>{item?.description}</h6>
                 </div>
                 <NavLink
-                  to="/carddetail"
+                  to={`product/${item?.productId?.nameString}`}
+                  // to={`/carddetail/${detail?.nameString}`}
                   state={{
                     id: {
-                      id: item?.productId,
+                      id: item?.productId.nameString,
                     },
                   }}
                 >
