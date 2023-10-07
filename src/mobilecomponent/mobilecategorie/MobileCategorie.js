@@ -239,7 +239,8 @@ const MobileCategorie = () => {
                         <div className="mobile_subcategory_para">
                           <p onClick={() => categoryProduct(item._id)}>
                             <NavLink
-                              to="/todaydeals"
+                              // to="/todaydeals"
+                              to={`/category/${item?.subcategoryName}`}
                               state={{ id: item._id }}
                               className="nav_list"
                             >
