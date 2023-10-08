@@ -452,7 +452,7 @@ const SelectDeliveryslot = () => {
             ) : (
               <div className="primary_select_slots">
                 <div className="selectslots_delivery_time">
-                  <p>{select}</p>
+                  {select}
                 </div>
                 <div className="select_slots_edit_para">
                   <FaEdit className="slots_edit_icon" onClick={handleOpen1} />
