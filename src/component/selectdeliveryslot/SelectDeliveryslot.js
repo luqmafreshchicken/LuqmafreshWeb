@@ -1,1656 +1,571 @@
-.selectdeliveryslot_container {
-  width: 100%;
-  height: auto;
-  display: grid;
-  place-items: center;
-  padding: 4rem 0rem;
-  /* background-color: aqua; */
-}
-.selectdeliveryslot_content {
-  width: 90%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  /* gap: 30px; */
-}
-.selectime_container {
-  height: auto;
-  width: 50%;
-  border-radius: 3px;
-}
-.selectime_steps {
-  /* height: 50vh; */
-  height: auto;
-  width: 35%;
-  padding-left: 1rem;
-}
-
-.select_text_container h5 {
-  font-family: regular;
-  font-weight: 600;
-}
-.select_text_container h6 {
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
-}
-.select_text_container p {
-  color: grey;
-  font-family: regular;
-  font-weight: 500;
-  font-size: 0.8rem;
-}
-
-.stot_content_total {
-  float: right;
-}
-.stot_content_total p {
-  font-size: 1.1rem;
-  font-family: regular;
-}
-.stot_content_total p span {
-  font-family: regular;
-  font-weight: 600;
-}
-/* product list */
-
-.selectdeliveryslot_product {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  gap: 0.8rem;
-  background-color: white;
-  padding: 1rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-}
-.selectdeliveryslot_product_img {
-  width: 20%;
-  height: 15vh;
-  border-radius: 20px;
-}
-
-.selectdeliveryslot_product_img img {
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-}
-.selectdeliveryslot_product_name {
-  width: 70%;
-  height: 15vh;
-}
-.selectdeliveryslotname {
-  width: 100%;
-  height: 8vh;
-}
-.selectdeliveryslotname p {
-  font-size: 1.1rem;
-  font-family: regular;
-  margin: 0rem;
-  padding: 0rem;
-}
-.selectdeliveryslotquantity {
-  width: 100%;
-  height: 7vh;
-  display: flex;
-  gap: 2rem;
-  padding-top: 1.5rem;
-}
-.selectdeliveryslotquantity p {
-  font-family: regular;
-}
-.selectdeliveryslot_product_cartbtn {
-  width: 20%;
-  height: 15vh;
-}
-
-.selectdeliveryslot_cross {
-  display: flex;
-  justify-content: flex-end;
-  height: 9vh;
-}
-.selectdeliveryslot_cross img {
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  transition: 0.3s linear;
-}
-.selectdeliveryslot_cross img:hover {
-  transform: rotateZ(90deg);
-}
-.selectdeliveryslot_addcart {
-  width: 100%;
-  height: 6vh;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.table_dre,
-.table_incre {
-  width: 36px;
-  /* background-color: #ff0040; */
-  height: 6vh;
-  display: block;
-  display: grid;
-  place-items: center;
-  padding-top: 0.1rem;
-  cursor: pointer;
-  transition: 0.3s linear;
-  font-family: regular;
-  font-weight: 600;
-}
-.table_incre:hover {
-  color: white;
-  background-color: #ff0040;
-  transform: scale(0.2s);
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.table_dre:hover {
-  color: white;
-  background-color: #ff0040;
-  transform: scale(0.2s);
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.table_count {
-  /* background-color: yellowgreen; */
-  width: 40px;
-  height: 6vh;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-  display: grid;
-  place-items: center;
-  padding-top: 0.1rem;
-  cursor: pointer;
-  font-family: regular;
-}
-/* product list */
-
-.select_delivery_time {
-  height: 7vh;
-  width: 40%;
-  border: 1px solid #ff0040;
-  border-radius: 10px;
-  cursor: pointer;
-  /* margin-top: 2rem; */
-  transition: 0.3s linear;
-  font-family: medium;
-  color: #ff0040;
-  display: grid;
-  place-items: center;
-}
-.select_delivery_time:hover {
-  background-color: #ff0040;
-  transform: scale(0.2s);
-  color: white;
-}
-
-.select_product_detail {
-  height: auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 100%;
-  gap: 2rem;
-}
-.product_detail_01 {
-  width: 100%;
-  height: 14vh;
-  display: flex;
-  gap: 1rem;
-}
-.product_detail_01_img {
-  width: 15%;
-  height: 14vh;
-}
-.product_detail_01_img img {
-  border-radius: 10px;
-  width: 100%;
-  display: block;
-  height: 100%;
-}
-.product_selectdeliveryslot_text {
-  width: 80%;
-}
-
-.product_selectdeliveryslot_text p {
-  font-family: regular;
-  font-size: 1.2rem;
-  line-height: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.product_selectdeliveryslot_text span {
-  font-family: light;
-  line-height: 1;
-  font-size: 1rem;
-}
-
-.selectdeliveryslot_btn {
-  height: 10vh;
-  /* padding-left: 30px; */
-  width: 100%;
-  padding-top: 2rem;
-}
-.selectdeliveryslot_btn_proceed {
-  width: 40%;
-  background-color: #ff0040;
-  height: 7vh;
-  display: grid;
-  place-items: center;
-  /* text-align: center; */
-  /* padding-top: 0.9rem; */
-  border-radius: 10px;
-  font-family: semibold;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.selectdeliveryslot_modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: auto;
-  background-color: white;
-  box-shadow: 24;
-  border-radius: 10px;
-}
-
-.select_slot_shipment h5 {
-  font-family: regular;
-  font-weight: 600;
-  padding: 1.5rem 0rem 1rem 2rem;
-}
-.selectdeliveryslot_day p {
-  font-family: regular;
-  font-weight: 600;
-  padding: 0rem 0rem 0rem 2rem;
-  font-size: 0.8rem;
-}
-.selectdeliveryslot_timer {
-  height: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 0rem 2rem 2rem 2rem;
-}
-.selectdeliveryslot_time_slot {
-  height: 6vh;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 10px;
-  border: 1px solid #ff0040;
-  cursor: pointer;
-  transition: 0.2s linear;
-  text-align: center;
-  font-family: medium;
-  color: #ff0040;
-}
-.selectdeliveryslot_time_slot:hover {
-  background-color: #ff0040;
-  transform: scale(0.2s);
-  color: white;
-}
-.select_proceed {
-  height: auto;
-  display: flex;
-  width: 95%;
-  padding: 1.5rem 0rem 2rem 2rem;
-}
-.selectdeliveryslot_btn1 {
-  height: 7vh;
-  width: 30%;
-  background-color: #ff0040;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.selectdeliveryslot_btn1 p {
-  font-family: regular;
-  font-weight: 600;
-  font-size: 1rem;
-  color: white;
-  padding-top: 15px;
-}
-
-.selectdeliveryslot_modal img {
-  position: absolute;
-  right: 1rem;
-  top: 0.5rem;
-  height: 25px;
-  width: 25px;
-  transition: 0.3s linear;
-  cursor: pointer;
-}
-.selectdeliveryslot_modal img:hover {
-  transform: rotateZ(90deg);
-}
-.primary_select_slots {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.slots_edit_icon {
-  height: 20px;
-  width: 20px;
-  color: #ff0040;
-  cursor: pointer;
-}
-.selectslots_delivery_time {
-  height: auto;
-  width: 40%;
-  background-color: lightgray;
-  border-radius: 10px;
-  color: white;
-  font-family: regular;
-  font-weight: 600;
-  display: grid;
-  place-items: center;
-  padding: 1rem 0rem;
-  /* justify-content: center;
-  align-items: center; */
-}
-.disabled {
-  border: none;
-  border-radius: 10px;
-  padding: 0.7rem 0rem;
-  color: black;
-  background-color: lightgrey;
-}
-
-/* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 280px) and (max-width: 480px) {
-  /* CSS rules for mobile devices */
-
-  .selectdeliveryslot_container {
-    height: auto;
-    padding-bottom: 0rem;
-    padding: 1rem 0rem;
-  }
-  .mobile_selectdeliveryslot_container {
-    display: none;
-  }
-  .selectime_steps {
-    display: none;
-  }
-  .selectdeliveryslot_content {
-    width: 100%;
-    height: auto;
-    margin-top: 0px;
-    padding: 0rem;
-  }
-  .selectime_container {
-    height: auto;
-    width: 100%;
-    padding-bottom: 5rem;
-  }
-  .select_product_detail {
-    height: auto;
-    display: grid;
-    /* grid-template-columns: 100%;
-    width: 95%; */
-  }
-  /* product style */
-  .selectdeliveryslot_product {
-    width: 90%;
-    margin-left: 0.9rem;
-    padding: 0.5rem 0.5rem;
-    gap: 0.4rem;
-  }
-  .selectdeliveryslot_product_img {
-    width: 25%;
-    height: 10vh;
-  }
-  .selectdeliveryslot_product_name {
-    width: 50%;
-    height: 10vh;
-  }
-  .selectdeliveryslotname {
-    height: 5vh;
-  }
-  .selectdeliveryslotname p {
-    font-size: 0.8rem;
-    font-family: regular;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .selectdeliveryslotquantity {
-    gap: 0.7rem;
-    padding-top: 0.5rem;
-  }
-  .selectdeliveryslotquantity p {
-    font-size: 0.7rem;
-  }
-  .selectdeliveryslot_product_cartbtn {
-    height: 10vh;
-    width: 25%;
-  }
-  .selectdeliveryslot_cross {
-    height: 5vh;
-  }
-  .selectdeliveryslot_cross img {
-    height: 20px;
-    width: 20px;
-  }
-  .selectdeliveryslot_addcart {
-    height: 5vh;
-  }
-  .table_dre,
-  .table_incre {
-    width: 50px;
-    /* background-color: #ff0040; */
-    height: 5vh;
-  }
-  .table_count {
-    height: 5vh;
-    width: 30%;
-    font-size: 0.8rem;
-  }
-  /* end product style */
-
-  .select_text_container {
-    width: 100%;
-  }
-
-  .select_text_container h5 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .select_text_container p {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 12px;
-  }
-  .select_text_container h6 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .d-flex img {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    margin: 0.5rem 0rem;
-  }
-
-  .table_addtocart {
-    width: 90%;
-  }
-  .table_dre,
-  .table_incre {
-    width: 20px;
-  }
-  .bor_bottom {
-    margin: 2rem 1rem 0rem 0rem;
-    padding: 0rem 1rem;
-  }
-  .select_delivery_time {
-    height: 6vh;
-    width: 90%;
-    border-radius: 3px;
-    margin-left: 1.2rem;
-    margin-top: 1.2rem;
-  }
-  .select_delivery_time p {
-    padding-top: 0.35rem;
-    font-size: 14px;
-  }
-  .stot_content_total {
-    float: right;
-  }
-  .stot_content_total p {
-    font-size: 1rem;
-    font-family: regular;
-    padding-right: 1rem;
-    padding-top: 1rem;
-  }
-  .stot_content_total p span {
-    font-family: regular;
-    font-weight: 600;
-  }
-  .primary_select_slots {
-    padding-left: 1.5rem;
-  }
-
-  .selectslots_delivery_time {
-    width: 40%;
-  }
-  .product_detail_01 {
-    width: 30%;
-    margin-top: 20px;
-    margin-left: 40px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_detail_text p {
-    font-size: 12px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .product_selectdeliveryslot_text {
-    width: 100%;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_selectdeliveryslot_text p {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .select_delivery_price span {
-    font-size: 12px;
-  }
-  .selectdeliveryslot_btn {
-    height: auto;
-    padding-left: 20px;
-    /* padding-top: 10px; */
-    /* margin-bottom: 1rem;
-    width: 30%; */
-  }
-  .selectdeliveryslot_btn button {
-    width: 20%;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  .selectdeliveryslot_modal {
-    width: 100%;
-    height: auto;
-  }
-  .selectdeliveryslot_timer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .select_slot_shipment {
-    background-color: #dbd6d6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .select_slot_shipment h5 {
-    font-size: 1rem;
-    padding: 16px 2rem;
-  }
-
-  .selectdeliveryslot_day p {
-    padding: 5px 2rem;
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_timer {
-    width: 100%;
-    /* margin-left: 6%; */
-  }
-  .selectdeliveryslot_time_slot {
-    width: 100%;
-    display: flex;
-    font-size: 0.7rem;
-  }
-
-  .select_proceed {
-    width: 93%;
-    margin-left: 6%;
-  }
-  .selectdeliveryslot_btn1 {
-    height: 6vh;
-    width: 30%;
-  }
-
-  .selectdeliveryslot_btn1 p {
-    font-size: 0.8rem;
-    padding-top: 1rem;
-  }
-  .selectdeliveryslot_btn_proceed {
-    padding-top: 0rem;
-    cursor: pointer;
-    width: 60%;
-    font-size: 0.9rem;
-  }
-  .selectslots_delivery_time {
-    height: auto;
-    width: 60%;
-    background-color: lightgray;
-    border-radius: 10px;
-    color: white;
-    font-family: regular;
-    font-weight: 600;
-    display: grid;
-    place-items: center;
-    padding: 0.8rem 0rem;
-    /* justify-content: center;
-    align-items: center; */
-  }
-}
-
-/* iPads, Tablets (481px - 768px) */
-@media only screen and (min-width: 481px) and (max-width: 768px) {
-  /* CSS rules for iPads and tablets */
-  .selectdeliveryslot_container {
-    height: auto;
-    padding-bottom: 0rem;
-    padding: 1rem 0rem;
-  }
-  .mobile_selectdeliveryslot_container {
-    display: none;
-  }
-
-  .selectime_steps {
-    display: none;
-  }
-  .selectdeliveryslot_content {
-    width: 98%;
-    height: auto;
-    margin-top: 0px;
-    padding: 0rem;
-  }
-  .selectime_container {
-    height: auto;
-    width: 100%;
-    padding-bottom: 5rem;
-  }
-  .select_product_detail {
-    height: auto;
-    display: grid;
-    /* grid-template-columns: 100%;
-    width: 95%; */
-  }
-  /* product style */
-  .selectdeliveryslot_product {
-    width: 93%;
-    margin-left: 0.9rem;
-    padding: 0.7rem 0.7rem;
-    gap: 0.5rem;
-  }
-  .selectdeliveryslot_product_img {
-    width: 25%;
-    height: 15vh;
-  }
-  .selectdeliveryslot_product_name {
-    width: 50%;
-    min-height: 15vh;
-  }
-  .selectdeliveryslotname {
-    min-height: 10vh;
-  }
-  .selectdeliveryslotname p {
-    font-size: 0.9rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .selectdeliveryslotquantity {
-    gap: 1rem;
-    padding-top: 0.5rem;
-  }
-  .selectdeliveryslotquantity p {
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_product_cartbtn {
-    min-height: 15vh;
-    width: 25%;
-  }
-  .selectdeliveryslot_cross {
-    min-height: 9vh;
-  }
-  .selectdeliveryslot_cross img {
-    height: 25px;
-    width: 25px;
-  }
-  .selectdeliveryslot_addcart {
-    min-height: 5vh;
-  }
-  .table_dre,
-  .table_incre {
-    width: 35%;
-    min-height: 5vh;
-  }
-  .table_count {
-    min-height: 5vh;
-    width: 30%;
-    font-size: 0.8rem;
-  }
-  /* end product style */
-
-  .select_text_container {
-    width: 100%;
-  }
-
-  .select_text_container h5 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .select_text_container p {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 12px;
-  }
-  .select_text_container h6 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .d-flex img {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    margin: 0.5rem 0rem;
-  }
-
-  .table_addtocart {
-    width: 90%;
-  }
-
-  .bor_bottom {
-    margin: 2rem 1rem 0rem 0rem;
-    padding: 0rem 1rem;
-  }
-  .select_delivery_time {
-    height: auto;
-    width: 90%;
-    border-radius: 3px;
-    margin-left: 1.2rem;
-    padding: 0.5rem 0rem;
-    margin-top: 1.2rem;
-  }
-  .select_delivery_time p {
-    padding-top: 0.35rem;
-    font-size: 14px;
-  }
-  .stot_content_total {
-    float: right;
-  }
-  .stot_content_total p {
-    font-size: 1rem;
-    font-family: regular;
-    padding-right: 2rem;
-    padding-top: 1rem;
-  }
-  .stot_content_total p span {
-    font-family: regular;
-    font-weight: 600;
-  }
-  .primary_select_slots {
-    padding-left: 1.5rem;
-  }
-
-  .selectslots_delivery_time {
-    width: 40%;
-    padding: 0.75rem 0rem;
-  }
-  .product_detail_01 {
-    width: 30%;
-    margin-top: 20px;
-    margin-left: 40px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_detail_text p {
-    font-size: 12px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .product_selectdeliveryslot_text {
-    width: 100%;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_selectdeliveryslot_text p {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .select_delivery_price span {
-    font-size: 12px;
-  }
-  .selectdeliveryslot_btn {
-    height: auto;
-    padding-left: 20px;
-    /* padding-top: 10px; */
-    /* margin-bottom: 1rem;
-    width: 30%; */
-  }
-  .selectdeliveryslot_btn button {
-    width: 20%;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  .selectdeliveryslot_modal {
-    width: 100%;
-    height: auto;
-  }
-  .selectdeliveryslot_timer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  .select_slot_shipment {
-    background-color: #dbd6d6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .select_slot_shipment h5 {
-    font-size: 1rem;
-    padding: 16px 2rem;
-  }
-
-  .selectdeliveryslot_day p {
-    padding: 5px 2rem;
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_timer {
-    width: 100%;
-    /* margin-left: 6%; */
-  }
-  .selectdeliveryslot_time_slot {
-    width: 100%;
-    display: flex;
-    font-size: 0.7rem;
-  }
-
-  .select_proceed {
-    width: 93%;
-    margin-left: 6%;
-  }
-  .selectdeliveryslot_btn1 {
-    height: 6vh;
-    width: 30%;
-  }
-
-  .selectdeliveryslot_btn1 p {
-    font-size: 0.8rem;
-    padding-top: 1rem;
-  }
-  .selectdeliveryslot_btn_proceed {
-    padding-top: 0rem;
-    cursor: pointer;
-    width: 40%;
-    font-size: 0.9rem;
-  }
-}
-/* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 769px) and (max-width: 900px) {
-  /* CSS rules for small screens and laptops */
-  .selectdeliveryslot_container {
-    height: auto;
-    padding-bottom: 0rem;
-    padding: 1rem 0rem;
-  }
-  .mobile_selectdeliveryslot_container {
-    display: none;
-  }
-  .selectime_steps {
-    display: none;
-  }
-  .selectdeliveryslot_content {
-    width: 97%;
-    height: auto;
-    margin-top: 0px;
-    padding: 0rem;
-  }
-  .selectime_container {
-    height: auto;
-    width: 100%;
-    padding-bottom: 5rem;
-  }
-  .select_product_detail {
-    height: auto;
-    display: grid;
-    /* grid-template-columns: 100%;
-    width: 95%; */
-  }
-  /* product style */
-  .selectdeliveryslot_product {
-    width: 95%;
-    margin-left: 0.9rem;
-    padding: 0.7rem 0.7rem;
-    gap: 0.7rem;
-  }
-  .selectdeliveryslot_product_img {
-    width: 20%;
-    height: 15vh;
-  }
-  .selectdeliveryslot_product_name {
-    width: 60%;
-    min-height: 15vh;
-  }
-  .selectdeliveryslotname {
-    min-height: 10vh;
-  }
-  .selectdeliveryslotname p {
-    font-size: 1rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .selectdeliveryslotquantity {
-    gap: 1rem;
-    padding-top: 0.5rem;
-  }
-  .selectdeliveryslotquantity p {
-    font-size: 1rem;
-  }
-  .selectdeliveryslot_product_cartbtn {
-    min-height: 15vh;
-    width: 18%;
-  }
-  .selectdeliveryslot_cross {
-    min-height: 9vh;
-  }
-  .selectdeliveryslot_cross img {
-    height: 25px;
-    width: 25px;
-  }
-  .selectdeliveryslot_addcart {
-    min-height: 5vh;
-  }
-  .table_dre,
-  .table_incre {
-    width: 30%;
-    min-height: 5vh;
-  }
-  .table_count {
-    min-height: 5vh;
-    width: 40%;
-    font-size: 0.8rem;
-  }
-  /* end product style */
-
-  .select_text_container {
-    width: 100%;
-  }
-
-  .select_text_container h5 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .select_text_container p {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 12px;
-  }
-  .select_text_container h6 {
-    padding: 0px 20px;
-    padding-top: 0px;
-    font-size: 14px;
-  }
-
-  .d-flex img {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-    margin: 0.5rem 0rem;
-  }
-
-  .table_addtocart {
-    width: 90%;
-  }
-
-  .bor_bottom {
-    margin: 2rem 1rem 0rem 0rem;
-    padding: 0rem 1rem;
-  }
-  .select_delivery_time {
-    height: auto;
-    width: 39%;
-    border-radius: 3px;
-    margin-left: 1.2rem;
-    margin-top: 1.2rem;
-    padding: 0.6rem 0rem;
-  }
-  .select_delivery_time p {
-    padding-top: 0.35rem;
-    font-size: 14px;
-  }
-  .stot_content_total {
-    float: right;
-  }
-  .stot_content_total p {
-    font-size: 1rem;
-    font-family: regular;
-    padding-right: 2rem;
-    padding-top: 1rem;
-  }
-  .stot_content_total p span {
-    font-family: regular;
-    font-weight: 600;
-  }
-  .primary_select_slots {
-    padding-left: 1.5rem;
-  }
-
-  .product_detail_01 {
-    width: 30%;
-    margin-top: 20px;
-    margin-left: 40px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_detail_text p {
-    font-size: 12px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .product_selectdeliveryslot_text {
-    width: 100%;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-
-  .product_selectdeliveryslot_text p {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .select_delivery_price span {
-    font-size: 12px;
-  }
-  .selectdeliveryslot_btn {
-    height: auto;
-    padding-left: 20px;
-    /* padding-top: 10px; */
-    /* margin-bottom: 1rem;
-    width: 30%; */
-  }
-  .selectdeliveryslot_btn button {
-    width: 20%;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  .selectdeliveryslot_modal {
-    width: 100%;
-    height: auto;
-  }
-  .selectdeliveryslot_timer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-  }
-  .select_slot_shipment {
-    background-color: #dbd6d6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .select_slot_shipment h5 {
-    font-size: 1rem;
-    padding: 16px 2rem;
-  }
-
-  .selectdeliveryslot_day p {
-    padding: 5px 2rem;
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_timer {
-    width: 100%;
-    /* margin-left: 6%; */
-  }
-  .selectdeliveryslot_time_slot {
-    width: 100%;
-    display: flex;
-    font-size: 0.7rem;
-  }
-
-  .select_proceed {
-    width: 93%;
-    margin-left: 6%;
-  }
-  .selectdeliveryslot_btn1 {
-    height: 6vh;
-    width: 30%;
-  }
-
-  .selectdeliveryslot_btn1 p {
-    font-size: 0.8rem;
-    padding-top: 1rem;
-  }
-  .selectdeliveryslot_btn_proceed {
-    padding-top: 0rem;
-    cursor: pointer;
-    width: 30%;
-    font-size: 1rem;
-  }
-  .selectslots_delivery_time {
-    width: 30%;
-    padding: 0.75rem 0rem;
-  }
-}
-/* Desktops, large screens (1025px - 1200px) */
-@media only screen and (min-width: 901px) and (max-width: 1024px) {
-  /* CSS rules for desktops and large screens */
-  .selectdeliveryslot_container {
-    height: auto;
-    padding-bottom: 0rem;
-    padding: 3rem 0rem;
-  }
-
-  .selectdeliveryslot_content {
-    width: 92%;
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: 0px;
-  }
-  .selectime_container {
-    height: auto;
-    width: 70%;
-    padding-bottom: 35px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .select_product_detail {
-    height: auto;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    width: 100%;
-  }
-  .select_text_container {
-    width: 100%;
-  }
-  .select_text_container h5 {
-    padding: 0px 0px;
-    padding-top: 0px;
-    font-size: 16px;
-  }
-  .select_delivery_time {
-    height: auto;
-    width: 40%;
-    margin-top: 10px;
-    border-radius: 10px;
-    margin-left: 0rem;
-    margin-top: 1.2rem;
-    padding: 0.6rem 0rem;
-  }
-  .select_delivery_time p {
-    padding-top: 0.35rem;
-    font-size: 15px;
-  }
-
-  .product_detail_01 {
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-bottom: 1rem;
-  }
-  .selectdeliveryslot_product_img {
-    width: 30%;
-  }
-
-  .product_detail_text {
-    width: 73%;
-  }
-  .product_detail_text p {
-    font-size: 12px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .product_selectdeliveryslot_text {
-    /* background-color: green; */
-    width: 80%;
-  }
-
-  .product_selectdeliveryslot_text p {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
-  }
-  .select_delivery_price span {
-    font-size: 12px;
-  }
-  .selectdeliveryslot_btn {
-    height: 10vh;
-    padding-left: 30px;
-    padding-top: 2rem;
-  }
-  .selectdeliveryslot_btn button {
-    width: 20%;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  .selectdeliveryslot_modal {
-    width: 70%;
-    height: auto;
-    border-radius: 8px;
-  }
-  .select_slot_shipment {
-    background-color: #dbd6d6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .select_slot_shipment h5 {
-    font-size: 1rem;
-    padding: 16px 2rem;
-  }
-
-  .selectdeliveryslot_day p {
-    padding: 5px 2rem;
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_timer {
-    width: 100%;
-    margin-left: 0;
-  }
-  .selectdeliveryslot_time_slot {
-    width: 100%;
-    display: flex;
-  }
-  .selectdeliveryslot_time_slot p {
-    font-size: 0.8rem;
-    align-items: center;
-  }
-  .select_proceed {
-    width: 93%;
-    margin-left: 6%;
-  }
-  .selectdeliveryslot_btn1 {
-    height: 6vh;
-    width: 30%;
-  }
-  .selectdeliveryslot_btn {
-    padding-left: 0px;
-    height: auto;
-  }
-  .selectdeliveryslot_btn_proceed {
-    padding-top: 0rem;
-    cursor: pointer;
-    width: 40%;
-    font-size: 1rem;
-    /* background-color: aqua; */
-  }
-  .selectdeliveryslot_btn1 p {
-    font-size: 0.8rem;
-    padding-top: 1rem;
-  }
-  .selectime_steps {
-    display: none;
-  }
-  .selectslots_delivery_time {
-    height: auto;
-    width: 40%;
-    padding: 0.7rem 0rem;
-    /* justify-content: center;
-    align-items: center; */
-  }
-}
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
-  .selectime_container {
-    width: 60%;
-  }
-  .selectslots_delivery_time {
-    height: auto;
-    width: 40%;
-    padding: 0.8rem 0rem;
-    /* justify-content: center;
-    align-items: center; */
-  }
-}
-/* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1201px) and (max-width: 1530px) {
-  /* CSS rules for extra large screens and TV */
-  .selectdeliveryslot_container {
-    width: 100%;
-    height: auto;
-    display: grid;
-    place-items: center;
-    padding: 4rem 0rem;
-    /* background-color: aqua; */
-  }
-  .selectdeliveryslot_content {
-    width: 90%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    /* gap: 30px; */
-  }
-  .selectime_container {
-    height: auto;
-    width: 60%;
-    border-radius: 3px;
-  }
-  .selectime_steps {
-    /* height: 50vh; */
-    height: auto;
-    width: 35%;
-    padding-left: 2.5rem;
-    padding-top: 0.5rem;
-  }
-
-  .select_text_container h5 {
-    font-family: regular;
-    font-weight: 600;
-  }
-  .select_text_container h6 {
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
-  }
-  .select_text_container p {
-    color: grey;
-    font-family: regular;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }
-
-  .stot_content_total {
-    float: right;
-  }
-  .stot_content_total p {
-    font-size: 1.1rem;
-    font-family: regular;
-  }
-  .stot_content_total p span {
-    font-family: regular;
-    font-weight: 600;
-  }
-  /* product list */
-
-  .selectdeliveryslot_product {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    gap: 0.8rem;
-    background-color: white;
-    padding: 1rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-  }
-  .selectdeliveryslot_product_img {
-    width: 20%;
-    height: 15vh;
-    border-radius: 20px;
-  }
-
-  .selectdeliveryslot_product_img img {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px;
-  }
-  .selectdeliveryslot_product_name {
-    width: 70%;
-    height: 15vh;
-  }
-  .selectdeliveryslotname {
-    width: 100%;
-    height: 8vh;
-  }
-  .selectdeliveryslotname p {
-    font-size: 1.1rem;
-    font-family: regular;
-    margin: 0rem;
-    padding: 0rem;
-  }
-  .selectdeliveryslotquantity {
-    width: 100%;
-    height: 7vh;
-    display: flex;
-    gap: 2rem;
-    padding-top: 1.5rem;
-  }
-  .selectdeliveryslotquantity p {
-    font-family: regular;
-  }
-  .selectdeliveryslot_product_cartbtn {
-    width: 20%;
-    height: 15vh;
-  }
-
-  .selectdeliveryslot_cross {
-    display: flex;
-    justify-content: flex-end;
-    height: 9vh;
-  }
-  .selectdeliveryslot_cross img {
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    transition: 0.3s linear;
-  }
-  .selectdeliveryslot_cross img:hover {
-    transform: rotateZ(90deg);
-  }
-  .selectdeliveryslot_addcart {
-    width: 100%;
-    height: 6vh;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  /* product list */
-
-  .select_delivery_time {
-    height: 7vh;
-    width: 50%;
-    border: 1px solid #ff0040;
-    border-radius: 10px;
-    cursor: pointer;
-    /* margin-top: 2rem; */
-    transition: 0.3s linear;
-    font-family: medium;
-    color: #ff0040;
-    display: grid;
-    place-items: center;
-  }
-  .select_delivery_time:hover {
-    background-color: #ff0040;
-    transform: scale(0.2s);
-    color: white;
-  }
-
-  .select_product_detail {
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 2rem;
-  }
-  .product_detail_01 {
-    width: 100%;
-    height: 14vh;
-    display: flex;
-    gap: 1rem;
-  }
-  .product_detail_01_img {
-    width: 15%;
-    height: 14vh;
-  }
-  .product_detail_01_img img {
-    border-radius: 10px;
-    width: 100%;
-    display: block;
-    height: 100%;
-  }
-  .product_selectdeliveryslot_text {
-    width: 80%;
-  }
-
-  .product_selectdeliveryslot_text p {
-    font-family: regular;
-    font-size: 1.2rem;
-    line-height: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .product_selectdeliveryslot_text span {
-    font-family: light;
-    line-height: 1;
-    font-size: 1rem;
-  }
-
-  .selectdeliveryslot_btn {
-    height: 10vh;
-    /* padding-left: 30px; */
-    width: 100%;
-    padding-top: 2rem;
-  }
-  .selectdeliveryslot_btn_proceed {
-    width: 50%;
-    background-color: #ff0040;
-    height: 7vh;
-    display: grid;
-    place-items: center;
-    /* text-align: center; */
-    /* padding-top: 0.9rem; */
-    border-radius: 10px;
-    font-family: semibold;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  .selectdeliveryslot_modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: auto;
-    background-color: white;
-    box-shadow: 24;
-    border-radius: 10px;
-  }
-
-  .select_slot_shipment h5 {
-    font-family: regular;
-    font-weight: 600;
-    padding: 1.5rem 0rem 1rem 2rem;
-  }
-  .selectdeliveryslot_day p {
-    font-family: regular;
-    font-weight: 600;
-    padding: 0rem 0rem 0rem 2rem;
-    font-size: 0.8rem;
-  }
-  .selectdeliveryslot_timer {
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 0rem 2rem 2rem 2rem;
-  }
-  .selectdeliveryslot_time_slot {
-    height: 6vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid #ff0040;
-    cursor: pointer;
-    transition: 0.2s linear;
-    text-align: center;
-    font-family: medium;
-    color: #ff0040;
-  }
-  .selectdeliveryslot_time_slot:hover {
-    background-color: #ff0040;
-    transform: scale(0.2s);
-    color: white;
-  }
-  .select_proceed {
-    height: auto;
-    display: flex;
-    width: 95%;
-    padding: 1.5rem 0rem 2rem 2rem;
-  }
-  .selectdeliveryslot_btn1 {
-    height: 7vh;
-    width: 30%;
-    background-color: #ff0040;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .selectdeliveryslot_btn1 p {
-    font-family: regular;
-    font-weight: 600;
-    font-size: 1rem;
-    color: white;
-    padding-top: 15px;
-  }
-
-  .selectdeliveryslot_modal img {
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    height: 25px;
-    width: 25px;
-    transition: 0.3s linear;
-    cursor: pointer;
-  }
-  .selectdeliveryslot_modal img:hover {
-    transform: rotateZ(90deg);
-  }
-  .primary_select_slots {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .slots_edit_icon {
-    height: 20px;
-    width: 20px;
-    color: #ff0040;
-    cursor: pointer;
-  }
-  .selectslots_delivery_time {
-    height: auto;
-    width: 50%;
-    background-color: lightgray;
-    border-radius: 10px;
-    color: white;
-    font-family: regular;
-    font-weight: 600;
-    display: grid;
-    place-items: center;
-    padding: 0.8rem 0rem;
-    /* justify-content: center;
-    align-items: center; */
-  }
-}
+import React, { useEffect, useState } from "react";
+import "./selectdeliveryslot.css";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import {
+  Show_Cart,
+  getTimeslot,
+  getUserID,
+  CountryDetail,
+  GetCountry,
+  removeFromCart,
+  increaseQuantity,
+} from "../../serverRequest/Index";
+import * as moment from "moment";
+import Header from "../header/Header";
+import Steps from "../../customcomponent/steps/Steps";
+import { NavLink, useLocation } from "react-router-dom";
+import Loader from "../loder/Loader";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import {
+  MDBBadge,
+  MDBBtn,
+  MDBTable,
+  MDBTableHead,
+  MDBTableBody,
+} from "mdb-react-ui-kit";
+import { FaEdit } from "react-icons/fa";
+import TopHeader from "../topheader/TopHeader";
+import ModalCart from "../../pages/modalcart/ModalCart";
+import MobileBottomtab from "../../mobilecomponent/mobilebottomtab/MobileBottomtab";
+
+const SelectDeliveryslot = () => {
+  let navigate = useNavigate();
+
+  const location = useLocation();
+  const id = location?.state?.id;
+  console.log(id);
+
+  const [time, setTime] = useState([]);
+  const [daySlot, setDaySlot] = useState("");
+  // const [open, setOpen] = useState(false);
+  // const [cartProduct, setCartProduct] = useState([]);
+  const [select, setSelect] = useState("");
+  const [slotId, setSlotId] = useState("");
+  const [load, setLoad] = useState(false);
+  const [country, setCountry] = useState("");
+  const [countrycurrency, setCountryCurrency] = useState("");
+  const [countrytitle, setCountryTitle] = useState("");
+  const [flag, setFlag] = useState("");
+  const [cartProduct, setCartProduct] = useState([]);
+  const [cartPrice, setCartPrice] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [btn, setBtn] = useState(false);
+  const [open1, setOpen1] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [incre, setIncre] = useState(1);
+
+  useEffect(() => {
+    setLoad(true);
+    async function timeSlot() {
+      const newData = await getTimeslot();
+      console.log(newData, "=12345678765");
+      setTime(newData.data);
+      setLoad(false);
+    }
+    const formattedDate = moment().format("D MMM YYYY");
+    setDaySlot(formattedDate);
+    timeSlot();
+    showcart();
+  }, []);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          if (position?.coords?.latitude) {
+            GetCountry(
+              position?.coords?.latitude,
+              position?.coords?.longitude
+            ).then((res) => {
+              if (res?.address?.country) {
+                CountryDetail(res?.address?.country).then((res) => {
+                  setCountry(res[0]?.name);
+                  setCountryCurrency(res[0]?.currencies[0]?.symbol);
+                  setCountryTitle(res[0]?.currencies[0]?.code);
+                  setFlag(res[0]?.flags?.png);
+                });
+              }
+            });
+          }
+        },
+        (error) => {
+          console.error("Error retrieving location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
+    localContent();
+    showcart();
+  }, []);
+  const localContent = () => {
+    const items = JSON.parse(localStorage.getItem("userDetail"));
+    const items1 = JSON.parse(localStorage.getItem("modalCount"));
+    if (items) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+      if (items1) {
+      } else {
+        setLoginStatus(false);
+      }
+    }
+  };
+  const showcart = async () => {
+    const userId = await getUserID();
+    console.log(userId, "gaurav user Id");
+    const data = {
+      userId: userId,
+    };
+    const res = await Show_Cart(data);
+    if (res.status == true) {
+      setCartProduct(res.data.cart);
+      setCartPrice(res.data.totalAmount);
+    } else {
+      setCartProduct([]);
+      setCartPrice("");
+    }
+  };
+
+  const carthandleOpen = () => setCartOpen(true);
+  const carthandleClose = () => setCartOpen(false);
+
+  const handleOpen1 = () => setOpen1(true);
+  const handleClose1 = () => setOpen1(false);
+
+  const handleclear = async (index) => {
+    if (index == 4) {
+      await localStorage.clear();
+      navigate("/");
+      window.location.reload();
+    }
+  };
+
+  // remove cart
+  const removeCartProduct = async (id) => {
+    setLoad(true);
+    const userId = await getUserID();
+    const data = {
+      userId: userId,
+      productId: id,
+    };
+    removeFromCart(data).then((res) => {
+      if (res.status == true) {
+        toast.success(res.message, {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        showcart();
+        setLoad(false);
+      } else {
+        toast.error(res.message, {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    });
+  };
+  // end remove cart
+  const handleIncre = async (id, quantity) => {
+    setLoad(true);
+    let qty = quantity + 1;
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      cartProductId: id,
+      quantity: qty,
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch(
+      "https://luqmafresh-backend-zzfk.onrender.com/product/UpdateCartQuantity",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status == true) {
+          toast.success(res.message, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          // setIncre()
+          showcart();
+          setLoad(false);
+        } else {
+          toast.error(res.message, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setLoad(false);
+        }
+      })
+      .catch((error) => console.log("error", error));
+  };
+  // end remove cart
+
+  // const handleIncre = () => {
+  //   setIncre(incre + 1);
+  // };
+  const handleDecre = (id, quantity) => {
+    if (quantity > 1) {
+      setLoad(true);
+      let qty = quantity - 1;
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        cartProductId: id,
+        quantity: qty,
+      });
+
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://luqmafresh-backend-zzfk.onrender.com/product/UpdateCartQuantity",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((res) => {
+          if (res.status == true) {
+            toast.success(res.message, {
+              position: "top-right",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            // setIncre()
+            showcart();
+            setLoad(false);
+          } else {
+            toast.error(res.message, {
+              position: "top-right",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+            setLoad(false);
+          }
+        })
+        .catch((error) => console.log("error", error));
+      setIncre(quantity - 1);
+    } else {
+      setIncre(1);
+    }
+  };
+  const handleSelTImeslot = () => {
+    toast.error("Please select time slot", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const handleCartEmpty = () => {
+    toast.error("Your cart is empty", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  return (
+    <>
+      <TopHeader handleclear={() => handleclear(4)} loginStatus={loginStatus} />
+
+      <div className="mobile_selectdeliveryslot_container">
+        <Header
+          code={countrytitle}
+          currency={countrycurrency}
+          flag={flag}
+          cartPrice={cartPrice}
+          cartProductlength={cartProduct}
+          curr={countrycurrency}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          carthandleOpen={carthandleOpen}
+          loginStatus={loginStatus}
+          // handleOpen={() => setOpen(true)}
+          // handleClose={() => setOpen(false)}
+          // open={open}
+          showbtn={btn}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          handleclear={(index) => handleclear(index)}
+          // removeProduct={(id) => removeCartProduct(id)}
+        />
+      </div>
+
+        <ModalCart
+          // cartopen={cartopen}
+          cartopen={cartOpen}
+          carthandleClose={carthandleClose}
+          onclose={carthandleClose}
+          loginStatus={loginStatus}
+          cartProduct={cartProduct}
+          // cartProductlength={cartProduct}
+          totalAmount={cartPrice}
+          modalcurrency={countrycurrency}
+          // totalAmount={totalAmount}
+          // modalcurrency={modalcurrency}
+          // removeProduct={removeProduct}
+          // removeProduct={(id) =>
+          //   loginStatus == true ? removeCartProduct(id) : removeLocalCart(id)
+          // }
+          // handleCartLogin={handleCartLogin}
+          // handleHome={handleHome}
+          // handleHome={() => handleHome()}
+          removeProduct={(id) => removeCartProduct(id)}
+        />
+      <div className="selectdeliveryslot_container">
+        <div className="selectdeliveryslot_content">
+          {/* /************************************** */}
+          <div className="selectime_container">
+            <div className="select_text_container">
+              <h5>Your Order List</h5>
+              <p>
+                Kindly review the list of orders and choose your preferred time
+                slot for completing the payment.
+              </p>
+              <h6>{cartProduct?.length} Items order</h6>
+            </div>
+
+            <div>
+              <Card
+                style={{
+                  boxShadow: "none",
+                  border: "none",
+                  padding: "0.2rem 0.2rem",
+                }}
+              >
+                {cartProduct.map((item) => (
+                  <div className="selectdeliveryslot_product">
+                    <div className="selectdeliveryslot_product_img">
+                      <img src={item?.productId?.image} />
+                    </div>
+                    <div className="selectdeliveryslot_product_name">
+                      <div className="selectdeliveryslotname">
+                        <p>{item?.productId?.name}</p>
+                      </div>
+                      <div className="selectdeliveryslotquantity">
+                        <p>
+                          {item?.productId?.quantity} {item?.productId?.unit}{" "}
+                        </p>
+                        <p>
+                          {countrycurrency} {item?.productId?.price}
+                        </p>
+                        <p>{item?.quantity}</p>
+                        <p style={{ fontWeight: "bold" }}>
+                          {countrycurrency}{" "}
+                          {item?.quantity * item?.productId?.price}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="selectdeliveryslot_product_cartbtn">
+                      <div className="selectdeliveryslot_cross">
+                        <img
+                          src="cross.png"
+                          onClick={() => removeCartProduct(item?._id)}
+                        />
+                      </div>
+                      <div className="selectdeliveryslot_addcart">
+                        <div
+                          className="table_dre"
+                          onClick={() => handleDecre(item?._id, item?.quantity)}
+                        >
+                          -
+                        </div>
+                        <div className="table_count">{item?.quantity}</div>
+
+                        <div
+                          className="table_incre"
+                          onClick={() => handleIncre(item?._id, item.quantity)}
+                        >
+                          +
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <div className="stot_content_total">
+                  <p>
+                    {" "}
+                    <span>Total :</span> {countrycurrency} {cartPrice}
+                  </p>
+                </div>
+              </Card>
+            </div>
+
+            {slotId == false ? (
+              <div className="select_delivery_time" onClick={handleOpen1}>
+                Select Delivery time Slot
+              </div>
+            ) : (
+              <div className="primary_select_slots">
+                <div className="selectslots_delivery_time">
+                  {select}
+                </div>
+                <div className="select_slots_edit_para">
+                  <FaEdit className="slots_edit_icon" onClick={handleOpen1} />
+                </div>
+              </div>
+            )}
+
+            {slotId === "" ? (
+              // <NavLink
+              //   to="/payment"
+              //   className="nav_list"
+              //   state={{ addressId: id, slotId: slotId }}
+              // >
+              <div
+                onClick={() => handleSelTImeslot()}
+                className="selectdeliveryslot_btn"
+              >
+                <div className="selectdeliveryslot_btn_proceed">
+                  Proceed to Payment
+                </div>
+              </div>
+            ) : (
+              // </NavLink>
+              <>
+                {cartProduct.length >= 1 ? (
+                  <NavLink
+                    to="/payment"
+                    className="nav_list"
+                    state={{ addressId: id, slotId: slotId }}
+                  >
+                    <div className="selectdeliveryslot_btn">
+                      <div className="selectdeliveryslot_btn_proceed">
+                        Proceed to Payment
+                      </div>
+                    </div>
+                  </NavLink>
+                ) : (
+                
+                  <div
+                    className="selectdeliveryslot_btn"
+                    onClick={() => handleCartEmpty()}
+                  >
+                    <div className="selectdeliveryslot_btn_proceed">
+                      Proceed to Payment
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+          {/***************************end******************************* */}
+          <div className="selectime_steps">
+            <Steps img1="mark.png" img2="mark.png" img3="radio.png" />
+          </div>
+        </div>
+
+        <Modal
+          open={open1}
+          onClose={handleClose1}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className="selectdeliveryslot_modal">
+            <img src="cross.png" onClick={handleClose1} />
+            {slotId == false ? (
+              <div className="select_slot_shipment">
+                <h5>Select slot for Shipment 1 of 1</h5>
+              </div>
+            ) : (
+              <div className="select_slot_shipment">
+                <h5>Edit Your Time Slot</h5>
+              </div>
+            )}
+
+            <div className="selectdeliveryslot_day">
+              <p>Today {daySlot}</p>
+            </div>
+
+            <div className="selectdeliveryslot_timer">
+              {time.map((slots) => (
+                <>
+                  {slots?.maxOrders === slots?.orderCount ? (
+                    <button disabled className="disabled">
+                      {slots.time1} - {slots.time2}
+                    </button>
+                  ) : (
+                    <div
+                      className="selectdeliveryslot_time_slot"
+                      onClick={() => {
+                        setSlotId(slots._id);
+                        setSelect(slots.time1 + " - " + slots.time2);
+                        setOpen1(false);
+                      }}
+                    >
+                      {slots.time1} - {slots.time2}
+                    </div>
+                  )}
+                </>
+              ))}
+            </div>
+            {/* <div className="select_proceed">
+              <div className="selectdeliveryslot_btn1" onClick={handleClose1}>
+                <p>Select & Proceed</p>
+              </div>
+                </div>*/}
+          </Box>
+        </Modal>
+        <Loader loading={load} />
+        <MobileBottomtab handleMobile={() => setCartOpen(true)} />
+      </div>
+    </>
+  );
+};
+
+export default SelectDeliveryslot;
