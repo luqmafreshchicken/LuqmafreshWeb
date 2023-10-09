@@ -21,7 +21,8 @@
 .selectime_steps {
   /* height: 50vh; */
   height: auto;
-  width: 40%;
+  width: 35%;
+  padding-left: 1rem;
 }
 
 .select_text_container h5 {
@@ -189,9 +190,6 @@
   color: white;
 }
 
-
-
-
 .select_product_detail {
   height: auto;
   display: flex;
@@ -341,7 +339,7 @@
 .selectdeliveryslot_modal img:hover {
   transform: rotateZ(90deg);
 }
-.primary_select_slots{
+.primary_select_slots {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -353,7 +351,7 @@
   cursor: pointer;
 }
 .selectslots_delivery_time {
-  height:auto;
+  height: auto;
   width: 40%;
   background-color: lightgray;
   border-radius: 10px;
@@ -383,7 +381,9 @@
     padding-bottom: 0rem;
     padding: 1rem 0rem;
   }
-
+  .mobile_selectdeliveryslot_container {
+    display: none;
+  }
   .selectime_steps {
     display: none;
   }
@@ -629,7 +629,7 @@
     font-size: 0.9rem;
   }
   .selectslots_delivery_time {
-    height:auto;
+    height: auto;
     width: 60%;
     background-color: lightgray;
     border-radius: 10px;
@@ -651,6 +651,9 @@
     height: auto;
     padding-bottom: 0rem;
     padding: 1rem 0rem;
+  }
+  .mobile_selectdeliveryslot_container {
+    display: none;
   }
 
   .selectime_steps {
@@ -797,6 +800,7 @@
 
   .selectslots_delivery_time {
     width: 40%;
+    padding: 0.75rem 0rem;
   }
   .product_detail_01 {
     width: 30%;
@@ -894,7 +898,6 @@
     font-size: 0.9rem;
   }
 }
-
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
@@ -903,7 +906,9 @@
     padding-bottom: 0rem;
     padding: 1rem 0rem;
   }
-
+  .mobile_selectdeliveryslot_container {
+    display: none;
+  }
   .selectime_steps {
     display: none;
   }
@@ -1046,9 +1051,6 @@
     padding-left: 1.5rem;
   }
 
-  .selectslots_delivery_time {
-    width: 40%;
-  }
   .product_detail_01 {
     width: 30%;
     margin-top: 20px;
@@ -1141,11 +1143,14 @@
   .selectdeliveryslot_btn_proceed {
     padding-top: 0rem;
     cursor: pointer;
-    width: 40%;
+    width: 30%;
     font-size: 1rem;
   }
+  .selectslots_delivery_time {
+    width: 30%;
+    padding: 0.75rem 0rem;
+  }
 }
-
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 901px) and (max-width: 1024px) {
   /* CSS rules for desktops and large screens */
@@ -1154,6 +1159,7 @@
     padding-bottom: 0rem;
     padding: 3rem 0rem;
   }
+
   .selectdeliveryslot_content {
     width: 92%;
     height: auto;
@@ -1186,7 +1192,7 @@
     height: auto;
     width: 40%;
     margin-top: 10px;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-left: 0rem;
     margin-top: 1.2rem;
     padding: 0.6rem 0rem;
@@ -1261,7 +1267,6 @@
   .selectdeliveryslot_timer {
     width: 100%;
     margin-left: 0;
-
   }
   .selectdeliveryslot_time_slot {
     width: 100%;
@@ -1279,182 +1284,373 @@
     height: 6vh;
     width: 30%;
   }
-  .selectdeliveryslot_btn{
+  .selectdeliveryslot_btn {
     padding-left: 0px;
     height: auto;
-
   }
   .selectdeliveryslot_btn_proceed {
     padding-top: 0rem;
     cursor: pointer;
     width: 40%;
     font-size: 1rem;
+    /* background-color: aqua; */
   }
   .selectdeliveryslot_btn1 p {
     font-size: 0.8rem;
     padding-top: 1rem;
   }
   .selectime_steps {
+    display: none;
+  }
+  .selectslots_delivery_time {
     height: auto;
-    width: 30%;
-    padding-left: 3rem;
+    width: 40%;
+    padding: 0.7rem 0rem;
+    /* justify-content: center;
+    align-items: center; */
   }
 }
-
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  .selectime_container {
+    width: 60%;
+  }
+  .selectslots_delivery_time {
+    height: auto;
+    width: 40%;
+    padding: 0.8rem 0rem;
+    /* justify-content: center;
+    align-items: center; */
+  }
+}
 /* Extra large screens, TV (1201px and above) */
-@media only screen and (min-width: 1025px) and (max-width: 1530px) {
+@media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .selectdeliveryslot_container {
+    width: 100%;
     height: auto;
-    padding-bottom: 0rem;
-    padding: 3rem 0rem;
+    display: grid;
+    place-items: center;
+    padding: 4rem 0rem;
+    /* background-color: aqua; */
   }
   .selectdeliveryslot_content {
     width: 90%;
     height: auto;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 30px; */
   }
   .selectime_container {
     height: auto;
-    width: 70%;
-    padding-bottom: 35px;
+    width: 60%;
+    border-radius: 3px;
   }
+  .selectime_steps {
+    /* height: 50vh; */
+    height: auto;
+    width: 35%;
+    padding-left: 2.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .select_text_container h5 {
+    font-family: regular;
+    font-weight: 600;
+  }
+  .select_text_container h6 {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+  .select_text_container p {
+    color: grey;
+    font-family: regular;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .stot_content_total {
+    float: right;
+  }
+  .stot_content_total p {
+    font-size: 1.1rem;
+    font-family: regular;
+  }
+  .stot_content_total p span {
+    font-family: regular;
+    font-weight: 600;
+  }
+  /* product list */
+
+  .selectdeliveryslot_product {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 0.8rem;
+    background-color: white;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  .selectdeliveryslot_product_img {
+    width: 20%;
+    height: 15vh;
+    border-radius: 20px;
+  }
+
+  .selectdeliveryslot_product_img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .selectdeliveryslot_product_name {
+    width: 70%;
+    height: 15vh;
+  }
+  .selectdeliveryslotname {
+    width: 100%;
+    height: 8vh;
+  }
+  .selectdeliveryslotname p {
+    font-size: 1.1rem;
+    font-family: regular;
+    margin: 0rem;
+    padding: 0rem;
+  }
+  .selectdeliveryslotquantity {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.5rem;
+  }
+  .selectdeliveryslotquantity p {
+    font-family: regular;
+  }
+  .selectdeliveryslot_product_cartbtn {
+    width: 20%;
+    height: 15vh;
+  }
+
+  .selectdeliveryslot_cross {
+    display: flex;
+    justify-content: flex-end;
+    height: 9vh;
+  }
+  .selectdeliveryslot_cross img {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: 0.3s linear;
+  }
+  .selectdeliveryslot_cross img:hover {
+    transform: rotateZ(90deg);
+  }
+  .selectdeliveryslot_addcart {
+    width: 100%;
+    height: 6vh;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* product list */
+
+  .select_delivery_time {
+    height: 7vh;
+    width: 50%;
+    border: 1px solid #ff0040;
+    border-radius: 10px;
+    cursor: pointer;
+    /* margin-top: 2rem; */
+    transition: 0.3s linear;
+    font-family: medium;
+    color: #ff0040;
+    display: grid;
+    place-items: center;
+  }
+  .select_delivery_time:hover {
+    background-color: #ff0040;
+    transform: scale(0.2s);
+    color: white;
+  }
+
   .select_product_detail {
     height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     display: grid;
-    grid-template-columns: 50% 50%;
-    width: 100%;
-  }
-  .select_text_container {
-    width: 100%;
-  }
-  .select_text_container h5 {
-    padding: 0px 0px;
-    padding-top: 0px;
-    font-size: 1.2rem;
-  }
-  .select_delivery_time {
-    height: auto;
-    width: 40%;
-    margin-top: 10px;
-    border-radius: 3px;
-    margin-left: 0%;
-    margin-top: 1.2rem;
-    padding: 0.6rem 0rem;
-
-  }
-  .select_delivery_time p {
-    padding-top: 0.35rem;
-    font-size: 15px;
-  }
-
-  .product_detail_01 {
-    width: 100%;
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-bottom: 1rem;
+    grid-template-columns: 100%;
+    gap: 2rem;
   }
   .product_detail_01 {
-    width: 90%;
-    margin-top: 20px;
-    margin-left: 40px;
+    width: 100%;
+    height: 14vh;
+    display: flex;
+    gap: 1rem;
   }
-  .product_detail_text {
-    width: 73%;
+  .product_detail_01_img {
+    width: 15%;
+    height: 14vh;
   }
-  .product_detail_text p {
-    font-size: 12px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
-    text-overflow: ellipsis;
+  .product_detail_01_img img {
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+    height: 100%;
   }
   .product_selectdeliveryslot_text {
     width: 80%;
   }
 
   .product_selectdeliveryslot_text p {
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide the overflowing text */
+    font-family: regular;
+    font-size: 1.2rem;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
   }
-  .select_delivery_price span {
-    font-size: 12px;
-  }
-  .selectdeliveryslot_btn {
-    height: 10vh;
-    padding-left: 40px;
-    padding-top: 2.2rem;
-  }
-  .selectdeliveryslot_btn button {
-    width: 20%;
-    font-size: 11px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  .selectdeliveryslot_modal {
-    width: 60%;
-    height: auto;
-    border-radius: 8px;
-  }
-  .select_slot_shipment {
-    background-color: #dbd6d6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-  .select_slot_shipment h5 {
+  .product_selectdeliveryslot_text span {
+    font-family: light;
+    line-height: 1;
     font-size: 1rem;
-    padding: 16px 2rem;
   }
 
+  .selectdeliveryslot_btn {
+    height: 10vh;
+    /* padding-left: 30px; */
+    width: 100%;
+    padding-top: 2rem;
+  }
+  .selectdeliveryslot_btn_proceed {
+    width: 50%;
+    background-color: #ff0040;
+    height: 7vh;
+    display: grid;
+    place-items: center;
+    /* text-align: center; */
+    /* padding-top: 0.9rem; */
+    border-radius: 10px;
+    font-family: semibold;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .selectdeliveryslot_modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: auto;
+    background-color: white;
+    box-shadow: 24;
+    border-radius: 10px;
+  }
+
+  .select_slot_shipment h5 {
+    font-family: regular;
+    font-weight: 600;
+    padding: 1.5rem 0rem 1rem 2rem;
+  }
   .selectdeliveryslot_day p {
-    padding: 5px 2rem;
+    font-family: regular;
+    font-weight: 600;
+    padding: 0rem 0rem 0rem 2rem;
     font-size: 0.8rem;
   }
   .selectdeliveryslot_timer {
-    width: 100%;
-    margin-left: 0;
+    height: auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0rem 2rem 2rem 2rem;
   }
   .selectdeliveryslot_time_slot {
+    height: 6vh;
     width: 100%;
     display: flex;
-    font-size: 0.9rem;
-    
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #ff0040;
+    cursor: pointer;
+    transition: 0.2s linear;
+    text-align: center;
+    font-family: medium;
+    color: #ff0040;
   }
-  
-
+  .selectdeliveryslot_time_slot:hover {
+    background-color: #ff0040;
+    transform: scale(0.2s);
+    color: white;
+  }
   .select_proceed {
-    width: 93%;
-    margin-left: 6%;
+    height: auto;
+    display: flex;
+    width: 95%;
+    padding: 1.5rem 0rem 2rem 2rem;
   }
   .selectdeliveryslot_btn1 {
-    height: 6vh;
+    height: 7vh;
     width: 30%;
+    background-color: #ff0040;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
   }
 
   .selectdeliveryslot_btn1 p {
-    font-size: 0.8rem;
-    padding-top: 1rem;
-  }
-  
-  .selectdeliveryslot_btn{
-    padding-left: 0px;
-    height: auto;
-
-  }
-  .selectdeliveryslot_btn_proceed {
-    padding-top: 0rem;
-    width: 40%;
+    font-family: regular;
+    font-weight: 600;
     font-size: 1rem;
-    height: auto;
-    padding: 0.7rem 0rem;
-
+    color: white;
+    padding-top: 15px;
   }
 
-  .selectime_steps {
+  .selectdeliveryslot_modal img {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    height: 25px;
+    width: 25px;
+    transition: 0.3s linear;
+    cursor: pointer;
+  }
+  .selectdeliveryslot_modal img:hover {
+    transform: rotateZ(90deg);
+  }
+  .primary_select_slots {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .slots_edit_icon {
+    height: 20px;
+    width: 20px;
+    color: #ff0040;
+    cursor: pointer;
+  }
+  .selectslots_delivery_time {
     height: auto;
-    width: 25%;
+    width: 50%;
+    background-color: lightgray;
+    border-radius: 10px;
+    color: white;
+    font-family: regular;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+    padding: 0.8rem 0rem;
+    /* justify-content: center;
+    align-items: center; */
   }
 }
