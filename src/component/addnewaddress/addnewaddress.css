@@ -28,7 +28,6 @@
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
-
 }
 .add_new_address_text {
   width: 100%;
@@ -98,7 +97,7 @@
 }
 
 .edit_delete_btn {
-  height:auto;
+  height: auto;
   margin-left: 20px;
   margin-right: 20px;
   display: flex;
@@ -171,7 +170,6 @@
   }
   .add_new_address_container {
     height: auto;
-
   }
 
   .addaddress_steps {
@@ -219,7 +217,7 @@
     border-bottom: 1px solid grey;
     margin-left: 0px;
   }
- 
+
   .addaddress_button {
     margin-left: 0rem;
     width: 100%;
@@ -279,7 +277,6 @@
   }
   .add_new_address_container {
     height: auto;
-
   }
 
   .addaddress_steps {
@@ -327,7 +324,7 @@
     border-bottom: 1px solid grey;
     margin-left: 0px;
   }
- 
+
   .addaddress_button {
     margin-left: 0rem;
     width: 100%;
@@ -335,7 +332,6 @@
     font-size: 1rem;
     /* margin-bottom: 3rem; */
   }
-
 
   .saved_text_area {
     width: 100%;
@@ -349,7 +345,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
   }
-  
+
   .input_radio {
     width: auto;
   }
@@ -357,7 +353,7 @@
     height: 20px;
     width: 15px;
   }
-  .input_radio{
+  .input_radio {
     padding-top: 3px;
   }
   .edit_delete_btn {
@@ -375,7 +371,7 @@
 /* Small screens, laptops (769px - 1024px) */
 @media only screen and (min-width: 769px) and (max-width: 900px) {
   /* CSS rules for small screens and laptops */
-    .main_addaddress_container {
+  .main_addaddress_container {
     height: auto;
     width: 100%;
     padding: 0.8rem 0rem 0rem 0rem;
@@ -414,7 +410,6 @@
     width: 92%;
     margin-left: 2rem;
     margin-top: 0rem;
-
   }
   /* select_saved_address */
   .input_radio input[type="radio"] {
@@ -432,13 +427,12 @@
     margin-left: 0px;
     margin-right: 0px;
   }
-  
+
   .edit_delete_btn {
     height: auto;
     margin-left: 0px;
     margin-right: 0rem;
     padding-top: 1rem;
-
   }
   .edit_delete_btn {
     display: flex;
@@ -461,7 +455,12 @@
     padding: 2rem 0rem;
   }
   .add_new_address_text {
-    width: 91%;
+    width: 94%;
+    margin-left: 2%;
+
+  }
+  .add_new_address_container{
+    width: 75%;
   }
   .addaddress_content_text {
     width: 100%;
@@ -485,11 +484,13 @@
     width: 100%;
     height: auto;
     border: none;
+    border: 1px solid lightgrey;
+    padding: 1rem 1rem;
   }
   .select_saved_address {
-    width: 92%;
+    width: 70%;
     margin-left: 2rem;
-    margin-top: 1rem;
+    margin-top: 0rem;
   }
   /* select_saved_address */
   .input_radio input[type="radio"] {
@@ -502,7 +503,7 @@
     font-family: regular;
   }
   .all_detail_text {
-    height: 12vh;
+    height: auto;
     border-bottom: 1px solid grey;
     margin-left: 0px;
     margin-right: 0px;
@@ -531,9 +532,7 @@
     padding-top: 0.6rem;
   }
   .addaddress_steps {
-    width: 30%;
-    height: auto;
-    padding-left: 0rem;
+    display: none;
   }
 }
 
@@ -545,15 +544,24 @@
     width: 100%;
     padding: 3rem 0rem;
   }
+  .addaddress_container{
+  }
   .add_new_address_text {
     width: 90%;
+    margin-left: 0%;
+
   }
+  .add_new_address_container{
+    width: 89%;
+  }
+  
   .add_new_address_text h5 {
     font-size: 1rem;
   }
   .addaddress_content_text {
-    width: 100%;
+    width: 90%;
   }
+  
   .addaddress_container {
     width: 96%;
     gap: 2rem;
@@ -564,16 +572,20 @@
   }
   .saved_address p {
     padding-left: 2rem;
+    padding-bottom: 0rem;
   }
   .saved_text_area {
     width: 100%;
     height: auto;
     border: none;
+    border: 1px solid lightgrey;
+    padding: 1rem 1rem;
   }
   .select_saved_address {
-    width: 92%;
+    width: 80%;
     margin-left: 2rem;
-    margin-top: 1rem;
+    margin-top: 0rem;
+
   }
   /* select_saved_address */
   .input_radio input[type="radio"] {
@@ -581,12 +593,12 @@
     width: 17px;
   }
   .local_area h6 {
-    padding: 10px 0px;
+    padding: 0px 0px;
     font-weight: 600;
     font-family: regular;
   }
   .all_detail_text {
-    height: 12vh;
+    height: auto;
     border-bottom: 1px solid grey;
     margin-left: 0px;
     margin-right: 0px;
@@ -608,7 +620,8 @@
   .addaddress_button {
     margin-left: 5%;
     width: 25%;
-    margin-top: 0px;
+    margin-top: 10px;
+
   }
   .addaddress_button p {
     font-size: 1rem;
@@ -618,77 +631,165 @@
     width: 30%;
     height: auto;
     padding-left: 0rem;
+    padding-top: 1rem;
   }
+ 
 }
 
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
-  .add_new_address_text {
-    width: 90%;
-  }
-  .add_new_address_text h5 {
-    font-size: 1rem;
-  }
-  .addaddress_content_text {
+  .main_addaddress_container {
+    height: auto;
     width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 4rem 0rem;
   }
   .addaddress_container {
-    width: 97%;
-    gap: 0rem;
+    /* background-color: red; */
+    width: 90%;
+    height: auto;
+    display: flex;
+  }
+  .addaddress_content_text {
+    width: 60%;
+    height: auto;
+    border-radius: 3px;
+  }
+  .addaddress_steps {
+    width: 30%;
+    height: auto;
+    padding-left: 6rem;
+    padding-top: 1rem;
+  }
+  .add_new_address_container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+  }
+  .add_new_address_text {
+    width: 100%;
+    height: 7vh;
+    border: 1px solid #ff0040;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    cursor: pointer;
+  }
+  .add_new_address_text h5 {
+    color: #ff0040;
+    font-family: regular;
+  }
+  .saved_address {
+    width: 100%;
+    height: auto;
   }
   .saved_address h5 {
-    padding-left: 2.7rem;
-    font-size: 1.1rem;
+    font-family: regular;
+    font-weight: 600;
   }
   .saved_address p {
-    padding-left: 2.7rem;
+    color: grey;
+    font-family: regular;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
   }
+  .select_saved_address_container {
+    width: 100%;
+    height: auto;
+    display: grid;
+  }
+
+  .select_saved_address {
+    height: auto;
+    width: 100%;
+    padding-bottom: 1rem;
+  }
+
   .saved_text_area {
     width: 100%;
     height: auto;
-    border: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
   }
-  .select_saved_address {
-    width: 92%;
-    margin-left: 2.7rem;
-    margin-top: 1rem;
-  }
-  /* select_saved_address */
-  .input_radio input[type="radio"] {
-    height: 22px;
-    width: 17px;
+
+  .local_area {
+    height: auto;
   }
   .local_area h6 {
-    padding: 10px 0px;
+    padding: 20px 20px 0px 20px;
     font-weight: 600;
     font-family: regular;
   }
   .all_detail_text {
-    height: 12vh;
-    border-bottom: 1px solid grey;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .all_detail_text p {
+    height: auto;
+    border-bottom: 1px solid lightgrey;
+    margin-left: 20px;
+    margin-right: 20px;
     font-size: 13px;
-    line-height: 0.4;
     color: grey;
+    padding-bottom: 1rem;
   }
+
   .edit_delete_btn {
-    height: 5vh;
-    margin-left: 0px;
-    margin-right: 0rem;
-  }
-  .edit_delete_btn {
+    height: auto;
+    margin-left: 20px;
+    margin-right: 20px;
     display: flex;
+    gap: 3rem;
+  }
+
+  .edit_delete_btn p {
+    padding-top: 0.65rem;
+    font-family: regular;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ff0040;
+    cursor: pointer;
+  }
+
+  .input_radio {
+    width: auto;
+    height: 5vh;
+    display: flex;
+    gap: 0.5rem;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .input_radio input[type="radio"] {
+    accent-color: #ff0040;
+    height: 20px;
+    width: 15px;
+    cursor: pointer;
+  }
+
+  .input_radio p {
+    padding-top: 1.1rem;
   }
   .addaddress_button {
-    margin-left: 5%;
+    margin-top: 1rem;
+    font-size: 1.2rem;
     width: 30%;
-    font-size: 1rem;
-    margin-top: 0px;
+    border: none;
+    color: white;
+    font-family: regular;
+    font-weight: 600;
+    background-color: #ff0040;
+    height: 7vh;
+    text-align: center;
+    border-radius: 10px;
+    font-family: semibold;
   }
-  
+  .addaddress_button p {
+    font-size: 1.1rem;
+    padding-top: 0.8rem;
+  }
 }
