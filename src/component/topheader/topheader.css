@@ -1,5 +1,5 @@
 .topheader_container {
-  height: 10vh;
+  height: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -22,6 +22,7 @@
   height: 8vh;
   gap: 1.5rem;
   display: flex;
+  padding-left: 30px;
   align-items: center;
   justify-content: space-between;
 }
@@ -53,11 +54,13 @@
   font-size: 13px;
   padding-right: 15px;
   font-family: "Poppins", sans-serif;
+  color:rgb(91, 98, 100);
 }
 .top_location p span {
   font-size: 15px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  color:rgb(91, 98, 100);
 }
 .toplemail_mob {
   height: 8vh;
@@ -74,6 +77,7 @@
 .toplemail_mob p {
   padding-top: 15px;
   font-size: 13px;
+  color:rgb(91, 98, 100);
 }
 .halal_image{
   display: grid;
