@@ -4,11 +4,11 @@ import Location from "../../assest/Image/pin.png"
 import Phone from "../../assest/Image/smartphone.png"
 
 import {
-  FaYoutube,
-  FaTwitter,
-  FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
+  FaInstagram,
+  FaPinterest,
+  FaYoutube,
+  
 } from "react-icons/fa";
 
 const TopHeader = ({ handleclear, loginStatus }) => {
@@ -41,24 +41,24 @@ const TopHeader = ({ handleclear, loginStatus }) => {
         <div className="topheader_icon">
           {loginStatus == true ? <p onClick={handleclear}>Logout</p> : null}
 
-          <a href="https://www.facebook.com/" target="_blank" rel="">
+          <a href="https://www.facebook.com/luqmafresh" target="_blank" rel="">
             <FaFacebookF className="icon facebook" />
           </a>
-          <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/luqmafresh/" target="_blank">
             <FaInstagram className="icon insta" />
           </a>
           <a
-            href="https://twitter.com/i/flow/login?redirect_after_login=%2F"
+            href="#"
             target="_blank"
           >
-            <FaTwitter className="icon twitter" />
+            <FaPinterest className="icon twitter" />
           </a>
-          <a href="https://www.youtube.com/" target="_blank">
+          <a href="#" target="_blank">
             <FaYoutube className="icon youtube" />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank">
+          {/* <a href="https://www.linkedin.com/" target="_blank">
             <FaLinkedinIn className="icon in" />
-          </a>
+          </a> */}
         </div>
         {/* end right side */}
       </div>
