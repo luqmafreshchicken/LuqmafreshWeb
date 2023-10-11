@@ -335,7 +335,7 @@
   font-weight: 600;
   color: #ff0040;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 25px;
   padding-left: 2.7rem;
 }
 .proceed_btn {
@@ -447,7 +447,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s linear;
-  padding: 0.8rem 0rem;
+  padding: 0.8rem 0rem 0rem 2rem;
+  
 }
 .cart_empty button:hover {
   background-color: #e30039;
@@ -462,8 +463,11 @@
   place-items: center;
   top: 1rem;
   border-radius: 50px;
-  border: 2px solid white;
+  /* border: 2px solid rgb(199, 28, 28); */
   cursor: pointer;
+  background-color: #FC0043;
+  padding-left: 1.5px;
+  margin-left: 15px;
 }
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
