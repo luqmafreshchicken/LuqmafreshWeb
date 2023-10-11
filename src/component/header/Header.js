@@ -273,7 +273,7 @@ const Header = ({
             <div className="handlelogin_container">
               {/* heading */}
               <div className="handle_login_heading">
-                <p>Sign In</p>
+                <p>Enter your email to Login/Sign up</p>
               </div>
               {/* end heading */}
               {/* input number */}
