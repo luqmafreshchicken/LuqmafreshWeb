@@ -309,16 +309,16 @@ const ModalCart = ({
                   <>
                     <div className="mobile_cart_nologin">
                       <div className="noLoginUser">
-                        <img src={Lock} />
+                        {/* <img src={Lock} /> */}
                       </div>
                     </div>
                     <div className="cart_empty">
                       <div className="emptyText">
-                        <h5>Please Login First</h5>
+                     <h5>You don't have any items in your cart.</h5>
                         <p>
-                          It seems that you haven't logged in yet. Please feel
-                          welcome to log in and explore our premium categories,
-                          as well as add items to your cart.
+                        Your favourite items are just a click away it seems that you haven't logged in yet. 
+                        Please feel welcome to log in and explore our premium categories, 
+                        as well as add items to your cart.
                         </p>
                       </div>
                       <button onClick={handleCartLogin}>
