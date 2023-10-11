@@ -1,26 +1,37 @@
 .singlecard {
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  /* background-color: brown; */
+  align-items: center;
+  /* background-size: cover; */
+  padding: 0px 38px 0px 0px;
+  /* background-color: #ff0040; */
+   
+ 
 }
 
 .image_singlecard {
   max-width: 100%;
-  height: 32vh;
+  height: 100%;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 75px;
   display: inline-block;
+  /* background-color: #ff0040; */
 }
 
 .image_singlecard img {
-  border-radius: 15px;
+  border-radius: 30px;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  align-items: center;
   transition: 0.3s ease-in-out;
+  background-color: chartreuse;
 
 }
-.image_singlecard:hover img {
+/* .image_singlecard:hover img {
   transform: scale(1.2);
-}
+} */
 
 .offer_singlecard {
   width: 100%;
@@ -43,6 +54,8 @@
   font-size: 18px;
   color: rgb(192, 194, 196);
   cursor: pointer;
+  margin-top: 20px;
+  /* background-color: #ff0040; */
 }
 .fa_search:hover {
   color: #ff0040;
@@ -55,8 +68,9 @@
   margin-right: 5px;
 }
 .rating {
-  padding: 5px 0px;
+  padding: 14px 0px;
   height: auto;
+  /* background-color: aquamarine; */
 }
 .name_singlecard {
   min-height: 4vh;
@@ -70,6 +84,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-bottom: 20px;
+  /* background-color: red; */
+  margin-bottom: -10px;
+  margin-top: -25px;
 }
 .weight_singlecard {
   min-height: 4vh;
@@ -108,18 +126,20 @@
   font-size: 15px;
   font-weight: 600;
   color: black;
+  margin-top: 10px;
+ 
 }
 
 .shop_now_btn {
-  background-color: #ff0040;
-  width: 40%;
-  height: 5.5vh;
-  margin-top: 10px;
+  background-color: #FC0043;
+  width: 50%;
+  height: 7vh;
+  margin-top: 12px;
   border: none;
   border-radius: 10px;
   color: white;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   display: grid;
   place-items: center;
 }
