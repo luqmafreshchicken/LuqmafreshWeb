@@ -368,7 +368,8 @@
 .mobile_cart_nologin {
   display: grid;
   place-items: center;
-  min-height: 40vh;
+  min-height: 30vh;
+
 }
 .noLoginUser {
   max-width: 40%;
@@ -380,34 +381,53 @@
 .cart_empty {
   display: grid;
   place-items: center;
-}
+ }
 .emptyText {
   max-width: 60%;
 }
 .emptyText h5 {
-  text-align: center;
+  text-align: left;
   font-family: regular;
-  font-weight: 600;
+   /* background-color: #d11243; */
+  padding-right: 30px;
+  color:#2D3436;
+  margin-right: 50px;
+  font-size: 17px;
+  padding-bottom: -10px;
+  margin-left: -40px;
+  font-size: 1.1rem;
+  /* background-color: #ff0040; */
+  
+  
 }
 .emptyText p {
   text-align: justify;
   font-family: light;
-  font-size: 0.9rem;
-  padding: 1rem 0rem;
+  color:#2D3436;
+  padding-right: 30px;
+  /* background-color: aqua; */
+  margin-right: 5px;
+  margin-left: -40px;
+  padding-bottom: 30px;
+ 
 }
 .cartEmptyContainer {
   height: 100%;
   display: grid;
   place-items: center;
+  
 }
 .cartEmptyContent {
   min-height: 30vh;
   max-width: 70%;
   display: grid;
   place-items: center;
+  
 }
 .cartEmptyContent p {
   text-align: center;
+  
+  
 }
 .cartEmptyImg {
   max-width: 60%;
@@ -432,28 +452,33 @@
   color: white;
   font-family: semibold;
   padding-top: 0.5rem;
+ 
 }
 
 .cart_empty button {
-  position: absolute;
-  bottom: 0rem;
-  width: 100%;
-  height: auto;
-  border: none;
-  background-color: #ff0040;
-  color: white;
-  font-size: 1rem;
-  font-family: regular;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s linear;
-  padding: 0.8rem 0rem 0rem 2rem;
   
+    background-color: #ff0040;
+    border: none;
+    border-radius: 5px;
+    bottom: 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: regular;
+    font-size: 1.1rem;
+    font-weight: 600;
+    height: 7vh;
+    margin-bottom: 210px;
+    margin-right: 140px;
+    position: absolute;
+    transition: .3s linear;
+    width: 50%;
+    
+
 }
-.cart_empty button:hover {
+/* .cart_empty button:hover {
   background-color: #e30039;
   transform: scale(0.2s);
-}
+} */
 .crossbtn {
   width: 40px;
   height: 40px;
@@ -1031,7 +1056,7 @@
     font-weight: 600;
   }
   .emptyText p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 1rem 0rem;
   }
   .crossbtn {
