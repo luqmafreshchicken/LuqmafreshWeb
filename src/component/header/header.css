@@ -260,7 +260,7 @@ ul li {
   place-items: center;
   /* padding-top: -2rem; */
   padding-right: 40px;
-  padding-bottom: 36px;
+  padding-bottom: 38px;
 }
 .handle_login_otp_content {
   width: 85%;
@@ -326,7 +326,7 @@ ul li {
   display: grid;
   place-items: center;
   padding-top: 10px;
-  /* margin-bottom: 10rem; */
+  /* margin-bottom: 10px; */
 }
 .handle_login_proceed_content {
   width: 25%;
@@ -342,6 +342,7 @@ ul li {
   place-items: center;
   padding: 0.5rem 0rem;
   margin-left: -250px;
+  
 }
 
 .mobile_input {
