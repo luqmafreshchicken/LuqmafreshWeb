@@ -59,9 +59,9 @@ const Card = ({
         </div>
       </NavLink>
 
-      <div className="offer_singlecard">
+      {/* <div className="offer_singlecard">
         <h4>{offer}%</h4>
-      </div>
+      </div> */}
       <div className="icons_img">
         {/* <FaSearch
           className="fa_search"
@@ -83,7 +83,7 @@ const Card = ({
           />
         )}
 
-        <RWebShare
+        {/* <RWebShare
           data={{
             text: "Luqmafresh",
             url: "https://www.luqmafresh.com/",
@@ -101,8 +101,8 @@ const Card = ({
           id="my-tooltip-2"
           place="bottom"
           content="Add Whistlist"
-        />
-        <ReactTooltip id="my-tooltip-3" place="bottom" content="Share Link" />
+        /> */}
+        {/* <ReactTooltip id="my-tooltip-3" place="bottom" content="Share Link" /> */}
       </div>
       <div className="rating">
         <Rating
