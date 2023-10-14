@@ -1,6 +1,6 @@
 .singlecard {
   max-width: 100%;
-  height: 100%;
+  height: auto;
   /* background-color: brown; */
   align-items: center;
   /* background-size: cover; */
@@ -12,7 +12,7 @@
 
 .image_singlecard {
   max-width: 100%;
-  height: 100%;
+  height: 32vh;
   overflow: hidden;
   border-radius: 75px;
   display: inline-block;
