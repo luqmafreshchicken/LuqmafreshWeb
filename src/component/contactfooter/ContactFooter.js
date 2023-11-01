@@ -4,11 +4,10 @@ import Grid from "@mui/material/Grid";
 import "./contactfooter.css";
 import { NavLink } from "react-router-dom";
 import {
-  FaYoutube,
-  FaTwitter,
-  FaInstagram,
   FaFacebookF,
-  FaLinkedinIn,
+  FaInstagram,
+  FaPinterest,
+  FaYoutube,
 } from "react-icons/fa";
 import Android from "../../customcomponent/androidmodal/Android";
 import Ard from "../../assest/Image/App2.png"
@@ -55,21 +54,18 @@ export default function ContactFooter() {
             FOLLOW ON US
           </p>
           <div className="all_icons">
-            <a href="https://www.facebook.com/" target="_blank">
-              <FaFacebookF className="icon facebook" />
-            </a>
-            <a href="https://www.instagram.com/" target="_blank">
-              <FaInstagram className="icon insta" />
-            </a>
-            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F" target="_blank">
-              <FaTwitter className="icon twitter" />
-            </a>
-            <a href="https://www.youtube.com/" target="_blank">
-              <FaYoutube className="icon youtube" />
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank">
-              <FaLinkedinIn className="icon in" />
-            </a>
+          <a href="https://www.facebook.com/luqmafresh" target="_blank" rel="">
+            <FaFacebookF className="icon facebook" />
+          </a>
+          <a href="https://www.instagram.com/luqmafresh/" target="_blank">
+            <FaInstagram className="icon insta" />
+          </a>             
+            <a href="#" target="_blank">
+            <FaPinterest className="icon twitter" />
+          </a>
+          <a href="#" target="_blank">
+            <FaYoutube className="icon youtube" />
+          </a>
           </div>
         </Grid>
         {/* card2 */}
@@ -79,21 +75,21 @@ export default function ContactFooter() {
           <NavLink to="whyluqmafresh" className="nav_list">
             <p>Why Luqmafresh?</p>
           </NavLink>
-          <NavLink to="affliatemarket" className="nav_list">
+          {/* <NavLink to="affliatemarket" className="nav_list">
             <p>Affliate Market</p>
-          </NavLink>
-          <NavLink to="https://www.youtube.com/" className="nav_list">
+          </NavLink> */}
+          {/* <NavLink to="https://www.youtube.com/" className="nav_list">
             <p>Careers</p>
-          </NavLink>
-          <NavLink to="franchies" className="nav_list">
+          </NavLink> */}
+          {/* <NavLink to="franchies" className="nav_list">
             <p>For Franchies</p>
-          </NavLink>
-          <NavLink to="blog" className="nav_list">
+          </NavLink> */}
+          {/* <NavLink to="blog" className="nav_list">
             <p>Blog</p>
-          </NavLink>
-          <NavLink to="recipies" className="nav_list">
+          </NavLink> */}
+          {/* <NavLink to="recipies" className="nav_list">
             <p>Recipies</p>
-          </NavLink>
+          </NavLink> */}
         </Grid>
 
         {/* card3 */}
@@ -106,16 +102,16 @@ export default function ContactFooter() {
           <NavLink to="termsconditions" className="nav_list">
             <p>Terms & Conditions</p>
           </NavLink>
-          <NavLink to="faq" className="nav_list">
+          {/* <NavLink to="faq" className="nav_list">
             <p>FAQ</p>
-          </NavLink>
-          <NavLink to="track" className="nav_list">
+          </NavLink> */}
+          {/* <NavLink to="track" className="nav_list">
             {" "}
             <p>Track Order</p>
-          </NavLink>
-          <NavLink className="nav_list">
+          </NavLink> */}
+          {/* <NavLink className="nav_list">
             <p>Cancellation</p>
-          </NavLink>
+          </NavLink> */}
           {/* <NavLink to="blog" className="nav_list">
             <p>BLOG</p>
           </NavLink>*/}
