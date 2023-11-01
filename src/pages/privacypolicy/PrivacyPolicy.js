@@ -425,7 +425,7 @@ export default function PrivacyPolicy() {
       </div>
       <div className="pravacy_container">
         <div className="pravacy_content">
-          <h2>LUQMAFRESH PRIVACY POLICY </h2>
+          <h2>PRIVACY POLICY </h2>
           <h5>Disclaimer</h5>
           <p>
             The Company reserves the right to modify this Policy unilaterally at
