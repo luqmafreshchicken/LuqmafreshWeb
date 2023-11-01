@@ -424,7 +424,7 @@ export default function WhySection() {
       />
       </div>
       <div className="why_section_heading">
-        <h3>Why Luqmafresh</h3>
+        {/* <h3>Why Luqmafresh</h3> */}
       </div>
       <div className="why_section_banner">
         <img src="about-new.jpg" />
