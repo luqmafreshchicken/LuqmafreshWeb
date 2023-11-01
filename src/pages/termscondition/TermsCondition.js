@@ -425,7 +425,7 @@ export default function TermsConditions() {
       </div>
       <div className="pravacy_container">
         <div className="pravacy_content">
-          <h2>LUQMAFRESH TERM & CONDITION </h2>
+          <h2>TERMS & CONDITIONS </h2>
           <p>
             These Terms of Use ("Agreement") pertain to the utilization of the
             website – www.luqmafresh.com ("Website") and the Luqmafresh mobile
