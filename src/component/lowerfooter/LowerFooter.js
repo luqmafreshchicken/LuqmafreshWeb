@@ -16,7 +16,7 @@ export default function LowerFooter() {
             <NavLink
               to="https://designerbirds.com/"
               className="nav_list"
-              style={{ color: "white", fontWeight: "bold" }}
+              style={{ color: "#2D3436", fontWeight: "bold" }}
             >
               designerbirds.com
             </NavLink>{" "}
