@@ -3,17 +3,24 @@
   height: auto;
   display: grid;
   place-items: center;
+  
 }
 .pravacy_content {
   width: 90%;
   height: auto;
 }
 .pravacy_content h2 {
+  
   font-family: regular;
   font-weight: 600;
-  padding-top: 3.5rem;
-  text-align: center;
-  color: red;
+  margin-bottom: 30px;
+  margin-top: 70px;
+  max-height: 100%;
+  max-width: 100%;
+  text-align: left;
+  color: #2D3436;
+
+  
 }
 .pravacy_content p {
   text-align: left;
@@ -43,11 +50,13 @@
     padding-top: 1rem;
     text-align: center;
     font-size: 1rem;
+    
   }
   .pravacy_content h5 {
     text-align: left;
     padding-top: 0.9rem;
     font-size: 0.8rem;
+    
   }
   .pravacy_content p{
     font-size: 0.7rem;
