@@ -2,30 +2,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FF0040;
+  /* background-color: #FF0040; */
   height: auto;
+  
 }
 .lowerfooter {
   width: 90%;
-  color: white;
+  color: #2D3436;
   height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 12px;
 }
 .lowerfooter p {
   font-family: light;
-  font-size: 0.7rem;
+  font-size: 3px;
+  color: #2D3436;
+ 
 
 }
 .lower1{
-  width: 67%;
+  width: 35%;
   padding-top: 1rem;
+
 }
 .lower2{
   width: 33%;
   padding-top: 1rem;
-
+  
 }
 
 /* Mobile devices (320px - 480px) */
@@ -110,6 +115,7 @@
     padding-top: 1rem;
   }
   .lowerfooter p {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
+
