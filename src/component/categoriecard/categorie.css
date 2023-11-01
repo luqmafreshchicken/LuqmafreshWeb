@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 .categorie_text p {
   color: black;
@@ -23,7 +24,7 @@
   border-radius: 50%;
 }
 .categorie_image img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   filter: grayscale(0%);
 }
 
