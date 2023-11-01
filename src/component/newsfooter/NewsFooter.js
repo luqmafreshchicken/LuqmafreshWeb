@@ -70,7 +70,7 @@ const NewsFooter = () => {
           <img src={EmailImg} />
           <div style={{ paddingRight: "40px", height: "6vh", lineHeight: 1 }}>
             <h5>Sign up to Newsletter</h5>
-            <p>and receive ₹20 Coupon for first shopping</p>
+            <p>and receive discount coupon for first shopping</p>
           </div>
         </div>
 
