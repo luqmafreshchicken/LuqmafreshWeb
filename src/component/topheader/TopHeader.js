@@ -46,19 +46,13 @@ const TopHeader = ({ handleclear, loginStatus }) => {
           </a>
           <a href="https://www.instagram.com/luqmafresh/" target="_blank">
             <FaInstagram className="icon insta" />
-          </a>
-          <a
-            href="#"
-            target="_blank"
-          >
+          </a>             
+            <a href="#" target="_blank">
             <FaPinterest className="icon twitter" />
           </a>
           <a href="#" target="_blank">
             <FaYoutube className="icon youtube" />
           </a>
-          {/* <a href="https://www.linkedin.com/" target="_blank">
-            <FaLinkedinIn className="icon in" />
-          </a> */}
         </div>
         {/* end right side */}
       </div>
