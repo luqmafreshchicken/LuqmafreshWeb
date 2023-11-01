@@ -1,5 +1,5 @@
 .main_newsfooter {
-  background-color: #ff0040;
+  background-color: #FC0043;
   height: 30vh;
   display: flex;
   justify-content: center;
@@ -51,11 +51,11 @@
 
 .subscribe p {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 200;
   color: white;
   font-family: regular;
   text-align: center;
-  padding-top: 0.4rem;
+  padding-top: 0.2rem;
 }
 .subscribe input {
   height: 6vh;
@@ -67,7 +67,7 @@
 }
 
 .subscribe_btn {
-  background-color: #f1c40f;
+  background-color: #FC0043;
   width: 30%;
   height: 6vh;
   border-radius: 35px;
@@ -85,6 +85,7 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 40px;
+  margin-left: 10px;
 }
 .whatsapp p {
   font-size: 17px;
@@ -92,11 +93,15 @@
   font-family: light;
   padding-top: 7px;
   line-height: 0.1;
+ 
+  /* background-color: #50fc00; */
 }
 .whatsapp h6 {
   font-family: medium;
   line-height: 1;
   font-size: 20px;
+  /* background-color: burlywood; */
+  
 }
 .whatsapp img {
   height: 50px;
