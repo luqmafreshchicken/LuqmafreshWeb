@@ -405,6 +405,7 @@ const SearchProduct = () => {
                 <CategorieCard
                   text={cat.categoryName}
                   img={cat.categoryImage}
+today={`/category/${cat?.categoryName}`}
                   // today="/todaydeals"
                   id={{ id: cat._id }}
                   // onclick={() => handleNav(cat._id)}
