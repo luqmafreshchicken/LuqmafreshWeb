@@ -1,32 +1,36 @@
 .singlecard {
+  /* background-color: #FC0043; */
   max-width: 100%;
-  height: auto;
-  /* background-color: brown; */
+  height: 100%;
   align-items: center;
-  /* background-size: cover; */
-  padding: 0px 38px 0px 0px;
-  /* background-color: #ff0040; */
+  background-size: cover;
+  padding: 0px 48px 0px -20px;
+  margin: 0px 0px 0px 0px;
    
  
 }
 
 .image_singlecard {
   max-width: 100%;
-  height: 30vh;
+  height: 100%;
   overflow: hidden;
-  border-radius: 75px;
+  border-radius: 65px;
+  padding: 0px 1px 0px 0px;
+  margin: 0px 10px 0px 1px;;
   display: inline-block;
+  
   /* background-color: #ff0040; */
 }
 
 .image_singlecard img {
-  border-radius: 30px;
+  border-radius: 25px;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size:cover;
   align-items: center;
   transition: 0.3s ease-in-out;
-  background-color: chartreuse;
+  
+  /* background-color: chartreuse; */
 
 }
 /* .image_singlecard:hover img {
