@@ -65,7 +65,7 @@ export default function BannerCard1({ productId, to }) {
                   // to={`/carddetail/${detail?.nameString}`}
                   state={{
                     id: {
-                      id: item?.productId.nameString,
+                      id: item?.productId?.nameString,
                     },
                   }}
                 >
