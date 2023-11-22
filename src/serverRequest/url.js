@@ -1,12 +1,12 @@
 const base_url = 'https://luqmafresh-backend-zzfk.onrender.com/';
 const searchlocation_url1 = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
-const searchlocation_url2 = '&radius=500&key=AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU';
+const searchlocation_url2 = '&radius=500&key=AIzaSyAWTYxa7AEUW0-AjxgsOT5Sro23YKXf7xk';
 const currentlocation = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-const currentlocation1='&key=AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU';
+const currentlocation1='&key=AIzaSyAWTYxa7AEUW0-AjxgsOT5Sro23YKXf7xk';
 const routes1='https://maps.googleapis.com/maps/api/directions/json?origin=';
 const routes ='&destination=';
-const routes2='&alternatives=true&key=AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU';
-const googlekeys='AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU'
+const routes2='&alternatives=true&key=AIzaSyAWTYxa7AEUW0-AjxgsOT5Sro23YKXf7xk';
+const googlekeys='AIzaSyAWTYxa7AEUW0-AjxgsOT5Sro23YKXf7xk'
 export const apiConfig = {
   Url: base_url,
   Search_Location_Url: searchlocation_url1,
@@ -19,4 +19,4 @@ export const apiConfig = {
   mapkeys:googlekeys,
   currentlocation: 'https://maps.googleapis.com/maps/api/geocode/json?address=',
 };
-// AIzaSyB_3NlmzAtJ8G579DTei4qJE90zsKFXOVU
+// AIzaSyAWTYxa7AEUW0-AjxgsOT5Sro23YKXf7xk
