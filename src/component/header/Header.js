@@ -156,7 +156,7 @@ const Header = ({
         </NavLink>
       </div>
 
-      <div className={scrolled ? "navbar" : "navbar"}>
+     <div className="navbar">
         <div className="desktop_herder_content">
           <nav className="main_nav">
             <NavLink to="/">
