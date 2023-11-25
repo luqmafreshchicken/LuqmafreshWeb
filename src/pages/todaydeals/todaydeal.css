@@ -4,29 +4,32 @@
   align-items: center;
   height: auto;
   width: 100%;
+  /* background-color: aqua; */
 }
-.today_card1 {
-  /* display: flex; */
+
+.today_card {
+  display: flex;
   width: 90%;
-  gap: 2rem;
+  gap: 3.5rem;
   align-items: center;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto ;
-  padding-bottom: 2rem;
+  grid-template-columns: auto auto auto auto ;
+  padding-bottom: 3rem;
 }
 .subcategorie_contaner {
-  height: auto;
+  height: 20vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4%;
+  /* background-color: orange; */
 }
 .subcategorie_content {
   width: 90%;
   height: auto;
   display: flex;
   gap: 1rem;
+  border-bottom: 1px solid lightgray;
 }
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -83,51 +86,51 @@
   .main_today_card {
     padding-top: 5rem;
   }
-  .today_card1 {
+  .today_card {
     width: 90%;
     height: auto;
     gap: 1rem;
-  }
-  .main_today_card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    /* background-color: aqua; */
-  }
-  
-  .today_card1 {
-    display: flex;
-    width: 90%;
-    gap: 3.5rem;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding-bottom: 3rem;
-  }
-  .subcategorie_contaner {
-    height: 20vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: orange; */
-  }
-  .subcategorie_content {
-    width: 90%;
-    height: auto;
-    display: flex;
-    gap: 1rem;
-    /* background-color: green; */
   }
 }
+.main_today_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  /* background-color: aqua; */
+}
 
+.today_card {
+  display: flex;
+  width: 90%;
+  gap: 3.5rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding-bottom: 3rem;
+}
+.subcategorie_contaner {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+}
+.subcategorie_content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  /* background-color: green; */
+  border-bottom: 1px solid lightgray;
+}
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
-  .today_card1 {
+  .today_card {
     width: 90%;
     height: auto;
     display: grid;
@@ -170,41 +173,41 @@
     height: auto;
     gap: 1rem;
   }
-  .main_today_card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    /* background-color: aqua; */
-  }
-  
-  .today_card1 {
-    display: flex;
-    width: 90%;
-    gap: 3.5rem;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding-bottom: 3rem;
-  }
-  .subcategorie_contaner {
-    height: 20vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: orange; */
-  }
-  .subcategorie_content {
-    width: 90%;
-    height: auto;
-    display: flex;
-    gap: 1rem;
-    /* background-color: green; */
-  }
+}
+.main_today_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  /* background-color: aqua; */
 }
 
+.today_card {
+  display: flex;
+  width: 90%;
+  gap: 3.5rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding-bottom: 3rem;
+}
+.subcategorie_contaner {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+}
+.subcategorie_content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  /* background-color: green; */
+  border-bottom: 1px solid lightgray;
+}
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -247,41 +250,41 @@
     height: auto;
     gap: 1rem;
   }
-  .main_today_card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
-    /* background-color: aqua; */
-  }
-  
-  .today_card1 {
-    display: flex;
-    width: 90%;
-    gap: 3.5rem;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding-bottom: 3rem;
-  }
-  .subcategorie_contaner {
-    height: 20vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: orange; */
-  }
-  .subcategorie_content {
-    width: 90%;
-    height: auto;
-    display: flex;
-    gap: 1rem;
-    /* background-color: green; */
-  }
+}
+.main_today_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  /* background-color: aqua; */
 }
 
+.today_card {
+  display: flex;
+  width: 90%;
+  gap: 3.5rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding-bottom: 3rem;
+}
+.subcategorie_contaner {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+}
+.subcategorie_content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  /* background-color: green; */
+  border-bottom: 1px solid lightgray;
+}
 
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -324,43 +327,44 @@
     height: auto;
     gap: 1rem;
   }
-  .main_today_card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    width: 100%;
-  }
-  
-  .today_card {
-    display: flex;
-    width: 90%;
-    gap: 3.5rem;
-    align-items: center;
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding-bottom: 3rem;
-  }
-  .subcategorie_contaner {
-    height: 20vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: orange; */
-  }
-  .subcategorie_content {
-    width: 90%;
-    height: auto;
-    display: flex;
-    gap: 1rem;
-    /* background-color: green; */
-  }
+}
+.main_today_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  /* background-color: aqua; */
 }
 
+.today_card {
+  display: flex;
+  width: 90%;
+  gap: 3.5rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding-bottom: 3rem;
+}
+.subcategorie_contaner {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+}
+.subcategorie_content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  gap: 1rem;
+  /* background-color: green; */
+  border-bottom: 1px solid lightgray;
+}
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-  .today_card1 {
+  .today_card {
     width: 90%;
     display: grid;
     grid-template-columns: 100%;
@@ -403,7 +407,7 @@
     height: auto;
     margin-top: 0%;
   }
-  .today_card1 {
+  .today_card {
     width: 90%;
     height: 75vh;
   }
@@ -414,7 +418,7 @@
   .main_today_card {
     padding-top: 0rem;
   }
-  .today_card1 {
+  .today_card {
     width: 90%;
     height: auto;
     gap: 0.8rem;
