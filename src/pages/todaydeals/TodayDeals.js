@@ -813,7 +813,7 @@ const TodayDeals = () => {
 
         {product?.length >= 1 ? (
           <div className="main_today_card">
-            <div className="todayCardContainer">
+            <div className="today_card">
               {product.map((item) => (
                 <>
                   {loginStatus == false ? (
