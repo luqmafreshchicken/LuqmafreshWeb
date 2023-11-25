@@ -161,7 +161,7 @@ const Header = ({
           <nav className="main_nav">
             <NavLink to="/">
               <div className="luqma_logo">
-                <img src="https://res.cloudinary.com/dgghwthdr/image/upload/v1695913810/uecqtqt5faw23sfvt1nb.png" />
+                <img src="MAIN LOGO.png" />
               </div>
             </NavLink>
 
