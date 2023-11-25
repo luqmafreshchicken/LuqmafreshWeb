@@ -4,146 +4,222 @@
   align-items: center;
   height: auto;
   width: 100%;
-  padding-bottom: 3rem;
 }
-.todayCardContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.today_card1 {
+  /* display: flex; */
+  width: 90%;
+  gap: 2rem;
   align-items: center;
-  justify-content: center;
-  grid-row-gap: 5rem;
-  max-width: 90%;
-    column-gap: 2rem;
-
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto ;
+  padding-bottom: 2rem;
 }
-
-.subCategorieContaner {
-  height: 20vh;
+.subcategorie_contaner {
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 4%;
 }
-.subCategorieContent {
+.subcategorie_content {
   width: 90%;
   height: auto;
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid lightgray;
 }
-/* .subCategorieContent::-webkit-scrollbar{
-  height: 1px;
-} */
 /* Mobile devices (320px - 480px) */
-@media only screen and (min-width: 280px) and (max-width: 400px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS rules for mobile devices */
-  .main_today_card {
-    padding-bottom: 0rem;
+  .today_card {
+    width: 90%;
     display: grid;
-    place-items: center;
-    width: 100%;
+    grid-template-columns: 100%;
+    gap: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
- 
-  .todayDealsHeader {
-    display: none;
-  }
-  .subCategorieContaner {
-    display: none;
-  }
-  .todayCardContainer {
-    max-width: 90%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 2rem;
-  }
-}
-@media only screen and (min-width: 401px) and (max-width: 480px) {
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* gap-c: 1rem; */
-    column-gap: 1rem;
-    grid-row-gap: 2rem;
-    padding-bottom: 3rem;
-  }
-  .todayDealsHeader {
-    display: none;
-  }
-  .subCategorieContaner {
-    display: none;
-  }
+  
 }
 
 /* iPads, Tablets (481px - 768px) */
-@media only screen and (min-width: 481px) and (max-width: 600px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
-  .main_today_card {
-    padding-top: 1rem;
-  }
- 
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .today_card {
     width: 90%;
-    gap: 1rem;
-    grid-row-gap: 2rem;
-  }
-  .todayDealsHeader {
-    display: none;
-  }
-  .subCategorieContaner {
-    display: none;
-  }
-}
-@media only screen and (min-width: 601px) and (max-width: 768px) {
-  .main_today_card {
-    padding-top: 1rem;
-  }
-  .todayCardContainer {
+    height: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 90%;
-    gap: 1rem;
-    grid-row-gap: 2rem;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
-  .todayDealsHeader {
-    display: none;
-  }
-  .subCategorieContaner {
-    display: none;
-  }
-}
-@media only screen and (min-width: 769px) and (max-width: 900px) {
   .main_today_card {
-    padding-top: 1rem;
-  }
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 90%;
-    gap: 1rem;
-    grid-row-gap: 3rem;
-  }
-  .todayDealsHeader {
-    display: none;
-  }
-  .subCategorieContaner {
-    display: none;
+    margin-bottom: 0%;
   }
 }
 
 /* Small screens, laptops (769px - 1024px) */
-@media only screen and (min-width: 901px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
   .main_today_card {
-    padding-top: 1rem;
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
   }
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 90%;
+  .today_card {
+    width: 90%;
+    height: 75vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above)  */
+@media screen and (min-width: 1201px) and (max-width: 1530px) {
+  .main_today_card {
+    padding-top: 5rem;
+  }
+  .today_card1 {
+    width: 90%;
+    height: auto;
     gap: 1rem;
-    grid-row-gap: 3rem;
+  }
+  .main_today_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    /* background-color: aqua; */
+  }
+  
+  .today_card1 {
+    display: flex;
+    width: 90%;
+    gap: 3.5rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding-bottom: 3rem;
+  }
+  .subcategorie_contaner {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: orange; */
+  }
+  .subcategorie_content {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    /* background-color: green; */
+  }
+}
+
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .today_card1 {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .main_today_card {
+    margin-bottom: 0%;
+  }
+}
+
+/* Small screens, laptops (769px - 1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  /* CSS rules for small screens and laptops */
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .main_today_card {
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
+  }
+  .today_card {
+    width: 90%;
+    height: 75vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above)  */
+@media screen and (min-width: 1201px) and (max-width: 1530px) {
+  .main_today_card {
+    padding-top: 5rem;
+  }
+  .today_card {
+    width: 90%;
+    height: auto;
+    gap: 1rem;
+  }
+  .main_today_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    /* background-color: aqua; */
+  }
+  
+  .today_card1 {
+    display: flex;
+    width: 90%;
+    gap: 3.5rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding-bottom: 3rem;
+  }
+  .subcategorie_contaner {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: orange; */
+  }
+  .subcategorie_content {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    /* background-color: green; */
+  }
+}
+
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .today_card {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .main_today_card {
+    margin-bottom: 0%;
   }
 }
 
@@ -151,59 +227,196 @@
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
   .main_today_card {
-    padding-top: 1rem;
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
   }
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+  .today_card {
     width: 90%;
-    grid-row-gap: 3rem;
-  }
-  .subCategorieContaner {
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0rem 2rem 0rem;
-  }
-  .subCategorieContent {
-    max-width: 1000px;
-    height: auto;
-    display: flex;
-    gap: 0.6rem;
-    border-bottom: 1px solid lightgray;
-    overflow-x: scroll;
+    height: 75vh;
   }
 }
 
 /* Extra large screens, TV (1201px and above)  */
 @media screen and (min-width: 1201px) and (max-width: 1530px) {
   .main_today_card {
-    padding-top: 1rem;
+    padding-top: 5rem;
   }
-  .todayCardContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  .today_card {
     width: 90%;
-    gap: 3rem;
-    grid-row-gap: 3rem;
-  }
-
-  .subCategorieContaner {
     height: auto;
+    gap: 1rem;
+  }
+  .main_today_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    /* background-color: aqua; */
+  }
+  
+  .today_card1 {
+    display: flex;
+    width: 90%;
+    gap: 3.5rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding-bottom: 3rem;
+  }
+  .subcategorie_contaner {
+    height: 20vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0rem 2rem 0rem;
+    /* background-color: orange; */
   }
-  .subCategorieContent {
-    max-width: 95%;
+  .subcategorie_content {
+    width: 90%;
     height: auto;
     display: flex;
     gap: 1rem;
-    border-bottom: 1px solid lightgray;
+    /* background-color: green; */
+  }
+}
+
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .today_card {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .main_today_card {
+    margin-bottom: 0%;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .main_today_card {
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
+  }
+  .today_card {
+    width: 90%;
+    height: 75vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above)  */
+@media screen and (min-width: 1201px) and (max-width: 1530px) {
+  .main_today_card {
+    padding-top: 5rem;
+  }
+  .today_card {
+    width: 90%;
+    height: auto;
+    gap: 1rem;
+  }
+  .main_today_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+  }
+  
+  .today_card {
+    display: flex;
+    width: 90%;
+    gap: 3.5rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding-bottom: 3rem;
+  }
+  .subcategorie_contaner {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: orange; */
+  }
+  .subcategorie_content {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    /* background-color: green; */
+  }
+}
+
+/* Mobile devices (320px - 480px) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .today_card1 {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0rem;
+  }
+  .subcategorie_content{
+    border-bottom: none;
+  }
+  .subcategorie_contaner{
+    height: auto;
+    padding: 1rem 0rem;
+  }
+}
+
+/* iPads, Tablets (481px - 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* CSS rules for iPads and tablets */
+  .today_card {
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    gap: 35px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  .main_today_card {
+    margin-bottom: 0%;
+  }
+}
+
+/* Desktops, large screens (1025px - 1200px) */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  /* CSS rules for desktops and large screens */
+  .main_today_card {
+    padding: 0;
+    height: auto;
+    margin-top: 0%;
+  }
+  .today_card1 {
+    width: 90%;
+    height: 75vh;
+  }
+}
+
+/* Extra large screens, TV (1201px and above)  */
+@media screen and (min-width: 1201px) and (max-width: 1530px) {
+  .main_today_card {
+    padding-top: 0rem;
+  }
+  .today_card1 {
+    width: 90%;
+    height: auto;
+    gap: 0.8rem;
   }
 }
