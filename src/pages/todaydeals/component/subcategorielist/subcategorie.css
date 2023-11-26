@@ -69,22 +69,31 @@
 /* Desktops, large screens (1025px - 1200px) */
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   /* CSS rules for desktops and large screens */
+  .subcategorie_product_name_img{
+    width:auto;
+
+  }
+
+  .subcategorie_product_name_img p {
+    font-size: 0.8rem;
+    padding-bottom: 0px;
+  }
 }
 
 /* Extra large screens, TV (1201px and above) */
 @media only screen and (min-width: 1201px) and (max-width: 1530px) {
   /* CSS rules for extra large screens and TV */
   .subcategorie_product_name_img{
-    width: auto;
+    width:auto;
+
   }
   .subcategorie_product_img_comtainer {
     width: 100%;
     height: 16vh;
   }
   .subcategorie_product_name_img p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding-bottom: 0px;
-    font-family: medium;
   }
- 
+  
 }
