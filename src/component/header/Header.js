@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
-import ModalCart from "../../pages/modalcart/ModalCart";
-import Options from "../dropdownvalue/Dropdownvalue";
 import { NavLink } from "react-router-dom";
 import { currentLocation } from "../../serverRequest/Index";
 import Box from "@mui/material/Box";
@@ -10,6 +8,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../loder/Loader";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assest/Image/MAIN LOGO.png";
+import Search from "../../assest/Image/search.png";
+import Location from "../../assest/Image/pin.png";
+import User from "../../assest/Image/user.png";
+import Profile from "../../assest/Image/user1.png";
+import cart from "../../assest/Image/grocery-store.png";
+import CrossBtn from "../../assest/Image/crossbtn.png";
+
 
 const Header = ({
   onchange,
@@ -20,34 +26,29 @@ const Header = ({
   cartProductlength,
   cartPrice = 0,
   curr,
-  cartopen = () => { },
-  carthandleClose = () => { },
-  carthandleOpen = () => { },
+  cartopen = () => {},
+  carthandleClose = () => {},
+  carthandleOpen = () => {},
   loginStatus,
-  handleOpen = () => { },
-  handleClose = () => { },
+  handleOpen = () => {},
+  handleClose = () => {},
   open,
   showbtn,
-  handleLogin = () => { },
-  handleLogin1 = () => { },
-
-  handleOTP = () => { },
+  handleLogin = () => {},
+  handleOTP = () => {},
   mobileNumber,
-  handleMobileNumber = () => { },
-  emailText,
-  handleEmailText = () => { },
-  sethandleOtp = () => { },
+  handleMobileNumber = () => {},
+  sethandleOtp = () => {},
   btn,
   totalAmount,
   store,
-  store1,
   modalcurrency,
-  handleclear = () => { },
-  removeProduct = () => { },
-  handleResendOTP = () => { },
-  handleCartLogin = () => { },
-  handleHome = () => { },
-  headerCart = true
+  handleclear = () => {},
+  removeProduct = () => {},
+  handleResendOTP = () => {},
+  handleCartLogin = () => {},
+  handleHome = () => {},
+  headerCart = true,
 }) => {
   // let navigate = useNavigate();
 
@@ -58,24 +59,6 @@ const Header = ({
   const [add2, setAdd2] = useState(null);
   const [add3, setAdd3] = useState(null);
   const [load, setLoad] = useState(false);
-  const [scrolled, setScrolled] = useState(false)
-  const [selectedOption, setSelectedOption] = useState('mobile');
-
-  const handleOptionChange = (option) => {
-    setSelectedOption(option);
-  };
-
-  useEffect(() => {
-    const handleShadow = () => {
-      if (window.scroll >= 1) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-    window.addEventListener('scroll', handleShadow);
-
-  }, [])
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -120,16 +103,6 @@ const Header = ({
     sethover(false);
   }
 
-  // const handleclear = async (index) => {
-  //   window.location.reload();
-
-  //   if (index == 4) {
-  //     await localStorage.clear();
-  //     navigate("/");
-  //     // localContent();
-  //   }
-  // };
-
   return (
     <>
       <div className="mobile_input">
@@ -151,24 +124,24 @@ const Header = ({
               value={value}
               type="text"
             />
-            <img src="search.png" height="17px" width="17px" />
+            <img src={Search} height="17px" width="17px" />
           </div>
         </NavLink>
       </div>
 
-     <div className="navbar">
+      <div className="navbar">
         <div className="desktop_herder_content">
           <nav className="main_nav">
             <NavLink to="/">
               <div className="luqma_logo">
-                <img src="MAIN LOGO.png" />
+                <img src={Logo} />
               </div>
             </NavLink>
 
             <div className="luqma_location">
               <div className="luqma_location_top">
-                <img src="pin.png" />
-                <p>Current Location</p>
+                <img src={Location} />
+                <p>Your Loction</p>
               </div>
 
               <div className="luqma_location_bottom">
@@ -185,7 +158,7 @@ const Header = ({
                   onChange={onchange}
                   value={value}
                 />
-                <img src="search.png" height="20px" width="20px" />
+                <img src={Search} height="20px" width="20px" />
               </NavLink>
             </div>
 
@@ -205,7 +178,7 @@ const Header = ({
                   <NavLink className="nav_list">
                     <li>
                       <div className="currency_container" onClick={handleOpen}>
-                        <img src="user.png" />
+                        <img src={User} />
                         <p>Login</p>
                       </div>
                     </li>
@@ -228,7 +201,7 @@ const Header = ({
                           }}
                           to="/account"
                         >
-                          <img src="user1.png" height="17px" width="17px" />
+                          <img src={Profile} height="17px" width="17px" />
                           <span
                             style={{
                               fontSize: "13px",
@@ -251,7 +224,7 @@ const Header = ({
                         onClick={carthandleOpen}
                       >
                         <div className="cart_border_content1">
-                          <img src="grocery-store.png" />
+                          <img src={cart} />
                         </div>
                         <div className="cart_border_content2">
                           <p>
@@ -291,227 +264,88 @@ const Header = ({
       >
         <Box>
           <div className="handle_login">
-            
+            <div className="loginLogoContainer">
+              <div className="loginLogo">
+                <img src={Logo} />
+              </div>
+            </div>
 
-            <div className="handle_login_container">
+            <div className="handlelogin_container">
               {/* heading */}
-              {/* <div className="login-with">
-                <h5>Login with</h5>
-              </div> */}
-
-
-              {/* mobile option */}
-              {
-                selectedOption === 'mobile' ? (
-                  <div className="handle_login_heading">
-                    {
-                      showbtn == false ? <p>Enter your Mobile no to Login/Sign up</p> : <p>Enter your OTP</p>
-                    }
+              <div className="handle_login_heading">
+                <p>Enter your email to Login/Sign up</p>
+              </div>
+              {/* end heading */}
+              {/* input number */}
+              {showbtn == true ? (
+                <div></div>
+              ) : (
+                <div className="handle_login_number_container">
+                  <div className="handle_login_number_content">
+                    <input
+                      placeholder="Enter your email"
+                      value={mobileNumber}
+                      onChange={handleMobileNumber}
+                      type="email"
+                      name="email"
+                    />
                   </div>
-                ):(
-                  <div className="handle_login_heading">
-                  {
-                      showbtn == false ? <p>Enter your email to Login/Sign up</p> : <p>Enter your OTP</p>
-                    }
                 </div>
-                )}
-                <>
-                {
-                  showbtn == false ? <div className="input-option-email-mobile">
-                  <div className="mobile-option">
-                    <input
-                      type="radio"
-                      id="mobileRadio"
-                      name="contactOption"
-                      className="radio-input"
-                      checked={selectedOption === 'mobile'}
-                      onChange={() => handleOptionChange('mobile')}
-                    />
-                    <label htmlFor="mobileRadio">Mobile</label>
-                  </div>
-  
-                  <div className="email-option">
-                    <input
-                      type="radio"
-                      id="emailRadio"
-                      name="contactOption"
-                      checked={selectedOption === 'email'}
-                      onChange={() => handleOptionChange('email')}
-                    />
-                    <label htmlFor="emailRadio">Email</label>
-                  </div>
-                </div> : ""
-                }
-                </>
-              
-
-              {selectedOption === 'mobile' && (
-                <>
-
-                  {/* end heading */}
-                  {/* input number */}
-                  {showbtn == true ? (
-                    <div></div>
-                  ) : (
-                    <div className="handle_login_number_container">
-                      <div className="handle_login_number_content">
-                        <input
-                          placeholder="Enter your mobile no"
-                          value={emailText}
-                          onChange={handleEmailText}
-                          type="mobile no"
-                          name="mobile no"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {showbtn == true ? (
-                    <div className="handle_login_otp_container">
-                      <div className="handle_login_otp_content">
-                        <input
-                          placeholder="Enter OTP"
-                          onChange={sethandleOtp}
-                          // value={otp}
-                          type="otp"
-                          name="otp"
-                        />
-                        <p onClick={handleResendOTP}>Resend OTP</p>
-                      </div>
-
-                      <div className="email_verify">
-                        <p>
-                          One Time Password Send to <span>{store1}</span>. Please
-                          enter to complete verification
-                        </p>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {/* input otp */}
-                  {/* submit btn */}
-                  {showbtn == false ? (
-                    <div className="handle_login_btn_container">
-                      <div
-                        className="handle_login_btn_content"
-                        onClick={handleLogin1}
-                        disabled={btn}
-                        style={{
-                          // backgroundColor: btn === true ? "#FF0040" : "#FF0040",
-                          opacity: btn === true ? 0.4 : 100,
-                          color: btn === true ? "white" : "white",
-                        }}
-                      >
-                        Continue
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {showbtn == true ? (
-                    <>
-                      <div className="handle_login_proceed_container">
-                        <div
-                          className="handle_login_proceed_content"
-                          onClick={handleOTP}
-                        >
-                          Submit
-                        </div>
-                      </div>
-                    </>
-                  ) : null}
-                </>
               )}
-              {/* end mobile option */}
-              {/* email option */}
 
-              {/* {
-                selectedOption === 'email' && (
-                  <div className="handle_login_heading">
-                    <p>Enter your email to Login/Sign up</p>
+              {showbtn == true ? (
+                <div className="handle_login_otp_container">
+                  <div className="handle_login_otp_content">
+                    <input
+                      placeholder="Enter OTP"
+                      onChange={sethandleOtp}
+                      // value={otp}
+                      type="otp"
+                      name="otp"
+                    />
+                    <p onClick={handleResendOTP}>Resend OTP</p>
                   </div>
-                )
-              } */}
-              
-              {selectedOption === 'email' && (
+
+                  <div className="email_verify">
+                    <p>
+                      One Time Password Send to <span>{store}</span>. Please
+                      enter to complete verification
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+
+              {/* input otp */}
+              {/* submit btn */}
+              {showbtn == false ? (
+                <div className="handle_login_btn_container">
+                  <div
+                    className="handle_login_btn_content"
+                    onClick={handleLogin}
+                    disabled={btn}
+                    style={{
+                      backgroundColor: btn === true ? "#FF0040" : "#FF0040",
+                      opacity: btn === true ? 0.4 : 100,
+                      color: btn === true ? "white" : "white",
+                    }}
+                  >
+                    Continue
+                  </div>
+                </div>
+              ) : null}
+
+              {showbtn == true ? (
                 <>
-
-                  {/* end heading */}
-                  {/* input number */}
-                  {showbtn == true ? (
-                    <div></div>
-                  ) : (
-                    <div className="handle_login_number_container">
-                      <div className="handle_login_number_content">
-                        <input
-                          placeholder="Enter your email"
-                          value={mobileNumber}
-                          onChange={handleMobileNumber}
-                          type="email"
-                          name="email"
-                        />
-                      </div>
+                  <div className="handle_login_proceed_container">
+                    <div
+                      className="handle_login_proceed_content"
+                      onClick={handleOTP}
+                    >
+                      Submit
                     </div>
-                  )}
-
-                  {showbtn == true ? (
-                    <div className="handle_login_otp_container">
-                      <div className="handle_login_otp_content">
-                        <input
-                          placeholder="Enter OTP"
-                          onChange={sethandleOtp}
-                          // value={otp}
-                          type="otp"
-                          name="otp"
-                        />
-                        <p onClick={handleResendOTP}>Resend OTP</p>
-                      </div>
-
-                      <div className="email_verify">
-                        <p>
-                          One Time Password Send to <span>{store}</span>. Please
-                          enter to complete verification
-                        </p>
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {/* input otp */}
-                  {/* submit btn */}
-                  {showbtn == false ? (
-                    <div className="handle_login_btn_container">
-                      <div
-                        className="handle_login_btn_content"
-                        onClick={handleLogin}
-                        disabled={btn}
-                        style={{
-                          // backgroundColor: btn === true ? "#FF0040" : "#FF0040",
-                          opacity: btn === true ? 0.4 : 100,
-                          color: btn === true ? "white" : "white",
-                        }}
-                      >
-                        Continue
-                      </div>
-                    </div>
-                  ) : null}
-
-                  {showbtn == true ? (
-                    <>
-                      <div className="handle_login_proceed_container">
-                        <div
-                          className="handle_login_proceed_content"
-                          onClick={handleOTP}
-                        >
-                          Submit
-                        </div>
-                      </div>
-                    </>
-                  ) : null}
+                  </div>
                 </>
-              )}
-              {/* end email option */}
-
-
-
+              ) : null}
               {/* <div className="continue_or_container">
                 <div className="continue_or_content">
                   <img src="or.png" />
@@ -525,7 +359,7 @@ const Header = ({
             </div>
           </div>
           <div className="crossbtn" onClick={handleClose}>
-            <img src="crossbtn.png" />
+           <img src={CrossBtn} />
           </div>
         </Box>
       </Modal>
