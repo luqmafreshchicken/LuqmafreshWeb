@@ -51,7 +51,6 @@
     font-family: medium;
     padding: 0.5rem 0rem;
     color: black;
-    /* background-color: blue; */
 
 }
 .splash-list img{
@@ -64,7 +63,6 @@
     /* background-color: black; */
     display: grid;
     place-items: center;
-    padding: 1rem 0rem;
 }
 .splash-delevery img{
     width: 170px;
@@ -84,6 +82,6 @@
     align-items: center;
 }
 .app-store img{
-    width: 90px;
-    height: 30px;
+    width: 110px;
+    height: 35px;
 }
