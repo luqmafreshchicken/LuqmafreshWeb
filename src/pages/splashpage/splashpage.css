@@ -1,9 +1,10 @@
 .splash-container{
     background-color: white;
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: grid;
     place-items: center;
+    padding-top: 5rem;
 }
 .splash-box{
     width: 80%;
@@ -19,8 +20,8 @@
     /* background-color: palevioletred; */
 }
 .splash-logo img{
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 120px;
 }
 .splash-heading{
     padding-bottom: 0.5rem;
