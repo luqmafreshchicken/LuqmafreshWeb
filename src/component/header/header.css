@@ -1,16 +1,20 @@
 .navbar {
   width: 100%;
-  height: 9.5rem;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 1rem 0rem;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
 .desktop_herder_content {
   width: 90%;
   background-color: white;
-  height: 8rem;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +26,8 @@
   width: 100%;
 }
 .luqma_logo img {
-  height: 120px;
-  width: 180px;
+  height: 80px;
+  width: 130px;
 }
 .luqma_location {
   height: 8vh;
@@ -65,15 +69,17 @@
   font-family: semibold;
 }
 .luqma_input {
-  height: 7vh;
+  height:auto;
   width: 25%;
   /* background-color: red; */
+  
   border: 1px solid rgb(230, 230, 230);
   border-radius: 7px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(247, 246, 246);
+  /* background-color: rgb(247, 246, 246); */
+
 }
 .luqma_input input {
   width: 300px;
@@ -81,7 +87,8 @@
   outline: none;
   font-size: 0.9rem;
   font-family: regular;
-  background-color: rgb(247, 246, 246);
+  /* background-color: rgb(247, 246, 246); */
+  padding: 0.6rem 1.5rem;
 }
 .luqma_option {
   width: 30%;
@@ -122,9 +129,9 @@ ul li {
 }
 .cart_border_container {
   border: 1px solid rgb(230, 230, 230);
-  background-color: rgb(247, 246, 246);
+  background-color: #ff0040;
   width: 115px;
-  height: 8.5vh;
+  height: auto;
   border-radius: 10px;
   display: flex;
   
@@ -153,13 +160,13 @@ ul li {
   font-family: regular;
   padding-top: 0.5rem;
   padding-left: 3.5px;
-  color: black;
+  color: white;
 }
 .cart_border_content2 p span {
   font-size: 0.9rem;
   font-family: regular;
   font-weight: 600;
-  color: #000000;
+  color: white;
   line-height: 1;
 }
 /* end header style */
@@ -480,7 +487,7 @@ ul li {
   }
 }
 
-.sign_in_logo {
+/* .sign_in_logo {
   width: 100%;
   height: 80vh;
 }
@@ -496,11 +503,11 @@ ul li {
   left: 47%;
   height: auto;
   width: 94%;
-}
+} */
 /* .handle_login_heading p {
   font-size: 1rem;
 } */
-.handle_login_number_content input {
+/* .handle_login_number_content input {
   font-size: 0.8rem;
 }
 .handle_login_btn_content p {
@@ -523,7 +530,7 @@ ul li {
 .crossbtn {
   left: 1%;
   top: 1rem;
-}
+} */
 /* iPads, Tablets (481px - 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS rules for iPads and tablets */
