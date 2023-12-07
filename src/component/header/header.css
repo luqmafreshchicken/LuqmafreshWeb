@@ -7,9 +7,9 @@
   background-color: white;
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   padding: 1rem 0rem;
-  position: fixed;
+/*   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 2; */
 }
 .desktop_herder_content {
   width: 90%;
