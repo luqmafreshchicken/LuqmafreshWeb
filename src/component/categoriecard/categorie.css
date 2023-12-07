@@ -1,5 +1,5 @@
 .categorie_card {
-  min-height: 32vh;
+  min-height: auto;
   width: 100%;
 }
 
@@ -7,11 +7,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
- 
 }
 .categorie_text p {
   color: black;
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
 }
 
@@ -23,10 +22,10 @@
   cursor: pointer;
   border-radius: 50%;
 }
-.categorie_image img:hover {
-  transform: scale(1.1);
+/* .categorie_image img:hover {
+  transform: scale(1.2);
   filter: grayscale(0%);
-}
+} */
 
 /* Mobile devices (320px - 480px) */
 @media only screen and (min-width: 280px) and (max-width: 480px) {
