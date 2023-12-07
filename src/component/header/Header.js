@@ -16,7 +16,6 @@ import Profile from "../../assest/Image/user1.png";
 import cart from "../../assest/Image/grocery-store.png";
 import CrossBtn from "../../assest/Image/crossbtn.png";
 
-
 const Header = ({
   onchange,
   value,
@@ -59,6 +58,18 @@ const Header = ({
   const [add2, setAdd2] = useState(null);
   const [add3, setAdd3] = useState(null);
   const [load, setLoad] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scroll >= 1) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -129,7 +140,7 @@ const Header = ({
         </NavLink>
       </div>
 
-      <div className="navbar">
+      <div className={scrolled ? "navbar" : "navbar"}>
         <div className="desktop_herder_content">
           <nav className="main_nav">
             <NavLink to="/">
@@ -359,7 +370,7 @@ const Header = ({
             </div>
           </div>
           <div className="crossbtn" onClick={handleClose}>
-           <img src={CrossBtn} />
+            <img src={CrossBtn} />
           </div>
         </Box>
       </Modal>
