@@ -55,7 +55,7 @@ const Card = ({
     <div className="singlecard">
       <NavLink to={to} state={{ id: id }} className="nav_list">
         <div className="image_singlecard">
-          <img src={img} height="200" width="300" />
+          <img src={img} />
         </div>
       </NavLink>
 
