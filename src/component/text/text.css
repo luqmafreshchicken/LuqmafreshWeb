@@ -1,6 +1,6 @@
 .head_text {
   width: 100%;
-  padding-top: 1rem;
+  padding: 1rem 0rem 0rem 1rem;
 }
 .head_text h5 {
   font-family: semibold;
