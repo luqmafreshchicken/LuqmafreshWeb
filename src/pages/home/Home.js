@@ -1003,7 +1003,7 @@ const Home = () => {
                   spaceBetween: 30,
                 },
                 1200: {
-                  slidesPerView: 4,
+                  slidesPerView: 5,
                   spaceBetween: 30,
                 },
               }}
@@ -1225,7 +1225,7 @@ const Home = () => {
                       spaceBetween: 30,
                     },
                     1200: {
-                      slidesPerView: 4,
+                      slidesPerView: 5,
                       spaceBetween: 30,
                     },
                   }}
@@ -1444,7 +1444,7 @@ const Home = () => {
                       spaceBetween: 30,
                     },
                     1200: {
-                      slidesPerView: 4,
+                      slidesPerView: 5,
                       spaceBetween: 30,
                     },
                   }}
@@ -1663,7 +1663,7 @@ const Home = () => {
                       spaceBetween: 30,
                     },
                     1200: {
-                      slidesPerView: 4,
+                      slidesPerView: 5,
                       spaceBetween: 30,
                     },
                   }}
@@ -1880,7 +1880,7 @@ const Home = () => {
                   spaceBetween: 30,
                 },
                 1200: {
-                  slidesPerView: 4,
+                  slidesPerView: 5,
                   spaceBetween: 30,
                 },
               }}
@@ -2345,7 +2345,7 @@ const Home = () => {
                   spaceBetween: 30,
                 },
                 1200: {
-                  slidesPerView: 4,
+                  slidesPerView: 5,
                   spaceBetween: 30,
                 },
               }}
