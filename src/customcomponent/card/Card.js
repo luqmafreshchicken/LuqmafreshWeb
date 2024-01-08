@@ -131,12 +131,12 @@ const Card = ({
         </p>
         <p style={{ color: "green" }}>{offer1}%off</p>{" "}
       </div>
-      <div className="today_singlecard">
+     {/* <div className="today_singlecard">
         <p>{today}</p>
       </div>
       <div className="time_singlecard">
         <p>{date}</p>
-      </div>
+      </div> */}
       <NavLink to={to} state={{ id: id }} className="nav_list">
         <div className="shop_now_btn">SHOP NOW</div>
       </NavLink>
