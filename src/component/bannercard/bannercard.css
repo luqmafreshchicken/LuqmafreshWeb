@@ -1,10 +1,10 @@
 .banner_slider {
   max-width: 100%;
-  height: 74vh;
+  height: 50vh;
   /* margin-top: 1rem; */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   /* background-color: aqua; */
   
   
@@ -408,7 +408,7 @@
 }
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .banner_slider {
-    height: 70vh;
+    height: 50vh;
     background-size: cover;
     padding: 0rem 0rem;
   }
@@ -443,7 +443,7 @@
 
 @media only screen and (min-width: 1201px) and (max-width: 1530px) {
   .banner_slider {
-    height: 70vh;
+    height: 50vh;
     background-size: cover;
     padding: 0rem 0rem;
   }
